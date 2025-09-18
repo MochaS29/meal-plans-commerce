@@ -1,0 +1,15 @@
+To add your hero background image:
+
+1. Save your family cooking kitchen image as "hero-bg.jpg"
+2. Place it in this "public" folder
+3. The image will automatically appear as the background of the hero section
+
+The image has been set up with:
+- A white overlay at 85% opacity for text readability
+- A gradient fade to white at the bottom
+- Responsive cover sizing
+
+If you want to adjust the opacity, edit the hero section in app/page.tsx:
+- bg-white/85 = 85% white overlay (increase number for more opacity)
+- bg-white/75 = 75% white overlay
+- bg-white/90 = 90% white overlay (more opaque, easier to read text)

@@ -1,0 +1,239 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: mindlab-db
+    environment:
+      POSTGRES_DB: mindlab_agents
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - mindlab-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis for task queue and caching
+  redis:
+    image: redis:7-alpine
+    container_name: mindlab-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - mindlab-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # RabbitMQ for agent communication
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: mindlab-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:-admin}
+    ports:
+      - "5672:5672"
+      - "15672:15672"  # Management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - mindlab-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Project Manager Agent (Python)
+  project-manager:
+    build:
+      context: ./project-manager
+      dockerfile: Dockerfile
+    container_name: mindlab-project-manager
+    environment:
+      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD:-postgres}@postgres:5432/mindlab_agents
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:${RABBITMQ_PASSWORD:-admin}@rabbitmq:5672
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      - ENVIRONMENT=production
+    volumes:
+      - ./project-manager:/app
+      - agent_logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+  # Social Media & SEO Agent (Python)
+  social-seo-agent:
+    build:
+      context: ./social-seo-agent
+      dockerfile: Dockerfile
+    container_name: mindlab-social-seo
+    environment:
+      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD:-postgres}@postgres:5432/mindlab_agents
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:${RABBITMQ_PASSWORD:-admin}@rabbitmq:5672
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - TWITTER_API_KEY=${TWITTER_API_KEY}
+      - TWITTER_API_SECRET=${TWITTER_API_SECRET}
+      - INSTAGRAM_USERNAME=${INSTAGRAM_USERNAME}
+      - INSTAGRAM_PASSWORD=${INSTAGRAM_PASSWORD}
+      - FACEBOOK_PAGE_TOKEN=${FACEBOOK_PAGE_TOKEN}
+      - GOOGLE_ANALYTICS_KEY=${GOOGLE_ANALYTICS_KEY}
+      - SERPAPI_KEY=${SERPAPI_KEY}
+    volumes:
+      - ./social-seo-agent:/app
+      - agent_logs:/app/logs
+      - social_media_assets:/app/assets
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+  # Enhanced Meal Planning Agent with AI (Python)
+  meal-planning-api:
+    build:
+      context: ./meal-planning
+      dockerfile: Dockerfile
+    container_name: mindlab-meal-planning
+    ports:
+      - "5001:5001"
+    environment:
+      - DATABASE_URL=postgresql://postgres:${DB_PASSWORD:-postgres}@postgres:5432/mindlab_agents
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:${RABBITMQ_PASSWORD:-admin}@rabbitmq:5672
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - FLASK_ENV=production
+      - PORT=5001
+    volumes:
+      - ./meal-planning:/app
+      - agent_logs:/app/logs
+      - meal_plans:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Agent Scheduler (Cron jobs)
+  scheduler:
+    build:
+      context: ./scheduler
+      dockerfile: Dockerfile
+    container_name: mindlab-scheduler
+    environment:
+      - RABBITMQ_URL=amqp://admin:${RABBITMQ_PASSWORD:-admin}@rabbitmq:5672
+      - TZ=America/Los_Angeles
+    volumes:
+      - ./scheduler:/app
+      - agent_logs:/app/logs
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+  # Monitoring Dashboard (Grafana)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: mindlab-grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    ports:
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+  # Prometheus for metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: mindlab-prometheus
+    volumes:
+      - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+  # Agent Web UI
+  agent-ui:
+    build:
+      context: ./agent-ui
+      dockerfile: Dockerfile
+    container_name: mindlab-agent-ui
+    ports:
+      - "3002:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://project-manager:8000
+      - NEXT_PUBLIC_GRAFANA_URL=http://localhost:3001
+    depends_on:
+      - project-manager
+    networks:
+      - mindlab-network
+    restart: unless-stopped
+
+networks:
+  mindlab-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  rabbitmq_data:
+  agent_logs:
+  social_media_assets:
+  meal_plans:
+  grafana_data:
+  prometheus_data:
