@@ -204,10 +204,10 @@ export default function CalendarPage() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200"
+          className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border-2 border-gray-200"
         >
           {/* Month Header */}
-          <div className="bg-gradient-to-r from-purple-500 via-pink-500 to-teal-500 text-white p-6 text-center">
+          <div className="bg-gradient-to-r from-teal-600 to-amber-600 text-white p-6 text-center">
             <h2 className="text-3xl font-bold flex items-center justify-center gap-3">
               <Star className="w-8 h-8 text-yellow-300 animate-pulse" />
               September 2025
@@ -217,9 +217,9 @@ export default function CalendarPage() {
           </div>
 
           {/* Days of Week */}
-          <div className="grid grid-cols-7 bg-gradient-to-r from-purple-100 via-pink-100 to-teal-100">
+          <div className="grid grid-cols-7 bg-gray-50">
             {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map(day => (
-              <div key={day} className="text-center py-3 font-bold text-purple-800 border-b-2 border-purple-200">
+              <div key={day} className="text-center py-3 font-bold text-gray-700 border-b-2 border-gray-200">
                 {day}
               </div>
             ))}
@@ -270,15 +270,15 @@ export default function CalendarPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-8 bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border-2 border-purple-200"
+          className="mt-8 bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border-2 border-gray-200"
         >
-          <h3 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-purple-600 to-teal-600 bg-clip-text text-transparent">
+          <h3 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-teal-600 to-amber-600 bg-clip-text text-transparent">
             🎯 Mediterranean Weight Loss Targets
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-6 text-center">
-              <Heart className="w-12 h-12 mx-auto mb-3 text-purple-500" />
+            <div className="bg-gradient-to-br from-teal-50 to-gray-50 rounded-xl p-6 text-center">
+              <Heart className="w-12 h-12 mx-auto mb-3 text-teal-600" />
               <h4 className="font-bold text-lg mb-2">Daily Nutrition</h4>
               <p className="text-sm text-gray-700">1,400-1,600 calories</p>
               <p className="text-sm text-gray-700">35-40% healthy fats</p>
@@ -293,7 +293,7 @@ export default function CalendarPage() {
               <p className="text-sm text-gray-700">Legumes: 3+ times/week</p>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-100 to-pink-100 rounded-xl p-6 text-center">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 text-center">
               <Star className="w-12 h-12 mx-auto mb-3 text-orange-500" />
               <h4 className="font-bold text-lg mb-2">Your Goals</h4>
               <p className="text-sm text-gray-700">Weight Loss: 1-2 lbs/week</p>
