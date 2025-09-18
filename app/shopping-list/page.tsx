@@ -69,11 +69,11 @@ const weeklyShoppingList: { [key: string]: ShoppingItem[] } = {
 }
 
 const categoryInfo = {
-  produce: { icon: <Apple className="w-5 h-5" />, color: 'bg-green-500', lightColor: 'bg-green-50' },
-  proteins: { icon: <Fish className="w-5 h-5" />, color: 'bg-blue-500', lightColor: 'bg-blue-50' },
-  pantry: { icon: <Package className="w-5 h-5" />, color: 'bg-amber-500', lightColor: 'bg-amber-50' },
-  dairy: { icon: <Package className="w-5 h-5" />, color: 'bg-purple-500', lightColor: 'bg-purple-50' },
-  herbs: { icon: <Leaf className="w-5 h-5" />, color: 'bg-teal-500', lightColor: 'bg-teal-50' }
+  produce: { icon: <Apple className="w-5 h-5" />, color: 'bg-teal-600', lightColor: 'bg-teal-50' },
+  proteins: { icon: <Fish className="w-5 h-5" />, color: 'bg-amber-600', lightColor: 'bg-amber-50' },
+  pantry: { icon: <Package className="w-5 h-5" />, color: 'bg-gray-600', lightColor: 'bg-gray-50' },
+  dairy: { icon: <Package className="w-5 h-5" />, color: 'bg-teal-700', lightColor: 'bg-teal-50' },
+  herbs: { icon: <Leaf className="w-5 h-5" />, color: 'bg-amber-700', lightColor: 'bg-amber-50' }
 }
 
 export default function ShoppingListPage() {
@@ -96,9 +96,9 @@ export default function ShoppingListPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-mindlab-purple-50 to-mindlab-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-teal-50">
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-mindlab-purple-600 via-mindlab-purple-500 to-mindlab-teal-500 text-white shadow-xl">
+      <header className="relative bg-gradient-to-r from-teal-600 to-amber-600 text-white shadow-xl">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6 text-white/80 hover:text-white transition">
             <Sparkles className="w-5 h-5" />
@@ -129,11 +129,11 @@ export default function ShoppingListPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-mindlab-purple-100"
+          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-gray-200"
         >
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-mindlab-purple-800 mb-2">September 2025 - {selectedWeek}</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">September 2025 - {selectedWeek}</h2>
               <p className="text-gray-600">Mediterranean Diet 30-Day Challenge</p>
             </div>
             <div className="flex gap-2">
@@ -143,8 +143,8 @@ export default function ShoppingListPage() {
                   onClick={() => setSelectedWeek(week)}
                   className={`px-4 py-2 rounded-full font-semibold transition ${
                     selectedWeek === week
-                      ? 'bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white'
-                      : 'bg-mindlab-purple-100 text-mindlab-purple-700 hover:bg-mindlab-purple-200'
+                      ? 'bg-gradient-to-r from-teal-500 to-amber-500 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
                   {week}
@@ -156,30 +156,30 @@ export default function ShoppingListPage() {
           {/* Progress Bar */}
           <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-semibold text-mindlab-purple-700">Shopping Progress</span>
-              <span className="text-sm font-semibold text-mindlab-purple-700">{getProgress()}% Complete</span>
+              <span className="text-sm font-semibold text-gray-700">Shopping Progress</span>
+              <span className="text-sm font-semibold text-gray-700">{getProgress()}% Complete</span>
             </div>
-            <div className="w-full bg-mindlab-purple-100 rounded-full h-3 overflow-hidden">
+            <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${getProgress()}%` }}
                 transition={{ duration: 0.5 }}
-                className="h-full bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500"
+                className="h-full bg-gradient-to-r from-teal-500 to-amber-500"
               />
             </div>
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition">
+            <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-500 to-amber-500 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition">
               <Download className="w-5 h-5" />
               Download PDF
             </button>
-            <button className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-mindlab-purple-500 text-mindlab-purple-700 rounded-full font-semibold hover:bg-mindlab-purple-50 transition">
+            <button className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-teal-500 text-teal-700 rounded-full font-semibold hover:bg-teal-50 transition">
               <Printer className="w-5 h-5" />
               Print List
             </button>
-            <button className="flex items-center gap-2 px-6 py-3 bg-mindlab-teal-100 text-mindlab-teal-700 rounded-full font-semibold hover:bg-mindlab-teal-200 transition">
+            <button className="flex items-center gap-2 px-6 py-3 bg-amber-100 text-amber-700 rounded-full font-semibold hover:bg-amber-200 transition">
               <Calendar className="w-5 h-5" />
               View Meal Calendar
             </button>
@@ -194,7 +194,7 @@ export default function ShoppingListPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-mindlab-purple-100"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200"
             >
               <div className={`${categoryInfo[category as keyof typeof categoryInfo].color} text-white p-4 flex items-center justify-between`}>
                 <div className="flex items-center gap-3">
@@ -224,8 +224,8 @@ export default function ShoppingListPage() {
                       <div className="flex items-center gap-3">
                         <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition ${
                           checkedItems.has(item.id)
-                            ? 'bg-mindlab-teal-500 border-mindlab-teal-500'
-                            : 'border-gray-300 hover:border-mindlab-purple-400'
+                            ? 'bg-teal-500 border-teal-500'
+                            : 'border-gray-300 hover:border-teal-400'
                         }`}>
                           {checkedItems.has(item.id) && (
                             <Check className="w-4 h-4 text-white" />

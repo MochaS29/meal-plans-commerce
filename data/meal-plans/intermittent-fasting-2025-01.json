@@ -1,0 +1,284 @@
+{
+  "menuType": "intermittent-fasting",
+  "month": 1,
+  "year": 2025,
+  "title": "Intermittent Fasting 16:8 - January 2025",
+  "description": "Optimized 16:8 fasting protocol with anti-inflammatory focus",
+  "nutritionTargets": {
+    "eatingWindow": "12:00 PM - 8:00 PM",
+    "dailyCalories": "1400-1600",
+    "macros": {
+      "protein": "30%",
+      "carbs": "30%",
+      "fats": "40%"
+    },
+    "proteinTarget": "100g minimum",
+    "fiberTarget": "25-30g"
+  },
+  "dailyMeals": {
+    "day_1": {
+      "date": "2025-01-01",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Protein Power Bowl",
+        "calories": 520,
+        "protein": "35g",
+        "description": "Quinoa, grilled chicken, avocado, mixed greens"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "description": "Wild salmon, broccoli, sweet potato, olive oil"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "totalCalories": 1500,
+      "totalProtein": "98g"
+    },
+    "day_2": {
+      "date": "2025-01-02",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Egg and Veggie Scramble",
+        "calories": 480,
+        "protein": "32g",
+        "description": "3 eggs, spinach, mushrooms, cheese, whole grain toast"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Turkey Meatballs with Zucchini Noodles",
+        "calories": 520,
+        "protein": "38g",
+        "description": "Lean turkey, marinara, zucchini spirals"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Cottage Cheese with Nuts",
+        "calories": 200,
+        "protein": "18g"
+      },
+      "totalCalories": 1440,
+      "totalProtein": "113g"
+    },
+    "day_3": {
+      "date": "2025-01-03",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Tuna Avocado Salad",
+        "calories": 490,
+        "protein": "38g",
+        "description": "Tuna, avocado, mixed greens, olive oil dressing"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Hard-Boiled Eggs",
+        "calories": 140,
+        "protein": "12g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Grilled Steak with Asparagus",
+        "calories": 560,
+        "protein": "42g",
+        "description": "Lean beef, grilled asparagus, cauliflower mash"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "totalCalories": 1370,
+      "totalProtein": "102g"
+    },
+    "day_4": {
+      "date": "2025-01-04",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Chicken Buddha Bowl",
+        "calories": 510,
+        "protein": "36g",
+        "description": "Grilled chicken, brown rice, edamame, vegetables"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Hummus with Vegetables",
+        "calories": 160,
+        "protein": "8g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Cod with Quinoa",
+        "calories": 540,
+        "protein": "38g",
+        "description": "White fish, quinoa pilaf, steamed green beans"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Mixed Nuts",
+        "calories": 200,
+        "protein": "7g"
+      },
+      "totalCalories": 1410,
+      "totalProtein": "89g"
+    },
+    "day_5": {
+      "date": "2025-01-05",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Protein Pancakes",
+        "calories": 480,
+        "protein": "30g",
+        "description": "Protein powder pancakes with berries"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Shrimp Stir-Fry",
+        "calories": 520,
+        "protein": "35g",
+        "description": "Shrimp, mixed vegetables, cauliflower rice"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Casein Protein Shake",
+        "calories": 150,
+        "protein": "25g"
+      },
+      "totalCalories": 1330,
+      "totalProtein": "110g"
+    },
+    "day_6": {
+      "date": "2025-01-06",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Mediterranean Omelette",
+        "calories": 460,
+        "protein": "28g",
+        "description": "3-egg omelette with feta, tomatoes, spinach"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Beef Jerky",
+        "calories": 140,
+        "protein": "22g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Pork Tenderloin with Brussels Sprouts",
+        "calories": 550,
+        "protein": "40g",
+        "description": "Lean pork, roasted Brussels sprouts, sweet potato"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "totalCalories": 1360,
+      "totalProtein": "104g"
+    },
+    "day_7": {
+      "date": "2025-01-07",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Loaded Cauliflower Bowl",
+        "calories": 470,
+        "protein": "32g",
+        "description": "Cauliflower rice, ground turkey, black beans, cheese"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Protein Bar",
+        "calories": 200,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Chicken Thighs",
+        "calories": 580,
+        "protein": "38g",
+        "description": "Chicken thighs, roasted root vegetables"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Greek Yogurt Parfait",
+        "calories": 190,
+        "protein": "15g"
+      },
+      "totalCalories": 1440,
+      "totalProtein": "105g"
+    }
+  },
+  "weeklyShoppingLists": {
+    "week_1": {
+      "proteins": [
+        "Chicken breast - 3 lbs",
+        "Salmon fillets - 1.5 lbs",
+        "Ground turkey - 2 lbs",
+        "Lean beef - 1 lb",
+        "Eggs - 2 dozen",
+        "Tuna - 3 cans",
+        "Shrimp - 1 lb",
+        "Greek yogurt - 2 large containers",
+        "Cottage cheese - 1 large container"
+      ],
+      "produce": [
+        "Spinach - 2 bags",
+        "Mixed greens - 2 bags",
+        "Broccoli - 2 heads",
+        "Asparagus - 2 bunches",
+        "Sweet potatoes - 4",
+        "Avocados - 6",
+        "Berries - 3 containers",
+        "Apples - 6"
+      ],
+      "pantry": [
+        "Quinoa - 1 bag",
+        "Protein powder - 1 container",
+        "Almond butter - 1 jar",
+        "Mixed nuts - 1 bag",
+        "Chia seeds - 1 bag"
+      ],
+      "estimatedCost": "$140-165"
+    }
+  },
+  "fastingTips": [
+    "Stay hydrated during fasting hours",
+    "Black coffee and tea are allowed during fast",
+    "Break fast with protein-rich meal",
+    "Eat largest meal mid-window",
+    "Light final meal helps with next day's fast"
+  ]
+}
