@@ -56,13 +56,28 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-                <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="py-2">
                     <Link href="/mediterranean" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
                       Mediterranean
                     </Link>
                     <Link href="/intermittent-fasting" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
                       Intermittent Fasting
+                    </Link>
+                    <Link href="/family-focused" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                      Family Focused
+                    </Link>
+                    <Link href="/paleo" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                      Paleo
+                    </Link>
+                    <Link href="/vegetarian" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                      Vegetarian
+                    </Link>
+                    <Link href="/vegan" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                      Vegan
+                    </Link>
+                    <Link href="/global" className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                      Global Cuisine
                     </Link>
                   </div>
                 </div>
