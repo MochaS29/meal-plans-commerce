@@ -145,7 +145,7 @@ export default function MenuBenefitsPage() {
                     </div>
 
                     {/* Weekly Themes for Global Cuisine */}
-                    {'weeklyThemes' in menu && menu.weeklyThemes && (
+                    {'weeklyThemes' in menu && Array.isArray(menu.weeklyThemes) && menu.weeklyThemes.length > 0 && (
                       <div className="mt-6 bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6">
                         <h4 className="font-bold text-purple-700 mb-3">🌍 Weekly Journey</h4>
                         <ul className="space-y-2">
