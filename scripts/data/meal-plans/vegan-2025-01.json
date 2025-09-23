@@ -1,0 +1,216 @@
+{
+  "menuType": "vegan",
+  "month": 1,
+  "year": 2025,
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": 12,
+        "prepTime": 10,
+        "ingredients": [
+          "banana",
+          "berries",
+          "spinach",
+          "almond milk",
+          "chia seeds",
+          "granola"
+        ]
+      },
+      "lunch": {
+        "name": "Quinoa Tabbouleh",
+        "calories": 420,
+        "protein": 14,
+        "prepTime": 20,
+        "ingredients": [
+          "quinoa",
+          "parsley",
+          "tomatoes",
+          "cucumber",
+          "lemon",
+          "olive oil"
+        ]
+      },
+      "dinner": {
+        "name": "Thai Coconut Curry",
+        "calories": 520,
+        "protein": 16,
+        "prepTime": 30,
+        "ingredients": [
+          "tofu",
+          "coconut milk",
+          "vegetables",
+          "curry paste",
+          "rice",
+          "basil"
+        ]
+      },
+      "snack": {
+        "name": "Trail Mix",
+        "calories": 160,
+        "protein": 5,
+        "prepTime": 0,
+        "ingredients": [
+          "almonds",
+          "cashews",
+          "dried fruit",
+          "dark chocolate chips"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Tofu Scramble",
+        "calories": 360,
+        "protein": 20,
+        "prepTime": 15,
+        "ingredients": [
+          "tofu",
+          "turmeric",
+          "nutritional yeast",
+          "vegetables",
+          "whole grain toast"
+        ]
+      },
+      "lunch": {
+        "name": "Buddha Bowl with Tahini",
+        "calories": 480,
+        "protein": 16,
+        "prepTime": 25,
+        "ingredients": [
+          "brown rice",
+          "chickpeas",
+          "kale",
+          "beets",
+          "tahini sauce"
+        ]
+      },
+      "dinner": {
+        "name": "Vegan Pasta Primavera",
+        "calories": 500,
+        "protein": 18,
+        "prepTime": 25,
+        "ingredients": [
+          "whole wheat pasta",
+          "vegetables",
+          "garlic",
+          "olive oil",
+          "nutritional yeast"
+        ]
+      },
+      "snack": {
+        "name": "Apple with Almond Butter",
+        "calories": 180,
+        "protein": 6,
+        "prepTime": 2,
+        "ingredients": [
+          "apple",
+          "almond butter",
+          "cinnamon"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Overnight Chia Pudding",
+        "calories": 340,
+        "protein": 10,
+        "prepTime": 5,
+        "ingredients": [
+          "chia seeds",
+          "coconut milk",
+          "maple syrup",
+          "berries",
+          "coconut flakes"
+        ]
+      },
+      "lunch": {
+        "name": "Lentil Soup",
+        "calories": 440,
+        "protein": 18,
+        "prepTime": 35,
+        "ingredients": [
+          "green lentils",
+          "vegetables",
+          "vegetable broth",
+          "herbs",
+          "whole grain bread"
+        ]
+      },
+      "dinner": {
+        "name": "Stuffed Bell Peppers",
+        "calories": 480,
+        "protein": 14,
+        "prepTime": 40,
+        "ingredients": [
+          "bell peppers",
+          "quinoa",
+          "black beans",
+          "corn",
+          "tomatoes",
+          "spices"
+        ]
+      },
+      "snack": {
+        "name": "Hummus with Vegetables",
+        "calories": 140,
+        "protein": 5,
+        "prepTime": 5,
+        "ingredients": [
+          "hummus",
+          "carrots",
+          "celery",
+          "bell peppers"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "spinach",
+        "kale",
+        "tomatoes",
+        "bell peppers",
+        "carrots",
+        "berries"
+      ],
+      "proteins": [
+        "tofu",
+        "tempeh",
+        "chickpeas",
+        "lentils",
+        "black beans",
+        "quinoa"
+      ],
+      "pantry": [
+        "coconut milk",
+        "almond milk",
+        "tahini",
+        "nutritional yeast",
+        "chia seeds"
+      ],
+      "herbs": [
+        "basil",
+        "cilantro",
+        "parsley",
+        "mint"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1700,
+    "proteinGrams": 65,
+    "b12Supplementation": "recommended",
+    "plantBased": "100% vegan"
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Batch cook grains and legumes",
+      "Prep overnight chia puddings",
+      "Make tahini and other sauces",
+      "Pre-cut vegetables for quick stir-fries"
+    ]
+  }
+}

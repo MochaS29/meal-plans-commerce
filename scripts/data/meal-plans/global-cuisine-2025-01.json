@@ -1,0 +1,235 @@
+{
+  "menuType": "global-cuisine",
+  "month": 1,
+  "year": 2025,
+  "weeklyThemes": {
+    "week1": "Italian Week",
+    "week2": "Asian Fusion",
+    "week3": "Mexican Fiesta",
+    "week4": "Middle Eastern"
+  },
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Italian Frittata",
+        "calories": 380,
+        "protein": 22,
+        "prepTime": 20,
+        "cuisine": "Italian",
+        "ingredients": [
+          "eggs",
+          "prosciutto",
+          "mozzarella",
+          "tomatoes",
+          "basil",
+          "olive oil"
+        ]
+      },
+      "lunch": {
+        "name": "Caprese Panini",
+        "calories": 460,
+        "protein": 18,
+        "prepTime": 15,
+        "cuisine": "Italian",
+        "ingredients": [
+          "ciabatta",
+          "mozzarella",
+          "tomatoes",
+          "basil",
+          "pesto",
+          "balsamic"
+        ]
+      },
+      "dinner": {
+        "name": "Osso Buco with Risotto",
+        "calories": 580,
+        "protein": 35,
+        "prepTime": 90,
+        "cuisine": "Italian",
+        "ingredients": [
+          "veal shanks",
+          "arborio rice",
+          "white wine",
+          "saffron",
+          "vegetables"
+        ]
+      },
+      "snack": {
+        "name": "Bruschetta",
+        "calories": 140,
+        "protein": 4,
+        "prepTime": 10,
+        "cuisine": "Italian",
+        "ingredients": [
+          "baguette",
+          "tomatoes",
+          "garlic",
+          "basil",
+          "olive oil"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Japanese Tamago Sando",
+        "calories": 340,
+        "protein": 16,
+        "prepTime": 15,
+        "cuisine": "Japanese",
+        "ingredients": [
+          "eggs",
+          "Japanese milk bread",
+          "mayo",
+          "mustard",
+          "chives"
+        ]
+      },
+      "lunch": {
+        "name": "Pad Thai",
+        "calories": 480,
+        "protein": 20,
+        "prepTime": 25,
+        "cuisine": "Thai",
+        "ingredients": [
+          "rice noodles",
+          "shrimp",
+          "tofu",
+          "peanuts",
+          "bean sprouts",
+          "lime"
+        ]
+      },
+      "dinner": {
+        "name": "Korean BBQ Bowl",
+        "calories": 540,
+        "protein": 32,
+        "prepTime": 30,
+        "cuisine": "Korean",
+        "ingredients": [
+          "beef bulgogi",
+          "rice",
+          "kimchi",
+          "vegetables",
+          "gochujang",
+          "sesame"
+        ]
+      },
+      "snack": {
+        "name": "Edamame",
+        "calories": 120,
+        "protein": 9,
+        "prepTime": 5,
+        "cuisine": "Japanese",
+        "ingredients": [
+          "edamame",
+          "sea salt"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Chilaquiles",
+        "calories": 420,
+        "protein": 18,
+        "prepTime": 20,
+        "cuisine": "Mexican",
+        "ingredients": [
+          "tortilla chips",
+          "salsa verde",
+          "eggs",
+          "cheese",
+          "crema",
+          "cilantro"
+        ]
+      },
+      "lunch": {
+        "name": "Pozole Soup",
+        "calories": 440,
+        "protein": 24,
+        "prepTime": 45,
+        "cuisine": "Mexican",
+        "ingredients": [
+          "hominy",
+          "pork",
+          "chiles",
+          "cabbage",
+          "radishes",
+          "lime"
+        ]
+      },
+      "dinner": {
+        "name": "Mole Chicken",
+        "calories": 520,
+        "protein": 35,
+        "prepTime": 60,
+        "cuisine": "Mexican",
+        "ingredients": [
+          "chicken",
+          "mole sauce",
+          "rice",
+          "beans",
+          "tortillas"
+        ]
+      },
+      "snack": {
+        "name": "Guacamole with Chips",
+        "calories": 160,
+        "protein": 3,
+        "prepTime": 10,
+        "cuisine": "Mexican",
+        "ingredients": [
+          "avocado",
+          "lime",
+          "cilantro",
+          "jalape\u00f1o",
+          "tortilla chips"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "tomatoes",
+        "basil",
+        "garlic",
+        "lemons",
+        "vegetables"
+      ],
+      "proteins": [
+        "eggs",
+        "veal",
+        "prosciutto",
+        "mozzarella",
+        "parmesan"
+      ],
+      "pantry": [
+        "arborio rice",
+        "pasta",
+        "olive oil",
+        "balsamic vinegar",
+        "wine"
+      ],
+      "herbs": [
+        "basil",
+        "oregano",
+        "rosemary",
+        "thyme"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1750,
+    "proteinGrams": 85,
+    "varietyScore": "high",
+    "culturalDiversity": "7 cuisines per week"
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Research authentic recipes for each cuisine",
+      "Shop at specialty stores for unique ingredients",
+      "Prep sauces and marinades in advance",
+      "Learn proper cooking techniques for each cuisine"
+    ]
+  }
+}

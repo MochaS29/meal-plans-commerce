@@ -1,0 +1,219 @@
+{
+  "menuType": "mediterranean",
+  "month": 1,
+  "year": 2025,
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Greek Yogurt Parfait with Honey and Walnuts",
+        "calories": 320,
+        "protein": 15,
+        "prepTime": 5,
+        "ingredients": [
+          "Greek yogurt",
+          "honey",
+          "walnuts",
+          "fresh berries",
+          "granola"
+        ]
+      },
+      "lunch": {
+        "name": "Mediterranean Quinoa Bowl",
+        "calories": 480,
+        "protein": 18,
+        "prepTime": 20,
+        "ingredients": [
+          "quinoa",
+          "chickpeas",
+          "cucumber",
+          "tomatoes",
+          "feta",
+          "olives",
+          "lemon"
+        ]
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Lemon and Herbs",
+        "calories": 520,
+        "protein": 35,
+        "prepTime": 25,
+        "ingredients": [
+          "salmon",
+          "lemon",
+          "dill",
+          "olive oil",
+          "asparagus",
+          "garlic"
+        ]
+      },
+      "snack": {
+        "name": "Hummus with Vegetables",
+        "calories": 150,
+        "protein": 6,
+        "prepTime": 5,
+        "ingredients": [
+          "hummus",
+          "carrots",
+          "bell peppers",
+          "cucumber"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Whole Grain Toast with Avocado and Tomato",
+        "calories": 340,
+        "protein": 12,
+        "prepTime": 10,
+        "ingredients": [
+          "whole grain bread",
+          "avocado",
+          "tomato",
+          "olive oil",
+          "sea salt"
+        ]
+      },
+      "lunch": {
+        "name": "Greek Salad with Grilled Chicken",
+        "calories": 450,
+        "protein": 32,
+        "prepTime": 15,
+        "ingredients": [
+          "chicken breast",
+          "mixed greens",
+          "tomatoes",
+          "cucumber",
+          "feta",
+          "olives"
+        ]
+      },
+      "dinner": {
+        "name": "Vegetable Lentil Stew",
+        "calories": 420,
+        "protein": 18,
+        "prepTime": 35,
+        "ingredients": [
+          "lentils",
+          "carrots",
+          "celery",
+          "onions",
+          "tomatoes",
+          "herbs"
+        ]
+      },
+      "snack": {
+        "name": "Mixed Nuts and Dried Fruit",
+        "calories": 180,
+        "protein": 5,
+        "prepTime": 0,
+        "ingredients": [
+          "almonds",
+          "walnuts",
+          "dried apricots",
+          "dates"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Mediterranean Egg Scramble",
+        "calories": 380,
+        "protein": 22,
+        "prepTime": 15,
+        "ingredients": [
+          "eggs",
+          "spinach",
+          "tomatoes",
+          "feta",
+          "olive oil"
+        ]
+      },
+      "lunch": {
+        "name": "Tuna and White Bean Salad",
+        "calories": 420,
+        "protein": 28,
+        "prepTime": 10,
+        "ingredients": [
+          "tuna",
+          "white beans",
+          "arugula",
+          "lemon",
+          "olive oil"
+        ]
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken with Vegetables",
+        "calories": 480,
+        "protein": 38,
+        "prepTime": 40,
+        "ingredients": [
+          "chicken thighs",
+          "rosemary",
+          "thyme",
+          "potatoes",
+          "bell peppers"
+        ]
+      },
+      "snack": {
+        "name": "Greek Yogurt with Honey",
+        "calories": 120,
+        "protein": 10,
+        "prepTime": 2,
+        "ingredients": [
+          "Greek yogurt",
+          "honey",
+          "cinnamon"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "tomatoes",
+        "cucumbers",
+        "spinach",
+        "arugula",
+        "bell peppers",
+        "lemons",
+        "avocados"
+      ],
+      "proteins": [
+        "salmon",
+        "chicken breast",
+        "eggs",
+        "Greek yogurt",
+        "feta cheese"
+      ],
+      "pantry": [
+        "olive oil",
+        "quinoa",
+        "lentils",
+        "chickpeas",
+        "honey",
+        "nuts"
+      ],
+      "herbs": [
+        "dill",
+        "rosemary",
+        "thyme",
+        "oregano",
+        "basil"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1800,
+    "proteinGrams": 90,
+    "fiberGrams": 30,
+    "healthyFats": "40% of calories from healthy fats"
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Prep quinoa in bulk for the week",
+      "Wash and chop vegetables on Sunday",
+      "Marinate proteins the night before",
+      "Make hummus fresh twice weekly"
+    ]
+  }
+}

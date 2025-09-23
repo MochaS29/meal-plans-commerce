@@ -1,0 +1,218 @@
+{
+  "menuType": "vegetarian",
+  "month": 1,
+  "year": 2025,
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Veggie Scrambled Eggs with Toast",
+        "calories": 380,
+        "protein": 20,
+        "prepTime": 15,
+        "ingredients": [
+          "eggs",
+          "spinach",
+          "tomatoes",
+          "mushrooms",
+          "whole grain bread",
+          "butter"
+        ]
+      },
+      "lunch": {
+        "name": "Chickpea Buddha Bowl",
+        "calories": 480,
+        "protein": 18,
+        "prepTime": 20,
+        "ingredients": [
+          "chickpeas",
+          "quinoa",
+          "kale",
+          "sweet potato",
+          "tahini",
+          "lemon"
+        ]
+      },
+      "dinner": {
+        "name": "Eggplant Parmesan",
+        "calories": 520,
+        "protein": 22,
+        "prepTime": 45,
+        "ingredients": [
+          "eggplant",
+          "mozzarella",
+          "parmesan",
+          "tomato sauce",
+          "basil"
+        ]
+      },
+      "snack": {
+        "name": "Hummus with Pita",
+        "calories": 160,
+        "protein": 6,
+        "prepTime": 5,
+        "ingredients": [
+          "hummus",
+          "whole wheat pita",
+          "cucumber",
+          "carrots"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Overnight Oats with Berries",
+        "calories": 360,
+        "protein": 12,
+        "prepTime": 5,
+        "ingredients": [
+          "oats",
+          "almond milk",
+          "chia seeds",
+          "berries",
+          "honey",
+          "almonds"
+        ]
+      },
+      "lunch": {
+        "name": "Caprese Sandwich",
+        "calories": 440,
+        "protein": 16,
+        "prepTime": 10,
+        "ingredients": [
+          "mozzarella",
+          "tomatoes",
+          "basil",
+          "ciabatta",
+          "balsamic",
+          "olive oil"
+        ]
+      },
+      "dinner": {
+        "name": "Lentil Curry",
+        "calories": 480,
+        "protein": 20,
+        "prepTime": 35,
+        "ingredients": [
+          "red lentils",
+          "coconut milk",
+          "curry spices",
+          "tomatoes",
+          "spinach",
+          "rice"
+        ]
+      },
+      "snack": {
+        "name": "Apple with Peanut Butter",
+        "calories": 180,
+        "protein": 6,
+        "prepTime": 2,
+        "ingredients": [
+          "apple",
+          "peanut butter",
+          "cinnamon"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Avocado Toast with Poached Egg",
+        "calories": 420,
+        "protein": 16,
+        "prepTime": 12,
+        "ingredients": [
+          "whole grain bread",
+          "avocado",
+          "eggs",
+          "lime",
+          "red pepper flakes"
+        ]
+      },
+      "lunch": {
+        "name": "Black Bean Tacos",
+        "calories": 460,
+        "protein": 15,
+        "prepTime": 15,
+        "ingredients": [
+          "black beans",
+          "corn tortillas",
+          "lettuce",
+          "cheese",
+          "salsa",
+          "avocado"
+        ]
+      },
+      "dinner": {
+        "name": "Mushroom Risotto",
+        "calories": 500,
+        "protein": 14,
+        "prepTime": 40,
+        "ingredients": [
+          "arborio rice",
+          "mushrooms",
+          "vegetable broth",
+          "parmesan",
+          "white wine"
+        ]
+      },
+      "snack": {
+        "name": "Greek Yogurt with Granola",
+        "calories": 160,
+        "protein": 10,
+        "prepTime": 2,
+        "ingredients": [
+          "Greek yogurt",
+          "granola",
+          "honey"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "spinach",
+        "kale",
+        "tomatoes",
+        "mushrooms",
+        "avocados",
+        "sweet potatoes"
+      ],
+      "proteins": [
+        "eggs",
+        "chickpeas",
+        "lentils",
+        "black beans",
+        "Greek yogurt",
+        "cheese"
+      ],
+      "pantry": [
+        "quinoa",
+        "rice",
+        "oats",
+        "pasta",
+        "bread",
+        "tahini"
+      ],
+      "dairy": [
+        "mozzarella",
+        "parmesan",
+        "milk",
+        "butter"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1700,
+    "proteinGrams": 70,
+    "fiberGrams": 35,
+    "plantBased": "lacto-ovo vegetarian"
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Cook grains in bulk on Sunday",
+      "Prep overnight oats for the week",
+      "Make hummus and sauces fresh",
+      "Pre-chop vegetables for quick meals"
+    ]
+  }
+}

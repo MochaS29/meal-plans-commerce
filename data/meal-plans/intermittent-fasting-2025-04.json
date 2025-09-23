@@ -1,8 +1,8 @@
 {
   "menuType": "intermittent-fasting",
-  "month": 1,
+  "month": 4,
   "year": 2025,
-  "title": "Intermittent Fasting - January 2025",
+  "title": "Intermittent Fasting - April 2025",
   "description": "Optimized 16:8 fasting protocol with anti-inflammatory focus",
   "nutritionTargets": {
     "eatingWindow": "12:00 PM - 8:00 PM",
@@ -16,7 +16,7 @@
   },
   "dailyMeals": {
     "day_1": {
-      "date": "2025-01-01",
+      "date": "2025-04-01",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -27,9 +27,41 @@
       },
       "snack": {
         "time": "3:00 PM",
-        "name": "Hard-Boiled Eggs",
-        "calories": 140,
-        "protein": "12g"
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Cod with Quinoa",
+        "calories": 540,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "totalCalories": 1453,
+      "totalProtein": "112g"
+    },
+    "day_2": {
+      "date": "2025-04-02",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Protein Pancakes",
+        "calories": 480,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
       },
       "dinner": {
         "time": "6:30 PM",
@@ -40,79 +72,15 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "totalCalories": 1511,
-      "totalProtein": "112g"
-    },
-    "day_2": {
-      "date": "2025-01-02",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Protein Power Bowl",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Pork Tenderloin with Brussels Sprouts",
-        "calories": 550,
-        "protein": "40g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Hard-Boiled Eggs",
-        "calories": 140,
-        "protein": "12g"
-      },
-      "totalCalories": 1431,
-      "totalProtein": "100g"
-    },
-    "day_3": {
-      "date": "2025-01-03",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Tuna Avocado Salad",
-        "calories": 490,
-        "protein": "38g",
-        "prepTime": "10 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
         "name": "String Cheese with Almonds",
         "calories": 210,
         "protein": "14g"
       },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Chicken Thighs",
-        "calories": 580,
-        "protein": "38g",
-        "prepTime": "40 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Protein Smoothie",
-        "calories": 240,
-        "protein": "25g"
-      },
-      "totalCalories": 1391,
-      "totalProtein": "101g"
+      "totalCalories": 1384,
+      "totalProtein": "114g"
     },
-    "day_4": {
-      "date": "2025-01-04",
+    "day_3": {
+      "date": "2025-04-03",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -126,198 +94,6 @@
         "name": "Almond Butter with Apple",
         "calories": 220,
         "protein": "8g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Turkey Meatballs with Zucchini Noodles",
-        "calories": 520,
-        "protein": "38g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "totalCalories": 1492,
-      "totalProtein": "104g"
-    },
-    "day_5": {
-      "date": "2025-01-05",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Chicken Buddha Bowl",
-        "calories": 510,
-        "protein": "36g",
-        "prepTime": "20 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Protein Smoothie",
-        "calories": 240,
-        "protein": "25g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Cod with Quinoa",
-        "calories": 540,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
-      },
-      "totalCalories": 1390,
-      "totalProtein": "101g"
-    },
-    "day_6": {
-      "date": "2025-01-06",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Protein Power Bowl",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Pork Tenderloin with Brussels Sprouts",
-        "calories": 550,
-        "protein": "40g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "totalCalories": 1523,
-      "totalProtein": "95g"
-    },
-    "day_7": {
-      "date": "2025-01-07",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Egg and Veggie Scramble",
-        "calories": 480,
-        "protein": "32g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Turkey Meatballs with Zucchini Noodles",
-        "calories": 520,
-        "protein": "38g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Protein Smoothie",
-        "calories": 240,
-        "protein": "25g"
-      },
-      "totalCalories": 1529,
-      "totalProtein": "104g"
-    },
-    "day_8": {
-      "date": "2025-01-08",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Egg and Veggie Scramble",
-        "calories": 480,
-        "protein": "32g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Herb-Crusted Lamb Chops",
-        "calories": 560,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "totalCalories": 1447,
-      "totalProtein": "100g"
-    },
-    "day_9": {
-      "date": "2025-01-09",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Egg and Veggie Scramble",
-        "calories": 480,
-        "protein": "32g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Protein Smoothie",
-        "calories": 240,
-        "protein": "25g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Turkey Meatballs with Zucchini Noodles",
-        "calories": 520,
-        "protein": "38g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Protein Bar",
-        "calories": 200,
-        "protein": "20g"
-      },
-      "totalCalories": 1522,
-      "totalProtein": "107g"
-    },
-    "day_10": {
-      "date": "2025-01-10",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Chicken Buddha Bowl",
-        "calories": 510,
-        "protein": "36g",
-        "prepTime": "20 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
       },
       "dinner": {
         "time": "6:30 PM",
@@ -328,124 +104,28 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "totalCalories": 1433,
-      "totalProtein": "108g"
-    },
-    "day_11": {
-      "date": "2025-01-11",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Tuna Avocado Salad",
-        "calories": 490,
-        "protein": "38g",
-        "prepTime": "10 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Chicken Thighs",
-        "calories": 580,
-        "protein": "38g",
-        "prepTime": "40 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
         "name": "Protein Bar",
         "calories": 200,
         "protein": "20g"
       },
-      "totalCalories": 1430,
-      "totalProtein": "114g"
+      "totalCalories": 1526,
+      "totalProtein": "101g"
     },
-    "day_12": {
-      "date": "2025-01-12",
+    "day_4": {
+      "date": "2025-04-04",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
-        "name": "Turkey Meatball Bowl",
-        "calories": 500,
-        "protein": "38g",
-        "prepTime": "25 min"
+        "name": "Mediterranean Omelette",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "15 min"
       },
       "snack": {
         "time": "3:00 PM",
-        "name": "Chia Pudding",
+        "name": "Turkey Roll-Ups",
         "calories": 180,
-        "protein": "10g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Turkey Meatballs with Zucchini Noodles",
-        "calories": 520,
-        "protein": "38g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Hard-Boiled Eggs",
-        "calories": 140,
-        "protein": "12g"
-      },
-      "totalCalories": 1406,
-      "totalProtein": "102g"
-    },
-    "day_13": {
-      "date": "2025-01-13",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Chicken Buddha Bowl",
-        "calories": 510,
-        "protein": "36g",
-        "prepTime": "20 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Cod with Quinoa",
-        "calories": 540,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "totalCalories": 1537,
-      "totalProtein": "114g"
-    },
-    "day_14": {
-      "date": "2025-01-14",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Tuna Avocado Salad",
-        "calories": 490,
-        "protein": "38g",
-        "prepTime": "10 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
+        "protein": "20g"
       },
       "dinner": {
         "time": "6:30 PM",
@@ -456,143 +136,15 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "totalCalories": 1487,
-      "totalProtein": "106g"
-    },
-    "day_15": {
-      "date": "2025-01-15",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Chicken Buddha Bowl",
-        "calories": 510,
-        "protein": "36g",
-        "prepTime": "20 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Chicken Thighs",
-        "calories": 580,
-        "protein": "38g",
-        "prepTime": "40 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
         "name": "Beef Jerky",
         "calories": 140,
         "protein": "22g"
       },
-      "totalCalories": 1402,
-      "totalProtein": "96g"
+      "totalCalories": 1457,
+      "totalProtein": "109g"
     },
-    "day_16": {
-      "date": "2025-01-16",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Mediterranean Omelette",
-        "calories": 460,
-        "protein": "28g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Protein Bar",
-        "calories": 200,
-        "protein": "20g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Beef and Broccoli",
-        "calories": 540,
-        "protein": "36g",
-        "prepTime": "25 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "totalCalories": 1517,
-      "totalProtein": "106g"
-    },
-    "day_17": {
-      "date": "2025-01-17",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Mediterranean Omelette",
-        "calories": 460,
-        "protein": "28g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Chicken Thighs",
-        "calories": 580,
-        "protein": "38g",
-        "prepTime": "40 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
-      },
-      "totalCalories": 1407,
-      "totalProtein": "95g"
-    },
-    "day_18": {
-      "date": "2025-01-18",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Protein Power Bowl",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Baked Cod with Quinoa",
-        "calories": 540,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "totalCalories": 1527,
-      "totalProtein": "114g"
-    },
-    "day_19": {
-      "date": "2025-01-19",
+    "day_5": {
+      "date": "2025-04-05",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -609,6 +161,294 @@
       },
       "dinner": {
         "time": "6:30 PM",
+        "name": "Beef and Broccoli",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "totalCalories": 1467,
+      "totalProtein": "113g"
+    },
+    "day_6": {
+      "date": "2025-04-06",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Loaded Cauliflower Bowl",
+        "calories": 470,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Cottage Cheese with Nuts",
+        "calories": 200,
+        "protein": "18g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Pork Tenderloin with Brussels Sprouts",
+        "calories": 550,
+        "protein": "40g",
+        "prepTime": "35 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Cottage Cheese with Nuts",
+        "calories": 200,
+        "protein": "18g"
+      },
+      "totalCalories": 1362,
+      "totalProtein": "114g"
+    },
+    "day_7": {
+      "date": "2025-04-07",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Turkey Meatball Bowl",
+        "calories": 500,
+        "protein": "38g",
+        "prepTime": "25 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Beef Jerky",
+        "calories": 140,
+        "protein": "22g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Shrimp Stir-Fry",
+        "calories": 520,
+        "protein": "35g",
+        "prepTime": "20 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
+      },
+      "totalCalories": 1468,
+      "totalProtein": "103g"
+    },
+    "day_8": {
+      "date": "2025-04-08",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Protein Power Bowl",
+        "calories": 520,
+        "protein": "35g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Turkey Meatballs with Zucchini Noodles",
+        "calories": 520,
+        "protein": "38g",
+        "prepTime": "35 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Hard-Boiled Eggs",
+        "calories": 140,
+        "protein": "12g"
+      },
+      "totalCalories": 1519,
+      "totalProtein": "97g"
+    },
+    "day_9": {
+      "date": "2025-04-09",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Chicken Buddha Bowl",
+        "calories": 510,
+        "protein": "36g",
+        "prepTime": "20 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Cod with Quinoa",
+        "calories": 540,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "totalCalories": 1461,
+      "totalProtein": "104g"
+    },
+    "day_10": {
+      "date": "2025-04-10",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Mediterranean Omelette",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Beef and Broccoli",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Protein Bar",
+        "calories": 200,
+        "protein": "20g"
+      },
+      "totalCalories": 1355,
+      "totalProtein": "98g"
+    },
+    "day_11": {
+      "date": "2025-04-11",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Egg and Veggie Scramble",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "totalCalories": 1476,
+      "totalProtein": "113g"
+    },
+    "day_12": {
+      "date": "2025-04-12",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Smoked Salmon Platter",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "10 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Grilled Steak with Asparagus",
+        "calories": 560,
+        "protein": "42g",
+        "prepTime": "25 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "totalCalories": 1479,
+      "totalProtein": "98g"
+    },
+    "day_13": {
+      "date": "2025-04-13",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Smoked Salmon Platter",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "10 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Beef and Broccoli",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Hard-Boiled Eggs",
+        "calories": 140,
+        "protein": "12g"
+      },
+      "totalCalories": 1467,
+      "totalProtein": "95g"
+    },
+    "day_14": {
+      "date": "2025-04-14",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Steak and Eggs",
+        "calories": 540,
+        "protein": "42g",
+        "prepTime": "20 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
         "name": "Lemon Garlic Shrimp",
         "calories": 500,
         "protein": "34g",
@@ -620,11 +460,107 @@
         "calories": 200,
         "protein": "20g"
       },
-      "totalCalories": 1542,
-      "totalProtein": "110g"
+      "totalCalories": 1437,
+      "totalProtein": "97g"
     },
-    "day_20": {
-      "date": "2025-01-20",
+    "day_15": {
+      "date": "2025-04-15",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Turkey Meatball Bowl",
+        "calories": 500,
+        "protein": "38g",
+        "prepTime": "25 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
+      },
+      "totalCalories": 1353,
+      "totalProtein": "106g"
+    },
+    "day_16": {
+      "date": "2025-04-16",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Chicken Buddha Bowl",
+        "calories": 510,
+        "protein": "36g",
+        "prepTime": "20 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Chicken Thighs",
+        "calories": 580,
+        "protein": "38g",
+        "prepTime": "40 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "totalCalories": 1389,
+      "totalProtein": "108g"
+    },
+    "day_17": {
+      "date": "2025-04-17",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Protein Power Bowl",
+        "calories": 520,
+        "protein": "35g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Hard-Boiled Eggs",
+        "calories": 140,
+        "protein": "12g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "totalCalories": 1351,
+      "totalProtein": "114g"
+    },
+    "day_18": {
+      "date": "2025-04-18",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -632,6 +568,134 @@
         "calories": 480,
         "protein": "30g",
         "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
+      },
+      "totalCalories": 1382,
+      "totalProtein": "98g"
+    },
+    "day_19": {
+      "date": "2025-04-19",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Smoked Salmon Platter",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "10 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Turkey Meatballs with Zucchini Noodles",
+        "calories": 520,
+        "protein": "38g",
+        "prepTime": "35 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Cottage Cheese with Nuts",
+        "calories": 200,
+        "protein": "18g"
+      },
+      "totalCalories": 1509,
+      "totalProtein": "97g"
+    },
+    "day_20": {
+      "date": "2025-04-20",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Smoked Salmon Platter",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "10 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Protein Bar",
+        "calories": 200,
+        "protein": "20g"
+      },
+      "totalCalories": 1385,
+      "totalProtein": "99g"
+    },
+    "day_21": {
+      "date": "2025-04-21",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Egg and Veggie Scramble",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Baked Chicken Thighs",
+        "calories": 580,
+        "protein": "38g",
+        "prepTime": "40 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Almond Butter with Apple",
+        "calories": 220,
+        "protein": "8g"
+      },
+      "totalCalories": 1434,
+      "totalProtein": "100g"
+    },
+    "day_22": {
+      "date": "2025-04-22",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Loaded Cauliflower Bowl",
+        "calories": 470,
+        "protein": "32g",
+        "prepTime": "20 min"
       },
       "snack": {
         "time": "3:00 PM",
@@ -641,42 +705,10 @@
       },
       "dinner": {
         "time": "6:30 PM",
-        "name": "Shrimp Stir-Fry",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "20 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
-      },
-      "totalCalories": 1410,
-      "totalProtein": "113g"
-    },
-    "day_21": {
-      "date": "2025-01-21",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Protein Pancakes",
-        "calories": 480,
-        "protein": "30g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Beef and Broccoli",
-        "calories": 540,
-        "protein": "36g",
-        "prepTime": "25 min"
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
       },
       "preClosingSnack": {
         "time": "7:30 PM",
@@ -684,11 +716,11 @@
         "calories": 240,
         "protein": "25g"
       },
-      "totalCalories": 1417,
-      "totalProtein": "108g"
+      "totalCalories": 1450,
+      "totalProtein": "103g"
     },
-    "day_22": {
-      "date": "2025-01-22",
+    "day_23": {
+      "date": "2025-04-23",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -705,70 +737,6 @@
       },
       "dinner": {
         "time": "6:30 PM",
-        "name": "Grilled Steak with Asparagus",
-        "calories": 560,
-        "protein": "42g",
-        "prepTime": "25 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "String Cheese with Almonds",
-        "calories": 210,
-        "protein": "14g"
-      },
-      "totalCalories": 1422,
-      "totalProtein": "101g"
-    },
-    "day_23": {
-      "date": "2025-01-23",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Smoked Salmon Platter",
-        "calories": 460,
-        "protein": "35g",
-        "prepTime": "10 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Almond Butter with Apple",
-        "calories": 220,
-        "protein": "8g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Pork Tenderloin with Brussels Sprouts",
-        "calories": 550,
-        "protein": "40g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Hard-Boiled Eggs",
-        "calories": 140,
-        "protein": "12g"
-      },
-      "totalCalories": 1381,
-      "totalProtein": "102g"
-    },
-    "day_24": {
-      "date": "2025-01-24",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Turkey Meatball Bowl",
-        "calories": 500,
-        "protein": "38g",
-        "prepTime": "25 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
         "name": "Herb-Crusted Lamb Chops",
         "calories": 560,
         "protein": "38g",
@@ -776,79 +744,47 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Greek Yogurt with Berries",
-        "calories": 180,
-        "protein": "15g"
-      },
-      "totalCalories": 1395,
-      "totalProtein": "114g"
-    },
-    "day_25": {
-      "date": "2025-01-25",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Egg and Veggie Scramble",
-        "calories": 480,
-        "protein": "32g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Turkey Meatballs with Zucchini Noodles",
-        "calories": 520,
-        "protein": "38g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
         "name": "String Cheese with Almonds",
         "calories": 210,
         "protein": "14g"
       },
-      "totalCalories": 1498,
-      "totalProtein": "102g"
+      "totalCalories": 1392,
+      "totalProtein": "95g"
     },
-    "day_26": {
-      "date": "2025-01-26",
+    "day_24": {
+      "date": "2025-04-24",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
-        "name": "Egg and Veggie Scramble",
-        "calories": 480,
-        "protein": "32g",
-        "prepTime": "15 min"
+        "name": "Steak and Eggs",
+        "calories": 540,
+        "protein": "42g",
+        "prepTime": "20 min"
       },
       "snack": {
         "time": "3:00 PM",
-        "name": "Hard-Boiled Eggs",
-        "calories": 140,
-        "protein": "12g"
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
       },
       "dinner": {
         "time": "6:30 PM",
-        "name": "Pork Tenderloin with Brussels Sprouts",
-        "calories": 550,
-        "protein": "40g",
-        "prepTime": "35 min"
+        "name": "Beef and Broccoli",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "25 min"
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Beef Jerky",
-        "calories": 140,
-        "protein": "22g"
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
       },
-      "totalCalories": 1380,
+      "totalCalories": 1492,
       "totalProtein": "101g"
     },
-    "day_27": {
-      "date": "2025-01-27",
+    "day_25": {
+      "date": "2025-04-25",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -865,22 +801,22 @@
       },
       "dinner": {
         "time": "6:30 PM",
-        "name": "Shrimp Stir-Fry",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "20 min"
+        "name": "Grilled Steak with Asparagus",
+        "calories": 560,
+        "protein": "42g",
+        "prepTime": "25 min"
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "String Cheese with Almonds",
-        "calories": 210,
-        "protein": "14g"
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
       },
-      "totalCalories": 1455,
+      "totalCalories": 1544,
       "totalProtein": "103g"
     },
-    "day_28": {
-      "date": "2025-01-28",
+    "day_26": {
+      "date": "2025-04-26",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
@@ -891,73 +827,9 @@
       },
       "snack": {
         "time": "3:00 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Beef and Broccoli",
-        "calories": 540,
-        "protein": "36g",
-        "prepTime": "25 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Chia Pudding",
-        "calories": 180,
-        "protein": "10g"
-      },
-      "totalCalories": 1452,
-      "totalProtein": "112g"
-    },
-    "day_29": {
-      "date": "2025-01-29",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Smoked Salmon Platter",
-        "calories": 460,
-        "protein": "35g",
-        "prepTime": "10 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Protein Smoothie",
-        "calories": 240,
-        "protein": "25g"
-      },
-      "dinner": {
-        "time": "6:30 PM",
-        "name": "Pork Tenderloin with Brussels Sprouts",
-        "calories": 550,
-        "protein": "40g",
-        "prepTime": "35 min"
-      },
-      "preClosingSnack": {
-        "time": "7:30 PM",
-        "name": "Turkey Roll-Ups",
-        "calories": 180,
-        "protein": "20g"
-      },
-      "totalCalories": 1462,
-      "totalProtein": "98g"
-    },
-    "day_30": {
-      "date": "2025-01-30",
-      "fastingPeriod": "8:00 PM - 12:00 PM next day",
-      "breakFast": {
-        "time": "12:00 PM",
-        "name": "Protein Power Bowl",
-        "calories": 520,
-        "protein": "35g",
-        "prepTime": "15 min"
-      },
-      "snack": {
-        "time": "3:00 PM",
-        "name": "Protein Bar",
+        "name": "Cottage Cheese with Nuts",
         "calories": 200,
-        "protein": "20g"
+        "protein": "18g"
       },
       "dinner": {
         "time": "6:30 PM",
@@ -968,28 +840,60 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
+        "name": "Hard-Boiled Eggs",
+        "calories": 140,
+        "protein": "12g"
+      },
+      "totalCalories": 1534,
+      "totalProtein": "106g"
+    },
+    "day_27": {
+      "date": "2025-04-27",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Egg and Veggie Scramble",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Lemon Garlic Shrimp",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "20 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
         "name": "Almond Butter with Apple",
         "calories": 220,
         "protein": "8g"
       },
-      "totalCalories": 1546,
-      "totalProtein": "106g"
+      "totalCalories": 1378,
+      "totalProtein": "97g"
     },
-    "day_31": {
-      "date": "2025-01-31",
+    "day_28": {
+      "date": "2025-04-28",
       "fastingPeriod": "8:00 PM - 12:00 PM next day",
       "breakFast": {
         "time": "12:00 PM",
-        "name": "Chicken Buddha Bowl",
-        "calories": 510,
-        "protein": "36g",
-        "prepTime": "20 min"
+        "name": "Smoked Salmon Platter",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "10 min"
       },
       "snack": {
         "time": "3:00 PM",
-        "name": "Cottage Cheese with Nuts",
-        "calories": 200,
-        "protein": "18g"
+        "name": "Chia Pudding",
+        "calories": 180,
+        "protein": "10g"
       },
       "dinner": {
         "time": "6:30 PM",
@@ -1000,12 +904,76 @@
       },
       "preClosingSnack": {
         "time": "7:30 PM",
-        "name": "Beef Jerky",
-        "calories": 140,
-        "protein": "22g"
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
       },
-      "totalCalories": 1438,
-      "totalProtein": "105g"
+      "totalCalories": 1377,
+      "totalProtein": "98g"
+    },
+    "day_29": {
+      "date": "2025-04-29",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Mediterranean Omelette",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "String Cheese with Almonds",
+        "calories": 210,
+        "protein": "14g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Salmon with Roasted Vegetables",
+        "calories": 580,
+        "protein": "40g",
+        "prepTime": "30 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Greek Yogurt with Berries",
+        "calories": 180,
+        "protein": "15g"
+      },
+      "totalCalories": 1410,
+      "totalProtein": "104g"
+    },
+    "day_30": {
+      "date": "2025-04-30",
+      "fastingPeriod": "8:00 PM - 12:00 PM next day",
+      "breakFast": {
+        "time": "12:00 PM",
+        "name": "Mediterranean Omelette",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "snack": {
+        "time": "3:00 PM",
+        "name": "Turkey Roll-Ups",
+        "calories": 180,
+        "protein": "20g"
+      },
+      "dinner": {
+        "time": "6:30 PM",
+        "name": "Pork Tenderloin with Brussels Sprouts",
+        "calories": 550,
+        "protein": "40g",
+        "prepTime": "35 min"
+      },
+      "preClosingSnack": {
+        "time": "7:30 PM",
+        "name": "Protein Smoothie",
+        "calories": 240,
+        "protein": "25g"
+      },
+      "totalCalories": 1545,
+      "totalProtein": "95g"
     }
   },
   "weeklyShoppingLists": {

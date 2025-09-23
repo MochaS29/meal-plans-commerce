@@ -1,0 +1,211 @@
+{
+  "menuType": "paleo",
+  "month": 1,
+  "year": 2025,
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Sweet Potato Hash with Eggs",
+        "calories": 420,
+        "protein": 24,
+        "prepTime": 20,
+        "ingredients": [
+          "sweet potatoes",
+          "eggs",
+          "bell peppers",
+          "onions",
+          "coconut oil"
+        ]
+      },
+      "lunch": {
+        "name": "Grilled Chicken Salad",
+        "calories": 480,
+        "protein": 35,
+        "prepTime": 15,
+        "ingredients": [
+          "chicken breast",
+          "mixed greens",
+          "avocado",
+          "tomatoes",
+          "olive oil",
+          "lemon"
+        ]
+      },
+      "dinner": {
+        "name": "Grass-Fed Beef with Roasted Vegetables",
+        "calories": 580,
+        "protein": 40,
+        "prepTime": 35,
+        "ingredients": [
+          "grass-fed beef",
+          "broccoli",
+          "cauliflower",
+          "carrots",
+          "ghee"
+        ]
+      },
+      "snack": {
+        "name": "Almond Butter Apple Slices",
+        "calories": 180,
+        "protein": 6,
+        "prepTime": 3,
+        "ingredients": [
+          "apple",
+          "almond butter",
+          "cinnamon"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Paleo Breakfast Bowl",
+        "calories": 440,
+        "protein": 28,
+        "prepTime": 15,
+        "ingredients": [
+          "ground turkey",
+          "spinach",
+          "mushrooms",
+          "eggs",
+          "avocado"
+        ]
+      },
+      "lunch": {
+        "name": "Tuna Avocado Boats",
+        "calories": 420,
+        "protein": 32,
+        "prepTime": 10,
+        "ingredients": [
+          "tuna",
+          "avocados",
+          "lime",
+          "cilantro",
+          "jalape\u00f1o"
+        ]
+      },
+      "dinner": {
+        "name": "Baked Salmon with Asparagus",
+        "calories": 520,
+        "protein": 38,
+        "prepTime": 25,
+        "ingredients": [
+          "wild salmon",
+          "asparagus",
+          "lemon",
+          "garlic",
+          "olive oil"
+        ]
+      },
+      "snack": {
+        "name": "Mixed Nuts and Berries",
+        "calories": 160,
+        "protein": 5,
+        "prepTime": 0,
+        "ingredients": [
+          "almonds",
+          "walnuts",
+          "blueberries",
+          "strawberries"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Vegetable Frittata",
+        "calories": 380,
+        "protein": 26,
+        "prepTime": 25,
+        "ingredients": [
+          "eggs",
+          "zucchini",
+          "tomatoes",
+          "onions",
+          "coconut oil"
+        ]
+      },
+      "lunch": {
+        "name": "Beef and Vegetable Soup",
+        "calories": 440,
+        "protein": 30,
+        "prepTime": 40,
+        "ingredients": [
+          "beef stew meat",
+          "bone broth",
+          "carrots",
+          "celery",
+          "herbs"
+        ]
+      },
+      "dinner": {
+        "name": "Grilled Chicken with Cauliflower Rice",
+        "calories": 480,
+        "protein": 36,
+        "prepTime": 30,
+        "ingredients": [
+          "chicken thighs",
+          "cauliflower",
+          "garlic",
+          "herbs",
+          "olive oil"
+        ]
+      },
+      "snack": {
+        "name": "Coconut Chips",
+        "calories": 140,
+        "protein": 2,
+        "prepTime": 0,
+        "ingredients": [
+          "unsweetened coconut chips",
+          "sea salt"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "sweet potatoes",
+        "spinach",
+        "kale",
+        "cauliflower",
+        "broccoli",
+        "avocados"
+      ],
+      "proteins": [
+        "grass-fed beef",
+        "wild salmon",
+        "chicken",
+        "eggs",
+        "tuna"
+      ],
+      "pantry": [
+        "coconut oil",
+        "olive oil",
+        "almond butter",
+        "nuts",
+        "coconut chips"
+      ],
+      "herbs": [
+        "cilantro",
+        "parsley",
+        "rosemary",
+        "thyme"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1700,
+    "proteinGrams": 120,
+    "noGrains": true,
+    "noDairy": true,
+    "noLegumes": true
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Prep cauliflower rice in advance",
+      "Marinate meats overnight",
+      "Pre-chop vegetables for the week",
+      "Make bone broth on Sunday"
+    ]
+  }
+}

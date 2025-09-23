@@ -1,0 +1,1083 @@
+{
+  "menuType": "paleo",
+  "month": 4,
+  "year": 2025,
+  "title": "Paleo - April 2025",
+  "description": "Whole foods, lean proteins, and vegetables - eating like our ancestors",
+  "nutritionTargets": {
+    "dailyCalories": "1400-1700",
+    "macros": {
+      "protein": "35%",
+      "carbs": "20%",
+      "fats": "45%"
+    },
+    "noGrains": true,
+    "noDairy": true
+  },
+  "dailyMeals": {
+    "day_1": {
+      "date": "2025-04-01",
+      "breakfast": {
+        "name": "Primal Power Bowl",
+        "calories": 420,
+        "protein": "35g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Turkey Meatloaf",
+        "calories": 460,
+        "protein": "30g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 126
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 146
+        }
+      ],
+      "totalCalories": 1617
+    },
+    "day_2": {
+      "date": "2025-04-02",
+      "breakfast": {
+        "name": "Paleo Breakfast Muffins",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken",
+        "calories": 480,
+        "protein": "38g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 128
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 144
+        }
+      ],
+      "totalCalories": 1560
+    },
+    "day_3": {
+      "date": "2025-04-03",
+      "breakfast": {
+        "name": "Coconut Flour Waffles",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Tuna Salad Lettuce Cups",
+        "calories": 380,
+        "protein": "34g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Beef Short Ribs",
+        "calories": 540,
+        "protein": "35g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 109
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 146
+        }
+      ],
+      "totalCalories": 1543
+    },
+    "day_4": {
+      "date": "2025-04-04",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Lamb Kebabs",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 125
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1518
+    },
+    "day_5": {
+      "date": "2025-04-05",
+      "breakfast": {
+        "name": "Coconut Flour Waffles",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Paleo Chicken Soup",
+        "calories": 360,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Beef Short Ribs",
+        "calories": 540,
+        "protein": "35g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 123
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1526
+    },
+    "day_6": {
+      "date": "2025-04-06",
+      "breakfast": {
+        "name": "Paleo Pancakes",
+        "calories": 360,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Paleo Chicken Soup",
+        "calories": 360,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Shrimp Scampi over Zoodles",
+        "calories": 440,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 134
+        }
+      ],
+      "totalCalories": 1445
+    },
+    "day_7": {
+      "date": "2025-04-07",
+      "breakfast": {
+        "name": "Almond Flour Crepes",
+        "calories": 380,
+        "protein": "22g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken",
+        "calories": 480,
+        "protein": "38g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 140
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 138
+        }
+      ],
+      "totalCalories": 1513
+    },
+    "day_8": {
+      "date": "2025-04-08",
+      "breakfast": {
+        "name": "Coconut Flour Waffles",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Hunter's Salad",
+        "calories": 380,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Beef Short Ribs",
+        "calories": 540,
+        "protein": "35g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 121
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 100
+        }
+      ],
+      "totalCalories": 1468
+    },
+    "day_9": {
+      "date": "2025-04-09",
+      "breakfast": {
+        "name": "Bacon and Eggs",
+        "calories": 400,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Tuna Salad Lettuce Cups",
+        "calories": 380,
+        "protein": "34g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Asparagus",
+        "calories": 460,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 144
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 105
+        }
+      ],
+      "totalCalories": 1458
+    },
+    "day_10": {
+      "date": "2025-04-10",
+      "breakfast": {
+        "name": "Almond Flour Crepes",
+        "calories": 380,
+        "protein": "22g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Shrimp Scampi over Zoodles",
+        "calories": 440,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 117
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 132
+        }
+      ],
+      "totalCalories": 1493
+    },
+    "day_11": {
+      "date": "2025-04-11",
+      "breakfast": {
+        "name": "Coconut Flour Waffles",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Beef and Vegetable Stir-Fry",
+        "calories": 460,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Pork Chops with Apple Slaw",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 127
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 116
+        }
+      ],
+      "totalCalories": 1488
+    },
+    "day_12": {
+      "date": "2025-04-12",
+      "breakfast": {
+        "name": "Primal Power Bowl",
+        "calories": 420,
+        "protein": "35g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Lettuce Wrap Burgers",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Beef Stew",
+        "calories": 480,
+        "protein": "28g",
+        "prepTime": "90 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 137
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 104
+        }
+      ],
+      "totalCalories": 1586
+    },
+    "day_13": {
+      "date": "2025-04-13",
+      "breakfast": {
+        "name": "Paleo Pancakes",
+        "calories": 360,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Grilled Chicken Salad",
+        "calories": 400,
+        "protein": "36g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Lamb Kebabs",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 147
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1553
+    },
+    "day_14": {
+      "date": "2025-04-14",
+      "breakfast": {
+        "name": "Meat and Veggie Scramble",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Cauliflower Rice Bowl",
+        "calories": 400,
+        "protein": "26g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken",
+        "calories": 480,
+        "protein": "38g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 123
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 124
+        }
+      ],
+      "totalCalories": 1560
+    },
+    "day_15": {
+      "date": "2025-04-15",
+      "breakfast": {
+        "name": "Bacon and Eggs",
+        "calories": 400,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Paleo Meatballs",
+        "calories": 420,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Lamb Kebabs",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 119
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 123
+        }
+      ],
+      "totalCalories": 1582
+    },
+    "day_16": {
+      "date": "2025-04-16",
+      "breakfast": {
+        "name": "Meat and Veggie Scramble",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Lettuce Wrap Burgers",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Caveman Steak & Veggies",
+        "calories": 520,
+        "protein": "42g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 109
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1628
+    },
+    "day_17": {
+      "date": "2025-04-17",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Paleo Chicken Soup",
+        "calories": 360,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Asparagus",
+        "calories": 460,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 141
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 121
+        }
+      ],
+      "totalCalories": 1362
+    },
+    "day_18": {
+      "date": "2025-04-18",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Salmon Salad",
+        "calories": 440,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Asparagus",
+        "calories": 460,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 123
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1422
+    },
+    "day_19": {
+      "date": "2025-04-19",
+      "breakfast": {
+        "name": "Sweet Potato Hash with Eggs",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Salmon Salad",
+        "calories": 440,
+        "protein": "32g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Caveman Steak & Veggies",
+        "calories": 520,
+        "protein": "42g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 138
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 121
+        }
+      ],
+      "totalCalories": 1588
+    },
+    "day_20": {
+      "date": "2025-04-20",
+      "breakfast": {
+        "name": "Sweet Potato Hash with Eggs",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Beef and Vegetable Stir-Fry",
+        "calories": 460,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Shrimp Scampi over Zoodles",
+        "calories": 440,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 134
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1579
+    },
+    "day_21": {
+      "date": "2025-04-21",
+      "breakfast": {
+        "name": "Sweet Potato Hash with Eggs",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Beef and Vegetable Stir-Fry",
+        "calories": 460,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Asparagus",
+        "calories": 460,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 137
+        }
+      ],
+      "totalCalories": 1515
+    },
+    "day_22": {
+      "date": "2025-04-22",
+      "breakfast": {
+        "name": "Paleo Pancakes",
+        "calories": 360,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Paleo Meatballs",
+        "calories": 420,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken",
+        "calories": 480,
+        "protein": "38g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 143
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 130
+        }
+      ],
+      "totalCalories": 1515
+    },
+    "day_23": {
+      "date": "2025-04-23",
+      "breakfast": {
+        "name": "Breakfast Skillet",
+        "calories": 440,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Herb-Roasted Chicken",
+        "calories": 480,
+        "protein": "38g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 118
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 123
+        }
+      ],
+      "totalCalories": 1634
+    },
+    "day_24": {
+      "date": "2025-04-24",
+      "breakfast": {
+        "name": "Sweet Potato Hash with Eggs",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Grilled Salmon with Asparagus",
+        "calories": 460,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 139
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 119
+        }
+      ],
+      "totalCalories": 1512
+    },
+    "day_25": {
+      "date": "2025-04-25",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Grilled Chicken Salad",
+        "calories": 400,
+        "protein": "36g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Caveman Steak & Veggies",
+        "calories": 520,
+        "protein": "42g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 140
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1489
+    },
+    "day_26": {
+      "date": "2025-04-26",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Beef and Vegetable Stir-Fry",
+        "calories": 460,
+        "protein": "32g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Lamb Kebabs",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 115
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 102
+        }
+      ],
+      "totalCalories": 1563
+    },
+    "day_27": {
+      "date": "2025-04-27",
+      "breakfast": {
+        "name": "Paleo Pancakes",
+        "calories": 360,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Paleo Chicken Soup",
+        "calories": 360,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Baked Cod with Vegetables",
+        "calories": 420,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 126
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 120
+        }
+      ],
+      "totalCalories": 1360
+    },
+    "day_28": {
+      "date": "2025-04-28",
+      "breakfast": {
+        "name": "Paleo Breakfast Muffins",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Tuna Salad Lettuce Cups",
+        "calories": 380,
+        "protein": "34g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Beef Short Ribs",
+        "calories": 540,
+        "protein": "35g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 146
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 106
+        }
+      ],
+      "totalCalories": 1537
+    },
+    "day_29": {
+      "date": "2025-04-29",
+      "breakfast": {
+        "name": "Bacon and Eggs",
+        "calories": 400,
+        "protein": "28g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Paleo Meatballs",
+        "calories": 420,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Lamb Kebabs",
+        "calories": 500,
+        "protein": "34g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 128
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 118
+        }
+      ],
+      "totalCalories": 1601
+    },
+    "day_30": {
+      "date": "2025-04-30",
+      "breakfast": {
+        "name": "Coconut Flour Waffles",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Zucchini Noodle Bolognese",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Baked Cod with Vegetables",
+        "calories": 420,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 105
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 118
+        }
+      ],
+      "totalCalories": 1400
+    }
+  },
+  "weeklyShoppingLists": {
+    "week_1": {
+      "produce": [
+        "Sweet potatoes - 3 lbs",
+        "Cauliflower - 2 heads",
+        "Zucchini - 6",
+        "Kale - 2 bunches"
+      ],
+      "proteins": [
+        "Grass-fed beef - 2 lbs",
+        "Wild salmon - 1.5 lbs",
+        "Chicken - 3 lbs",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Coconut oil - 1 jar",
+        "Almond flour - 1 bag",
+        "Nuts - 2 lbs",
+        "Coconut milk - 4 cans"
+      ],
+      "dairy": [],
+      "estimatedCost": "$160-185"
+    },
+    "week_2": {
+      "produce": [
+        "Sweet potatoes - 3 lbs",
+        "Cauliflower - 2 heads",
+        "Zucchini - 6",
+        "Kale - 2 bunches"
+      ],
+      "proteins": [
+        "Grass-fed beef - 2 lbs",
+        "Wild salmon - 1.5 lbs",
+        "Chicken - 3 lbs",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Coconut oil - 1 jar",
+        "Almond flour - 1 bag",
+        "Nuts - 2 lbs",
+        "Coconut milk - 4 cans"
+      ],
+      "dairy": [],
+      "estimatedCost": "$160-185"
+    },
+    "week_3": {
+      "produce": [
+        "Sweet potatoes - 3 lbs",
+        "Cauliflower - 2 heads",
+        "Zucchini - 6",
+        "Kale - 2 bunches"
+      ],
+      "proteins": [
+        "Grass-fed beef - 2 lbs",
+        "Wild salmon - 1.5 lbs",
+        "Chicken - 3 lbs",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Coconut oil - 1 jar",
+        "Almond flour - 1 bag",
+        "Nuts - 2 lbs",
+        "Coconut milk - 4 cans"
+      ],
+      "dairy": [],
+      "estimatedCost": "$160-185"
+    },
+    "week_4": {
+      "produce": [
+        "Sweet potatoes - 3 lbs",
+        "Cauliflower - 2 heads",
+        "Zucchini - 6",
+        "Kale - 2 bunches"
+      ],
+      "proteins": [
+        "Grass-fed beef - 2 lbs",
+        "Wild salmon - 1.5 lbs",
+        "Chicken - 3 lbs",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Coconut oil - 1 jar",
+        "Almond flour - 1 bag",
+        "Nuts - 2 lbs",
+        "Coconut milk - 4 cans"
+      ],
+      "dairy": [],
+      "estimatedCost": "$160-185"
+    }
+  },
+  "mealPrepGuide": {
+    "sunday": [
+      "Prep vegetables for the week",
+      "Cook grains and legumes in bulk",
+      "Make sauces and dressings",
+      "Marinate proteins"
+    ],
+    "wednesday": [
+      "Mid-week vegetable refresh",
+      "Prepare overnight items",
+      "Quick pickle vegetables"
+    ],
+    "timeEstimate": "2.5 hours Sunday, 45 min Wednesday"
+  }
+}

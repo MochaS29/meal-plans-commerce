@@ -1,0 +1,179 @@
+{
+  "menuType": "intermittent-fasting",
+  "month": 1,
+  "year": 2025,
+  "fastingSchedule": "16:8 - Eating window 12pm-8pm",
+  "dailyMeals": {
+    "1": {
+      "lunch": {
+        "name": "Power Bowl with Grilled Protein",
+        "calories": 650,
+        "protein": 40,
+        "prepTime": 20,
+        "ingredients": [
+          "grilled chicken",
+          "brown rice",
+          "black beans",
+          "avocado",
+          "salsa",
+          "lime"
+        ]
+      },
+      "snack": {
+        "name": "Protein Smoothie",
+        "calories": 280,
+        "protein": 25,
+        "prepTime": 5,
+        "ingredients": [
+          "protein powder",
+          "banana",
+          "almond milk",
+          "peanut butter",
+          "spinach"
+        ]
+      },
+      "dinner": {
+        "name": "Steak with Roasted Vegetables",
+        "calories": 720,
+        "protein": 45,
+        "prepTime": 30,
+        "ingredients": [
+          "sirloin steak",
+          "brussels sprouts",
+          "sweet potato",
+          "olive oil",
+          "garlic"
+        ]
+      }
+    },
+    "2": {
+      "lunch": {
+        "name": "Buddha Bowl with Tahini Dressing",
+        "calories": 620,
+        "protein": 28,
+        "prepTime": 25,
+        "ingredients": [
+          "quinoa",
+          "chickpeas",
+          "kale",
+          "beets",
+          "tahini",
+          "lemon"
+        ]
+      },
+      "snack": {
+        "name": "Apple with Almond Butter",
+        "calories": 240,
+        "protein": 8,
+        "prepTime": 2,
+        "ingredients": [
+          "apple",
+          "almond butter",
+          "cinnamon"
+        ]
+      },
+      "dinner": {
+        "name": "Baked Salmon with Asparagus",
+        "calories": 680,
+        "protein": 42,
+        "prepTime": 25,
+        "ingredients": [
+          "salmon fillet",
+          "asparagus",
+          "lemon",
+          "dill",
+          "olive oil"
+        ]
+      }
+    },
+    "3": {
+      "lunch": {
+        "name": "Turkey and Avocado Wrap",
+        "calories": 580,
+        "protein": 35,
+        "prepTime": 10,
+        "ingredients": [
+          "turkey breast",
+          "whole wheat tortilla",
+          "avocado",
+          "lettuce",
+          "tomato",
+          "mustard"
+        ]
+      },
+      "snack": {
+        "name": "Greek Yogurt Parfait",
+        "calories": 220,
+        "protein": 15,
+        "prepTime": 5,
+        "ingredients": [
+          "Greek yogurt",
+          "berries",
+          "granola",
+          "honey"
+        ]
+      },
+      "dinner": {
+        "name": "Chicken Stir-Fry",
+        "calories": 650,
+        "protein": 38,
+        "prepTime": 20,
+        "ingredients": [
+          "chicken breast",
+          "mixed vegetables",
+          "soy sauce",
+          "ginger",
+          "garlic",
+          "brown rice"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "avocados",
+        "spinach",
+        "kale",
+        "brussels sprouts",
+        "sweet potatoes",
+        "apples"
+      ],
+      "proteins": [
+        "chicken breast",
+        "sirloin steak",
+        "salmon",
+        "turkey",
+        "Greek yogurt",
+        "eggs"
+      ],
+      "pantry": [
+        "brown rice",
+        "quinoa",
+        "black beans",
+        "almond butter",
+        "protein powder"
+      ],
+      "herbs": [
+        "cilantro",
+        "dill",
+        "ginger",
+        "garlic"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCalories": 1650,
+    "proteinGrams": 110,
+    "eatingWindow": "12pm-8pm",
+    "fastingHours": 16
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Prep proteins in bulk on Sunday",
+      "Pre-cut vegetables for quick stir-fries",
+      "Prepare overnight oats for quick first meals",
+      "Keep emergency protein snacks ready"
+    ]
+  }
+}

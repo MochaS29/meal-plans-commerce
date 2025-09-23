@@ -1,0 +1,1078 @@
+{
+  "menuType": "vegan",
+  "month": 4,
+  "year": 2025,
+  "title": "Vegan - April 2025",
+  "description": "100% plant-based meals packed with nutrients and flavor",
+  "nutritionTargets": {
+    "dailyCalories": "1400-1600",
+    "macros": {
+      "protein": "15%",
+      "carbs": "50%",
+      "fats": "35%"
+    },
+    "b12Supplementation": "recommended"
+  },
+  "dailyMeals": {
+    "day_1": {
+      "date": "2025-04-01",
+      "breakfast": {
+        "name": "Overnight Oats & Berries",
+        "calories": 340,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Wrap",
+        "calories": 420,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Chickpea Tikka Masala",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 148
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 134
+        }
+      ],
+      "totalCalories": 1433
+    },
+    "day_2": {
+      "date": "2025-04-02",
+      "breakfast": {
+        "name": "Quinoa Breakfast Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Quinoa Tabbouleh",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Thai Coconut Curry",
+        "calories": 480,
+        "protein": "15g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 127
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 126
+        }
+      ],
+      "totalCalories": 1456
+    },
+    "day_3": {
+      "date": "2025-04-03",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Miso Soup with Tofu",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Stuffed Bell Peppers",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 145
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 114
+        }
+      ],
+      "totalCalories": 1421
+    },
+    "day_4": {
+      "date": "2025-04-04",
+      "breakfast": {
+        "name": "Green Power Smoothie",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Black Bean Burrito Bowl",
+        "calories": 460,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 137
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 131
+        }
+      ],
+      "totalCalories": 1495
+    },
+    "day_5": {
+      "date": "2025-04-05",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Miso Soup with Tofu",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Black Bean Enchiladas",
+        "calories": 460,
+        "protein": "18g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 102
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 133
+        }
+      ],
+      "totalCalories": 1384
+    },
+    "day_6": {
+      "date": "2025-04-06",
+      "breakfast": {
+        "name": "Sweet Potato Toast",
+        "calories": 340,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Vegan Sushi Bowl",
+        "calories": 440,
+        "protein": "14g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Chickpea Tikka Masala",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 133
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 101
+        }
+      ],
+      "totalCalories": 1442
+    },
+    "day_7": {
+      "date": "2025-04-07",
+      "breakfast": {
+        "name": "Banana Walnut Muffins",
+        "calories": 360,
+        "protein": "8g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Vegan Sushi Bowl",
+        "calories": 440,
+        "protein": "14g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 100
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1458
+    },
+    "day_8": {
+      "date": "2025-04-08",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Quinoa Tabbouleh",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Mushroom Wellington",
+        "calories": 460,
+        "protein": "14g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 114
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 112
+        }
+      ],
+      "totalCalories": 1429
+    },
+    "day_9": {
+      "date": "2025-04-09",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "10g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Lentil Walnut Bolognese",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 147
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1465
+    },
+    "day_10": {
+      "date": "2025-04-10",
+      "breakfast": {
+        "name": "Tofu Scramble",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Miso Soup with Tofu",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 125
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1365
+    },
+    "day_11": {
+      "date": "2025-04-11",
+      "breakfast": {
+        "name": "Banana Walnut Muffins",
+        "calories": 360,
+        "protein": "8g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Quinoa Tabbouleh",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Black Bean Enchiladas",
+        "calories": 460,
+        "protein": "18g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 121
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1474
+    },
+    "day_12": {
+      "date": "2025-04-12",
+      "breakfast": {
+        "name": "Chickpea Flour Pancakes",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Lentil Walnut Bolognese",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 132
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1481
+    },
+    "day_13": {
+      "date": "2025-04-13",
+      "breakfast": {
+        "name": "Quinoa Breakfast Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Rainbow Power Bowl",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Thai Coconut Curry",
+        "calories": 480,
+        "protein": "15g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 127
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 107
+        }
+      ],
+      "totalCalories": 1563
+    },
+    "day_14": {
+      "date": "2025-04-14",
+      "breakfast": {
+        "name": "Sweet Potato Toast",
+        "calories": 340,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Buddha Bowl",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 149
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1504
+    },
+    "day_15": {
+      "date": "2025-04-15",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Chickpea Salad Sandwich",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 129
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 129
+        }
+      ],
+      "totalCalories": 1506
+    },
+    "day_16": {
+      "date": "2025-04-16",
+      "breakfast": {
+        "name": "Quinoa Breakfast Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Chickpea Salad Sandwich",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Pad Thai with Tofu",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 113
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 106
+        }
+      ],
+      "totalCalories": 1464
+    },
+    "day_17": {
+      "date": "2025-04-17",
+      "breakfast": {
+        "name": "Banana Walnut Muffins",
+        "calories": 360,
+        "protein": "8g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Rainbow Power Bowl",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 132
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 121
+        }
+      ],
+      "totalCalories": 1516
+    },
+    "day_18": {
+      "date": "2025-04-18",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Buddha Bowl",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Chickpea Tikka Masala",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 145
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 122
+        }
+      ],
+      "totalCalories": 1499
+    },
+    "day_19": {
+      "date": "2025-04-19",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Buddha Bowl",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 146
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 107
+        }
+      ],
+      "totalCalories": 1563
+    },
+    "day_20": {
+      "date": "2025-04-20",
+      "breakfast": {
+        "name": "Smoothie Bowl",
+        "calories": 380,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Miso Soup with Tofu",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Mushroom Wellington",
+        "calories": 460,
+        "protein": "14g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 118
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1423
+    },
+    "day_21": {
+      "date": "2025-04-21",
+      "breakfast": {
+        "name": "Overnight Oats & Berries",
+        "calories": 340,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Wrap",
+        "calories": 420,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Stuffed Bell Peppers",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 119
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 131
+        }
+      ],
+      "totalCalories": 1482
+    },
+    "day_22": {
+      "date": "2025-04-22",
+      "breakfast": {
+        "name": "Tofu Scramble",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Miso Soup with Tofu",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Lentil Shepherd's Pie",
+        "calories": 480,
+        "protein": "18g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 115
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 132
+        }
+      ],
+      "totalCalories": 1438
+    },
+    "day_23": {
+      "date": "2025-04-23",
+      "breakfast": {
+        "name": "Overnight Oats & Berries",
+        "calories": 340,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Buddha Bowl",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 129
+        }
+      ],
+      "totalCalories": 1502
+    },
+    "day_24": {
+      "date": "2025-04-24",
+      "breakfast": {
+        "name": "Avocado Toast with Hemp Seeds",
+        "calories": 360,
+        "protein": "12g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Thai Peanut Noodles",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Black Bean Enchiladas",
+        "calories": 460,
+        "protein": "18g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 107
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 114
+        }
+      ],
+      "totalCalories": 1526
+    },
+    "day_25": {
+      "date": "2025-04-25",
+      "breakfast": {
+        "name": "Avocado Toast with Hemp Seeds",
+        "calories": 360,
+        "protein": "12g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Rainbow Power Bowl",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Mushroom Wellington",
+        "calories": 460,
+        "protein": "14g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 136
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 147
+        }
+      ],
+      "totalCalories": 1509
+    },
+    "day_26": {
+      "date": "2025-04-26",
+      "breakfast": {
+        "name": "Chickpea Flour Pancakes",
+        "calories": 340,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Chickpea Salad Sandwich",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Pad Thai with Tofu",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 148
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1459
+    },
+    "day_27": {
+      "date": "2025-04-27",
+      "breakfast": {
+        "name": "Banana Walnut Muffins",
+        "calories": 360,
+        "protein": "8g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Thai Peanut Noodles",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Teriyaki Tempeh Bowl",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 109
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 104
+        }
+      ],
+      "totalCalories": 1511
+    },
+    "day_28": {
+      "date": "2025-04-28",
+      "breakfast": {
+        "name": "Green Power Smoothie",
+        "calories": 320,
+        "protein": "12g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Rainbow Power Bowl",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Vegan Chili",
+        "calories": 420,
+        "protein": "20g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 147
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 114
+        }
+      ],
+      "totalCalories": 1406
+    },
+    "day_29": {
+      "date": "2025-04-29",
+      "breakfast": {
+        "name": "Banana Walnut Muffins",
+        "calories": 360,
+        "protein": "8g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Chickpea Salad Sandwich",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Vegan Lasagna",
+        "calories": 480,
+        "protein": "20g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 139
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 134
+        }
+      ],
+      "totalCalories": 1479
+    },
+    "day_30": {
+      "date": "2025-04-30",
+      "breakfast": {
+        "name": "Chia Seed Pudding",
+        "calories": 320,
+        "protein": "10g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Rainbow Power Bowl",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Lentil Shepherd's Pie",
+        "calories": 480,
+        "protein": "18g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 114
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 134
+        }
+      ],
+      "totalCalories": 1458
+    }
+  },
+  "weeklyShoppingLists": {
+    "week_1": {
+      "produce": [
+        "Vegetables - 7 lbs",
+        "Fruits - 5 lbs",
+        "Herbs - 4 bunches",
+        "Mushrooms - 2 lbs"
+      ],
+      "proteins": [
+        "Tofu - 3 blocks",
+        "Tempeh - 2 packages",
+        "Beans - 6 cans"
+      ],
+      "pantry": [
+        "Nutritional yeast - 1 container",
+        "Tahini - 1 jar",
+        "Quinoa - 2 bags",
+        "Nuts - 2 lbs"
+      ],
+      "dairy": [],
+      "estimatedCost": "$75-95"
+    },
+    "week_2": {
+      "produce": [
+        "Vegetables - 7 lbs",
+        "Fruits - 5 lbs",
+        "Herbs - 4 bunches",
+        "Mushrooms - 2 lbs"
+      ],
+      "proteins": [
+        "Tofu - 3 blocks",
+        "Tempeh - 2 packages",
+        "Beans - 6 cans"
+      ],
+      "pantry": [
+        "Nutritional yeast - 1 container",
+        "Tahini - 1 jar",
+        "Quinoa - 2 bags",
+        "Nuts - 2 lbs"
+      ],
+      "dairy": [],
+      "estimatedCost": "$75-95"
+    },
+    "week_3": {
+      "produce": [
+        "Vegetables - 7 lbs",
+        "Fruits - 5 lbs",
+        "Herbs - 4 bunches",
+        "Mushrooms - 2 lbs"
+      ],
+      "proteins": [
+        "Tofu - 3 blocks",
+        "Tempeh - 2 packages",
+        "Beans - 6 cans"
+      ],
+      "pantry": [
+        "Nutritional yeast - 1 container",
+        "Tahini - 1 jar",
+        "Quinoa - 2 bags",
+        "Nuts - 2 lbs"
+      ],
+      "dairy": [],
+      "estimatedCost": "$75-95"
+    },
+    "week_4": {
+      "produce": [
+        "Vegetables - 7 lbs",
+        "Fruits - 5 lbs",
+        "Herbs - 4 bunches",
+        "Mushrooms - 2 lbs"
+      ],
+      "proteins": [
+        "Tofu - 3 blocks",
+        "Tempeh - 2 packages",
+        "Beans - 6 cans"
+      ],
+      "pantry": [
+        "Nutritional yeast - 1 container",
+        "Tahini - 1 jar",
+        "Quinoa - 2 bags",
+        "Nuts - 2 lbs"
+      ],
+      "dairy": [],
+      "estimatedCost": "$75-95"
+    }
+  },
+  "mealPrepGuide": {
+    "sunday": [
+      "Prep vegetables for the week",
+      "Cook grains and legumes in bulk",
+      "Make sauces and dressings",
+      "Marinate proteins"
+    ],
+    "wednesday": [
+      "Mid-week vegetable refresh",
+      "Prepare overnight items",
+      "Quick pickle vegetables"
+    ],
+    "timeEstimate": "2.5 hours Sunday, 45 min Wednesday"
+  }
+}

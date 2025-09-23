@@ -1,0 +1,1130 @@
+{
+  "menuType": "family-focused",
+  "month": 3,
+  "year": 2025,
+  "title": "Family Focused - March 2025",
+  "description": "Kid-friendly meals that parents love too - quick, nutritious, and delicious",
+  "nutritionTargets": {
+    "dailyCalories": "1600-2000",
+    "macros": {
+      "protein": "20%",
+      "carbs": "45%",
+      "fats": "35%"
+    },
+    "familyServings": "4-6 people"
+  },
+  "dailyMeals": {
+    "day_1": {
+      "date": "2025-03-01",
+      "breakfast": {
+        "name": "French Toast Sticks",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mac and Cheese with Veggies",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Burger Night",
+        "calories": 480,
+        "protein": "26g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 141
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1549
+    },
+    "day_2": {
+      "date": "2025-03-02",
+      "breakfast": {
+        "name": "French Toast Sticks",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mini Meatball Subs",
+        "calories": 450,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Spaghetti and Meatballs",
+        "calories": 520,
+        "protein": "26g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 105
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 135
+        }
+      ],
+      "totalCalories": 1538
+    },
+    "day_3": {
+      "date": "2025-03-03",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Pasta Salad Bar",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Chicken Stir-Fry",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 114
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1470
+    },
+    "day_4": {
+      "date": "2025-03-04",
+      "breakfast": {
+        "name": "Breakfast Pizza",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Mini Meatball Subs",
+        "calories": 450,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Fish Sticks with Fries",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 132
+        }
+      ],
+      "totalCalories": 1580
+    },
+    "day_5": {
+      "date": "2025-03-05",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Pasta Salad Bar",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Chicken Stir-Fry",
+        "calories": 440,
+        "protein": "30g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 150
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 138
+        }
+      ],
+      "totalCalories": 1481
+    },
+    "day_6": {
+      "date": "2025-03-06",
+      "breakfast": {
+        "name": "Waffle Sandwiches",
+        "calories": 400,
+        "protein": "16g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Quesadilla Triangles",
+        "calories": 410,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Taco Tuesday Fiesta",
+        "calories": 480,
+        "protein": "24g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 131
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 136
+        }
+      ],
+      "totalCalories": 1513
+    },
+    "day_7": {
+      "date": "2025-03-07",
+      "breakfast": {
+        "name": "Pancake Bar Sunday",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Mini Meatball Subs",
+        "calories": 450,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "BBQ Chicken with Corn",
+        "calories": 460,
+        "protein": "32g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 105
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 139
+        }
+      ],
+      "totalCalories": 1502
+    },
+    "day_8": {
+      "date": "2025-03-08",
+      "breakfast": {
+        "name": "Bagel Bar",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Pasta Salad Bar",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Spaghetti and Meatballs",
+        "calories": 520,
+        "protein": "26g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 123
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 109
+        }
+      ],
+      "totalCalories": 1525
+    },
+    "day_9": {
+      "date": "2025-03-09",
+      "breakfast": {
+        "name": "Breakfast Burritos",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Pasta Salad Bar",
+        "calories": 440,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Taco Tuesday Fiesta",
+        "calories": 480,
+        "protein": "24g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 131
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 127
+        }
+      ],
+      "totalCalories": 1594
+    },
+    "day_10": {
+      "date": "2025-03-10",
+      "breakfast": {
+        "name": "Cinnamon Roll Oatmeal",
+        "calories": 350,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "DIY Pizza Pockets",
+        "calories": 440,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Shepherd's Pie",
+        "calories": 490,
+        "protein": "22g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 138
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 124
+        }
+      ],
+      "totalCalories": 1568
+    },
+    "day_11": {
+      "date": "2025-03-11",
+      "breakfast": {
+        "name": "Bagel Bar",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Grilled Cheese and Tomato Soup",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Fish Sticks with Fries",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 125
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 149
+        }
+      ],
+      "totalCalories": 1490
+    },
+    "day_12": {
+      "date": "2025-03-12",
+      "breakfast": {
+        "name": "Breakfast Burritos",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Taco Cups",
+        "calories": 430,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Baked Ziti",
+        "calories": 470,
+        "protein": "20g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 149
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 135
+        }
+      ],
+      "totalCalories": 1620
+    },
+    "day_13": {
+      "date": "2025-03-13",
+      "breakfast": {
+        "name": "Smoothie Bowls",
+        "calories": 340,
+        "protein": "12g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Chicken Wraps",
+        "calories": 420,
+        "protein": "26g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Chicken Fajitas",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 116
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 128
+        }
+      ],
+      "totalCalories": 1515
+    },
+    "day_14": {
+      "date": "2025-03-14",
+      "breakfast": {
+        "name": "Breakfast Pizza",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "DIY Pizza Pockets",
+        "calories": 440,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Spaghetti and Meatballs",
+        "calories": 520,
+        "protein": "26g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 120
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 115
+        }
+      ],
+      "totalCalories": 1564
+    },
+    "day_15": {
+      "date": "2025-03-15",
+      "breakfast": {
+        "name": "Breakfast Burritos",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Chicken Wraps",
+        "calories": 420,
+        "protein": "26g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Taco Tuesday Fiesta",
+        "calories": 480,
+        "protein": "24g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 121
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 120
+        }
+      ],
+      "totalCalories": 1609
+    },
+    "day_16": {
+      "date": "2025-03-16",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "DIY Pizza Pockets",
+        "calories": 440,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Burger Night",
+        "calories": 480,
+        "protein": "26g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 147
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 149
+        }
+      ],
+      "totalCalories": 1497
+    },
+    "day_17": {
+      "date": "2025-03-17",
+      "breakfast": {
+        "name": "Waffle Sandwiches",
+        "calories": 400,
+        "protein": "16g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Quesadilla Triangles",
+        "calories": 410,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 102
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 125
+        }
+      ],
+      "totalCalories": 1605
+    },
+    "day_18": {
+      "date": "2025-03-18",
+      "breakfast": {
+        "name": "Pancake Bar Sunday",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Quesadilla Triangles",
+        "calories": 410,
+        "protein": "18g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Taco Tuesday Fiesta",
+        "calories": 480,
+        "protein": "24g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 112
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 109
+        }
+      ],
+      "totalCalories": 1567
+    },
+    "day_19": {
+      "date": "2025-03-19",
+      "breakfast": {
+        "name": "Breakfast Burritos",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "DIY Pizza Pockets",
+        "calories": 440,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Burger Night",
+        "calories": 480,
+        "protein": "26g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 112
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 109
+        }
+      ],
+      "totalCalories": 1629
+    },
+    "day_20": {
+      "date": "2025-03-20",
+      "breakfast": {
+        "name": "Bagel Bar",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Chicken Nuggets and Sweet Potato Fries",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Fish Sticks with Fries",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 127
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 135
+        }
+      ],
+      "totalCalories": 1521
+    },
+    "day_21": {
+      "date": "2025-03-21",
+      "breakfast": {
+        "name": "French Toast Sticks",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Chicken Wraps",
+        "calories": 420,
+        "protein": "26g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Spaghetti and Meatballs",
+        "calories": 520,
+        "protein": "26g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 143
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 148
+        }
+      ],
+      "totalCalories": 1584
+    },
+    "day_22": {
+      "date": "2025-03-22",
+      "breakfast": {
+        "name": "French Toast Sticks",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mac and Cheese with Veggies",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Baked Ziti",
+        "calories": 470,
+        "protein": "20g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 136
+        }
+      ],
+      "totalCalories": 1459
+    },
+    "day_23": {
+      "date": "2025-03-23",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Build-Your-Own Sandwich Station",
+        "calories": 400,
+        "protein": "20g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 146
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 144
+        }
+      ],
+      "totalCalories": 1511
+    },
+    "day_24": {
+      "date": "2025-03-24",
+      "breakfast": {
+        "name": "Bagel Bar",
+        "calories": 360,
+        "protein": "14g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Taco Cups",
+        "calories": 430,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Fish Sticks with Fries",
+        "calories": 450,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 114
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 137
+        }
+      ],
+      "totalCalories": 1540
+    },
+    "day_25": {
+      "date": "2025-03-25",
+      "breakfast": {
+        "name": "Cinnamon Roll Oatmeal",
+        "calories": 350,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "DIY Pizza Pockets",
+        "calories": 440,
+        "protein": "18g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Chicken Fajitas",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 124
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 108
+        }
+      ],
+      "totalCalories": 1537
+    },
+    "day_26": {
+      "date": "2025-03-26",
+      "breakfast": {
+        "name": "Cinnamon Roll Oatmeal",
+        "calories": 350,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Chicken Nuggets and Sweet Potato Fries",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Baked Ziti",
+        "calories": 470,
+        "protein": "20g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 108
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 110
+        }
+      ],
+      "totalCalories": 1494
+    },
+    "day_27": {
+      "date": "2025-03-27",
+      "breakfast": {
+        "name": "Cinnamon Roll Oatmeal",
+        "calories": 350,
+        "protein": "10g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Grilled Cheese and Tomato Soup",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 146
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 124
+        }
+      ],
+      "totalCalories": 1515
+    },
+    "day_28": {
+      "date": "2025-03-28",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Taco Cups",
+        "calories": 430,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Burger Night",
+        "calories": 480,
+        "protein": "26g",
+        "prepTime": "20 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 116
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 107
+        }
+      ],
+      "totalCalories": 1525
+    },
+    "day_29": {
+      "date": "2025-03-29",
+      "breakfast": {
+        "name": "Egg Muffin Cups",
+        "calories": 320,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Mac and Cheese with Veggies",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 116
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1453
+    },
+    "day_30": {
+      "date": "2025-03-30",
+      "breakfast": {
+        "name": "Waffle Sandwiches",
+        "calories": 400,
+        "protein": "16g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Grilled Cheese and Tomato Soup",
+        "calories": 400,
+        "protein": "14g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 150
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 115
+        }
+      ],
+      "totalCalories": 1584
+    },
+    "day_31": {
+      "date": "2025-03-31",
+      "breakfast": {
+        "name": "Pancake Bar Sunday",
+        "calories": 380,
+        "protein": "12g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Build-Your-Own Sandwich Station",
+        "calories": 400,
+        "protein": "20g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Chicken Alfredo",
+        "calories": 510,
+        "protein": "28g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 139
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 120
+        }
+      ],
+      "totalCalories": 1530
+    }
+  },
+  "weeklyShoppingLists": {
+    "week_1": {
+      "produce": [
+        "Potatoes - 5 lbs",
+        "Carrots - 2 lbs",
+        "Corn - 6 ears",
+        "Lettuce - 2 heads"
+      ],
+      "proteins": [
+        "Ground beef - 2 lbs",
+        "Chicken - 3 lbs",
+        "Turkey - 1 lb",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Pasta - 3 boxes",
+        "Bread - 2 loaves",
+        "Rice - 2 lbs",
+        "Tortillas - 2 packs"
+      ],
+      "dairy": [
+        "Cheese - 2 lbs",
+        "Milk - 1 gallon",
+        "Yogurt - 6 cups"
+      ],
+      "estimatedCost": "$100-130"
+    },
+    "week_2": {
+      "produce": [
+        "Potatoes - 5 lbs",
+        "Carrots - 2 lbs",
+        "Corn - 6 ears",
+        "Lettuce - 2 heads"
+      ],
+      "proteins": [
+        "Ground beef - 2 lbs",
+        "Chicken - 3 lbs",
+        "Turkey - 1 lb",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Pasta - 3 boxes",
+        "Bread - 2 loaves",
+        "Rice - 2 lbs",
+        "Tortillas - 2 packs"
+      ],
+      "dairy": [
+        "Cheese - 2 lbs",
+        "Milk - 1 gallon",
+        "Yogurt - 6 cups"
+      ],
+      "estimatedCost": "$100-130"
+    },
+    "week_3": {
+      "produce": [
+        "Potatoes - 5 lbs",
+        "Carrots - 2 lbs",
+        "Corn - 6 ears",
+        "Lettuce - 2 heads"
+      ],
+      "proteins": [
+        "Ground beef - 2 lbs",
+        "Chicken - 3 lbs",
+        "Turkey - 1 lb",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Pasta - 3 boxes",
+        "Bread - 2 loaves",
+        "Rice - 2 lbs",
+        "Tortillas - 2 packs"
+      ],
+      "dairy": [
+        "Cheese - 2 lbs",
+        "Milk - 1 gallon",
+        "Yogurt - 6 cups"
+      ],
+      "estimatedCost": "$100-130"
+    },
+    "week_4": {
+      "produce": [
+        "Potatoes - 5 lbs",
+        "Carrots - 2 lbs",
+        "Corn - 6 ears",
+        "Lettuce - 2 heads"
+      ],
+      "proteins": [
+        "Ground beef - 2 lbs",
+        "Chicken - 3 lbs",
+        "Turkey - 1 lb",
+        "Eggs - 2 dozen"
+      ],
+      "pantry": [
+        "Pasta - 3 boxes",
+        "Bread - 2 loaves",
+        "Rice - 2 lbs",
+        "Tortillas - 2 packs"
+      ],
+      "dairy": [
+        "Cheese - 2 lbs",
+        "Milk - 1 gallon",
+        "Yogurt - 6 cups"
+      ],
+      "estimatedCost": "$100-130"
+    }
+  },
+  "mealPrepGuide": {
+    "sunday": [
+      "Prep snack boxes for the week",
+      "Cut vegetables for easy cooking",
+      "Make a big batch of pasta sauce",
+      "Prepare breakfast muffins"
+    ],
+    "wednesday": [
+      "Refresh fruit and vegetables",
+      "Prep taco meat for Friday",
+      "Make pizza dough for weekend"
+    ],
+    "timeEstimate": "1.5 hours Sunday, 30 min Wednesday"
+  }
+}

@@ -42,11 +42,11 @@ export default function HomePage() {
               <span className="text-xl font-semibold text-amber-800">Mocha's MindLab Inc.</span>
             </div>
             <div className="flex items-center space-x-8">
-              <Link href="/calendar" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Calendar
+              <Link href="/menu-benefits" className="text-gray-700 hover:text-teal-600 transition font-medium">
+                Why It Works
               </Link>
-              <Link href="/shopping-list" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Shopping List
+              <Link href="/calendar" className="text-gray-700 hover:text-teal-600 transition font-medium">
+                Sample Calendar
               </Link>
               {/* Meal Plans Dropdown */}
               <div className="relative group">
@@ -85,11 +85,8 @@ export default function HomePage() {
               <Link href="/recipes" className="text-gray-700 hover:text-teal-600 transition font-medium">
                 Recipes
               </Link>
-              <Link href="#plans" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Pricing
-              </Link>
-              <Link href="/portal" className="bg-teal-600 text-white px-6 py-2.5 rounded-full hover:bg-teal-700 font-medium transition">
-                Contact Us
+              <Link href="/pricing" className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2.5 rounded-full hover:from-amber-600 hover:to-orange-600 font-medium transition transform hover:scale-105">
+                Get Started - $79/month
               </Link>
             </div>
           </nav>

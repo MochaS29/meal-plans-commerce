@@ -1,0 +1,1126 @@
+{
+  "menuType": "global-cuisine",
+  "month": 3,
+  "year": 2025,
+  "title": "Global Cuisine - March 2025",
+  "description": "A culinary journey around the world - new cuisines every week",
+  "nutritionTargets": {
+    "dailyCalories": "1500-1700",
+    "macros": {
+      "protein": "25%",
+      "carbs": "40%",
+      "fats": "35%"
+    },
+    "weeklyRotation": "Different cuisine each week"
+  },
+  "dailyMeals": {
+    "day_1": {
+      "date": "2025-03-01",
+      "breakfast": {
+        "name": "Mexican Chilaquiles",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Greek Moussaka",
+        "calories": 480,
+        "protein": "22g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Japanese Teriyaki Salmon",
+        "calories": 480,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 105
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 132
+        }
+      ],
+      "totalCalories": 1586
+    },
+    "day_2": {
+      "date": "2025-03-02",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Mexican Tacos Al Pastor",
+        "calories": 460,
+        "protein": "26g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 116
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1534
+    },
+    "day_3": {
+      "date": "2025-03-03",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Indian Tikka Masala",
+        "calories": 460,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Greek Lamb Kleftiko",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 144
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 122
+        }
+      ],
+      "totalCalories": 1613
+    },
+    "day_4": {
+      "date": "2025-03-04",
+      "breakfast": {
+        "name": "Mexican Chilaquiles",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Indian Tikka Masala",
+        "calories": 460,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Moroccan Lamb Couscous",
+        "calories": 500,
+        "protein": "30g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 128
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 109
+        }
+      ],
+      "totalCalories": 1630
+    },
+    "day_5": {
+      "date": "2025-03-05",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Moroccan Tagine",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Chinese Kung Pao Chicken",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 143
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 111
+        }
+      ],
+      "totalCalories": 1497
+    },
+    "day_6": {
+      "date": "2025-03-06",
+      "breakfast": {
+        "name": "Brazilian Acai Bowl",
+        "calories": 380,
+        "protein": "10g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Spanish Paella",
+        "calories": 480,
+        "protein": "28g",
+        "prepTime": "40 min"
+      },
+      "dinner": {
+        "name": "Chinese Kung Pao Chicken",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 131
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 102
+        }
+      ],
+      "totalCalories": 1622
+    },
+    "day_7": {
+      "date": "2025-03-07",
+      "breakfast": {
+        "name": "Turkish Menemen",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Greek Moussaka",
+        "calories": 480,
+        "protein": "22g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Chinese Kung Pao Chicken",
+        "calories": 480,
+        "protein": "32g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 150
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 136
+        }
+      ],
+      "totalCalories": 1602
+    },
+    "day_8": {
+      "date": "2025-03-08",
+      "breakfast": {
+        "name": "Indian Masala Dosa",
+        "calories": 400,
+        "protein": "12g",
+        "prepTime": "30 min"
+      },
+      "lunch": {
+        "name": "Moroccan Tagine",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 148
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 123
+        }
+      ],
+      "totalCalories": 1611
+    },
+    "day_9": {
+      "date": "2025-03-09",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Moroccan Tagine",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Thai Green Curry",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 141
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 105
+        }
+      ],
+      "totalCalories": 1480
+    },
+    "day_10": {
+      "date": "2025-03-10",
+      "breakfast": {
+        "name": "Korean Kimchi Fried Rice",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Thai Tom Yum Soup",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Moroccan Lamb Couscous",
+        "calories": 500,
+        "protein": "30g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 144
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 146
+        }
+      ],
+      "totalCalories": 1577
+    },
+    "day_11": {
+      "date": "2025-03-11",
+      "breakfast": {
+        "name": "Korean Kimchi Fried Rice",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Mexican Tacos Al Pastor",
+        "calories": 460,
+        "protein": "26g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 131
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 128
+        }
+      ],
+      "totalCalories": 1590
+    },
+    "day_12": {
+      "date": "2025-03-12",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Moroccan Tagine",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 119
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1540
+    },
+    "day_13": {
+      "date": "2025-03-13",
+      "breakfast": {
+        "name": "Vietnamese Banh Mi",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Indian Tikka Masala",
+        "calories": 460,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Moroccan Lamb Couscous",
+        "calories": 500,
+        "protein": "30g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 112
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 111
+        }
+      ],
+      "totalCalories": 1623
+    },
+    "day_14": {
+      "date": "2025-03-14",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Mexican Tacos Al Pastor",
+        "calories": 460,
+        "protein": "26g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 115
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 123
+        }
+      ],
+      "totalCalories": 1558
+    },
+    "day_15": {
+      "date": "2025-03-15",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Moroccan Tagine",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "45 min"
+      },
+      "dinner": {
+        "name": "Italian Osso Buco",
+        "calories": 540,
+        "protein": "38g",
+        "prepTime": "90 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 150
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 147
+        }
+      ],
+      "totalCalories": 1591
+    },
+    "day_16": {
+      "date": "2025-03-16",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Thai Tom Yum Soup",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Mexican Mole Poblano",
+        "calories": 520,
+        "protein": "30g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 107
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 137
+        }
+      ],
+      "totalCalories": 1522
+    },
+    "day_17": {
+      "date": "2025-03-17",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Italian Caprese Salad",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "Mexican Mole Poblano",
+        "calories": 520,
+        "protein": "30g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 114
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 144
+        }
+      ],
+      "totalCalories": 1485
+    },
+    "day_18": {
+      "date": "2025-03-18",
+      "breakfast": {
+        "name": "Brazilian Acai Bowl",
+        "calories": 380,
+        "protein": "10g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Korean Bibimbap",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Japanese Teriyaki Salmon",
+        "calories": 480,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 106
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 147
+        }
+      ],
+      "totalCalories": 1561
+    },
+    "day_19": {
+      "date": "2025-03-19",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Korean Bibimbap",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "French Coq au Vin",
+        "calories": 520,
+        "protein": "34g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 124
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 128
+        }
+      ],
+      "totalCalories": 1573
+    },
+    "day_20": {
+      "date": "2025-03-20",
+      "breakfast": {
+        "name": "Turkish Menemen",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Vietnamese Pho",
+        "calories": 380,
+        "protein": "26g",
+        "prepTime": "40 min"
+      },
+      "dinner": {
+        "name": "French Coq au Vin",
+        "calories": 520,
+        "protein": "34g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 148
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1529
+    },
+    "day_21": {
+      "date": "2025-03-21",
+      "breakfast": {
+        "name": "Turkish Menemen",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Korean Bibimbap",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Italian Osso Buco",
+        "calories": 540,
+        "protein": "38g",
+        "prepTime": "90 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 121
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 146
+        }
+      ],
+      "totalCalories": 1664
+    },
+    "day_22": {
+      "date": "2025-03-22",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Korean Bibimbap",
+        "calories": 460,
+        "protein": "22g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Moroccan Lamb Couscous",
+        "calories": 500,
+        "protein": "30g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 133
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 101
+        }
+      ],
+      "totalCalories": 1608
+    },
+    "day_23": {
+      "date": "2025-03-23",
+      "breakfast": {
+        "name": "Vietnamese Banh Mi",
+        "calories": 440,
+        "protein": "22g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Japanese Bento Box",
+        "calories": 440,
+        "protein": "28g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Moroccan Lamb Couscous",
+        "calories": 500,
+        "protein": "30g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 111
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 114
+        }
+      ],
+      "totalCalories": 1603
+    },
+    "day_24": {
+      "date": "2025-03-24",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Spanish Paella",
+        "calories": 480,
+        "protein": "28g",
+        "prepTime": "40 min"
+      },
+      "dinner": {
+        "name": "Japanese Teriyaki Salmon",
+        "calories": 480,
+        "protein": "36g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 127
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 150
+        }
+      ],
+      "totalCalories": 1574
+    },
+    "day_25": {
+      "date": "2025-03-25",
+      "breakfast": {
+        "name": "Turkish Menemen",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Thai Tom Yum Soup",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Thai Green Curry",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 135
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 138
+        }
+      ],
+      "totalCalories": 1459
+    },
+    "day_26": {
+      "date": "2025-03-26",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Vietnamese Pho",
+        "calories": 380,
+        "protein": "26g",
+        "prepTime": "40 min"
+      },
+      "dinner": {
+        "name": "Mexican Mole Poblano",
+        "calories": 520,
+        "protein": "30g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 128
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1451
+    },
+    "day_27": {
+      "date": "2025-03-27",
+      "breakfast": {
+        "name": "Indian Masala Dosa",
+        "calories": 400,
+        "protein": "12g",
+        "prepTime": "30 min"
+      },
+      "lunch": {
+        "name": "Italian Caprese Salad",
+        "calories": 420,
+        "protein": "18g",
+        "prepTime": "10 min"
+      },
+      "dinner": {
+        "name": "French Coq au Vin",
+        "calories": 520,
+        "protein": "34g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 145
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 121
+        }
+      ],
+      "totalCalories": 1582
+    },
+    "day_28": {
+      "date": "2025-03-28",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Indian Tikka Masala",
+        "calories": 460,
+        "protein": "24g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "Thai Green Curry",
+        "calories": 460,
+        "protein": "28g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 119
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 100
+        }
+      ],
+      "totalCalories": 1518
+    },
+    "day_29": {
+      "date": "2025-03-29",
+      "breakfast": {
+        "name": "Turkish Menemen",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Thai Tom Yum Soup",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Greek Lamb Kleftiko",
+        "calories": 540,
+        "protein": "36g",
+        "prepTime": "120 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 121
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 121
+        }
+      ],
+      "totalCalories": 1557
+    },
+    "day_30": {
+      "date": "2025-03-30",
+      "breakfast": {
+        "name": "Chinese Congee",
+        "calories": 340,
+        "protein": "14g",
+        "prepTime": "40 min"
+      },
+      "lunch": {
+        "name": "Thai Tom Yum Soup",
+        "calories": 380,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Indian Butter Chicken",
+        "calories": 500,
+        "protein": "32g",
+        "prepTime": "40 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 139
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 145
+        }
+      ],
+      "totalCalories": 1460
+    },
+    "day_31": {
+      "date": "2025-03-31",
+      "breakfast": {
+        "name": "Israeli Shakshuka",
+        "calories": 360,
+        "protein": "20g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Japanese Bento Box",
+        "calories": 440,
+        "protein": "28g",
+        "prepTime": "35 min"
+      },
+      "dinner": {
+        "name": "French Coq au Vin",
+        "calories": 520,
+        "protein": "34g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 130
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 115
+        }
+      ],
+      "totalCalories": 1614
+    }
+  },
+  "weeklyShoppingLists": {
+    "week_1": {
+      "produce": [
+        "Mixed vegetables - 6 lbs",
+        "Herbs - 6 bunches",
+        "Ginger - 4 oz",
+        "Lemongrass - 4 stalks"
+      ],
+      "proteins": [
+        "Chicken - 2 lbs",
+        "Fish - 1.5 lbs",
+        "Beef - 1 lb",
+        "Shrimp - 1 lb"
+      ],
+      "pantry": [
+        "Rice - 3 lbs",
+        "Noodles - 2 packs",
+        "Spices - various",
+        "Coconut milk - 3 cans"
+      ],
+      "dairy": [
+        "Yogurt - 1 container",
+        "Cheese - 1 lb"
+      ],
+      "estimatedCost": "$130-155"
+    },
+    "week_2": {
+      "produce": [
+        "Mixed vegetables - 6 lbs",
+        "Herbs - 6 bunches",
+        "Ginger - 4 oz",
+        "Lemongrass - 4 stalks"
+      ],
+      "proteins": [
+        "Chicken - 2 lbs",
+        "Fish - 1.5 lbs",
+        "Beef - 1 lb",
+        "Shrimp - 1 lb"
+      ],
+      "pantry": [
+        "Rice - 3 lbs",
+        "Noodles - 2 packs",
+        "Spices - various",
+        "Coconut milk - 3 cans"
+      ],
+      "dairy": [
+        "Yogurt - 1 container",
+        "Cheese - 1 lb"
+      ],
+      "estimatedCost": "$130-155"
+    },
+    "week_3": {
+      "produce": [
+        "Mixed vegetables - 6 lbs",
+        "Herbs - 6 bunches",
+        "Ginger - 4 oz",
+        "Lemongrass - 4 stalks"
+      ],
+      "proteins": [
+        "Chicken - 2 lbs",
+        "Fish - 1.5 lbs",
+        "Beef - 1 lb",
+        "Shrimp - 1 lb"
+      ],
+      "pantry": [
+        "Rice - 3 lbs",
+        "Noodles - 2 packs",
+        "Spices - various",
+        "Coconut milk - 3 cans"
+      ],
+      "dairy": [
+        "Yogurt - 1 container",
+        "Cheese - 1 lb"
+      ],
+      "estimatedCost": "$130-155"
+    },
+    "week_4": {
+      "produce": [
+        "Mixed vegetables - 6 lbs",
+        "Herbs - 6 bunches",
+        "Ginger - 4 oz",
+        "Lemongrass - 4 stalks"
+      ],
+      "proteins": [
+        "Chicken - 2 lbs",
+        "Fish - 1.5 lbs",
+        "Beef - 1 lb",
+        "Shrimp - 1 lb"
+      ],
+      "pantry": [
+        "Rice - 3 lbs",
+        "Noodles - 2 packs",
+        "Spices - various",
+        "Coconut milk - 3 cans"
+      ],
+      "dairy": [
+        "Yogurt - 1 container",
+        "Cheese - 1 lb"
+      ],
+      "estimatedCost": "$130-155"
+    }
+  },
+  "mealPrepGuide": {
+    "sunday": [
+      "Prep vegetables for the week",
+      "Cook grains and legumes in bulk",
+      "Make sauces and dressings",
+      "Marinate proteins"
+    ],
+    "wednesday": [
+      "Mid-week vegetable refresh",
+      "Prepare overnight items",
+      "Quick pickle vegetables"
+    ],
+    "timeEstimate": "2.5 hours Sunday, 45 min Wednesday"
+  }
+}

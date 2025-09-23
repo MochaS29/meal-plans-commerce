@@ -1,0 +1,229 @@
+{
+  "menuType": "family-focused",
+  "month": 1,
+  "year": 2025,
+  "familySize": 4,
+  "dailyMeals": {
+    "1": {
+      "breakfast": {
+        "name": "Pancakes with Fresh Fruit",
+        "calories": 380,
+        "protein": 12,
+        "prepTime": 20,
+        "servings": 4,
+        "ingredients": [
+          "flour",
+          "eggs",
+          "milk",
+          "blueberries",
+          "maple syrup",
+          "butter"
+        ]
+      },
+      "lunch": {
+        "name": "Chicken Quesadillas",
+        "calories": 420,
+        "protein": 28,
+        "prepTime": 15,
+        "servings": 4,
+        "ingredients": [
+          "chicken",
+          "tortillas",
+          "cheese",
+          "bell peppers",
+          "onions",
+          "salsa"
+        ]
+      },
+      "dinner": {
+        "name": "Spaghetti with Meat Sauce",
+        "calories": 520,
+        "protein": 25,
+        "prepTime": 30,
+        "servings": 4,
+        "ingredients": [
+          "ground beef",
+          "pasta",
+          "tomato sauce",
+          "onions",
+          "garlic",
+          "parmesan"
+        ]
+      },
+      "snack": {
+        "name": "Fruit and Cheese Platter",
+        "calories": 150,
+        "protein": 8,
+        "prepTime": 5,
+        "servings": 4,
+        "ingredients": [
+          "apples",
+          "grapes",
+          "cheddar cheese",
+          "crackers"
+        ]
+      }
+    },
+    "2": {
+      "breakfast": {
+        "name": "Scrambled Eggs with Toast",
+        "calories": 340,
+        "protein": 20,
+        "prepTime": 10,
+        "servings": 4,
+        "ingredients": [
+          "eggs",
+          "whole wheat bread",
+          "butter",
+          "milk",
+          "cheese"
+        ]
+      },
+      "lunch": {
+        "name": "Turkey and Cheese Sandwiches",
+        "calories": 380,
+        "protein": 24,
+        "prepTime": 10,
+        "servings": 4,
+        "ingredients": [
+          "turkey",
+          "bread",
+          "cheese",
+          "lettuce",
+          "tomato",
+          "mayo"
+        ]
+      },
+      "dinner": {
+        "name": "Taco Tuesday",
+        "calories": 480,
+        "protein": 28,
+        "prepTime": 25,
+        "servings": 4,
+        "ingredients": [
+          "ground turkey",
+          "taco shells",
+          "lettuce",
+          "cheese",
+          "tomatoes",
+          "sour cream"
+        ]
+      },
+      "snack": {
+        "name": "Homemade Popcorn",
+        "calories": 110,
+        "protein": 3,
+        "prepTime": 5,
+        "servings": 4,
+        "ingredients": [
+          "popcorn kernels",
+          "butter",
+          "salt"
+        ]
+      }
+    },
+    "3": {
+      "breakfast": {
+        "name": "Oatmeal Bar",
+        "calories": 320,
+        "protein": 10,
+        "prepTime": 15,
+        "servings": 4,
+        "ingredients": [
+          "oats",
+          "milk",
+          "brown sugar",
+          "berries",
+          "nuts",
+          "honey"
+        ]
+      },
+      "lunch": {
+        "name": "Pizza Bagels",
+        "calories": 360,
+        "protein": 18,
+        "prepTime": 12,
+        "servings": 4,
+        "ingredients": [
+          "bagels",
+          "pizza sauce",
+          "mozzarella",
+          "pepperoni"
+        ]
+      },
+      "dinner": {
+        "name": "Baked Chicken with Vegetables",
+        "calories": 450,
+        "protein": 35,
+        "prepTime": 35,
+        "servings": 4,
+        "ingredients": [
+          "chicken breasts",
+          "potatoes",
+          "carrots",
+          "green beans",
+          "olive oil"
+        ]
+      },
+      "snack": {
+        "name": "Veggie Sticks with Ranch",
+        "calories": 120,
+        "protein": 4,
+        "prepTime": 5,
+        "servings": 4,
+        "ingredients": [
+          "carrots",
+          "celery",
+          "ranch dressing"
+        ]
+      }
+    }
+  },
+  "weeklyShoppingLists": {
+    "week1": {
+      "produce": [
+        "apples",
+        "berries",
+        "lettuce",
+        "tomatoes",
+        "potatoes",
+        "carrots"
+      ],
+      "proteins": [
+        "chicken breasts",
+        "ground beef",
+        "ground turkey",
+        "eggs",
+        "cheese"
+      ],
+      "pantry": [
+        "pasta",
+        "rice",
+        "bread",
+        "tortillas",
+        "oats",
+        "flour"
+      ],
+      "dairy": [
+        "milk",
+        "butter",
+        "yogurt",
+        "sour cream"
+      ]
+    }
+  },
+  "nutritionTargets": {
+    "dailyCaloriesPerPerson": 1600,
+    "kidFriendly": true,
+    "prepTimeMax": 35,
+    "servings": 4
+  },
+  "mealPrepGuides": {
+    "week1": [
+      "Batch cook ground meat on Sunday",
+      "Pre-cut vegetables for the week",
+      "Make pancake batter the night before",
+      "Prep lunch boxes Sunday evening"
+    ]
+  }
+}

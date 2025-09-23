@@ -1,8 +1,8 @@
 {
   "menuType": "mediterranean",
-  "month": 1,
+  "month": 4,
   "year": 2025,
-  "title": "Mediterranean - January 2025",
+  "title": "Mediterranean - April 2025",
   "description": "Authentic Mediterranean cuisine for healthy weight loss and heart health",
   "nutritionTargets": {
     "dailyCalories": "1400-1600",
@@ -16,167 +16,7 @@
   },
   "dailyMeals": {
     "day_1": {
-      "date": "2025-01-01",
-      "breakfast": {
-        "name": "Whole Grain Toast with Avocado and Feta",
-        "calories": 330,
-        "protein": "15g",
-        "prepTime": "10 min"
-      },
-      "lunch": {
-        "name": "Spanakopita with Greek Salad",
-        "calories": 440,
-        "protein": "17g",
-        "prepTime": "30 min"
-      },
-      "dinner": {
-        "name": "Grilled Lemon Herb Salmon",
-        "calories": 480,
-        "protein": "35g",
-        "prepTime": "25 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 104
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 131
-        }
-      ],
-      "totalCalories": 1488
-    },
-    "day_2": {
-      "date": "2025-01-02",
-      "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
-      },
-      "lunch": {
-        "name": "Greek Lentil Soup",
-        "calories": 380,
-        "protein": "18g",
-        "prepTime": "30 min"
-      },
-      "dinner": {
-        "name": "Ratatouille with Grilled Chicken",
-        "calories": 460,
-        "protein": "35g",
-        "prepTime": "45 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 129
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 150
-        }
-      ],
-      "totalCalories": 1446
-    },
-    "day_3": {
-      "date": "2025-01-03",
-      "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Chickpea Salad",
-        "calories": 420,
-        "protein": "16g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Mediterranean Baked Fish",
-        "calories": 440,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 111
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 147
-        }
-      ],
-      "totalCalories": 1479
-    },
-    "day_4": {
-      "date": "2025-01-04",
-      "breakfast": {
-        "name": "Turkish Breakfast Platter",
-        "calories": 360,
-        "protein": "19g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Spanakopita with Greek Salad",
-        "calories": 440,
-        "protein": "17g",
-        "prepTime": "30 min"
-      },
-      "dinner": {
-        "name": "Moussaka",
-        "calories": 520,
-        "protein": "28g",
-        "prepTime": "60 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 104
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 110
-        }
-      ],
-      "totalCalories": 1586
-    },
-    "day_5": {
-      "date": "2025-01-05",
-      "breakfast": {
-        "name": "Mediterranean Egg Bites",
-        "calories": 280,
-        "protein": "22g",
-        "prepTime": "25 min"
-      },
-      "lunch": {
-        "name": "Falafel Wrap with Tahini",
-        "calories": 460,
-        "protein": "16g",
-        "prepTime": "20 min"
-      },
-      "dinner": {
-        "name": "Chicken Tagine with Couscous",
-        "calories": 470,
-        "protein": "32g",
-        "prepTime": "40 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 115
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 145
-        }
-      ],
-      "totalCalories": 1413
-    },
-    "day_6": {
-      "date": "2025-01-06",
+      "date": "2025-04-01",
       "breakfast": {
         "name": "Ricotta Pancakes with Berry Compote",
         "calories": 380,
@@ -190,106 +30,10 @@
         "prepTime": "40 min"
       },
       "dinner": {
-        "name": "Seafood Paella",
-        "calories": 490,
-        "protein": "28g",
-        "prepTime": "45 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 120
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 114
-        }
-      ],
-      "totalCalories": 1498
-    },
-    "day_7": {
-      "date": "2025-01-07",
-      "breakfast": {
-        "name": "Mediterranean Egg Bites",
-        "calories": 280,
-        "protein": "22g",
-        "prepTime": "25 min"
-      },
-      "lunch": {
-        "name": "Greek Orzo Salad",
-        "calories": 410,
-        "protein": "15g",
-        "prepTime": "25 min"
-      },
-      "dinner": {
-        "name": "Chicken Souvlaki with Tzatziki",
-        "calories": 460,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 124
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 139
-        }
-      ],
-      "totalCalories": 1406
-    },
-    "day_8": {
-      "date": "2025-01-08",
-      "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Chickpea Salad",
-        "calories": 420,
-        "protein": "16g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Grilled Vegetable and Halloumi Skewers",
-        "calories": 410,
-        "protein": "24g",
-        "prepTime": "25 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 101
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 137
-        }
-      ],
-      "totalCalories": 1412
-    },
-    "day_9": {
-      "date": "2025-01-09",
-      "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Greek Orzo Salad",
-        "calories": 410,
-        "protein": "15g",
-        "prepTime": "25 min"
-      },
-      "dinner": {
-        "name": "Mediterranean Baked Fish",
-        "calories": 440,
-        "protein": "38g",
-        "prepTime": "30 min"
+        "name": "Lamb Kofta with Mint Yogurt",
+        "calories": 480,
+        "protein": "30g",
+        "prepTime": "35 min"
       },
       "snacks": [
         {
@@ -298,13 +42,13 @@
         },
         {
           "name": "Afternoon Snack",
-          "calories": 120
+          "calories": 132
         }
       ],
-      "totalCalories": 1395
+      "totalCalories": 1580
     },
-    "day_10": {
-      "date": "2025-01-10",
+    "day_2": {
+      "date": "2025-04-02",
       "breakfast": {
         "name": "Greek Yogurt Parfait with Honey",
         "calories": 320,
@@ -318,6 +62,38 @@
         "prepTime": "20 min"
       },
       "dinner": {
+        "name": "Mediterranean Baked Fish",
+        "calories": 440,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 115
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 118
+        }
+      ],
+      "totalCalories": 1467
+    },
+    "day_3": {
+      "date": "2025-04-03",
+      "breakfast": {
+        "name": "Overnight Oats with Greek Yogurt",
+        "calories": 340,
+        "protein": "18g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
         "name": "Chicken Souvlaki with Tzatziki",
         "calories": 460,
         "protein": "38g",
@@ -326,22 +102,54 @@
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 125
+          "calories": 136
         },
         {
           "name": "Afternoon Snack",
-          "calories": 123
+          "calories": 116
         }
       ],
-      "totalCalories": 1535
+      "totalCalories": 1391
     },
-    "day_11": {
-      "date": "2025-01-11",
+    "day_4": {
+      "date": "2025-04-04",
       "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
+        "name": "Whole Grain Toast with Avocado and Feta",
+        "calories": 330,
+        "protein": "15g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Spanakopita with Greek Salad",
+        "calories": 440,
+        "protein": "17g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Chicken Souvlaki with Tzatziki",
+        "calories": 460,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 137
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 109
+        }
+      ],
+      "totalCalories": 1469
+    },
+    "day_5": {
+      "date": "2025-04-05",
+      "breakfast": {
+        "name": "Spinach and Feta Frittata",
+        "calories": 320,
+        "protein": "24g",
+        "prepTime": "25 min"
       },
       "lunch": {
         "name": "Mediterranean Quinoa Bowl",
@@ -350,10 +158,234 @@
         "prepTime": "25 min"
       },
       "dinner": {
-        "name": "Chicken Tagine with Couscous",
-        "calories": 470,
+        "name": "Grilled Vegetable and Halloumi Skewers",
+        "calories": 410,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 149
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 137
+        }
+      ],
+      "totalCalories": 1461
+    },
+    "day_6": {
+      "date": "2025-04-06",
+      "breakfast": {
+        "name": "Whole Grain Toast with Avocado and Feta",
+        "calories": 330,
+        "protein": "15g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Greek Orzo Salad",
+        "calories": 410,
+        "protein": "15g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Moussaka",
+        "calories": 520,
+        "protein": "28g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 147
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 148
+        }
+      ],
+      "totalCalories": 1480
+    },
+    "day_7": {
+      "date": "2025-04-07",
+      "breakfast": {
+        "name": "Turkish Breakfast Platter",
+        "calories": 360,
+        "protein": "19g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Moussaka",
+        "calories": 520,
+        "protein": "28g",
+        "prepTime": "60 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 120
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 144
+        }
+      ],
+      "totalCalories": 1535
+    },
+    "day_8": {
+      "date": "2025-04-08",
+      "breakfast": {
+        "name": "Whole Grain Toast with Avocado and Feta",
+        "calories": 330,
+        "protein": "15g",
+        "prepTime": "10 min"
+      },
+      "lunch": {
+        "name": "Greek Lentil Soup",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Ratatouille with Grilled Chicken",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 124
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 133
+        }
+      ],
+      "totalCalories": 1398
+    },
+    "day_9": {
+      "date": "2025-04-09",
+      "breakfast": {
+        "name": "Mediterranean Egg Bites",
+        "calories": 280,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Greek Lentil Soup",
+        "calories": 380,
+        "protein": "18g",
+        "prepTime": "30 min"
+      },
+      "dinner": {
+        "name": "Ratatouille with Grilled Chicken",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 102
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 125
+        }
+      ],
+      "totalCalories": 1341
+    },
+    "day_10": {
+      "date": "2025-04-10",
+      "breakfast": {
+        "name": "Greek Yogurt Parfait with Honey",
+        "calories": 320,
+        "protein": "18g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Tabbouleh with Grilled Halloumi",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Baked Cod with Tomatoes and Olives",
+        "calories": 420,
         "protein": "32g",
-        "prepTime": "40 min"
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 129
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 108
+        }
+      ],
+      "totalCalories": 1407
+    },
+    "day_11": {
+      "date": "2025-04-11",
+      "breakfast": {
+        "name": "Mediterranean Omelet",
+        "calories": 310,
+        "protein": "22g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Lamb Kofta with Mint Yogurt",
+        "calories": 480,
+        "protein": "30g",
+        "prepTime": "35 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 116
+        }
+      ],
+      "totalCalories": 1389
+    },
+    "day_12": {
+      "date": "2025-04-12",
+      "breakfast": {
+        "name": "Overnight Oats with Greek Yogurt",
+        "calories": 340,
+        "protein": "18g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Mediterranean Baked Fish",
+        "calories": 440,
+        "protein": "38g",
+        "prepTime": "30 min"
       },
       "snacks": [
         {
@@ -362,18 +394,82 @@
         },
         {
           "name": "Afternoon Snack",
+          "calories": 111
+        }
+      ],
+      "totalCalories": 1450
+    },
+    "day_13": {
+      "date": "2025-04-13",
+      "breakfast": {
+        "name": "Spinach and Feta Frittata",
+        "calories": 320,
+        "protein": "24g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Stuffed Bell Peppers",
+        "calories": 420,
+        "protein": "22g",
+        "prepTime": "40 min"
+      },
+      "dinner": {
+        "name": "Mediterranean Baked Fish",
+        "calories": 440,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 113
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 117
+        }
+      ],
+      "totalCalories": 1388
+    },
+    "day_14": {
+      "date": "2025-04-14",
+      "breakfast": {
+        "name": "Shakshuka with Whole Grain Pita",
+        "calories": 340,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Ratatouille with Grilled Chicken",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 113
+        },
+        {
+          "name": "Afternoon Snack",
           "calories": 116
         }
       ],
-      "totalCalories": 1528
+      "totalCalories": 1482
     },
-    "day_12": {
-      "date": "2025-01-12",
+    "day_15": {
+      "date": "2025-04-15",
       "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
+        "name": "Mediterranean Smoothie Bowl",
+        "calories": 350,
+        "protein": "16g",
+        "prepTime": "10 min"
       },
       "lunch": {
         "name": "Mediterranean Tuna Salad",
@@ -390,34 +486,66 @@
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 122
+          "calories": 106
         },
         {
           "name": "Afternoon Snack",
-          "calories": 127
+          "calories": 111
         }
       ],
-      "totalCalories": 1478
+      "totalCalories": 1491
     },
-    "day_13": {
-      "date": "2025-01-13",
+    "day_16": {
+      "date": "2025-04-16",
       "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Greek Lentil Soup",
-        "calories": 380,
-        "protein": "18g",
-        "prepTime": "30 min"
-      },
-      "dinner": {
-        "name": "Grilled Vegetable and Halloumi Skewers",
-        "calories": 410,
+        "name": "Spinach and Feta Frittata",
+        "calories": 320,
         "protein": "24g",
         "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Chickpea Salad",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Ratatouille with Grilled Chicken",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 130
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 137
+        }
+      ],
+      "totalCalories": 1486
+    },
+    "day_17": {
+      "date": "2025-04-17",
+      "breakfast": {
+        "name": "Overnight Oats with Greek Yogurt",
+        "calories": 340,
+        "protein": "18g",
+        "prepTime": "5 min"
+      },
+      "lunch": {
+        "name": "Falafel Wrap with Tahini",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Baked Cod with Tomatoes and Olives",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "30 min"
       },
       "snacks": [
         {
@@ -426,23 +554,55 @@
         },
         {
           "name": "Afternoon Snack",
-          "calories": 124
+          "calories": 119
         }
       ],
-      "totalCalories": 1322
+      "totalCalories": 1452
     },
-    "day_14": {
-      "date": "2025-01-14",
+    "day_18": {
+      "date": "2025-04-18",
       "breakfast": {
-        "name": "Whole Grain Toast with Avocado and Feta",
-        "calories": 330,
-        "protein": "15g",
-        "prepTime": "10 min"
+        "name": "Shakshuka with Whole Grain Pita",
+        "calories": 340,
+        "protein": "20g",
+        "prepTime": "20 min"
       },
       "lunch": {
-        "name": "Mezze Platter with Hummus",
-        "calories": 430,
-        "protein": "18g",
+        "name": "Mediterranean Chickpea Salad",
+        "calories": 420,
+        "protein": "16g",
+        "prepTime": "15 min"
+      },
+      "dinner": {
+        "name": "Mediterranean Baked Fish",
+        "calories": 440,
+        "protein": "38g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 105
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 128
+        }
+      ],
+      "totalCalories": 1431
+    },
+    "day_19": {
+      "date": "2025-04-19",
+      "breakfast": {
+        "name": "Turkish Breakfast Platter",
+        "calories": 360,
+        "protein": "19g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Mediterranean Tuna Salad",
+        "calories": 390,
+        "protein": "30g",
         "prepTime": "15 min"
       },
       "dinner": {
@@ -454,17 +614,17 @@
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 107
+          "calories": 139
         },
         {
           "name": "Afternoon Snack",
-          "calories": 111
+          "calories": 104
         }
       ],
-      "totalCalories": 1484
+      "totalCalories": 1486
     },
-    "day_15": {
-      "date": "2025-01-15",
+    "day_20": {
+      "date": "2025-04-20",
       "breakfast": {
         "name": "Overnight Oats with Greek Yogurt",
         "calories": 340,
@@ -472,95 +632,31 @@
         "prepTime": "5 min"
       },
       "lunch": {
-        "name": "Mediterranean Chickpea Salad",
-        "calories": 420,
-        "protein": "16g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Baked Cod with Tomatoes and Olives",
-        "calories": 420,
-        "protein": "32g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 147
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 110
-        }
-      ],
-      "totalCalories": 1451
-    },
-    "day_16": {
-      "date": "2025-01-16",
-      "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Stuffed Bell Peppers",
-        "calories": 420,
-        "protein": "22g",
-        "prepTime": "40 min"
-      },
-      "dinner": {
-        "name": "Chicken Souvlaki with Tzatziki",
-        "calories": 460,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 130
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 138
-        }
-      ],
-      "totalCalories": 1450
-    },
-    "day_17": {
-      "date": "2025-01-17",
-      "breakfast": {
-        "name": "Ricotta Pancakes with Berry Compote",
-        "calories": 380,
+        "name": "Tabbouleh with Grilled Halloumi",
+        "calories": 440,
         "protein": "20g",
         "prepTime": "20 min"
       },
-      "lunch": {
-        "name": "Mediterranean Quinoa Bowl",
-        "calories": 450,
-        "protein": "18g",
-        "prepTime": "25 min"
-      },
       "dinner": {
-        "name": "Ratatouille with Grilled Chicken",
-        "calories": 460,
+        "name": "Grilled Lemon Herb Salmon",
+        "calories": 480,
         "protein": "35g",
-        "prepTime": "45 min"
+        "prepTime": "25 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 136
+          "calories": 127
         },
         {
           "name": "Afternoon Snack",
-          "calories": 114
+          "calories": 115
         }
       ],
-      "totalCalories": 1512
+      "totalCalories": 1516
     },
-    "day_18": {
-      "date": "2025-01-18",
+    "day_21": {
+      "date": "2025-04-21",
       "breakfast": {
         "name": "Mediterranean Omelet",
         "calories": 310,
@@ -574,126 +670,30 @@
         "prepTime": "20 min"
       },
       "dinner": {
-        "name": "Mediterranean Baked Fish",
-        "calories": 440,
-        "protein": "38g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 150
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 146
-        }
-      ],
-      "totalCalories": 1403
-    },
-    "day_19": {
-      "date": "2025-01-19",
-      "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Tuna Salad",
-        "calories": 390,
-        "protein": "30g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Grilled Vegetable and Halloumi Skewers",
-        "calories": 410,
-        "protein": "24g",
+        "name": "Grilled Lemon Herb Salmon",
+        "calories": 480,
+        "protein": "35g",
         "prepTime": "25 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 116
+          "calories": 129
         },
         {
           "name": "Afternoon Snack",
-          "calories": 107
+          "calories": 110
         }
       ],
-      "totalCalories": 1378
-    },
-    "day_20": {
-      "date": "2025-01-20",
-      "breakfast": {
-        "name": "Overnight Oats with Greek Yogurt",
-        "calories": 340,
-        "protein": "18g",
-        "prepTime": "5 min"
-      },
-      "lunch": {
-        "name": "Greek Lentil Soup",
-        "calories": 380,
-        "protein": "18g",
-        "prepTime": "30 min"
-      },
-      "dinner": {
-        "name": "Baked Cod with Tomatoes and Olives",
-        "calories": 420,
-        "protein": "32g",
-        "prepTime": "30 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 106
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 115
-        }
-      ],
-      "totalCalories": 1438
-    },
-    "day_21": {
-      "date": "2025-01-21",
-      "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Tuna Salad",
-        "calories": 390,
-        "protein": "30g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Seafood Paella",
-        "calories": 490,
-        "protein": "28g",
-        "prepTime": "45 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 131
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 136
-        }
-      ],
-      "totalCalories": 1414
+      "totalCalories": 1485
     },
     "day_22": {
-      "date": "2025-01-22",
+      "date": "2025-04-22",
       "breakfast": {
-        "name": "Ricotta Pancakes with Berry Compote",
-        "calories": 380,
-        "protein": "20g",
-        "prepTime": "20 min"
+        "name": "Mediterranean Egg Bites",
+        "calories": 280,
+        "protein": "22g",
+        "prepTime": "25 min"
       },
       "lunch": {
         "name": "Greek Orzo Salad",
@@ -705,6 +705,70 @@
         "name": "Baked Cod with Tomatoes and Olives",
         "calories": 420,
         "protein": "32g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 112
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 113
+        }
+      ],
+      "totalCalories": 1403
+    },
+    "day_23": {
+      "date": "2025-04-23",
+      "breakfast": {
+        "name": "Turkish Breakfast Platter",
+        "calories": 360,
+        "protein": "19g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Greek Orzo Salad",
+        "calories": 410,
+        "protein": "15g",
+        "prepTime": "25 min"
+      },
+      "dinner": {
+        "name": "Seafood Paella",
+        "calories": 490,
+        "protein": "28g",
+        "prepTime": "45 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 120
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 142
+        }
+      ],
+      "totalCalories": 1469
+    },
+    "day_24": {
+      "date": "2025-04-24",
+      "breakfast": {
+        "name": "Mediterranean Egg Bites",
+        "calories": 280,
+        "protein": "22g",
+        "prepTime": "25 min"
+      },
+      "lunch": {
+        "name": "Falafel Wrap with Tahini",
+        "calories": 460,
+        "protein": "16g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Chicken Souvlaki with Tzatziki",
+        "calories": 460,
+        "protein": "38g",
         "prepTime": "30 min"
       },
       "snacks": [
@@ -714,109 +778,77 @@
         },
         {
           "name": "Afternoon Snack",
-          "calories": 139
+          "calories": 107
         }
       ],
-      "totalCalories": 1420
-    },
-    "day_23": {
-      "date": "2025-01-23",
-      "breakfast": {
-        "name": "Mediterranean Smoothie Bowl",
-        "calories": 350,
-        "protein": "16g",
-        "prepTime": "10 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Tuna Salad",
-        "calories": 390,
-        "protein": "30g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Chicken Tagine with Couscous",
-        "calories": 470,
-        "protein": "32g",
-        "prepTime": "40 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 132
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 129
-        }
-      ],
-      "totalCalories": 1427
-    },
-    "day_24": {
-      "date": "2025-01-24",
-      "breakfast": {
-        "name": "Mediterranean Egg Bites",
-        "calories": 280,
-        "protein": "22g",
-        "prepTime": "25 min"
-      },
-      "lunch": {
-        "name": "Greek Orzo Salad",
-        "calories": 410,
-        "protein": "15g",
-        "prepTime": "25 min"
-      },
-      "dinner": {
-        "name": "Lamb Kofta with Mint Yogurt",
-        "calories": 480,
-        "protein": "30g",
-        "prepTime": "35 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 108
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 106
-        }
-      ],
-      "totalCalories": 1432
+      "totalCalories": 1461
     },
     "day_25": {
-      "date": "2025-01-25",
+      "date": "2025-04-25",
       "breakfast": {
-        "name": "Greek Yogurt Parfait with Honey",
-        "calories": 320,
-        "protein": "18g",
-        "prepTime": "5 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Tuna Salad",
-        "calories": 390,
-        "protein": "30g",
+        "name": "Mediterranean Omelet",
+        "calories": 310,
+        "protein": "22g",
         "prepTime": "15 min"
       },
+      "lunch": {
+        "name": "Stuffed Bell Peppers",
+        "calories": 420,
+        "protein": "22g",
+        "prepTime": "40 min"
+      },
       "dinner": {
-        "name": "Lamb Kofta with Mint Yogurt",
-        "calories": 480,
-        "protein": "30g",
-        "prepTime": "35 min"
+        "name": "Mediterranean Baked Fish",
+        "calories": 440,
+        "protein": "38g",
+        "prepTime": "30 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 127
+          "calories": 145
         },
         {
           "name": "Afternoon Snack",
-          "calories": 137
+          "calories": 107
         }
       ],
-      "totalCalories": 1488
+      "totalCalories": 1387
     },
     "day_26": {
-      "date": "2025-01-26",
+      "date": "2025-04-26",
+      "breakfast": {
+        "name": "Mediterranean Omelet",
+        "calories": 310,
+        "protein": "22g",
+        "prepTime": "15 min"
+      },
+      "lunch": {
+        "name": "Tabbouleh with Grilled Halloumi",
+        "calories": 440,
+        "protein": "20g",
+        "prepTime": "20 min"
+      },
+      "dinner": {
+        "name": "Baked Cod with Tomatoes and Olives",
+        "calories": 420,
+        "protein": "32g",
+        "prepTime": "30 min"
+      },
+      "snacks": [
+        {
+          "name": "Morning Snack",
+          "calories": 110
+        },
+        {
+          "name": "Afternoon Snack",
+          "calories": 105
+        }
+      ],
+      "totalCalories": 1396
+    },
+    "day_27": {
+      "date": "2025-04-27",
       "breakfast": {
         "name": "Ricotta Pancakes with Berry Compote",
         "calories": 380,
@@ -830,25 +862,25 @@
         "prepTime": "15 min"
       },
       "dinner": {
-        "name": "Mediterranean Baked Fish",
-        "calories": 440,
-        "protein": "38g",
+        "name": "Baked Cod with Tomatoes and Olives",
+        "calories": 420,
+        "protein": "32g",
         "prepTime": "30 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 137
+          "calories": 144
         },
         {
           "name": "Afternoon Snack",
           "calories": 111
         }
       ],
-      "totalCalories": 1521
+      "totalCalories": 1491
     },
-    "day_27": {
-      "date": "2025-01-27",
+    "day_28": {
+      "date": "2025-04-28",
       "breakfast": {
         "name": "Mediterranean Smoothie Bowl",
         "calories": 350,
@@ -862,94 +894,30 @@
         "prepTime": "25 min"
       },
       "dinner": {
-        "name": "Chicken Tagine with Couscous",
-        "calories": 470,
-        "protein": "32g",
-        "prepTime": "40 min"
+        "name": "Lamb Kofta with Mint Yogurt",
+        "calories": 480,
+        "protein": "30g",
+        "prepTime": "35 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 150
+          "calories": 121
         },
         {
           "name": "Afternoon Snack",
-          "calories": 125
+          "calories": 143
         }
       ],
-      "totalCalories": 1497
-    },
-    "day_28": {
-      "date": "2025-01-28",
-      "breakfast": {
-        "name": "Mediterranean Smoothie Bowl",
-        "calories": 350,
-        "protein": "16g",
-        "prepTime": "10 min"
-      },
-      "lunch": {
-        "name": "Mediterranean Chickpea Salad",
-        "calories": 420,
-        "protein": "16g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Seafood Paella",
-        "calories": 490,
-        "protein": "28g",
-        "prepTime": "45 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 114
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 146
-        }
-      ],
-      "totalCalories": 1528
+      "totalCalories": 1557
     },
     "day_29": {
-      "date": "2025-01-29",
+      "date": "2025-04-29",
       "breakfast": {
-        "name": "Mediterranean Omelet",
-        "calories": 310,
-        "protein": "22g",
-        "prepTime": "15 min"
-      },
-      "lunch": {
-        "name": "Mezze Platter with Hummus",
-        "calories": 430,
-        "protein": "18g",
-        "prepTime": "15 min"
-      },
-      "dinner": {
-        "name": "Grilled Lemon Herb Salmon",
-        "calories": 480,
-        "protein": "35g",
+        "name": "Spinach and Feta Frittata",
+        "calories": 320,
+        "protein": "24g",
         "prepTime": "25 min"
-      },
-      "snacks": [
-        {
-          "name": "Morning Snack",
-          "calories": 131
-        },
-        {
-          "name": "Afternoon Snack",
-          "calories": 118
-        }
-      ],
-      "totalCalories": 1438
-    },
-    "day_30": {
-      "date": "2025-01-30",
-      "breakfast": {
-        "name": "Shakshuka with Whole Grain Pita",
-        "calories": 340,
-        "protein": "20g",
-        "prepTime": "20 min"
       },
       "lunch": {
         "name": "Tabbouleh with Grilled Halloumi",
@@ -958,30 +926,30 @@
         "prepTime": "20 min"
       },
       "dinner": {
-        "name": "Moussaka",
-        "calories": 520,
-        "protein": "28g",
-        "prepTime": "60 min"
+        "name": "Ratatouille with Grilled Chicken",
+        "calories": 460,
+        "protein": "35g",
+        "prepTime": "45 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 115
+          "calories": 102
         },
         {
           "name": "Afternoon Snack",
-          "calories": 114
+          "calories": 125
         }
       ],
-      "totalCalories": 1572
+      "totalCalories": 1516
     },
-    "day_31": {
-      "date": "2025-01-31",
+    "day_30": {
+      "date": "2025-04-30",
       "breakfast": {
-        "name": "Turkish Breakfast Platter",
-        "calories": 360,
-        "protein": "19g",
-        "prepTime": "15 min"
+        "name": "Mediterranean Egg Bites",
+        "calories": 280,
+        "protein": "22g",
+        "prepTime": "25 min"
       },
       "lunch": {
         "name": "Mediterranean Chickpea Salad",
@@ -990,22 +958,22 @@
         "prepTime": "15 min"
       },
       "dinner": {
-        "name": "Baked Cod with Tomatoes and Olives",
-        "calories": 420,
+        "name": "Chicken Tagine with Couscous",
+        "calories": 470,
         "protein": "32g",
-        "prepTime": "30 min"
+        "prepTime": "40 min"
       },
       "snacks": [
         {
           "name": "Morning Snack",
-          "calories": 129
+          "calories": 114
         },
         {
           "name": "Afternoon Snack",
-          "calories": 114
+          "calories": 140
         }
       ],
-      "totalCalories": 1486
+      "totalCalories": 1377
     }
   },
   "weeklyShoppingLists": {
