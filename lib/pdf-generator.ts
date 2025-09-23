@@ -276,7 +276,7 @@ export class MealPlanPDFGenerator {
 
             tasks.forEach(task => {
               const lines = this.doc.splitTextToSize(`• ${task}`, this.pageWidth - 45);
-              lines.forEach(line => {
+              lines.forEach((line: string) => {
                 this.doc.text(line, this.margins.left + 5, this.currentY);
                 this.currentY += 5;
               });
