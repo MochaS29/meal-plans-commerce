@@ -452,10 +452,21 @@ export default function RecipesPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8"
+            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-3xl font-bold text-mindlab-purple-800 mb-4">{selectedRecipe.name}</h2>
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedRecipe(null)}
+              className="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition"
+              aria-label="Close recipe"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <h2 className="text-3xl font-bold text-mindlab-purple-800 mb-4 pr-12">{selectedRecipe.name}</h2>
             <p className="text-gray-800 mb-6">{selectedRecipe.description}</p>
 
             <div className="flex flex-wrap gap-4 mb-6">
@@ -473,7 +484,8 @@ export default function RecipesPage() {
               </span>
             </div>
 
-            <div className="text-center">
+            <div className="text-center pt-4 border-t border-gray-200">
+              <p className="text-sm text-gray-600 mb-3">Click outside or press ESC to close</p>
               <button
                 onClick={() => setSelectedRecipe(null)}
                 className="px-6 py-3 bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
