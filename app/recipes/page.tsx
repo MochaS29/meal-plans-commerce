@@ -127,6 +127,207 @@ const recipes: Recipe[] = [
     image: '/images/recipes/ricotta-pancakes.png',
     description: 'Fluffy ricotta pancakes with lemon zest and fresh berries',
     tags: ['vegetarian', 'weekend-brunch']
+  },
+  // Keto Recipes
+  {
+    id: '9',
+    name: 'Keto Avocado Eggs Benedict',
+    category: 'breakfast',
+    prepTime: 15,
+    cookTime: 10,
+    servings: 2,
+    calories: 420,
+    difficulty: 'medium',
+    description: 'Poached eggs on avocado halves with hollandaise sauce, no bread needed',
+    tags: ['keto', 'low-carb', 'high-fat']
+  },
+  {
+    id: '10',
+    name: 'Bacon-Wrapped Chicken Thighs',
+    category: 'dinner',
+    prepTime: 10,
+    cookTime: 35,
+    servings: 4,
+    calories: 380,
+    difficulty: 'easy',
+    description: 'Juicy chicken thighs wrapped in crispy bacon with herbs',
+    tags: ['keto', 'high-protein', 'gluten-free']
+  },
+  // Paleo Recipes
+  {
+    id: '11',
+    name: 'Paleo Sweet Potato Hash',
+    category: 'breakfast',
+    prepTime: 10,
+    cookTime: 15,
+    servings: 2,
+    calories: 310,
+    difficulty: 'easy',
+    description: 'Sweet potato hash with grass-fed beef and vegetables',
+    tags: ['paleo', 'whole30', 'grain-free']
+  },
+  {
+    id: '12',
+    name: 'Caveman Beef Stew',
+    category: 'dinner',
+    prepTime: 20,
+    cookTime: 120,
+    servings: 6,
+    calories: 340,
+    difficulty: 'easy',
+    description: 'Hearty beef stew with root vegetables, no grains or dairy',
+    tags: ['paleo', 'slow-cooker', 'comfort-food']
+  },
+  // Vegan Recipes
+  {
+    id: '13',
+    name: 'Rainbow Buddha Bowl',
+    category: 'lunch',
+    prepTime: 20,
+    cookTime: 0,
+    servings: 2,
+    calories: 380,
+    difficulty: 'easy',
+    description: 'Colorful bowl with quinoa, roasted vegetables, and tahini dressing',
+    tags: ['vegan', 'plant-based', 'meal-prep']
+  },
+  {
+    id: '14',
+    name: 'Vegan Mushroom Stroganoff',
+    category: 'dinner',
+    prepTime: 15,
+    cookTime: 25,
+    servings: 4,
+    calories: 320,
+    difficulty: 'medium',
+    description: 'Creamy cashew-based stroganoff with mushrooms and herbs',
+    tags: ['vegan', 'comfort-food', 'dairy-free']
+  },
+  // Vegetarian Recipes
+  {
+    id: '15',
+    name: 'Spinach & Feta Stuffed Portobello',
+    category: 'dinner',
+    prepTime: 15,
+    cookTime: 20,
+    servings: 2,
+    calories: 280,
+    difficulty: 'easy',
+    description: 'Large portobello mushrooms stuffed with spinach, feta, and herbs',
+    tags: ['vegetarian', 'low-carb', 'gluten-free']
+  },
+  {
+    id: '16',
+    name: 'Mexican Black Bean Tacos',
+    category: 'dinner',
+    prepTime: 15,
+    cookTime: 10,
+    servings: 4,
+    calories: 290,
+    difficulty: 'easy',
+    description: 'Spiced black bean tacos with avocado and fresh salsa',
+    tags: ['vegetarian', 'mexican', 'quick']
+  },
+  // Intermittent Fasting Recipes
+  {
+    id: '17',
+    name: 'IF Power Breakfast Bowl',
+    category: 'breakfast',
+    prepTime: 10,
+    cookTime: 5,
+    servings: 1,
+    calories: 480,
+    difficulty: 'easy',
+    description: 'High-protein, nutrient-dense bowl to break your fast',
+    tags: ['intermittent-fasting', 'high-protein', 'energizing']
+  },
+  {
+    id: '18',
+    name: 'Nutrient-Dense Green Smoothie',
+    category: 'breakfast',
+    prepTime: 5,
+    cookTime: 0,
+    servings: 1,
+    calories: 320,
+    difficulty: 'easy',
+    description: 'Packed smoothie with greens, protein, and healthy fats',
+    tags: ['intermittent-fasting', 'quick', 'nutrient-dense']
+  },
+  // Family-Friendly Recipes
+  {
+    id: '19',
+    name: 'Hidden Veggie Meatballs',
+    category: 'dinner',
+    prepTime: 20,
+    cookTime: 25,
+    servings: 6,
+    calories: 280,
+    difficulty: 'medium',
+    image: '/images/recipes/family-friendly.png',
+    description: 'Turkey meatballs with hidden vegetables kids will love',
+    tags: ['family-friendly', 'kid-approved', 'sneaky-veggies'],
+    featured: true
+  },
+  {
+    id: '20',
+    name: 'Rainbow Pizza Night',
+    category: 'dinner',
+    prepTime: 15,
+    cookTime: 12,
+    servings: 4,
+    calories: 320,
+    difficulty: 'easy',
+    description: 'Whole wheat pizza with colorful vegetable toppings',
+    tags: ['family-friendly', 'interactive', 'vegetables']
+  },
+  // Global Cuisine Recipes
+  {
+    id: '21',
+    name: 'Thai Green Curry',
+    category: 'dinner',
+    prepTime: 20,
+    cookTime: 25,
+    servings: 4,
+    calories: 380,
+    difficulty: 'medium',
+    description: 'Authentic Thai green curry with vegetables and coconut milk',
+    tags: ['thai', 'spicy', 'global-cuisine']
+  },
+  {
+    id: '22',
+    name: 'Japanese Teriyaki Salmon',
+    category: 'dinner',
+    prepTime: 10,
+    cookTime: 12,
+    servings: 2,
+    calories: 420,
+    difficulty: 'easy',
+    description: 'Glazed salmon with homemade teriyaki sauce and sesame seeds',
+    tags: ['japanese', 'omega-3', 'global-cuisine']
+  },
+  {
+    id: '23',
+    name: 'Indian Chickpea Masala',
+    category: 'dinner',
+    prepTime: 15,
+    cookTime: 30,
+    servings: 4,
+    calories: 310,
+    difficulty: 'medium',
+    description: 'Creamy chickpea curry with aromatic Indian spices',
+    tags: ['indian', 'vegetarian', 'global-cuisine']
+  },
+  {
+    id: '24',
+    name: 'Mexican Street Corn Salad',
+    category: 'lunch',
+    prepTime: 15,
+    cookTime: 10,
+    servings: 4,
+    calories: 240,
+    difficulty: 'easy',
+    description: 'Elote-inspired salad with lime, chili, and cotija cheese',
+    tags: ['mexican', 'vegetarian', 'global-cuisine']
   }
 ]
 
@@ -188,7 +389,7 @@ export default function RecipesPage() {
               <span>Recipe Collection</span>
             </h1>
             <p className="text-xl text-white font-medium ml-16 drop-shadow">
-              50+ delicious recipes from around the world
+              Explore recipes for every diet: Mediterranean, Keto, Paleo, Vegan, and more!
             </p>
           </motion.div>
         </div>
@@ -234,8 +435,8 @@ export default function RecipesPage() {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="text-sm text-gray-700 font-medium">Popular tags:</span>
-            {['quick', 'vegetarian', 'high-protein', 'gluten-free', 'family-friendly'].map(tag => (
+            <span className="text-sm text-gray-700 font-medium">Popular diets & tags:</span>
+            {['mediterranean', 'keto', 'paleo', 'vegan', 'vegetarian', 'intermittent-fasting', 'family-friendly', 'global-cuisine'].map(tag => (
               <button
                 key={tag}
                 onClick={() => setSearchQuery(tag)}
