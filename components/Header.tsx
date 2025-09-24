@@ -12,7 +12,7 @@ export default function Header() {
   }
 
   return (
-    <header className="relative z-10 border-b border-gray-200/30 backdrop-blur-sm bg-white/90" onClick={handleClickOutside}>
+    <header className="relative z-[1000] border-b border-gray-200 bg-white shadow-sm" onClick={handleClickOutside}>
       <div className="px-6 py-4">
         <nav className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-3">
@@ -42,9 +42,9 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className={`absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[100] ${dropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                <div className="py-2">
-                  <div className="px-4 py-2 border-b border-gray-100">
+              <div className={`absolute left-0 mt-2 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 transition-all duration-200 z-[9999] overflow-hidden ${dropdownOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+                <div className="py-2 bg-white">
+                  <div className="px-4 py-2 border-b border-gray-200 bg-gray-50">
                     <p className="text-xs font-semibold text-gray-500 uppercase">Diet Types</p>
                   </div>
                   <Link href="/diets/mediterranean" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
