@@ -6,18 +6,10 @@ import { motion } from 'framer-motion'
 import { Check, Star, Calendar, ShoppingCart, BookOpen, ChefHat, Heart, Sparkles } from 'lucide-react'
 import { products } from '@/lib/products'
 import { formatPrice } from '@/lib/utils'
-import { useState } from 'react'
 
 export default function HomePage() {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-
-  // Close dropdown when clicking outside
-  const handleClickOutside = () => {
-    if (dropdownOpen) setDropdownOpen(false)
-  }
-
   return (
-    <div className="min-h-screen bg-white" onClick={handleClickOutside}>
+    <div className="min-h-screen bg-white">
       {/* Container with Background Image for Header and Hero */}
       <div className="relative">
         {/* Background Image */}
@@ -39,73 +31,6 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white"></div>
         </div>
 
-        {/* Header */}
-        <header className="relative z-10 border-b border-gray-200/30 backdrop-blur-sm">
-          <div className="px-6 py-4">
-          <nav className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <span className="text-white text-xl">🧠</span>
-              </div>
-              <span className="text-xl font-semibold text-amber-800">Mocha's MindLab Inc.</span>
-            </div>
-            <div className="flex items-center space-x-8">
-              <Link href="/menu-benefits" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Why It Works
-              </Link>
-              <Link href="/calendar" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Sample Calendar
-              </Link>
-              {/* Meal Plans Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    setDropdownOpen(!dropdownOpen)
-                  }}
-                  className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center space-x-1"
-                >
-                  <span>Meal Plans</span>
-                  <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className={`absolute left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 transition-all duration-200 z-[100] ${dropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-                  <div className="py-2">
-                    <Link href="/mediterranean" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Mediterranean
-                    </Link>
-                    <Link href="/intermittent-fasting" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Intermittent Fasting
-                    </Link>
-                    <Link href="/family-focused" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Family Focused
-                    </Link>
-                    <Link href="/paleo" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Paleo
-                    </Link>
-                    <Link href="/vegetarian" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Vegetarian
-                    </Link>
-                    <Link href="/vegan" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Vegan
-                    </Link>
-                    <Link href="/global" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
-                      Global Cuisine
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <Link href="/recipes" className="text-gray-700 hover:text-teal-600 transition font-medium">
-                Recipes
-              </Link>
-              <Link href="/pricing" className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2.5 rounded-full hover:from-amber-600 hover:to-orange-600 font-medium transition transform hover:scale-105">
-                Get Started - $79/month
-              </Link>
-            </div>
-          </nav>
-        </div>
-        </header>
 
         {/* Hero Section */}
         <section className="relative z-10 px-6 py-20">

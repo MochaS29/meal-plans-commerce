@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -21,8 +22,12 @@ export const metadata: Metadata = {
   creator: "Mocha's MindLab Inc.",
   publisher: "Mocha's MindLab Inc.",
   icons: {
-    icon: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon.png',
+    shortcut: '/favicon.ico',
   },
   openGraph: {
     title: "Mindful Meal Plan - Transform Your Health",
@@ -44,6 +49,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <Header />
         <main className="flex-grow">
           {children}
         </main>
