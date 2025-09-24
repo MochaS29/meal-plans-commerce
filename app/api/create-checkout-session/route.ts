@@ -15,6 +15,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Payment processing is not configured. Please contact support.' },
+        { status: 503 }
+      )
+    }
+
     const baseUrl = getBaseUrl()
 
     // Create Stripe checkout session
