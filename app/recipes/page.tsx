@@ -159,9 +159,9 @@ export default function RecipesPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-mindlab-purple-50 to-mindlab-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-teal-50">
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-mindlab-purple-600 via-mindlab-purple-500 to-mindlab-teal-500 text-white shadow-xl">
+      <header className="relative bg-gradient-to-r from-purple-600 via-purple-500 to-teal-500 text-white shadow-xl">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6 text-white hover:text-yellow-200 transition">
             <Sparkles className="w-5 h-5" />
@@ -192,7 +192,7 @@ export default function RecipesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-mindlab-purple-100"
+          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-purple-100"
         >
           <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex-1 min-w-[300px]">
@@ -215,8 +215,8 @@ export default function RecipesPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full font-semibold transition capitalize ${
                     selectedCategory === category
-                      ? 'bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white'
-                      : 'bg-mindlab-purple-100 text-mindlab-purple-700 hover:bg-mindlab-purple-200'
+                      ? 'bg-gradient-to-r from-purple-500 to-teal-500 text-white'
+                      : 'bg-purple-100 text-gray-900 hover:bg-purple-200'
                   }`}
                 >
                   {category === 'all' ? 'All Recipes' : category}
@@ -231,7 +231,7 @@ export default function RecipesPage() {
               <button
                 key={tag}
                 onClick={() => setSearchQuery(tag)}
-                className="px-3 py-1 bg-mindlab-teal-100 text-mindlab-teal-700 rounded-full text-sm hover:bg-mindlab-teal-200 transition"
+                className="px-3 py-1 bg-teal-100 text-gray-900 rounded-full text-sm hover:bg-teal-200 transition"
               >
                 {tag}
               </button>
@@ -247,7 +247,7 @@ export default function RecipesPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <h2 className="text-2xl font-bold text-mindlab-purple-800 mb-4">⭐ Featured Recipes</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">⭐ Featured Recipes</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {recipes.filter(r => r.featured).map((recipe, idx) => (
                 <motion.div
@@ -255,15 +255,15 @@ export default function RecipesPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-mindlab-purple-200 hover:border-mindlab-teal-300 transition cursor-pointer"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-purple-200 hover:border-mindlab-teal-300 transition cursor-pointer"
                   onClick={() => setSelectedRecipe(recipe)}
                 >
-                  <div className="bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 h-48 flex items-center justify-center">
+                  <div className="bg-gradient-to-r from-purple-500 to-teal-500 h-48 flex items-center justify-center">
                     <ChefHat className="w-20 h-20 text-white/30" />
                   </div>
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-bold text-mindlab-purple-800">{recipe.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900">{recipe.name}</h3>
                       <Star className="w-6 h-6 text-yellow-400 fill-current" />
                     </div>
                     <p className="text-gray-800 mb-4">{recipe.description}</p>
@@ -302,7 +302,7 @@ export default function RecipesPage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-bold text-mindlab-purple-800 mb-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
             {selectedCategory === 'all' ? 'All Recipes' : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} Recipes`}
           </h2>
 
@@ -313,10 +313,10 @@ export default function RecipesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-mindlab-purple-100 hover:shadow-xl transition cursor-pointer group"
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-purple-100 hover:shadow-xl transition cursor-pointer group"
                 onClick={() => setSelectedRecipe(recipe)}
               >
-                <div className="h-40 bg-gradient-to-br from-mindlab-purple-100 to-mindlab-teal-100 flex items-center justify-center relative overflow-hidden">
+                <div className="h-40 bg-gradient-to-br from-purple-100 to-teal-100 flex items-center justify-center relative overflow-hidden">
                   <ChefHat className="w-16 h-16 text-white/30 group-hover:scale-110 transition" />
                   <div className="absolute top-2 right-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${categoryColors[recipe.category].bg} ${categoryColors[recipe.category].text} ${categoryColors[recipe.category].border} border`}>
@@ -326,7 +326,7 @@ export default function RecipesPage() {
                 </div>
 
                 <div className="p-5">
-                  <h3 className="font-bold text-lg text-mindlab-purple-800 mb-2 group-hover:text-mindlab-teal-600 transition">
+                  <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-teal-600 transition">
                     {recipe.name}
                   </h3>
 
@@ -368,48 +368,48 @@ export default function RecipesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-mindlab-purple-100"
+          className="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-purple-100"
         >
-          <h3 className="text-2xl font-bold text-mindlab-purple-800 mb-6 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             What's Included in Your Recipe Collection
           </h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-purple-400 to-mindlab-purple-600 rounded-full flex items-center justify-center text-white">
+              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white">
                 <span className="text-2xl font-bold">50+</span>
               </div>
-              <h4 className="font-bold text-mindlab-purple-700">Recipes</h4>
+              <h4 className="font-bold text-gray-900">Recipes</h4>
               <p className="text-sm text-gray-800">Global cuisines</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-teal-400 to-mindlab-teal-600 rounded-full flex items-center justify-center text-white">
+              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white">
                 <Clock className="w-8 h-8" />
               </div>
-              <h4 className="font-bold text-mindlab-teal-700">Quick Meals</h4>
+              <h4 className="font-bold text-gray-900">Quick Meals</h4>
               <p className="text-sm text-gray-800">Under 30 minutes</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-coral-400 to-mindlab-coral-600 rounded-full flex items-center justify-center text-white">
+              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-coral-400 to-coral-600 rounded-full flex items-center justify-center text-white">
                 <Heart className="w-8 h-8" />
               </div>
-              <h4 className="font-bold text-mindlab-coral-700">Heart Healthy</h4>
+              <h4 className="font-bold text-gray-900">Heart Healthy</h4>
               <p className="text-sm text-gray-800">Nutritionally balanced</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-pink-400 to-mindlab-pink-600 rounded-full flex items-center justify-center text-white">
+              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white">
                 <Users className="w-8 h-8" />
               </div>
-              <h4 className="font-bold text-mindlab-pink-700">Family Friendly</h4>
+              <h4 className="font-bold text-gray-900">Family Friendly</h4>
               <p className="text-sm text-gray-800">Kids love them too</p>
             </div>
           </div>
 
-          <div className="mt-8 p-6 bg-gradient-to-r from-mindlab-purple-50 to-mindlab-teal-50 rounded-xl">
-            <h4 className="font-bold text-mindlab-purple-700 mb-3">Every Recipe Includes:</h4>
+          <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 to-teal-50 rounded-xl">
+            <h4 className="font-bold text-gray-900 mb-3">Every Recipe Includes:</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
                 'Step-by-step instructions with photos',
@@ -422,7 +422,7 @@ export default function RecipesPage() {
                 'Traditional cooking tips'
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <Check className="w-5 h-5 text-mindlab-teal-500 flex-shrink-0" />
+                  <Check className="w-5 h-5 text-teal-500 flex-shrink-0" />
                   <span className="text-gray-700">{feature}</span>
                 </div>
               ))}
@@ -437,7 +437,7 @@ export default function RecipesPage() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-8 text-center"
         >
-          <h3 className="text-2xl font-bold text-mindlab-purple-800 mb-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Get All 50+ Recipes with Your Meal Plan
           </h3>
           <p className="text-gray-800 mb-6">
@@ -445,7 +445,7 @@ export default function RecipesPage() {
           </p>
           <Link
             href="/checkout"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-mindlab-purple-600 to-mindlab-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
           >
             <Sparkles className="w-6 h-6" />
             Get Your Complete Package - $79
@@ -477,20 +477,20 @@ export default function RecipesPage() {
               </svg>
             </button>
 
-            <h2 className="text-3xl font-bold text-mindlab-purple-800 mb-4 pr-12">{selectedRecipe.name}</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 pr-12">{selectedRecipe.name}</h2>
             <p className="text-gray-800 mb-6">{selectedRecipe.description}</p>
 
             <div className="flex flex-wrap gap-4 mb-6">
               <span className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-mindlab-purple-500" />
+                <Clock className="w-5 h-5 text-purple-500" />
                 <strong>Total Time:</strong> {selectedRecipe.prepTime + selectedRecipe.cookTime} minutes
               </span>
               <span className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-mindlab-teal-500" />
+                <Users className="w-5 h-5 text-teal-500" />
                 <strong>Servings:</strong> {selectedRecipe.servings}
               </span>
               <span className="flex items-center gap-2">
-                <Flame className="w-5 h-5 text-mindlab-coral-500" />
+                <Flame className="w-5 h-5 text-coral-500" />
                 <strong>Calories:</strong> {selectedRecipe.calories} per serving
               </span>
             </div>
@@ -499,7 +499,7 @@ export default function RecipesPage() {
               <p className="text-sm text-gray-700 mb-3 font-medium">Click outside or press ESC to close</p>
               <button
                 onClick={() => setSelectedRecipe(null)}
-                className="px-6 py-3 bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
+                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
               >
                 Close Preview
               </button>
