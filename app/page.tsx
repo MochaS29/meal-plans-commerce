@@ -113,8 +113,8 @@ export default function HomePage() {
               Experience the luxury of having a personal wellness chef design your family's health journey.
               Our custom monthly menu plans are thoughtfully curated to match your wellness goals, dietary
               preferences, and lifestyle. Each month includes a designer printable calendar featuring your
-              choice of wellness-focused cuisines—from Mediterranean classics and clean eating to keto-friendly,
-              plant-based, globally-inspired healthy options, and beyond—professionally organized shopping lists
+              choice of wellness-focused cuisines—from heart-healthy recipes and clean eating to keto-friendly,
+              plant-based, globally-inspired dishes, and beyond—professionally organized shopping lists
               that streamline your wellness routine, and restaurant-quality recipes simplified for mindful home cooking.
               Choose from our curated wellness themes or let us create a completely personalized meal plan just for you.
             </p>
@@ -179,7 +179,7 @@ export default function HomePage() {
               {
                 icon: <ChefHat className="w-8 h-8" />,
                 title: "Global Cuisines",
-                description: "Restaurant-quality recipes from Mediterranean to Asian fusion",
+                description: "Restaurant-quality recipes from around the world",
                 color: "#4A9B9B"
               }
             ].map((feature, index) => (
@@ -292,7 +292,7 @@ export default function HomePage() {
               See What's Inside
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A sneak peek at your Mediterranean meal calendar
+              A sneak peek at your personalized meal calendar
             </p>
           </motion.div>
 
@@ -367,7 +367,7 @@ export default function HomePage() {
               },
               {
                 name: "John D.",
-                review: "My cholesterol dropped 30 points. The Mediterranean diet really works!",
+                review: "My cholesterol dropped 30 points. These meal plans really work!",
                 rating: 5
               },
               {
@@ -407,7 +407,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold">Mocha's MindLab</span>
               </div>
               <p className="text-amber-200">
-                Transform your health with authentic Mediterranean meal planning
+                Transform your health with personalized meal planning
               </p>
             </div>
             <div>

@@ -50,7 +50,7 @@ export default function MenuBenefitsPage() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gray-600 max-w-3xl mx-auto"
         >
-          Each of our menu types is carefully designed based on scientific research and proven health outcomes.
+          Each of our menu types is thoughtfully designed based on nutritional principles and wellness research.
           Discover which plan aligns with your health goals.
         </motion.p>
       </div>
@@ -120,7 +120,7 @@ export default function MenuBenefitsPage() {
                   <div className="lg:w-2/5 mt-8 lg:mt-0">
                     {/* Scientific Backing */}
                     <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 mb-6">
-                      <h4 className="font-bold text-teal-700 mb-3">📊 Scientific Evidence</h4>
+                      <h4 className="font-bold text-teal-700 mb-3">📊 Key Benefits</h4>
                       <ul className="space-y-2">
                         {menu.scientificBacking.map((fact, idx) => (
                           <li key={idx} className="text-sm text-gray-700 flex gap-2">

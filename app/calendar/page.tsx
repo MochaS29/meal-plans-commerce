@@ -142,10 +142,10 @@ export default function CalendarPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl font-bold mb-4">
-              September 2025 Mediterranean Calendar
+              September 2025 Meal Planning Calendar
             </h1>
             <p className="text-xl text-white/90">
-              Your complete 30-day transformation journey with authentic Mediterranean meals
+              Your complete 30-day transformation journey with delicious, healthy meals
             </p>
           </motion.div>
         </div>
@@ -188,11 +188,20 @@ export default function CalendarPage() {
           </div>
 
           <div className="flex justify-center gap-4 mt-8">
-            <button className="flex items-center gap-2 px-6 py-3 bg-amber-700 text-white rounded-full font-medium hover:bg-amber-800 transition">
+            <button
+              onClick={() => {
+                // For demo, show message. In production, would generate PDF
+                alert('PDF download will be available with your subscription. For now, you can use the browser\'s print function (Ctrl/Cmd + P) and save as PDF.');
+              }}
+              className="flex items-center gap-2 px-6 py-3 bg-amber-700 text-white rounded-full font-medium hover:bg-amber-800 transition"
+            >
               <Download className="w-5 h-5" />
               Download PDF
             </button>
-            <button className="flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-full font-medium hover:bg-teal-700 transition">
+            <button
+              onClick={() => window.print()}
+              className="flex items-center gap-2 px-6 py-3 bg-teal-600 text-white rounded-full font-medium hover:bg-teal-700 transition"
+            >
               <Printer className="w-5 h-5" />
               Print Calendar
             </button>
@@ -213,7 +222,7 @@ export default function CalendarPage() {
               September 2025
               <Star className="w-8 h-8 text-yellow-300 animate-pulse" />
             </h2>
-            <p className="mt-2 text-white/90">Your Mediterranean Transformation Begins</p>
+            <p className="mt-2 text-white/90">Your Wellness Transformation Begins</p>
           </div>
 
           {/* Days of Week */}

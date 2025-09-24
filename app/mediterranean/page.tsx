@@ -134,7 +134,7 @@ export default function MediterraneanPage() {
                   <h3 className="text-2xl font-bold">Heart-Healthy Benefits</h3>
                 </div>
                 <p className="text-gray-600 mb-4">
-                  Scientifically proven to reduce heart disease risk by up to 30% with omega-3 rich foods and healthy fats
+                  Rich in omega-3 fatty acids and healthy fats that support heart health and overall wellness
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start">

@@ -166,10 +166,10 @@ export default function RecipesPage() {
               <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
                 <ChefHat className="w-10 h-10" />
               </div>
-              <span>Mediterranean Recipe Collection</span>
+              <span>Recipe Collection</span>
             </h1>
             <p className="text-xl text-white/90 ml-16">
-              50+ authentic recipes from Greece, Italy, Spain & beyond
+              50+ delicious recipes from around the world
             </p>
           </motion.div>
         </div>
@@ -264,7 +264,7 @@ export default function RecipesPage() {
                         {recipe.difficulty}
                       </span>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                    <div className="flex items-center gap-4 text-sm text-gray-700 font-medium">
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
                         {recipe.prepTime + recipe.cookTime} min
@@ -319,9 +319,9 @@ export default function RecipesPage() {
                     {recipe.name}
                   </h3>
 
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2">{recipe.description}</p>
+                  <p className="text-gray-800 text-sm mb-3 line-clamp-2">{recipe.description}</p>
 
-                  <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center justify-between text-xs text-gray-700 font-medium">
                     <span className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {recipe.prepTime + recipe.cookTime}m
@@ -341,7 +341,7 @@ export default function RecipesPage() {
 
                   <div className="flex flex-wrap gap-1 mt-3">
                     {recipe.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs">
+                      <span key={tag} className="px-2 py-0.5 bg-gray-100 text-gray-800 rounded text-xs font-medium">
                         {tag}
                       </span>
                     ))}
@@ -429,7 +429,7 @@ export default function RecipesPage() {
           <h3 className="text-2xl font-bold text-mindlab-purple-800 mb-4">
             Get All 50+ Recipes with Your Meal Plan
           </h3>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-800 mb-6">
             Includes printable recipe cards, video tutorials, and lifetime updates
           </p>
           <Link
@@ -456,7 +456,7 @@ export default function RecipesPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-3xl font-bold text-mindlab-purple-800 mb-4">{selectedRecipe.name}</h2>
-            <p className="text-gray-600 mb-6">{selectedRecipe.description}</p>
+            <p className="text-gray-800 mb-6">{selectedRecipe.description}</p>
 
             <div className="flex flex-wrap gap-4 mb-6">
               <span className="flex items-center gap-2">
