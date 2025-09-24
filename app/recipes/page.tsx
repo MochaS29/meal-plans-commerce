@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChefHat, Clock, Users, Flame, Heart, Star, Download, Printer, Search, Filter, Sparkles, Check } from 'lucide-react'
 import Link from 'next/link'
@@ -139,6 +139,17 @@ export default function RecipesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null)
+
+  // Add ESC key handler for closing modal
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && selectedRecipe) {
+        setSelectedRecipe(null)
+      }
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [selectedRecipe])
 
   const filteredRecipes = recipes.filter(recipe => {
     const matchesCategory = selectedCategory === 'all' || recipe.category === selectedCategory
