@@ -607,32 +607,64 @@ export default function RecipesPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-teal-400 to-amber-600 rounded-full flex items-center justify-center text-white">
-                <span className="text-2xl font-bold">50+</span>
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden relative border-2 border-teal-400">
+                <Image
+                  src="/images/recipes/recipes-header.png"
+                  alt="Recipe Collection"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/80 to-amber-600/80 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white drop-shadow-lg">50+</span>
+                </div>
               </div>
               <h4 className="font-bold text-gray-900">Recipes</h4>
               <p className="text-sm text-gray-800">Global cuisines</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-teal-400 to-teal-600 rounded-full flex items-center justify-center text-white">
-                <Clock className="w-8 h-8" />
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden relative border-2 border-teal-400">
+                <Image
+                  src="/images/recipes/greek-yogurt.png"
+                  alt="Quick Meals"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/80 to-teal-600/80 flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-white drop-shadow-lg" />
+                </div>
               </div>
               <h4 className="font-bold text-gray-900">Quick Meals</h4>
               <p className="text-sm text-gray-800">Under 30 minutes</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-coral-400 to-coral-600 rounded-full flex items-center justify-center text-white">
-                <Heart className="w-8 h-8" />
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden relative border-2 border-red-400">
+                <Image
+                  src="/images/recipes/heart-healthy.png"
+                  alt="Heart Healthy"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-400/80 to-red-600/80 flex items-center justify-center">
+                  <Heart className="w-8 h-8 text-white drop-shadow-lg" />
+                </div>
               </div>
               <h4 className="font-bold text-gray-900">Heart Healthy</h4>
               <p className="text-sm text-gray-800">Nutritionally balanced</p>
             </div>
 
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-mindlab-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white">
-                <Users className="w-8 h-8" />
+              <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden relative border-2 border-pink-400">
+                <Image
+                  src="/images/recipes/family-friendly.png"
+                  alt="Family Friendly"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/80 to-pink-600/80 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-white drop-shadow-lg" />
+                </div>
               </div>
               <h4 className="font-bold text-gray-900">Family Friendly</h4>
               <p className="text-sm text-gray-800">Kids love them too</p>
