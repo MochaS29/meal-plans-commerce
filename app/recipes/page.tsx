@@ -163,7 +163,7 @@ export default function RecipesPage() {
       {/* Header */}
       <header className="relative bg-gradient-to-r from-mindlab-purple-600 via-mindlab-purple-500 to-mindlab-teal-500 text-white shadow-xl">
         <div className="max-w-7xl mx-auto px-6 py-8">
-          <Link href="/" className="inline-flex items-center space-x-2 mb-6 text-white/80 hover:text-white transition">
+          <Link href="/" className="inline-flex items-center space-x-2 mb-6 text-white hover:text-yellow-200 transition">
             <Sparkles className="w-5 h-5" />
             <span>Back to Home</span>
           </Link>
@@ -173,13 +173,13 @@ export default function RecipesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 flex items-center gap-4">
-              <div className="p-3 bg-white/20 backdrop-blur-sm rounded-full">
-                <ChefHat className="w-10 h-10" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 flex items-center gap-4 text-white drop-shadow-lg">
+              <div className="p-3 bg-white/30 backdrop-blur-sm rounded-full">
+                <ChefHat className="w-10 h-10 text-white" />
               </div>
               <span>Recipe Collection</span>
             </h1>
-            <p className="text-xl text-white/90 ml-16">
+            <p className="text-xl text-white font-medium ml-16 drop-shadow">
               50+ delicious recipes from around the world
             </p>
           </motion.div>
@@ -226,7 +226,7 @@ export default function RecipesPage() {
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
-            <span className="text-sm text-gray-600">Popular tags:</span>
+            <span className="text-sm text-gray-700 font-medium">Popular tags:</span>
             {['quick', 'vegetarian', 'high-protein', 'gluten-free', 'family-friendly'].map(tag => (
               <button
                 key={tag}
@@ -266,7 +266,7 @@ export default function RecipesPage() {
                       <h3 className="text-xl font-bold text-mindlab-purple-800">{recipe.name}</h3>
                       <Star className="w-6 h-6 text-yellow-400 fill-current" />
                     </div>
-                    <p className="text-gray-600 mb-4">{recipe.description}</p>
+                    <p className="text-gray-800 mb-4">{recipe.description}</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className={`px-3 py-1 rounded-full text-sm font-semibold ${categoryColors[recipe.category].bg} ${categoryColors[recipe.category].text}`}>
                         {recipe.category}
@@ -380,7 +380,7 @@ export default function RecipesPage() {
                 <span className="text-2xl font-bold">50+</span>
               </div>
               <h4 className="font-bold text-mindlab-purple-700">Recipes</h4>
-              <p className="text-sm text-gray-600">Authentic Mediterranean</p>
+              <p className="text-sm text-gray-800">Global cuisines</p>
             </div>
 
             <div className="text-center">
@@ -388,7 +388,7 @@ export default function RecipesPage() {
                 <Clock className="w-8 h-8" />
               </div>
               <h4 className="font-bold text-mindlab-teal-700">Quick Meals</h4>
-              <p className="text-sm text-gray-600">Under 30 minutes</p>
+              <p className="text-sm text-gray-800">Under 30 minutes</p>
             </div>
 
             <div className="text-center">
@@ -396,7 +396,7 @@ export default function RecipesPage() {
                 <Heart className="w-8 h-8" />
               </div>
               <h4 className="font-bold text-mindlab-coral-700">Heart Healthy</h4>
-              <p className="text-sm text-gray-600">Doctor approved</p>
+              <p className="text-sm text-gray-800">Nutritionally balanced</p>
             </div>
 
             <div className="text-center">
@@ -404,7 +404,7 @@ export default function RecipesPage() {
                 <Users className="w-8 h-8" />
               </div>
               <h4 className="font-bold text-mindlab-pink-700">Family Friendly</h4>
-              <p className="text-sm text-gray-600">Kids love them too</p>
+              <p className="text-sm text-gray-800">Kids love them too</p>
             </div>
           </div>
 
@@ -496,7 +496,7 @@ export default function RecipesPage() {
             </div>
 
             <div className="text-center pt-4 border-t border-gray-200">
-              <p className="text-sm text-gray-600 mb-3">Click outside or press ESC to close</p>
+              <p className="text-sm text-gray-700 mb-3 font-medium">Click outside or press ESC to close</p>
               <button
                 onClick={() => setSelectedRecipe(null)}
                 className="px-6 py-3 bg-gradient-to-r from-mindlab-purple-500 to-mindlab-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
