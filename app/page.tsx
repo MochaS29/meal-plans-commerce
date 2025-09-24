@@ -413,16 +413,16 @@ export default function HomePage() {
             <div>
               <h4 className="font-semibold mb-4">Meal Plans</h4>
               <ul className="space-y-2 text-amber-200">
-                <li><Link href="/plans/mediterranean-challenge" className="hover:text-white transition">30-Day Challenge</Link></li>
-                <li><Link href="/plans/custom-family" className="hover:text-white transition">Custom Family Plan</Link></li>
-                <li><Link href="/plans/monthly-calendar" className="hover:text-white transition">Monthly Subscription</Link></li>
+                <li><Link href="/plans/wellness-transformation" className="hover:text-white transition">30-Day Challenge</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition">Custom Family Plan</Link></li>
+                <li><Link href="/pricing" className="hover:text-white transition">Monthly Subscription</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-amber-200">
                 <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
+                <li><Link href="mailto:support@mindfulmealplan.com" className="hover:text-white transition">Contact</Link></li>
                 <li><Link href="/portal" className="hover:text-white transition">Customer Portal</Link></li>
               </ul>
             </div>
