@@ -31,6 +31,7 @@ const recipes: Recipe[] = [
     servings: 2,
     calories: 380,
     difficulty: 'easy',
+    image: '/images/recipes/greek-village-salad.png',
     description: 'Authentic Greek salad with ripe tomatoes, crisp cucumber, tangy feta, and Kalamata olives',
     tags: ['vegetarian', 'gluten-free', 'quick'],
     featured: true
@@ -44,6 +45,7 @@ const recipes: Recipe[] = [
     servings: 4,
     calories: 380,
     difficulty: 'easy',
+    image: '/images/recipes/mediterranean-herb-chicken.png',
     description: 'Juicy chicken breasts marinated in olive oil, lemon, and aromatic Mediterranean herbs',
     tags: ['high-protein', 'gluten-free', 'family-friendly'],
     featured: true
@@ -57,6 +59,7 @@ const recipes: Recipe[] = [
     servings: 2,
     calories: 310,
     difficulty: 'medium',
+    image: '/images/recipes/shakshuka.png',
     description: 'North African eggs poached in spiced tomato sauce with peppers and aromatic spices',
     tags: ['vegetarian', 'spicy', 'one-pan']
   },
@@ -69,6 +72,7 @@ const recipes: Recipe[] = [
     servings: 1,
     calories: 280,
     difficulty: 'easy',
+    image: '/images/recipes/greek-yogurt.png',
     description: 'Creamy Greek yogurt drizzled with golden thyme honey, walnuts, and a touch of olive oil',
     tags: ['vegetarian', 'quick', 'high-protein']
   },
@@ -81,6 +85,7 @@ const recipes: Recipe[] = [
     servings: 6,
     calories: 280,
     difficulty: 'easy',
+    image: '/images/recipes/mediterranean-lentil-soup.png',
     description: 'Hearty and nutritious soup with green lentils, vegetables, and Mediterranean spices',
     tags: ['vegan', 'high-fiber', 'meal-prep']
   },
@@ -93,6 +98,7 @@ const recipes: Recipe[] = [
     servings: 2,
     calories: 450,
     difficulty: 'easy',
+    image: '/images/recipes/grilled-salmon.png',
     description: 'Wild salmon with lemon, dill, and olive oil, grilled to perfection',
     tags: ['omega-3', 'gluten-free', 'quick']
   },
@@ -105,6 +111,7 @@ const recipes: Recipe[] = [
     servings: 4,
     calories: 120,
     difficulty: 'easy',
+    image: '/images/recipes/hummus-crudites.png',
     description: 'Creamy homemade hummus served with fresh vegetable sticks',
     tags: ['vegan', 'gluten-free', 'party']
   },
@@ -117,6 +124,7 @@ const recipes: Recipe[] = [
     servings: 2,
     calories: 290,
     difficulty: 'medium',
+    image: '/images/recipes/ricotta-pancakes.png',
     description: 'Fluffy ricotta pancakes with lemon zest and fresh berries',
     tags: ['vegetarian', 'weekend-brunch']
   }
@@ -258,9 +266,20 @@ export default function RecipesPage() {
                   className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-teal-200 hover:border-mindlab-teal-300 transition cursor-pointer"
                   onClick={() => setSelectedRecipe(recipe)}
                 >
-                  <div className="bg-gradient-to-r from-teal-500 to-teal-500 h-48 flex items-center justify-center">
-                    <ChefHat className="w-20 h-20 text-white/30" />
-                  </div>
+                  {recipe.image ? (
+                    <div className="h-48 relative">
+                      <Image
+                        src={recipe.image}
+                        alt={recipe.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="bg-gradient-to-r from-teal-500 to-teal-500 h-48 flex items-center justify-center">
+                      <ChefHat className="w-20 h-20 text-white/30" />
+                    </div>
+                  )}
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-xl font-bold text-gray-900">{recipe.name}</h3>
@@ -316,8 +335,19 @@ export default function RecipesPage() {
                 className="bg-white rounded-xl shadow-lg overflow-hidden border border-teal-100 hover:shadow-xl transition cursor-pointer group"
                 onClick={() => setSelectedRecipe(recipe)}
               >
-                <div className="h-40 bg-gradient-to-br from-teal-100 to-teal-100 flex items-center justify-center relative overflow-hidden">
-                  <ChefHat className="w-16 h-16 text-white/30 group-hover:scale-110 transition" />
+                <div className="h-40 relative overflow-hidden">
+                  {recipe.image ? (
+                    <Image
+                      src={recipe.image}
+                      alt={recipe.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition duration-300"
+                    />
+                  ) : (
+                    <div className="h-full bg-gradient-to-br from-teal-100 to-teal-100 flex items-center justify-center">
+                      <ChefHat className="w-16 h-16 text-white/30 group-hover:scale-110 transition" />
+                    </div>
+                  )}
                   <div className="absolute top-2 right-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${categoryColors[recipe.category].bg} ${categoryColors[recipe.category].text} ${categoryColors[recipe.category].border} border`}>
                       {recipe.category}
