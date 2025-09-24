@@ -614,7 +614,7 @@ export default function RecipesPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/95 to-amber-600/95 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/30 to-amber-600/30 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white drop-shadow-lg">50+</span>
                 </div>
               </div>
@@ -630,7 +630,7 @@ export default function RecipesPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/95 to-teal-600/95 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-400/30 to-teal-600/30 flex items-center justify-center">
                   <Clock className="w-8 h-8 text-white drop-shadow-lg" />
                 </div>
               </div>
@@ -646,7 +646,7 @@ export default function RecipesPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-red-400/95 to-red-600/95 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-400/30 to-red-600/30 flex items-center justify-center">
                   <Heart className="w-8 h-8 text-white drop-shadow-lg" />
                 </div>
               </div>
@@ -662,7 +662,7 @@ export default function RecipesPage() {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/95 to-pink-600/95 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-400/30 to-pink-600/30 flex items-center justify-center">
                   <Users className="w-8 h-8 text-white drop-shadow-lg" />
                 </div>
               </div>
