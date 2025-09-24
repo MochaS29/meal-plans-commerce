@@ -397,49 +397,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gradient-to-b from-amber-800 to-amber-900 text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="text-2xl">🧠</span>
-                <span className="text-xl font-bold">Mocha's MindLab</span>
-              </div>
-              <p className="text-amber-200">
-                Transform your health with personalized meal planning
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Meal Plans</h4>
-              <ul className="space-y-2 text-amber-200">
-                <li><Link href="/plans/wellness-transformation" className="hover:text-white transition">30-Day Challenge</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition">Custom Family Plan</Link></li>
-                <li><Link href="/pricing" className="hover:text-white transition">Monthly Subscription</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-amber-200">
-                <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
-                <li><Link href="mailto:support@mindfulmealplan.com" className="hover:text-white transition">Contact</Link></li>
-                <li><Link href="/portal" className="hover:text-white transition">Customer Portal</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-amber-200">
-                <li><Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-                <li><Link href="/refunds" className="hover:text-white transition">Refund Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-amber-700 pt-8 text-center text-amber-200">
-            <p>&copy; 2025 Mocha's MindLab Inc. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

@@ -125,7 +125,7 @@ const recipes: Recipe[] = [
 const categoryColors = {
   breakfast: { bg: 'bg-orange-100', text: 'text-orange-700', border: 'border-orange-300' },
   lunch: { bg: 'bg-green-100', text: 'text-green-700', border: 'border-green-300' },
-  dinner: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-300' },
+  dinner: { bg: 'bg-purple-100', text: 'text-teal-700', border: 'border-teal-300' },
   snack: { bg: 'bg-pink-100', text: 'text-pink-700', border: 'border-pink-300' }
 }
 
@@ -159,9 +159,9 @@ export default function RecipesPage() {
   })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-purple-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-white via-teal-50 to-teal-50">
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-purple-600 via-purple-500 to-teal-500 text-white shadow-xl">
+      <header className="relative bg-gradient-to-r from-teal-600 via-teal-500 to-teal-500 text-white shadow-xl">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <Link href="/" className="inline-flex items-center space-x-2 mb-6 text-white hover:text-yellow-200 transition">
             <Sparkles className="w-5 h-5" />
@@ -192,7 +192,7 @@ export default function RecipesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-purple-100"
+          className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-teal-100"
         >
           <div className="flex flex-wrap gap-4 items-center justify-between">
             <div className="flex-1 min-w-[300px]">
@@ -215,7 +215,7 @@ export default function RecipesPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full font-semibold transition capitalize ${
                     selectedCategory === category
-                      ? 'bg-gradient-to-r from-purple-500 to-teal-500 text-white'
+                      ? 'bg-gradient-to-r from-teal-500 to-teal-500 text-white'
                       : 'bg-purple-100 text-gray-900 hover:bg-purple-200'
                   }`}
                 >
@@ -255,10 +255,10 @@ export default function RecipesPage() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-purple-200 hover:border-mindlab-teal-300 transition cursor-pointer"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-teal-200 hover:border-mindlab-teal-300 transition cursor-pointer"
                   onClick={() => setSelectedRecipe(recipe)}
                 >
-                  <div className="bg-gradient-to-r from-purple-500 to-teal-500 h-48 flex items-center justify-center">
+                  <div className="bg-gradient-to-r from-teal-500 to-teal-500 h-48 flex items-center justify-center">
                     <ChefHat className="w-20 h-20 text-white/30" />
                   </div>
                   <div className="p-6">
@@ -313,10 +313,10 @@ export default function RecipesPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.05 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden border border-purple-100 hover:shadow-xl transition cursor-pointer group"
+                className="bg-white rounded-xl shadow-lg overflow-hidden border border-teal-100 hover:shadow-xl transition cursor-pointer group"
                 onClick={() => setSelectedRecipe(recipe)}
               >
-                <div className="h-40 bg-gradient-to-br from-purple-100 to-teal-100 flex items-center justify-center relative overflow-hidden">
+                <div className="h-40 bg-gradient-to-br from-teal-100 to-teal-100 flex items-center justify-center relative overflow-hidden">
                   <ChefHat className="w-16 h-16 text-white/30 group-hover:scale-110 transition" />
                   <div className="absolute top-2 right-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-semibold ${categoryColors[recipe.category].bg} ${categoryColors[recipe.category].text} ${categoryColors[recipe.category].border} border`}>
@@ -368,7 +368,7 @@ export default function RecipesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-purple-100"
+          className="mt-12 bg-white rounded-2xl shadow-lg p-8 border border-teal-100"
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             What's Included in Your Recipe Collection
@@ -376,7 +376,7 @@ export default function RecipesPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white">
+              <div className="w-20 h-20 mx-auto mb-3 bg-gradient-to-br from-teal-400 to-amber-600 rounded-full flex items-center justify-center text-white">
                 <span className="text-2xl font-bold">50+</span>
               </div>
               <h4 className="font-bold text-gray-900">Recipes</h4>
@@ -408,7 +408,7 @@ export default function RecipesPage() {
             </div>
           </div>
 
-          <div className="mt-8 p-6 bg-gradient-to-r from-purple-50 to-teal-50 rounded-xl">
+          <div className="mt-8 p-6 bg-gradient-to-r from-teal-50 to-teal-50 rounded-xl">
             <h4 className="font-bold text-gray-900 mb-3">Every Recipe Includes:</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {[
@@ -445,7 +445,7 @@ export default function RecipesPage() {
           </p>
           <Link
             href="/checkout"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
           >
             <Sparkles className="w-6 h-6" />
             Get Your Complete Package - $79
@@ -482,7 +482,7 @@ export default function RecipesPage() {
 
             <div className="flex flex-wrap gap-4 mb-6">
               <span className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-purple-500" />
+                <Clock className="w-5 h-5 text-teal-500" />
                 <strong>Total Time:</strong> {selectedRecipe.prepTime + selectedRecipe.cookTime} minutes
               </span>
               <span className="flex items-center gap-2">
@@ -499,7 +499,7 @@ export default function RecipesPage() {
               <p className="text-sm text-gray-700 mb-3 font-medium">Click outside or press ESC to close</p>
               <button
                 onClick={() => setSelectedRecipe(null)}
-                className="px-6 py-3 bg-gradient-to-r from-purple-500 to-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
+                className="px-6 py-3 bg-gradient-to-r from-teal-500 to-teal-500 text-white rounded-full font-semibold hover:opacity-90 transition"
               >
                 Close Preview
               </button>
