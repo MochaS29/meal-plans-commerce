@@ -73,7 +73,7 @@ export default function PaleoDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Apple className="w-6 h-6 text-red-500" />
@@ -96,7 +96,7 @@ export default function PaleoDietPage() {
             transition={{ delay: 0.3 }}
             className="grid md:grid-cols-2 gap-6 mb-12"
           >
-            <div className="bg-green-50 rounded-2xl p-6">
+            <div className="bg-green-50/80 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">✅ Paleo-Approved</h3>
               <ul className="space-y-2">
                 {foods.eat.map((food, idx) => (
@@ -104,7 +104,7 @@ export default function PaleoDietPage() {
                 ))}
               </ul>
             </div>
-            <div className="bg-red-50 rounded-2xl p-6">
+            <div className="bg-red-50/80 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">❌ Not Paleo</h3>
               <ul className="space-y-2">
                 {foods.avoid.map((food, idx) => (
@@ -119,7 +119,7 @@ export default function PaleoDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Go Paleo Today

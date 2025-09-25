@@ -79,7 +79,7 @@ export default function KetoDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 mb-12"
+            className="bg-gradient-to-br from-green-50/80 to-emerald-50/80 backdrop-blur-sm rounded-2xl p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Keto Macro Breakdown</h2>
             <div className="grid grid-cols-3 gap-4">
@@ -103,7 +103,7 @@ export default function KetoDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Flame className="w-6 h-6 text-orange-500" />
@@ -126,7 +126,7 @@ export default function KetoDietPage() {
             transition={{ delay: 0.4 }}
             className="grid md:grid-cols-2 gap-6 mb-12"
           >
-            <div className="bg-green-50 rounded-2xl p-6">
+            <div className="bg-green-50/80 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">✅ Keto-Friendly Foods</h3>
               <ul className="space-y-2">
                 {foods.eat.map((food, idx) => (
@@ -134,7 +134,7 @@ export default function KetoDietPage() {
                 ))}
               </ul>
             </div>
-            <div className="bg-red-50 rounded-2xl p-6">
+            <div className="bg-red-50/80 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">❌ Foods to Avoid</h3>
               <ul className="space-y-2">
                 {foods.avoid.map((food, idx) => (
@@ -149,7 +149,7 @@ export default function KetoDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-center bg-white rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Start Your Keto Transformation

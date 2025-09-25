@@ -74,7 +74,7 @@ export default function IntermittentFastingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Zap className="w-6 h-6 text-yellow-500" />
@@ -116,7 +116,7 @@ export default function IntermittentFastingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-white rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">During Your Eating Window</h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -154,7 +154,7 @@ export default function IntermittentFastingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-center bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8"
+            className="text-center bg-gradient-to-br from-amber-50/80 to-orange-50/80 backdrop-blur-sm rounded-2xl p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Start Your Fasting Journey
