@@ -37,8 +37,24 @@ export default function KetoDietPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-green-50/20 to-white">
-      <section className="py-16 px-6">
+    <div className="min-h-screen relative">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: 'url("/images/diets/keto.png")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* White overlay for text readability */}
+        <div className="absolute inset-0 bg-white/40 backdrop-blur-[0.5px]"></div>
+        {/* Gradient overlay for smooth transition */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white"></div>
+      </div>
+
+      <section className="relative z-10 py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
