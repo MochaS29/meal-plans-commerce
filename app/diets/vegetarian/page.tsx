@@ -82,7 +82,7 @@ export default function VegetarianDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Heart className="w-6 h-6 text-red-500" />
@@ -103,12 +103,12 @@ export default function VegetarianDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-green-50/60 to-lime-50/60 backdrop-blur-sm rounded-2xl p-8 mb-12"
+            className="bg-gradient-to-br from-green-50/40 to-lime-50/40 backdrop-blur-sm rounded-2xl p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Complete Protein Sources</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {proteinSources.map((source, idx) => (
-                <div key={idx} className="flex items-center gap-3 bg-white/70 backdrop-blur-sm rounded-lg p-4">
+                <div key={idx} className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-lg p-4">
                   <Leaf className="w-5 h-5 text-green-600 flex-shrink-0" />
                   <span className="text-gray-800">{source}</span>
                 </div>
@@ -126,7 +126,7 @@ export default function VegetarianDietPage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">A Day of Vegetarian Meals</h2>
             <div className="space-y-4">
               {sampleMeals.map((item, idx) => (
-                <div key={idx} className="bg-white/70 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition">
+                <div key={idx} className="bg-white/50 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition">
                   <div className="flex justify-between items-start mb-2">
                     <div>
                       <span className="text-sm font-semibold text-green-600">{item.meal}</span>
@@ -144,7 +144,7 @@ export default function VegetarianDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Start Your Vegetarian Journey

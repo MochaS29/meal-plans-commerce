@@ -72,7 +72,7 @@ export default function VeganDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Sprout className="w-6 h-6 text-green-500" />
@@ -95,7 +95,7 @@ export default function VeganDietPage() {
             transition={{ delay: 0.3 }}
             className="grid md:grid-cols-2 gap-6 mb-12"
           >
-            <div className="bg-emerald-50/60 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-emerald-50/40 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">💪 Plant Proteins</h3>
               <ul className="space-y-2">
                 {proteinSources.map((source, idx) => (
@@ -103,7 +103,7 @@ export default function VeganDietPage() {
                 ))}
               </ul>
             </div>
-            <div className="bg-amber-50/60 backdrop-blur-sm rounded-2xl p-6">
+            <div className="bg-amber-50/40 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">⚡ Key Nutrients</h3>
               <ul className="space-y-2">
                 {essentials.map((item, idx) => (
@@ -118,7 +118,7 @@ export default function VeganDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-emerald-50/60 to-green-50/60 backdrop-blur-sm rounded-2xl p-8 mb-12"
+            className="bg-gradient-to-br from-emerald-50/40 to-green-50/40 backdrop-blur-sm rounded-2xl p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Globe className="w-6 h-6 text-blue-500" />
@@ -145,7 +145,7 @@ export default function VeganDietPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Go Vegan with Confidence

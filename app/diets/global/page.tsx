@@ -84,7 +84,7 @@ export default function GlobalCuisinePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Sparkles className="w-6 h-6 text-yellow-500" />
@@ -110,7 +110,7 @@ export default function GlobalCuisinePage() {
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Culinary Journey Map</h2>
             <div className="space-y-4">
               {cuisines.map((cuisine, idx) => (
-                <div key={idx} className="bg-gradient-to-r from-indigo-50/60 to-purple-50/60 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg transition">
+                <div key={idx} className="bg-gradient-to-r from-indigo-50/40 to-purple-50/40 backdrop-blur-sm rounded-xl p-6 hover:shadow-lg transition">
                   <div className="flex items-start justify-between">
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">{cuisine.region}</h3>
@@ -132,31 +132,31 @@ export default function GlobalCuisinePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-gradient-to-br from-purple-50/60 to-indigo-50/60 backdrop-blur-sm rounded-2xl p-8 mb-12"
+            className="bg-gradient-to-br from-purple-50/40 to-indigo-50/40 backdrop-blur-sm rounded-2xl p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Sample Weekly Adventure</h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Monday</span>
                 <p className="text-gray-800">Italian: Tuscan White Bean Soup</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Tuesday</span>
                 <p className="text-gray-800">Thai: Pad Thai with Tofu</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Wednesday</span>
                 <p className="text-gray-800">Mexican: Fish Tacos with Mango Salsa</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Thursday</span>
                 <p className="text-gray-800">Indian: Chickpea Tikka Masala</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Friday</span>
                 <p className="text-gray-800">Greek: Moussaka with Salad</p>
               </div>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/50 backdrop-blur-sm rounded-lg p-4">
                 <span className="text-sm font-semibold text-purple-600">Weekend</span>
                 <p className="text-gray-800">Japanese: Homemade Sushi Night</p>
               </div>
@@ -168,7 +168,7 @@ export default function GlobalCuisinePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/40 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Start Your Global Food Adventure
