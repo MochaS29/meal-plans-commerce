@@ -97,7 +97,7 @@ export default function FamilyFocusedPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <Heart className="w-6 h-6 text-red-500" />
@@ -121,7 +121,7 @@ export default function FamilyFocusedPage() {
             className="grid md:grid-cols-2 gap-6 mb-12"
           >
             {features.map((feature, idx) => (
-              <div key={idx} className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 backdrop-blur-sm rounded-xl p-6">
+              <div key={idx} className="bg-gradient-to-br from-pink-50/60 to-purple-50/60 backdrop-blur-sm rounded-xl p-6">
                 <div className="text-3xl mb-3">{feature.icon}</div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
                 <p className="text-gray-700">{feature.description}</p>
@@ -134,12 +134,12 @@ export default function FamilyFocusedPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
+            className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Sample Weeknight Dinners</h2>
             <div className="space-y-4">
               {sampleMeals.map((item, idx) => (
-                <div key={idx} className="flex items-center justify-between p-4 bg-pink-50/80 backdrop-blur-sm rounded-lg">
+                <div key={idx} className="flex items-center justify-between p-4 bg-pink-50/60 backdrop-blur-sm rounded-lg">
                   <div>
                     <span className="text-sm font-semibold text-pink-600">{item.meal}</span>
                     <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
@@ -158,7 +158,7 @@ export default function FamilyFocusedPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 backdrop-blur-sm rounded-2xl p-8 mb-12"
+            className="bg-gradient-to-br from-purple-50/60 to-pink-50/60 backdrop-blur-sm rounded-2xl p-8 mb-12"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Family Meal Success Tips</h2>
             <div className="space-y-3 text-gray-700">
@@ -175,7 +175,7 @@ export default function FamilyFocusedPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-center bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8"
+            className="text-center bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8"
           >
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
               Start Your Family Meal Plan Today
