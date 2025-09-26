@@ -1,13 +1,52 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Check, Calendar, ShoppingCart, ChefHat, Heart, Star, ArrowRight } from 'lucide-react'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function WellnessTransformationPage() {
-  const handleCheckout = () => {
-    // For now, redirect to pricing page
-    window.location.href = '/pricing'
+  const [loading, setLoading] = useState(false)
+
+  const handleCheckout = async () => {
+    try {
+      setLoading(true)
+
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId: 'wellness-transformation',
+          customizations: {}
+        })
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to create checkout session')
+      }
+
+      const { sessionId } = await response.json()
+      const stripe = await stripePromise
+
+      if (!stripe) {
+        throw new Error('Stripe failed to load')
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId })
+
+      if (error) {
+        throw error
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+      alert('Something went wrong. Please try again or contact support.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -118,9 +157,12 @@ export default function WellnessTransformationPage() {
             </div>
             <button
               onClick={handleCheckout}
-              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105"
+              disabled={loading}
+              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Start Your Transformation <ArrowRight className="inline w-5 h-5 ml-2" />
+              {loading ? 'Processing...' : (
+                <>Start Your Transformation <ArrowRight className="inline w-5 h-5 ml-2" /></>
+              )}
             </button>
             <p className="text-sm text-gray-600 mt-4">Instant download • 30-day money-back guarantee</p>
           </div>

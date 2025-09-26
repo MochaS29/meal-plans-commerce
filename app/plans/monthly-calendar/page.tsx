@@ -1,12 +1,55 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Check, Calendar, Star, Globe, Sparkles, ArrowLeft, RefreshCw } from 'lucide-react'
 import { getProductById } from '@/lib/products'
+import { loadStripe } from '@stripe/stripe-js'
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function MonthlyCalendarPage() {
+  const [loading, setLoading] = useState(false)
   const product = getProductById('monthly-calendar')
+
+  const handleCheckout = async () => {
+    try {
+      setLoading(true)
+
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productId: 'monthly-calendar',
+          customizations: {}
+        })
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || 'Failed to create checkout session')
+      }
+
+      const { sessionId } = await response.json()
+      const stripe = await stripePromise
+
+      if (!stripe) {
+        throw new Error('Stripe failed to load')
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId })
+
+      if (error) {
+        throw error
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+      alert('Something went wrong. Please try again or contact support.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   if (!product) {
     return <div>Product not found</div>
@@ -209,10 +252,11 @@ export default function MonthlyCalendarPage() {
             className="text-center"
           >
             <button
-              onClick={() => alert('Subscription checkout coming soon! Please email support@mindfulmealplan.com to subscribe')}
-              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105"
+              onClick={handleCheckout}
+              disabled={loading}
+              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Start Your Monthly Journey - $29/month
+              {loading ? 'Processing...' : 'Start Your Monthly Journey - $29/month'}
             </button>
             <p className="text-sm text-gray-600 mt-4">
               Cancel anytime • First month satisfaction guarantee
