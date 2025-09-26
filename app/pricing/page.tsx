@@ -4,34 +4,48 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Lock, Star, Shield, CreditCard } from 'lucide-react';
 import Link from 'next/link';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function PricingPage() {
   const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'custom' | 'annual'>('monthly');
   const [loading, setLoading] = useState(false);
 
-  const handleCheckout = async (priceId: string, planType: string) => {
-    setLoading(true);
+  const handleCheckout = async (productId: string) => {
     try {
+      setLoading(true);
+
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          priceId,
-          planType,
-          successUrl: `${window.location.origin}/dashboard?session_id={CHECKOUT_SESSION_ID}`,
-          cancelUrl: `${window.location.origin}/pricing`,
-        }),
+          productId: productId,
+          customizations: {}
+        })
       });
 
-      const { url } = await response.json();
-      if (url) {
-        window.location.href = url;
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('Checkout API error:', error);
+        throw new Error(error.error || 'Failed to create checkout session');
+      }
+
+      const { sessionId } = await response.json();
+      const stripe = await stripePromise;
+
+      if (!stripe) {
+        throw new Error('Stripe failed to load');
+      }
+
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+
+      if (error) {
+        throw error;
       }
     } catch (error) {
       console.error('Checkout error:', error);
-      alert('Something went wrong. Please try again.');
+      alert('Something went wrong. Please try again or contact support.');
     } finally {
       setLoading(false);
     }
@@ -39,63 +53,65 @@ export default function PricingPage() {
 
   const plans = [
     {
-      id: 'monthly',
-      name: 'Monthly Plan',
+      id: 'wellness-transformation',
+      name: '30-Day Wellness',
       price: '$79',
-      period: '/month',
-      description: 'Perfect for trying our meal planning service',
+      period: 'one-time',
+      description: 'Complete meal planning package with your choice of cuisine',
       features: [
-        'Access to all 7 menu types',
-        'Complete monthly meal calendar',
-        'Weekly shopping lists',
-        'Detailed recipes with instructions',
-        'Downloadable PDF meal plans',
-        'Nutritional information',
-        'Meal prep guides',
-        'Mobile app access',
-        'Email support'
+        '30-day designer printable calendar',
+        'Choice of wellness cuisine style',
+        '50+ restaurant-quality recipes',
+        'Professionally organized shopping lists',
+        'Sunday meal prep strategies',
+        'Complete nutritional breakdowns',
+        'Wellness journey quick-start guide',
+        'Email support from our wellness team',
+        'Lifetime access to all updates'
       ],
-      priceId: 'price_monthly_79',
+      productId: 'wellness-transformation',
       color: 'teal'
     },
     {
-      id: 'custom',
+      id: 'custom-family',
       name: 'Custom Family Plan',
       price: '$149',
-      period: '/month',
-      description: 'Tailored for your family\'s unique needs',
+      period: 'one-time',
+      description: 'Personalized meal planning for your family\'s unique needs',
       popular: true,
       features: [
-        'Everything in Monthly Plan',
-        'Customized for family size',
-        'Kid-friendly meal options',
-        'Allergy & preference adjustments',
-        'Bulk shopping lists',
-        'Family meal prep strategies',
-        'Priority support',
-        'Recipe scaling for 4-6 people'
+        'Completely personalized 30-day plan',
+        'Customized for your family size',
+        'Multiple dietary accommodations',
+        'Kid-friendly wellness options',
+        'Mix of cuisine styles in one plan',
+        'Budget-conscious shopping strategies',
+        'Batch cooking & meal prep guides',
+        'Time-saving meal prep strategies',
+        'One wellness consultation call'
       ],
-      priceId: 'price_family_149',
+      productId: 'custom-family',
       color: 'amber'
     },
     {
-      id: 'annual',
-      name: 'Annual Plan',
+      id: 'monthly-calendar',
+      name: 'Monthly Subscription',
       price: '$29',
       period: '/month',
-      description: 'Best value - billed annually ($348/year)',
-      savings: 'Save $600/year',
+      description: 'Fresh meal plans delivered monthly',
+      savings: 'Best value for ongoing support',
       features: [
-        'Everything in Family Plan',
-        'Exclusive seasonal menus',
-        'Advanced meal planning AI',
-        'Personalized nutrition coaching',
-        'Recipe collection downloads',
-        'Early access to new features',
-        'VIP customer support',
-        'Free cooking masterclasses'
+        'New designer calendar each month',
+        'Rotating cuisine themes',
+        'Seasonal & locally-inspired recipes',
+        'Member-exclusive wellness content',
+        'Access to full recipe archive',
+        'Monthly wellness coaching Q&A',
+        'Private wellness community',
+        'Switch cuisine styles anytime',
+        'Cancel anytime - no commitment'
       ],
-      priceId: 'price_annual_348',
+      productId: 'monthly-calendar',
       color: 'green'
     }
   ];
@@ -188,12 +204,12 @@ export default function PricingPage() {
                 </div>
 
                 <button
-                  onClick={() => handleCheckout(plan.priceId, plan.id)}
+                  onClick={() => handleCheckout(plan.productId)}
                   disabled={loading}
                   className={`w-full py-4 rounded-full font-semibold text-white transition-all transform hover:scale-105 ${
                     plan.popular
                       ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600'
-                      : plan.id === 'annual'
+                      : plan.id === 'monthly-calendar'
                       ? 'bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600'
                       : 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600'
                   } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
