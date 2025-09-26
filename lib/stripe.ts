@@ -4,7 +4,7 @@ import Stripe from 'stripe'
 // This allows the app to build without Stripe for demo purposes
 export const stripe = process.env.STRIPE_SECRET_KEY
   ? new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: '2025-08-27.basil',
+      apiVersion: '2024-10-28.acacia',
       typescript: true,
     })
   : null
