@@ -18,25 +18,28 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-4">Meal Plans</h4>
           <ul className="space-y-2 text-amber-200">
-            <li><Link href="/plans/wellness-transformation" className="hover:text-white transition">30-Day Challenge</Link></li>
-            <li><Link href="/pricing" className="hover:text-white transition">Custom Family Plan</Link></li>
-            <li><Link href="/pricing" className="hover:text-white transition">Monthly Subscription</Link></li>
+            <li><Link href="/diets/mediterranean" className="hover:text-white transition">Mediterranean</Link></li>
+            <li><Link href="/diets/keto" className="hover:text-white transition">Keto</Link></li>
+            <li><Link href="/diets/vegan" className="hover:text-white transition">Vegan</Link></li>
+            <li><Link href="/pricing" className="hover:text-white transition">View All Plans</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-4">Support</h4>
+          <h4 className="font-semibold mb-4">Quick Links</h4>
           <ul className="space-y-2 text-amber-200">
-            <li><Link href="/faq" className="hover:text-white transition">FAQ</Link></li>
-            <li><Link href="mailto:support@mindfulmealplan.com" className="hover:text-white transition">Contact</Link></li>
-            <li><Link href="/portal" className="hover:text-white transition">Customer Portal</Link></li>
+            <li><Link href="/dashboard" className="hover:text-white transition">My Dashboard</Link></li>
+            <li><Link href="/login" className="hover:text-white transition">Login</Link></li>
+            <li><Link href="/admin" className="hover:text-white transition">Admin Portal</Link></li>
+            <li><Link href="/pricing" className="hover:text-white transition">Pricing</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-4">Browse</h4>
+          <h4 className="font-semibold mb-4">Resources</h4>
           <ul className="space-y-2 text-amber-200">
             <li><Link href="/recipes" className="hover:text-white transition">Recipes</Link></li>
             <li><Link href="/calendar" className="hover:text-white transition">Sample Calendar</Link></li>
             <li><Link href="/menu-benefits" className="hover:text-white transition">Menu Benefits</Link></li>
+            <li><Link href="mailto:support@mochasmindlab.com" className="hover:text-white transition">Contact</Link></li>
           </ul>
         </div>
       </div>

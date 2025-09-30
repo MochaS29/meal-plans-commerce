@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Beef, Apple, Fish, Egg, Check } from 'lucide-react'
+import { Beef, Apple, Fish, Egg, Check, ShoppingCart } from 'lucide-react'
+import CheckoutButton from '@/components/CheckoutButton'
 
 export default function PaleoDietPage() {
   const benefits = [
@@ -46,6 +47,33 @@ export default function PaleoDietPage() {
         <div className="absolute inset-0 bg-white/40 backdrop-blur-[0.5px]"></div>
         {/* Gradient overlay for smooth transition */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/30 to-white"></div>
+      </div>
+
+      {/* Sticky Buy Now Bar */}
+      <div className="relative z-20 sticky top-0 bg-white/95 backdrop-blur-md shadow-md py-3 px-6">
+        <div className="max-w-4xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <Beef className="w-5 h-5 text-orange-600" />
+            <span className="font-semibold text-gray-900">Paleo Diet Plan</span>
+          </div>
+          <div className="flex gap-3">
+            <CheckoutButton
+              productId="wellness-transformation"
+              className="text-sm py-2 px-6"
+              variant="secondary"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              One-Time $79
+            </CheckoutButton>
+            <CheckoutButton
+              productId="monthly-calendar"
+              className="text-sm py-2 px-6"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Monthly $29
+            </CheckoutButton>
+          </div>
+        </div>
       </div>
 
       <section className="relative z-10 py-16 px-6">

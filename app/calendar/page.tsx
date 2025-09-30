@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, Clock, ChefHat, ShoppingCart, Download, Printer, Heart, Sparkles, Star, Coffee, Sun, Moon, Apple } from 'lucide-react'
 import Link from 'next/link'
+import CheckoutButton from '@/components/CheckoutButton'
 
 interface Meal {
   type: 'breakfast' | 'snack1' | 'lunch' | 'snack2' | 'dinner'
@@ -319,12 +320,9 @@ export default function CalendarPage() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-8 text-center"
         >
-          <Link
-            href="/checkout"
-            className="inline-flex items-center gap-3 px-8 py-3 bg-teal-600 text-white rounded-full font-medium shadow-lg hover:bg-teal-700 transition"
-          >
+          <CheckoutButton productId="wellness-transformation">
             Get Your Complete Calendar Package - $79
-          </Link>
+          </CheckoutButton>
 
           <p className="mt-4 text-gray-600">
             Includes PDF download, all recipes, shopping lists, and meal prep guides

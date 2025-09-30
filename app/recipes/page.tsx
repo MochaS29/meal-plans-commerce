@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { ChefHat, Clock, Users, Flame, Heart, Star, Download, Printer, Search, Filter, Sparkles, Check } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import CheckoutButton from '@/components/CheckoutButton'
 
 interface Recipe {
   id: string
@@ -706,14 +707,14 @@ export default function RecipesPage() {
           <p className="text-gray-800 mb-6">
             Includes printable recipe cards, video tutorials, and lifetime updates
           </p>
-          <Link
-            href="/checkout"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-600 to-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
+          <CheckoutButton
+            productId="wellness-transformation"
+            className="text-xl shadow-xl"
           >
             <Sparkles className="w-6 h-6" />
             Get Your Complete Package - $79
             <Sparkles className="w-6 h-6" />
-          </Link>
+          </CheckoutButton>
         </motion.div>
       </section>
 

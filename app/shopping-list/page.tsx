@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ShoppingCart, Check, Printer, Download, Calendar, ChefHat, Sparkles, Apple, Leaf, Fish, Package } from 'lucide-react'
 import Link from 'next/link'
+import CheckoutButton from '@/components/CheckoutButton'
 
 interface ShoppingItem {
   id: string
@@ -348,14 +349,14 @@ export default function ShoppingListPage() {
           <p className="text-gray-600 mb-6">
             Plus recipes, meal prep guides, and nutritional tracking
           </p>
-          <Link
-            href="/checkout"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-mindlab-purple-600 to-mindlab-teal-600 text-white rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition"
+          <CheckoutButton
+            productId="wellness-transformation"
+            className="text-xl shadow-xl"
           >
             <Sparkles className="w-6 h-6" />
             Get Your Complete Package - $79
             <Sparkles className="w-6 h-6" />
-          </Link>
+          </CheckoutButton>
         </motion.div>
       </section>
     </div>
