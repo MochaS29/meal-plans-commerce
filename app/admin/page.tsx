@@ -82,14 +82,10 @@ export default function AdminDashboard() {
   const handleGenerateRecipes = async (dietType: string, months: number) => {
     setGeneratingRecipes(true)
     try {
-      // Use the admin API key from environment variable
-      const adminKey = 'ba92ff3e18c089cc916f47f7e5eddeba03d3d71220f0914fbc2285d28aeed4e0'
-
       const response = await fetch('/api/generate-recipes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${adminKey}`
         },
         body: JSON.stringify({
           action: 'single', // Start with single recipe for testing

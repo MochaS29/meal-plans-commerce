@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { generateRecipe, saveRecipeToDatabase, bulkGenerateRecipes } from '@/lib/ai-recipe-generator'
 import { supabase } from '@/lib/supabase'
-import { headers } from 'next/headers'
+import { headers, cookies } from 'next/headers'
+import { jwtVerify } from 'jose'
 
 // Rate limiting store (in production, use Redis or similar)
 const rateLimitStore = new Map<string, { count: number; resetTime: number }>()
@@ -45,24 +46,28 @@ export async function POST(request: NextRequest) {
       monthsToGenerate = 1
     } = body
 
-    // Check for API key
-    const authHeader = request.headers.get('authorization')
-    const validKey = process.env.ADMIN_API_KEY || 'ba92ff3e18c089cc916f47f7e5eddeba03d3d71220f0914fbc2285d28aeed4e0'
-    const hasValidAuth = authHeader === `Bearer ${validKey}`
+    // Check for admin authentication
+    let isAdmin = false
+    try {
+      const cookieStore = await cookies()
+      const token = cookieStore.get('admin-token')
 
-    // Bulk operations always require auth
-    if (action === 'bulk' && !hasValidAuth) {
-      return NextResponse.json(
-        { error: 'Unauthorized - Admin API key required for bulk generation' },
-        { status: 401 }
-      )
+      if (token) {
+        const secret = new TextEncoder().encode(
+          process.env.JWT_SECRET || 'your-jwt-secret-key'
+        )
+        const { payload } = await jwtVerify(token.value, secret)
+        isAdmin = payload.role === 'admin'
+      }
+    } catch (error) {
+      // Token verification failed
+      isAdmin = false
     }
 
-    // For single/batch operations, check if auth is provided and valid
-    // If auth is provided, it must be valid
-    if (authHeader && !hasValidAuth) {
+    // Bulk operations always require admin auth
+    if (action === 'bulk' && !isAdmin) {
       return NextResponse.json(
-        { error: 'Invalid API key' },
+        { error: 'Unauthorized - Admin access required for bulk generation' },
         { status: 401 }
       )
     }
