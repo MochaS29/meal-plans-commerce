@@ -56,12 +56,12 @@ export default function AdminDashboard() {
         setIsAdmin(true)
         fetchSalesData()
       } else {
-        // For demo, allow access
-        setIsAdmin(true)
+        // Redirect to login page
+        router.push('/admin/login')
       }
     } catch (error) {
-      // Demo mode
-      setIsAdmin(true)
+      // Redirect to login page on error
+      router.push('/admin/login')
     } finally {
       setLoading(false)
     }
@@ -155,11 +155,14 @@ export default function AdminDashboard() {
                 User Dashboard
               </Link>
               <button
-                onClick={() => router.push('/')}
+                onClick={async () => {
+                  await fetch('/api/admin/logout', { method: 'POST' })
+                  router.push('/admin/login')
+                }}
                 className="hover:text-amber-200 transition flex items-center gap-2"
               >
                 <LogOut className="w-4 h-4" />
-                Exit Admin
+                Logout
               </button>
             </div>
           </div>
