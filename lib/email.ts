@@ -27,7 +27,7 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
 
   try {
     // Send email with Resend
-    const data = await resend.emails.send({
+    const response = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'Meal Plans <onboarding@resend.dev>',
       to,
       subject,
@@ -35,8 +35,12 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
       attachments
     })
 
-    console.log('✅ Email sent successfully:', data.id)
-    return { success: true, messageId: data.id }
+    if ('data' in response && response.data) {
+      console.log('✅ Email sent successfully:', response.data.id)
+      return { success: true, messageId: response.data.id }
+    } else {
+      throw new Error('Failed to send email')
+    }
   } catch (error) {
     console.error('❌ Failed to send email:', error)
     throw new Error('Failed to send email')
