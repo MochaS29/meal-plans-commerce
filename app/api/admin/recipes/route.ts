@@ -64,7 +64,7 @@ export async function GET(request: NextRequest) {
     // Get diet plan names for each recipe
     const recipesWithDietPlans = await Promise.all((recipes || []).map(async (recipe) => {
       const dietPlanNames = []
-      if (recipe.diet_plans && recipe.diet_plans.length > 0) {
+      if (recipe.diet_plans && recipe.diet_plans.length > 0 && supabase) {
         const { data: plans } = await supabase
           .from('diet_plans')
           .select('name, slug')
