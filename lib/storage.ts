@@ -116,7 +116,7 @@ export async function generateAndUploadMealPlan(
 // Helper functions to generate sample data
 function generateSampleMeals(planType: string) {
   // In production, these would be fetched from your content database
-  const meals = {
+  const meals: Record<string, any> = {
     'Mediterranean Diet': {
       monday: {
         breakfast: 'Greek Yogurt with Honey and Walnuts',
