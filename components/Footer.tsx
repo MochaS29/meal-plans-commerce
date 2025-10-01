@@ -29,7 +29,6 @@ export default function Footer() {
           <ul className="space-y-2 text-amber-200">
             <li><Link href="/dashboard" className="hover:text-white transition">My Dashboard</Link></li>
             <li><Link href="/login" className="hover:text-white transition">Login</Link></li>
-            <li><Link href="/admin" className="hover:text-white transition">Admin Portal</Link></li>
             <li><Link href="/pricing" className="hover:text-white transition">Pricing</Link></li>
           </ul>
         </div>
@@ -49,6 +48,7 @@ export default function Footer() {
           <div className="flex space-x-6 text-amber-200">
             <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
+            <Link href="/admin/login" className="hover:text-white transition text-amber-300/50">Admin</Link>
           </div>
         </div>
       </div>

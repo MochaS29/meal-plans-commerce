@@ -94,9 +94,6 @@ export default function Header() {
             <Link href="/dashboard" className="text-gray-700 hover:text-teal-600 transition font-medium">
               Dashboard
             </Link>
-            <Link href="/admin" className="text-gray-700 hover:text-teal-600 transition font-medium">
-              Admin
-            </Link>
             <Link href="/login" className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition font-medium">
               Login
             </Link>

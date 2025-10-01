@@ -32,7 +32,6 @@ export default function Navigation() {
 
   const userLinks = [
     { href: '/dashboard', label: 'My Dashboard', icon: User },
-    { href: '/admin', label: 'Admin', icon: Settings },
   ]
 
   return (
@@ -68,12 +67,6 @@ export default function Navigation() {
                   className="text-sm font-medium text-gray-700 hover:text-amber-600 transition-colors"
                 >
                   Dashboard
-                </Link>
-                <Link
-                  href="/admin"
-                  className="text-sm font-medium text-gray-700 hover:text-amber-600 transition-colors"
-                >
-                  Admin
                 </Link>
               </>
             ) : (
