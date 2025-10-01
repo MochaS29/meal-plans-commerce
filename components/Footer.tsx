@@ -43,8 +43,14 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-amber-700 text-center text-amber-200">
-        <p>&copy; 2024 Mocha's MindLab Inc. All rights reserved.</p>
+      <div className="max-w-7xl mx-auto px-6 mt-8 pt-8 border-t border-amber-700">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-amber-200 mb-4 md:mb-0">&copy; 2024 Mocha's MindLab Inc. All rights reserved.</p>
+          <div className="flex space-x-6 text-amber-200">
+            <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
+          </div>
+        </div>
       </div>
     </footer>
   )
