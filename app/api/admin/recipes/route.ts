@@ -46,41 +46,47 @@ export async function GET(request: NextRequest) {
     const recipesWithDetails = await Promise.all((recipes || []).map(async (recipe) => {
       // Try to get ingredients
       let ingredients = []
-      try {
-        const { data } = await supabase
-          .from('recipe_ingredients')
-          .select('*')
-          .eq('recipe_id', recipe.id)
-          .order('order_index')
-        ingredients = data || []
-      } catch (e) {
-        // Table might not exist
+      if (supabase) {
+        try {
+          const { data } = await supabase
+            .from('recipe_ingredients')
+            .select('*')
+            .eq('recipe_id', recipe.id)
+            .order('order_index')
+          ingredients = data || []
+        } catch (e) {
+          // Table might not exist
+        }
       }
 
       // Try to get instructions
       let instructions = []
-      try {
-        const { data } = await supabase
-          .from('recipe_instructions')
-          .select('*')
-          .eq('recipe_id', recipe.id)
-          .order('step_number')
-        instructions = data || []
-      } catch (e) {
-        // Table might not exist
+      if (supabase) {
+        try {
+          const { data } = await supabase
+            .from('recipe_instructions')
+            .select('*')
+            .eq('recipe_id', recipe.id)
+            .order('step_number')
+          instructions = data || []
+        } catch (e) {
+          // Table might not exist
+        }
       }
 
       // Try to get nutrition
       let nutrition = null
-      try {
-        const { data } = await supabase
-          .from('recipe_nutrition')
-          .select('*')
-          .eq('recipe_id', recipe.id)
-          .single()
-        nutrition = data
-      } catch (e) {
-        // Table might not exist
+      if (supabase) {
+        try {
+          const { data } = await supabase
+            .from('recipe_nutrition')
+            .select('*')
+            .eq('recipe_id', recipe.id)
+            .single()
+          nutrition = data
+        } catch (e) {
+          // Table might not exist
+        }
       }
 
       return {
