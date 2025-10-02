@@ -17,30 +17,11 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
 
-    // Build query
+    // Build query - start with just recipes table
+    // We'll handle related tables separately to avoid errors if they don't exist
     let query = supabase
       .from('recipes')
-      .select(`
-        *,
-        recipe_ingredients (
-          ingredient,
-          amount,
-          unit,
-          notes,
-          order_index
-        ),
-        recipe_instructions (
-          step_number,
-          instruction
-        ),
-        recipe_nutrition (
-          calories,
-          protein,
-          carbs,
-          fat,
-          fiber
-        )
-      `)
+      .select('*')
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1)
 
@@ -61,8 +42,57 @@ export async function GET(request: NextRequest) {
 
     if (error) throw error
 
+    // Try to fetch related data for each recipe (ingredients, instructions, nutrition)
+    const recipesWithDetails = await Promise.all((recipes || []).map(async (recipe) => {
+      // Try to get ingredients
+      let ingredients = []
+      try {
+        const { data } = await supabase
+          .from('recipe_ingredients')
+          .select('*')
+          .eq('recipe_id', recipe.id)
+          .order('order_index')
+        ingredients = data || []
+      } catch (e) {
+        // Table might not exist
+      }
+
+      // Try to get instructions
+      let instructions = []
+      try {
+        const { data } = await supabase
+          .from('recipe_instructions')
+          .select('*')
+          .eq('recipe_id', recipe.id)
+          .order('step_number')
+        instructions = data || []
+      } catch (e) {
+        // Table might not exist
+      }
+
+      // Try to get nutrition
+      let nutrition = null
+      try {
+        const { data } = await supabase
+          .from('recipe_nutrition')
+          .select('*')
+          .eq('recipe_id', recipe.id)
+          .single()
+        nutrition = data
+      } catch (e) {
+        // Table might not exist
+      }
+
+      return {
+        ...recipe,
+        recipe_ingredients: ingredients,
+        recipe_instructions: instructions,
+        recipe_nutrition: nutrition ? [nutrition] : []
+      }
+    }))
+
     // Get diet plan names for each recipe
-    const recipesWithDietPlans = await Promise.all((recipes || []).map(async (recipe) => {
+    const recipesWithDietPlans = await Promise.all(recipesWithDetails.map(async (recipe) => {
       const dietPlanNames = []
       if (recipe.diet_plans && recipe.diet_plans.length > 0 && supabase) {
         const { data: plans } = await supabase
