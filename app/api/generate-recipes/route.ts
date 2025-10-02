@@ -93,6 +93,9 @@ export async function POST(request: NextRequest) {
       let savedToDatabase = false
       let savedRecipe = null
 
+      console.log('Supabase status:', supabase ? 'Connected' : 'Not configured')
+      console.log('Generated recipe:', recipe?.name)
+
       if (recipe && supabase) {
         // Get diet plan ID or create a default one
         let dietPlanId = null

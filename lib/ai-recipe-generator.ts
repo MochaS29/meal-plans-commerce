@@ -287,9 +287,13 @@ export async function generateWeeklyMealPlan(
 // Save generated recipes to Supabase
 export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds: string[]) {
   if (!supabase) {
-    console.log('Supabase not configured, skipping save')
+    console.log('❌ Supabase not configured, skipping save')
+    console.log('Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY')
     return null
   }
+
+  console.log('📝 Attempting to save recipe:', recipe.name)
+  console.log('Diet plan IDs:', dietPlanIds)
 
   try {
     // Insert recipe
@@ -307,7 +311,10 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
       .select()
       .single()
 
-    if (recipeError) throw recipeError
+    if (recipeError) {
+      console.error('❌ Error inserting recipe:', recipeError)
+      throw recipeError
+    }
 
     // Insert ingredients
     const ingredients = recipe.ingredients.map((ing, index) => ({
@@ -319,7 +326,11 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
       order_index: index
     }))
 
-    await supabase.from('recipe_ingredients').insert(ingredients)
+    const { error: ingredientsError } = await supabase.from('recipe_ingredients').insert(ingredients)
+    if (ingredientsError) {
+      console.error('❌ Error inserting ingredients:', ingredientsError)
+      // Continue anyway - recipe is saved
+    }
 
     // Insert instructions
     const instructions = recipe.instructions.map((inst, index) => ({
@@ -328,10 +339,14 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
       instruction: inst
     }))
 
-    await supabase.from('recipe_instructions').insert(instructions)
+    const { error: instructionsError } = await supabase.from('recipe_instructions').insert(instructions)
+    if (instructionsError) {
+      console.error('❌ Error inserting instructions:', instructionsError)
+      // Continue anyway - recipe is saved
+    }
 
     // Insert nutrition
-    await supabase.from('recipe_nutrition').insert({
+    const { error: nutritionError } = await supabase.from('recipe_nutrition').insert({
       recipe_id: newRecipe.id,
       calories: recipe.nutrition.calories,
       protein: recipe.nutrition.protein,
@@ -339,10 +354,15 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
       fat: recipe.nutrition.fat,
       fiber: recipe.nutrition.fiber
     })
+    if (nutritionError) {
+      console.error('❌ Error inserting nutrition:', nutritionError)
+      // Continue anyway - recipe is saved
+    }
 
+    console.log('✅ Recipe saved successfully with ID:', newRecipe.id)
     return newRecipe
   } catch (error) {
-    console.error('Error saving recipe:', error)
+    console.error('❌ Error saving recipe:', error)
     return null
   }
 }
