@@ -97,7 +97,10 @@ export default function AdminDashboard() {
       const data = await response.json()
 
       if (response.ok) {
-        alert(`Successfully generated ${dietType} recipe: ${data.recipe?.name || 'Recipe created'}`)
+        const message = data.savedToDatabase
+          ? `✅ Recipe "${data.recipe?.name}" generated and saved to library!`
+          : `⚠️ Recipe "${data.recipe?.name}" generated (configure database to save automatically)`
+        alert(message)
         console.log('Generated recipe:', data)
       } else {
         alert(`Error: ${data.error || 'Failed to generate recipe'}`)

@@ -90,8 +90,13 @@ export async function POST(request: NextRequest) {
         servings: 4
       })
 
+      let savedToDatabase = false
+      let savedRecipe = null
+
       if (recipe && supabase) {
-        // Get diet plan ID
+        // Get diet plan ID or create a default one
+        let dietPlanId = null
+
         const { data: dietPlan } = await supabase
           .from('diet_plans')
           .select('id')
@@ -99,17 +104,75 @@ export async function POST(request: NextRequest) {
           .single()
 
         if (dietPlan) {
-          await saveRecipeToDatabase(recipe, [dietPlan.id])
+          dietPlanId = dietPlan.id
+        } else {
+          // Create diet plan if it doesn't exist
+          const { data: newDietPlan } = await supabase
+            .from('diet_plans')
+            .insert({
+              name: dietType.charAt(0).toUpperCase() + dietType.slice(1),
+              slug: dietType,
+              description: `${dietType} diet plan`,
+              features: ['AI Generated Recipes'],
+              price: 49
+            })
+            .select()
+            .single()
+
+          if (newDietPlan) {
+            dietPlanId = newDietPlan.id
+          }
+        }
+
+        if (dietPlanId) {
+          savedRecipe = await saveRecipeToDatabase(recipe, [dietPlanId])
+          savedToDatabase = !!savedRecipe
         }
       }
 
       return NextResponse.json({
         success: true,
-        recipe
+        recipe,
+        savedToDatabase,
+        message: savedToDatabase
+          ? 'Recipe generated and saved to library!'
+          : 'Recipe generated (database not configured)'
       })
     } else if (action === 'batch') {
       // Generate multiple recipes
       const recipes = []
+      let savedCount = 0
+
+      // Get or create diet plan once for all recipes
+      let dietPlanId = null
+      if (supabase) {
+        const { data: dietPlan } = await supabase
+          .from('diet_plans')
+          .select('id')
+          .eq('slug', dietType)
+          .single()
+
+        if (dietPlan) {
+          dietPlanId = dietPlan.id
+        } else {
+          // Create diet plan if it doesn't exist
+          const { data: newDietPlan } = await supabase
+            .from('diet_plans')
+            .insert({
+              name: dietType.charAt(0).toUpperCase() + dietType.slice(1),
+              slug: dietType,
+              description: `${dietType} diet plan`,
+              features: ['AI Generated Recipes'],
+              price: 49
+            })
+            .select()
+            .single()
+
+          if (newDietPlan) {
+            dietPlanId = newDietPlan.id
+          }
+        }
+      }
 
       for (let i = 0; i < count; i++) {
         const recipe = await generateRecipe({
@@ -122,16 +185,9 @@ export async function POST(request: NextRequest) {
         if (recipe) {
           recipes.push(recipe)
 
-          if (supabase) {
-            const { data: dietPlan } = await supabase
-              .from('diet_plans')
-              .select('id')
-              .eq('slug', dietType)
-              .single()
-
-            if (dietPlan) {
-              await saveRecipeToDatabase(recipe, [dietPlan.id])
-            }
+          if (supabase && dietPlanId) {
+            const savedRecipe = await saveRecipeToDatabase(recipe, [dietPlanId])
+            if (savedRecipe) savedCount++
           }
         }
 
@@ -142,7 +198,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         count: recipes.length,
-        recipes
+        savedCount,
+        recipes,
+        message: `Generated ${recipes.length} recipes, saved ${savedCount} to library`
       })
     }
 
