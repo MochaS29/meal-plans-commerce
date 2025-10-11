@@ -75,7 +75,8 @@ export default function RecipesPage() {
           'paleo',
           'vegetarian',
           'intermittent-fasting',
-          'family-focused'
+          'family-focused',
+          'global-cuisine'
         ]
 
         const recipePromises = dietTypes.map(async (diet) => {
@@ -97,7 +98,7 @@ export default function RecipesPage() {
 
         const dietRecipes = (await Promise.all(recipePromises)).filter(Boolean)
 
-        // Add 2 more random recipes for variety
+        // Add 1 more random recipe for variety (to make 9 total)
         const params = new URLSearchParams()
         params.append('limit', '20')
         const response = await fetch(`/api/admin/recipes?${params}`)
@@ -107,7 +108,7 @@ export default function RecipesPage() {
           const extraRecipes = data.recipes
             .filter(r => r.image_url && !dietRecipes.find(dr => dr.id === r.id))
             .sort(() => Math.random() - 0.5)
-            .slice(0, 2)
+            .slice(0, 1)
 
           setRecipes([...dietRecipes, ...extraRecipes])
         } else {
@@ -192,6 +193,7 @@ export default function RecipesPage() {
               <option value="vegetarian">Vegetarian</option>
               <option value="intermittent-fasting">Intermittent Fasting</option>
               <option value="family-focused">Family Focused</option>
+              <option value="global-cuisine">Global Cuisine</option>
             </select>
           </div>
         </div>
