@@ -75,8 +75,7 @@ export default function RecipesPage() {
           'paleo',
           'vegetarian',
           'intermittent-fasting',
-          'family-focused',
-          'global-cuisine'
+          'family-focused'
         ]
 
         const recipePromises = dietTypes.map(async (diet) => {
@@ -100,7 +99,7 @@ export default function RecipesPage() {
 
         const dietRecipes = (await Promise.all(recipePromises)).filter(Boolean)
 
-        // Add 1 more random recipe for variety (to make 9 total)
+        // Add 2 more random recipes for variety (to make 9 total)
         const params = new URLSearchParams()
         params.append('limit', '20')
         const response = await fetch(`/api/admin/recipes?${params}`)
@@ -110,7 +109,7 @@ export default function RecipesPage() {
           const extraRecipes = data.recipes
             .filter((r: Recipe) => r.image_url && !dietRecipes.find((dr: Recipe) => dr.id === r.id))
             .sort(() => Math.random() - 0.5)
-            .slice(0, 1)
+            .slice(0, 2)
 
           setRecipes([...dietRecipes, ...extraRecipes])
         } else {
