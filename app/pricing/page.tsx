@@ -118,17 +118,6 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-amber-600 bg-clip-text text-transparent">
-            Mocha&apos;s MindLab
-          </Link>
-          <Link href="/" className="text-gray-600 hover:text-teal-600 transition">
-            ← Back to Home
-          </Link>
-        </div>
-      </div>
 
       {/* Hero Section */}
       <div className="text-center py-16 px-4">

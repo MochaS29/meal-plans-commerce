@@ -65,7 +65,9 @@ async function generateRecipes() {
       const statsResponse = await fetch(`${API_URL}/api/generate-recipes`)
       const stats = await statsResponse.json()
 
-      const dietStats = stats.stats?.find(s => s.slug === dietType)
+      // Map diet type to slug (handle "global" -> "global-cuisine")
+      const dietSlug = dietType === 'global' ? 'global-cuisine' : dietType
+      const dietStats = stats.stats?.find(s => s.slug === dietSlug)
       if (dietStats && dietStats.recipeCount > lastCount) {
         console.log(`Progress: ${dietStats.recipeCount} recipes created`)
         lastCount = dietStats.recipeCount

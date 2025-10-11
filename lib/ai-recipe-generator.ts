@@ -555,10 +555,13 @@ export async function bulkGenerateRecipes(
 async function getDietPlanId(dietType: string): Promise<string | null> {
   if (!supabase) return null
 
+  // Map diet type to slug (handle "global" -> "global-cuisine")
+  const dietSlug = dietType === 'global' ? 'global-cuisine' : dietType
+
   const { data } = await supabase
     .from('diet_plans')
     .select('id')
-    .eq('slug', dietType)
+    .eq('slug', dietSlug)
     .single()
 
   return data?.id || null

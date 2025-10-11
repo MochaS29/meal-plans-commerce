@@ -43,7 +43,7 @@ export default function Navigation() {
             href="/"
             className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-600 to-amber-700 bg-clip-text text-transparent hover:from-amber-700 hover:to-amber-800 transition-all"
           >
-            Mocha's MindLab
+            Mindful Meal Plans
           </Link>
 
           {/* Desktop Navigation */}

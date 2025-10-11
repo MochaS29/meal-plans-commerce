@@ -10,6 +10,16 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 
 export default function WellnessTransformationPage() {
   const [loading, setLoading] = useState(false)
+  const [selectedDiet, setSelectedDiet] = useState('mediterranean')
+
+  const dietOptions = [
+    { id: 'mediterranean', name: 'Mediterranean', description: 'Heart-healthy with olive oil, fish, and fresh vegetables' },
+    { id: 'keto', name: 'Keto', description: 'Low-carb, high-fat recipes for ketosis' },
+    { id: 'vegan', name: 'Vegan', description: 'Plant-based recipes with complete nutrition' },
+    { id: 'paleo', name: 'Paleo', description: 'Whole foods, no processed ingredients' },
+    { id: 'vegetarian', name: 'Vegetarian', description: 'Meat-free with dairy and eggs' },
+    { id: 'family', name: 'Family Recipes', description: 'Kid-friendly, crowd-pleasing meals' }
+  ]
 
   const handleCheckout = async () => {
     try {
@@ -20,6 +30,7 @@ export default function WellnessTransformationPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           productId: 'wellness-transformation',
+          dietPlan: selectedDiet,
           customizations: {}
         })
       })
@@ -136,15 +147,26 @@ export default function WellnessTransformationPage() {
 
           {/* Choose Your Style */}
           <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">Choose Your Cuisine Style</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                'Mediterranean', 'Intermittent Fasting', 'Keto-Friendly',
-                'Plant-Based', 'Clean Eating', 'Global Fusion'
-              ].map((style, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-teal-50 to-amber-50 p-4 rounded-xl text-center">
-                  <span className="font-semibold text-gray-800">{style}</span>
-                </div>
+            <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">Choose Your Diet Plan</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {dietOptions.map((diet) => (
+                <button
+                  key={diet.id}
+                  onClick={() => setSelectedDiet(diet.id)}
+                  className={`p-4 rounded-xl text-left transition-all ${
+                    selectedDiet === diet.id
+                      ? 'bg-gradient-to-br from-teal-100 to-amber-100 border-2 border-teal-500 ring-2 ring-teal-200'
+                      : 'bg-gradient-to-br from-gray-50 to-gray-100 border-2 border-gray-200 hover:border-teal-300'
+                  }`}
+                >
+                  <div className="font-semibold text-gray-900 mb-1">{diet.name}</div>
+                  <div className="text-sm text-gray-600">{diet.description}</div>
+                  {selectedDiet === diet.id && (
+                    <div className="mt-2">
+                      <Check className="w-5 h-5 text-teal-600" />
+                    </div>
+                  )}
+                </button>
               ))}
             </div>
           </div>

@@ -46,9 +46,10 @@ export async function POST(request: NextRequest) {
       monthsToGenerate = 1
     } = body
 
-    // Check for admin authentication
+    // Check for admin authentication (cookie or Bearer token)
     let isAdmin = false
     try {
+      // Check cookie first
       const cookieStore = await cookies()
       const token = cookieStore.get('admin-token')
 
@@ -58,6 +59,17 @@ export async function POST(request: NextRequest) {
         )
         const { payload } = await jwtVerify(token.value, secret)
         isAdmin = payload.role === 'admin'
+      }
+
+      // If not admin yet, check Authorization header with API key
+      if (!isAdmin) {
+        const authHeader = request.headers.get('authorization')
+        const adminApiKey = process.env.ADMIN_API_KEY
+
+        if (authHeader && adminApiKey) {
+          const bearerToken = authHeader.replace('Bearer ', '')
+          isAdmin = bearerToken === adminApiKey
+        }
       }
     } catch (error) {
       // Token verification failed

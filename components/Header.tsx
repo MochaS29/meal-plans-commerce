@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Header() {
@@ -16,10 +17,14 @@ export default function Header() {
       <div className="px-6 py-4">
         <nav className="max-w-7xl mx-auto flex justify-between items-center">
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-amber-500 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xl">🧠</span>
-            </div>
-            <span className="text-xl font-semibold text-amber-800">Mocha's MindLab Inc.</span>
+            <Image
+              src="/images/ML-Logo1.png"
+              alt="Mindful Meal Plans Logo"
+              width={67}
+              height={67}
+              className="w-17 h-17 rounded-full"
+            />
+            <span className="text-xl font-semibold text-amber-800">Mindful Meal Plans</span>
           </Link>
           <div className="flex items-center space-x-8">
             <Link href="/menu-benefits" className="text-gray-700 hover:text-teal-600 transition font-medium">
@@ -90,9 +95,6 @@ export default function Header() {
             </Link>
             <Link href="/pricing" className="text-gray-700 hover:text-teal-600 transition font-medium">
               Pricing
-            </Link>
-            <Link href="/dashboard" className="text-gray-700 hover:text-teal-600 transition font-medium">
-              Dashboard
             </Link>
             <Link href="/login" className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition font-medium">
               Login

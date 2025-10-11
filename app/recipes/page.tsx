@@ -75,7 +75,8 @@ export default function RecipesPage() {
           'paleo',
           'vegetarian',
           'intermittent-fasting',
-          'family-focused'
+          'family-focused',
+          'global-cuisine'
         ]
 
         const recipePromises = dietTypes.map(async (diet) => {

@@ -3,37 +3,60 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Mail, Lock, ArrowRight, Loader } from 'lucide-react'
+import { Mail, Lock, ArrowRight, Loader, User, Eye, EyeOff } from 'lucide-react'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [name, setName] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+  const [isSignUp, setIsSignUp] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const router = useRouter()
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
     setMessage('')
 
     try {
-      // Send magic link to email
-      const response = await fetch('/api/auth/magic-link', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
+      if (isSignUp) {
+        // Sign up new user
+        const response = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password, name })
+        })
 
-      const data = await response.json()
+        const data = await response.json()
 
-      if (response.ok) {
-        setMessage('Login successful! Redirecting...')
-        // Auto-redirect to dashboard for demo
-        setTimeout(() => {
-          router.push('/dashboard')
-        }, 1000)
+        if (response.ok) {
+          setMessage('Account created successfully! Redirecting...')
+          setTimeout(() => {
+            router.push('/dashboard')
+          }, 1000)
+        } else {
+          setMessage(data.error || 'Failed to create account')
+        }
       } else {
-        setMessage(data.error || 'Failed to send login link')
+        // Login existing user
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        })
+
+        const data = await response.json()
+
+        if (response.ok) {
+          setMessage('Login successful! Redirecting...')
+          setTimeout(() => {
+            router.push('/dashboard')
+          }, 1000)
+        } else {
+          setMessage(data.error || 'Invalid email or password')
+        }
       }
     } catch (error) {
       setMessage('An error occurred. Please try again.')
@@ -55,7 +78,26 @@ export default function LoginPage() {
             <p className="text-gray-600">Access your meal plans and recipes</p>
           </div>
 
-          <form onSubmit={handleLogin} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {isSignUp && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required={isSignUp}
+                    placeholder="Your full name"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address
@@ -73,9 +115,38 @@ export default function LoginPage() {
               </div>
             </div>
 
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Password
+              </label>
+              <div className="relative">
+                <Lock className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  placeholder={isSignUp ? "Create a secure password" : "Enter your password"}
+                  className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 text-gray-400 hover:text-gray-600"
+                >
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
+              </div>
+              {isSignUp && (
+                <p className="text-xs text-gray-600 mt-1">
+                  Minimum 8 characters with letters and numbers
+                </p>
+              )}
+            </div>
+
             {message && (
               <div className={`p-4 rounded-lg text-sm ${
-                message.includes('Check your email')
+                message.includes('successful') || message.includes('Redirecting')
                   ? 'bg-green-50 text-green-700'
                   : 'bg-red-50 text-red-700'
               }`}>
@@ -85,21 +156,44 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (isSignUp && password.length < 8)}
               className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
                   <Loader className="w-5 h-5 animate-spin" />
-                  Sending...
+                  {isSignUp ? 'Creating Account...' : 'Logging In...'}
                 </>
               ) : (
                 <>
-                  Send Login Link
+                  {isSignUp ? 'Create Account' : 'Login'}
                   <ArrowRight className="w-5 h-5" />
                 </>
               )}
             </button>
+
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSignUp(!isSignUp)
+                  setMessage('')
+                  setPassword('')
+                  setName('')
+                }}
+                className="text-sm text-green-600 hover:underline"
+              >
+                {isSignUp ? 'Already have an account? Login' : "Don't have an account? Sign up"}
+              </button>
+            </div>
+
+            {!isSignUp && (
+              <div className="text-center">
+                <Link href="/forgot-password" className="text-sm text-gray-600 hover:underline">
+                  Forgot your password?
+                </Link>
+              </div>
+            )}
           </form>
 
           <div className="mt-8 pt-6 border-t text-center">

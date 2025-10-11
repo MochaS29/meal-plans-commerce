@@ -6,10 +6,17 @@ import { motion } from 'framer-motion'
 import { Check, Star, Calendar, ShoppingCart, BookOpen, ChefHat, Heart, Sparkles } from 'lucide-react'
 import { products } from '@/lib/products'
 import { formatPrice } from '@/lib/utils'
+import StructuredData from '@/components/StructuredData'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      {/* Structured Data for SEO */}
+      <StructuredData type="website" />
+      <StructuredData type="organization" />
+      <StructuredData type="service" />
+
+      <div className="min-h-screen bg-white">
       {/* Container with Background Image for Header and Hero */}
       <div className="relative">
         {/* Background Image */}
@@ -336,6 +343,7 @@ export default function HomePage() {
         </div>
       </section>
 
-    </div>
+      </div>
+    </>
   )
 }

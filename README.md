@@ -12,13 +12,13 @@ A full-stack Next.js 15 e-commerce platform for selling personalized meal plans,
 ## 🌟 Features
 
 ### Customer Features
-- **8 Specialized Diet Plans** - Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family-Focused, Global Cuisine
-- **AI-Powered Recipe Generation** - Real-time unique recipes generated using Claude AI (Haiku model)
-- **Monthly Meal Calendars** - Pre-planned 30-day meal schedules with breakfast, lunch, dinner & snacks
-- **Smart Shopping Lists** - Auto-generated grocery lists with copy-to-clipboard functionality
-- **Print-Friendly Layouts** - Print recipes, calendars, and shopping lists directly from dashboard
-- **User Dashboard** - Track purchases, view past menus, manage account settings
-- **Secure Payments** - Stripe Checkout integration for one-time and subscription payments
+- **6 Specialized Diet Plans** - Mediterranean, Keto, Vegan, Paleo, Vegetarian, Family Recipes (with 3,586+ recipes ready)
+- **Hybrid Recipe System** - 75% curated library recipes + 25% freshly generated for variety
+- **30-Day Meal Plans** - Complete monthly meal calendars with personalized recipe selection
+- **Smart Recipe Tracking** - Never receive duplicate recipes, perfect for returning customers
+- **Instant PDF Delivery** - Beautiful meal plan PDFs generated and delivered automatically
+- **AI-Powered Variety** - Fresh recipes added to library with every customer order
+- **Secure Payments** - Stripe Checkout integration with automated fulfillment
 - **Mobile Responsive** - Fully optimized for all devices and screen sizes
 
 ### Admin Features

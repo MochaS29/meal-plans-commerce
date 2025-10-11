@@ -89,11 +89,29 @@ export async function GET(request: NextRequest) {
         }
       }
 
+      // Try to get primary image
+      let imageUrl = null
+      if (supabase) {
+        try {
+          const { data } = await supabase
+            .from('images')
+            .select('url')
+            .eq('entity_type', 'recipe')
+            .eq('entity_id', recipe.id)
+            .eq('is_primary', true)
+            .single()
+          imageUrl = data?.url || null
+        } catch (e) {
+          // No image found
+        }
+      }
+
       return {
         ...recipe,
         recipe_ingredients: ingredients,
         recipe_instructions: instructions,
-        recipe_nutrition: nutrition ? [nutrition] : []
+        recipe_nutrition: nutrition ? [nutrition] : [],
+        image_url: imageUrl
       }
     }))
 

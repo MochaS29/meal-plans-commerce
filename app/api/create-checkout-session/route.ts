@@ -5,7 +5,7 @@ import { getBaseUrl } from '@/lib/utils'
 
 export async function POST(request: NextRequest) {
   try {
-    const { productId, customizations } = await request.json()
+    const { productId, customizations, dietPlan } = await request.json()
 
     const product = getProductById(productId)
     if (!product) {
@@ -51,6 +51,7 @@ export async function POST(request: NextRequest) {
       cancel_url: `${baseUrl}/plans/${productId}`,
       metadata: {
         productId,
+        diet_plan: dietPlan || 'mediterranean', // Default to mediterranean if not specified
         customizations: JSON.stringify(customizations || {}),
       },
       allow_promotion_codes: true,
@@ -58,7 +59,10 @@ export async function POST(request: NextRequest) {
       customer_email: undefined, // Will be collected in checkout
     })
 
-    return NextResponse.json({ sessionId: session.id })
+    return NextResponse.json({
+      sessionId: session.id,
+      url: session.url
+    })
   } catch (error: any) {
     console.error('Error creating checkout session:', error)
     return NextResponse.json(

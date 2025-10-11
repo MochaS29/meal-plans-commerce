@@ -18,6 +18,7 @@ interface Recipe {
   servings: number
   difficulty: string
   created_at: string
+  image_url?: string | null
   diet_plan_names: { name: string; slug: string }[]
   recipe_ingredients: {
     ingredient: string
@@ -215,6 +216,21 @@ export default function RecipeLibrary() {
               transition={{ delay: index * 0.05 }}
               className="bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition overflow-hidden"
             >
+              {/* Recipe Image */}
+              {recipe.image_url ? (
+                <div className="relative w-full h-48 bg-gray-100">
+                  <img
+                    src={recipe.image_url}
+                    alt={recipe.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="relative w-full h-48 bg-gradient-to-br from-amber-100 to-teal-100 flex items-center justify-center">
+                  <ChefHat className="w-16 h-16 text-gray-400" />
+                </div>
+              )}
+
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-lg font-bold text-gray-800 flex-1">
@@ -302,20 +318,20 @@ export default function RecipeLibrary() {
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500">Prep Time</p>
-                  <p className="font-semibold">{selectedRecipe.prep_time} mins</p>
+                  <p className="text-xs text-gray-600 font-medium">Prep Time</p>
+                  <p className="font-bold text-gray-900">{selectedRecipe.prep_time} mins</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500">Cook Time</p>
-                  <p className="font-semibold">{selectedRecipe.cook_time} mins</p>
+                  <p className="text-xs text-gray-600 font-medium">Cook Time</p>
+                  <p className="font-bold text-gray-900">{selectedRecipe.cook_time} mins</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500">Servings</p>
-                  <p className="font-semibold">{selectedRecipe.servings}</p>
+                  <p className="text-xs text-gray-600 font-medium">Servings</p>
+                  <p className="font-bold text-gray-900">{selectedRecipe.servings}</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500">Difficulty</p>
-                  <p className="font-semibold capitalize">{selectedRecipe.difficulty}</p>
+                  <p className="text-xs text-gray-600 font-medium">Difficulty</p>
+                  <p className="font-bold text-gray-900 capitalize">{selectedRecipe.difficulty}</p>
                 </div>
               </div>
 
@@ -325,31 +341,31 @@ export default function RecipeLibrary() {
                   <h3 className="font-bold text-gray-800 mb-3">Nutrition Per Serving</h3>
                   <div className="grid grid-cols-5 gap-2">
                     <div className="bg-green-50 rounded-lg p-3 text-center">
-                      <p className="text-xs text-gray-500">Calories</p>
+                      <p className="text-xs text-gray-700 font-medium">Calories</p>
                       <p className="font-bold text-green-700">
                         {selectedRecipe.recipe_nutrition[0].calories}
                       </p>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-3 text-center">
-                      <p className="text-xs text-gray-500">Protein</p>
+                      <p className="text-xs text-gray-700 font-medium">Protein</p>
                       <p className="font-bold text-blue-700">
                         {selectedRecipe.recipe_nutrition[0].protein}g
                       </p>
                     </div>
                     <div className="bg-amber-50 rounded-lg p-3 text-center">
-                      <p className="text-xs text-gray-500">Carbs</p>
+                      <p className="text-xs text-gray-700 font-medium">Carbs</p>
                       <p className="font-bold text-amber-700">
                         {selectedRecipe.recipe_nutrition[0].carbs}g
                       </p>
                     </div>
                     <div className="bg-purple-50 rounded-lg p-3 text-center">
-                      <p className="text-xs text-gray-500">Fat</p>
+                      <p className="text-xs text-gray-700 font-medium">Fat</p>
                       <p className="font-bold text-purple-700">
                         {selectedRecipe.recipe_nutrition[0].fat}g
                       </p>
                     </div>
                     <div className="bg-teal-50 rounded-lg p-3 text-center">
-                      <p className="text-xs text-gray-500">Fiber</p>
+                      <p className="text-xs text-gray-700 font-medium">Fiber</p>
                       <p className="font-bold text-teal-700">
                         {selectedRecipe.recipe_nutrition[0].fiber}g
                       </p>
@@ -367,9 +383,9 @@ export default function RecipeLibrary() {
                     .map((ing, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <span className="text-amber-600 mt-1">•</span>
-                        <span>
-                          <strong>{ing.amount} {ing.unit}</strong> {ing.ingredient}
-                          {ing.notes && <span className="text-gray-500"> ({ing.notes})</span>}
+                        <span className="text-gray-900">
+                          <strong className="text-gray-900">{ing.amount} {ing.unit}</strong> {ing.ingredient}
+                          {ing.notes && <span className="text-gray-600"> ({ing.notes})</span>}
                         </span>
                       </li>
                     ))}
@@ -387,7 +403,7 @@ export default function RecipeLibrary() {
                         <span className="flex-shrink-0 w-8 h-8 bg-amber-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
                           {inst.step_number}
                         </span>
-                        <span className="pt-1">{inst.instruction}</span>
+                        <span className="pt-1 text-gray-900">{inst.instruction}</span>
                       </li>
                     ))}
                 </ol>

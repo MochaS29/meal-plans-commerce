@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
 import { Loader2 } from 'lucide-react'
+import { trackBeginCheckout } from './GoogleAdsTracking'
+import { products } from '@/lib/products'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
@@ -24,6 +26,13 @@ export default function CheckoutButton({
   const handleCheckout = async () => {
     try {
       setLoading(true)
+
+      // Get product details for tracking
+      const product = products.find(p => p.id === productId)
+      const amount = product ? product.price / 100 : 0
+
+      // Track begin checkout conversion
+      trackBeginCheckout(productId, amount)
 
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',

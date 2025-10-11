@@ -31,7 +31,8 @@ export async function uploadPDFToStorage(
 export async function generateAndUploadMealPlan(
   customerEmail: string,
   planType: string,
-  sessionId: string
+  sessionId: string,
+  selectedRecipes?: any[]
 ): Promise<string> {
   try {
     // Create sample meal plan data
@@ -82,19 +83,92 @@ export async function generateAndUploadMealPlan(
     pdfDoc.text(`Plan Type: ${planType}`, 20, generator['currentY'])
     generator['currentY'] += 20
 
-    // Add a simple weekly menu
-    pdfDoc.setFontSize(12)
-    pdfDoc.setFont('helvetica', 'bold')
-    pdfDoc.text('Week 1 Sample Menu', 20, generator['currentY'])
-    generator['currentY'] += 10
+    // Add recipes to the PDF
+    if (selectedRecipes && selectedRecipes.length > 0) {
+      pdfDoc.setFontSize(12)
+      pdfDoc.setFont('helvetica', 'bold')
+      pdfDoc.text('Your Monthly Meal Plan (30 Recipes)', 20, generator['currentY'])
+      generator['currentY'] += 15
 
-    pdfDoc.setFont('helvetica', 'normal')
-    pdfDoc.setFontSize(10)
-    const sampleDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-    sampleDays.forEach(day => {
-      pdfDoc.text(`${day}: Breakfast | Lunch | Dinner`, 20, generator['currentY'])
+      // Group recipes by week
+      const weeksInMonth = 5 // 30 days = 4 weeks + 2 days
+      let recipeIndex = 0
+
+      for (let week = 1; week <= weeksInMonth; week++) {
+        const daysInWeek = week <= 4 ? 7 : 2 // First 4 weeks have 7 days, 5th week has 2 days
+
+        if (recipeIndex >= selectedRecipes.length) break
+
+        pdfDoc.setFontSize(11)
+        pdfDoc.setFont('helvetica', 'bold')
+        pdfDoc.text(`Week ${week}`, 20, generator['currentY'])
+        generator['currentY'] += 8
+
+        pdfDoc.setFont('helvetica', 'normal')
+        pdfDoc.setFontSize(9)
+
+        // Add recipes for this week
+        for (let day = 1; day <= daysInWeek && recipeIndex < selectedRecipes.length; day++) {
+          const recipe = selectedRecipes[recipeIndex]
+          const dayName = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][day - 1]
+
+          // Check if we need a new page
+          if (generator['currentY'] > 250) {
+            pdfDoc.addPage()
+            generator['currentY'] = 20
+          }
+
+          pdfDoc.text(`${dayName}: ${recipe.name}`, 25, generator['currentY'])
+          generator['currentY'] += 6
+
+          if (recipe.description) {
+            pdfDoc.setFontSize(8)
+            pdfDoc.setTextColor(100, 100, 100)
+            pdfDoc.text(`     ${recipe.description.substring(0, 80)}...`, 25, generator['currentY'])
+            pdfDoc.setTextColor(0, 0, 0)
+            pdfDoc.setFontSize(9)
+            generator['currentY'] += 4
+          }
+
+          recipeIndex++
+        }
+
+        generator['currentY'] += 8
+      }
+
+      // Add summary
+      pdfDoc.setFontSize(10)
+      pdfDoc.setFont('helvetica', 'bold')
+      pdfDoc.text('Recipe Summary:', 20, generator['currentY'])
       generator['currentY'] += 8
-    })
+
+      pdfDoc.setFont('helvetica', 'normal')
+      pdfDoc.setFontSize(8)
+      const newRecipeCount = selectedRecipes.filter(r => r.isNew).length
+      const libraryRecipeCount = selectedRecipes.length - newRecipeCount
+
+      pdfDoc.text(`• ${selectedRecipes.length} total recipes for this month`, 25, generator['currentY'])
+      generator['currentY'] += 5
+      pdfDoc.text(`• ${libraryRecipeCount} from our curated library`, 25, generator['currentY'])
+      generator['currentY'] += 5
+      pdfDoc.text(`• ${newRecipeCount} freshly generated for you`, 25, generator['currentY'])
+      generator['currentY'] += 5
+
+    } else {
+      // Fallback to simple menu
+      pdfDoc.setFontSize(12)
+      pdfDoc.setFont('helvetica', 'bold')
+      pdfDoc.text('Week 1 Sample Menu', 20, generator['currentY'])
+      generator['currentY'] += 10
+
+      pdfDoc.setFont('helvetica', 'normal')
+      pdfDoc.setFontSize(10)
+      const sampleDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+      sampleDays.forEach(day => {
+        pdfDoc.text(`${day}: Breakfast | Lunch | Dinner`, 20, generator['currentY'])
+        generator['currentY'] += 8
+      })
+    }
 
     // Get PDF as buffer
     const pdfBuffer = Buffer.from(pdfDoc.output('arraybuffer'))

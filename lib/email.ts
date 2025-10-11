@@ -1,5 +1,6 @@
 // Email service for sending meal plans to customers
 import { Resend } from 'resend'
+import { trackEmailError } from '@/lib/monitoring'
 
 interface SendEmailParams {
   to: string
@@ -15,9 +16,9 @@ interface SendEmailParams {
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
 
 export async function sendEmail({ to, subject, html, attachments }: SendEmailParams) {
-  // For development without API key, just log the email
-  if (!resend || process.env.NODE_ENV === 'development') {
-    console.log('📧 Email would be sent:', {
+  // Only log instead of sending if no API key is configured
+  if (!resend) {
+    console.log('📧 Email would be sent (no API key):', {
       to,
       subject,
       attachmentsCount: attachments?.length || 0
@@ -26,6 +27,11 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
   }
 
   try {
+    console.log('📧 Attempting to send email via Resend...')
+    console.log('From:', process.env.EMAIL_FROM)
+    console.log('To:', to)
+    console.log('Subject:', subject)
+
     // Send email with Resend
     const response = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'Meal Plans <onboarding@resend.dev>',
@@ -35,15 +41,30 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
       attachments
     })
 
+    console.log('📬 Resend response:', response)
+
     if ('data' in response && response.data) {
       console.log('✅ Email sent successfully:', response.data.id)
       return { success: true, messageId: response.data.id }
+    } else if ('error' in response) {
+      console.error('❌ Resend API error:', response.error)
+      await trackEmailError('Resend API error', {
+        to,
+        error: response.error.message || 'Resend API error'
+      })
+      return { success: false, error: response.error.message || 'Resend API error' }
     } else {
-      throw new Error('Failed to send email')
+      console.error('❌ Unexpected response format:', response)
+      await trackEmailError('Unexpected response format', { to })
+      return { success: false, error: 'Unexpected response format' }
     }
   } catch (error) {
     console.error('❌ Failed to send email:', error)
-    throw new Error('Failed to send email')
+    await trackEmailError('Email sending failed', {
+      to,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    })
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
   }
 }
 

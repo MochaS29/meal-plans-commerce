@@ -9,7 +9,9 @@ export default function Footer() {
         <div>
           <div className="flex items-center space-x-2 mb-4">
             <span className="text-2xl">🧠</span>
-            <span className="text-xl font-bold">Mocha's MindLab</span>
+            <Link href="https://www.mochasmindlab.com" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-amber-100 transition">
+              Mocha's MindLab
+            </Link>
           </div>
           <p className="text-amber-200">
             Transform your health with personalized meal planning
