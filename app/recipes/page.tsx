@@ -89,7 +89,7 @@ export default function RecipesPage() {
 
           if (data.success && data.recipes && data.recipes.length > 0) {
             // Pick a random recipe from this diet
-            const recipes = data.recipes.filter(r => r.image_url) // Only recipes with images
+            const recipes = data.recipes.filter((r: Recipe) => r.image_url) // Only recipes with images
             if (recipes.length === 0) return data.recipes[0] // Fallback to any recipe
             return recipes[Math.floor(Math.random() * recipes.length)]
           }
@@ -106,7 +106,7 @@ export default function RecipesPage() {
 
         if (data.success && data.recipes) {
           const extraRecipes = data.recipes
-            .filter(r => r.image_url && !dietRecipes.find(dr => dr.id === r.id))
+            .filter((r: Recipe) => r.image_url && !dietRecipes.find((dr: Recipe) => dr.id === r.id))
             .sort(() => Math.random() - 0.5)
             .slice(0, 1)
 
