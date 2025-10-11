@@ -53,18 +53,66 @@ export default function RecipesPage() {
 
   const fetchRecipes = async () => {
     try {
-      const params = new URLSearchParams()
-      if (selectedDiet) params.append('diet', selectedDiet)
-      params.append('limit', '100') // Fetch more to have a good random selection pool
+      if (selectedDiet) {
+        // If a diet is selected, fetch from that diet
+        const params = new URLSearchParams()
+        params.append('diet', selectedDiet)
+        params.append('limit', '100')
 
-      const response = await fetch(`/api/admin/recipes?${params}`)
-      const data = await response.json()
+        const response = await fetch(`/api/admin/recipes?${params}`)
+        const data = await response.json()
 
-      if (data.success) {
-        // Randomly select 9 recipes from the results
-        const allRecipes = data.recipes || []
-        const shuffled = [...allRecipes].sort(() => Math.random() - 0.5)
-        setRecipes(shuffled.slice(0, 9))
+        if (data.success) {
+          const shuffled = [...(data.recipes || [])].sort(() => Math.random() - 0.5)
+          setRecipes(shuffled.slice(0, 9))
+        }
+      } else {
+        // Fetch one recipe from each diet type
+        const dietTypes = [
+          'mediterranean',
+          'keto',
+          'vegan',
+          'paleo',
+          'vegetarian',
+          'intermittent-fasting',
+          'family-focused'
+        ]
+
+        const recipePromises = dietTypes.map(async (diet) => {
+          const params = new URLSearchParams()
+          params.append('diet', diet)
+          params.append('limit', '10') // Get 10 to pick a random one
+
+          const response = await fetch(`/api/admin/recipes?${params}`)
+          const data = await response.json()
+
+          if (data.success && data.recipes && data.recipes.length > 0) {
+            // Pick a random recipe from this diet
+            const recipes = data.recipes.filter(r => r.image_url) // Only recipes with images
+            if (recipes.length === 0) return data.recipes[0] // Fallback to any recipe
+            return recipes[Math.floor(Math.random() * recipes.length)]
+          }
+          return null
+        })
+
+        const dietRecipes = (await Promise.all(recipePromises)).filter(Boolean)
+
+        // Add 2 more random recipes for variety
+        const params = new URLSearchParams()
+        params.append('limit', '20')
+        const response = await fetch(`/api/admin/recipes?${params}`)
+        const data = await response.json()
+
+        if (data.success && data.recipes) {
+          const extraRecipes = data.recipes
+            .filter(r => r.image_url && !dietRecipes.find(dr => dr.id === r.id))
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 2)
+
+          setRecipes([...dietRecipes, ...extraRecipes])
+        } else {
+          setRecipes(dietRecipes)
+        }
       }
     } catch (error) {
       console.error('Error fetching recipes:', error)
