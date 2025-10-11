@@ -89,9 +89,11 @@ export default function RecipesPage() {
 
           if (data.success && data.recipes && data.recipes.length > 0) {
             // Pick a random recipe from this diet
-            const recipes = data.recipes.filter((r: Recipe) => r.image_url) // Only recipes with images
-            if (recipes.length === 0) return data.recipes[0] // Fallback to any recipe
-            return recipes[Math.floor(Math.random() * recipes.length)]
+            const recipesWithImages = data.recipes.filter((r: Recipe) => r.image_url)
+
+            // Prefer recipes with images, but fallback to any recipe if none have images
+            const recipesToChooseFrom = recipesWithImages.length > 0 ? recipesWithImages : data.recipes
+            return recipesToChooseFrom[Math.floor(Math.random() * recipesToChooseFrom.length)]
           }
           return null
         })
