@@ -55,13 +55,16 @@ export default function RecipesPage() {
     try {
       const params = new URLSearchParams()
       if (selectedDiet) params.append('diet', selectedDiet)
-      params.append('limit', '50')
+      params.append('limit', '100') // Fetch more to have a good random selection pool
 
       const response = await fetch(`/api/admin/recipes?${params}`)
       const data = await response.json()
 
       if (data.success) {
-        setRecipes(data.recipes || [])
+        // Randomly select 9 recipes from the results
+        const allRecipes = data.recipes || []
+        const shuffled = [...allRecipes].sort(() => Math.random() - 0.5)
+        setRecipes(shuffled.slice(0, 9))
       }
     } catch (error) {
       console.error('Error fetching recipes:', error)
@@ -108,7 +111,7 @@ export default function RecipesPage() {
               <span>Recipe Collection</span>
             </h1>
             <p className="text-xl text-white font-medium ml-16 drop-shadow">
-              {filteredRecipes.length} delicious recipes for every diet plan
+              Discover delicious recipes for every diet plan
             </p>
           </motion.div>
         </div>
