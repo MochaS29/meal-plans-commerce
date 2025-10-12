@@ -82,13 +82,14 @@ export default function RecipesPage() {
         const recipePromises = dietTypes.map(async (diet) => {
           const params = new URLSearchParams()
           params.append('diet', diet)
-          params.append('limit', '10') // Get 10 to pick a random one
+          params.append('limit', '20') // Get more recipes to have better selection
+          params.append('prioritize_images', 'true') // Prioritize recipes with images
 
           const response = await fetch(`/api/admin/recipes?${params}`)
           const data = await response.json()
 
           if (data.success && data.recipes && data.recipes.length > 0) {
-            // Pick a random recipe from this diet
+            // Pick a random recipe from this diet (prioritized ones with images first)
             const recipesWithImages = data.recipes.filter((r: Recipe) => r.image_url)
 
             // Prefer recipes with images, but fallback to any recipe if none have images
@@ -102,7 +103,8 @@ export default function RecipesPage() {
 
         // Add 2 more random recipes for variety (to make 9 total)
         const params = new URLSearchParams()
-        params.append('limit', '20')
+        params.append('limit', '50')
+        params.append('prioritize_images', 'true') // Prioritize recipes with images
         const response = await fetch(`/api/admin/recipes?${params}`)
         const data = await response.json()
 

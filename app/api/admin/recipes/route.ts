@@ -16,6 +16,7 @@ export async function GET(request: NextRequest) {
     const mealType = searchParams.get('meal')
     const limit = parseInt(searchParams.get('limit') || '50')
     const offset = parseInt(searchParams.get('offset') || '0')
+    const prioritizeImages = searchParams.get('prioritize_images') === 'true'
 
     // Build query - start with just recipes table
     // We'll handle related tables separately to avoid errors if they don't exist
@@ -42,8 +43,30 @@ export async function GET(request: NextRequest) {
 
     if (error) throw error
 
+    // If prioritizing images, sort recipes with images first
+    let sortedRecipes = recipes || []
+    if (prioritizeImages) {
+      // Get all recipe IDs with images
+      const { data: imagesData } = await supabase
+        .from('images')
+        .select('entity_id')
+        .eq('entity_type', 'recipe')
+        .eq('is_primary', true)
+        .in('entity_id', sortedRecipes.map(r => r.id))
+
+      const recipeIdsWithImages = new Set(imagesData?.map(i => i.entity_id) || [])
+
+      // Sort: recipes with images first, then without
+      sortedRecipes = sortedRecipes.sort((a, b) => {
+        const aHasImage = recipeIdsWithImages.has(a.id)
+        const bHasImage = recipeIdsWithImages.has(b.id)
+        if (aHasImage === bHasImage) return 0
+        return aHasImage ? -1 : 1
+      })
+    }
+
     // Try to fetch related data for each recipe (ingredients, instructions, nutrition)
-    const recipesWithDetails = await Promise.all((recipes || []).map(async (recipe) => {
+    const recipesWithDetails = await Promise.all(sortedRecipes.map(async (recipe) => {
       // Try to get ingredients
       let ingredients = []
       if (supabase) {

@@ -32,7 +32,7 @@ export async function GET() {
       checks.services.database = {
         status: error ? 'error' : 'healthy',
         responseTime: Date.now() - dbStart,
-        error: error?.message
+        ...(error && { error: error.message })
       }
     } else {
       checks.services.database = {
