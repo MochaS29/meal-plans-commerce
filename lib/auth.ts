@@ -158,7 +158,10 @@ export async function getUserByEmail(email: string): Promise<User | null> {
 }
 
 export async function getUserById(id: string): Promise<User | null> {
-  
+  if (!supabase) {
+    return null
+  }
+
   const { data, error } = await supabase
     .from('users')
     .select('*')
@@ -173,7 +176,10 @@ export async function getUserById(id: string): Promise<User | null> {
 }
 
 export async function getUserSessionById(userId: string): Promise<UserSession | null> {
-  
+  if (!supabase) {
+    return null
+  }
+
   // Get user data
   const { data: user, error: userError } = await supabase
     .from('users')
