@@ -349,7 +349,7 @@ export async function generateRecipeImage(
         is_primary: true,
         metadata: {
           generated_by: usedProvider,
-          prompt: imageResult.revised_prompt || prompt,
+          prompt: ('revised_prompt' in imageResult ? imageResult.revised_prompt : undefined) || prompt,
           meal_type: mealType,
           diet_type: dietType
         }
