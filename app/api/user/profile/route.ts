@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     email: session.email,
-    customerId: session.customerId,
+    customerId: session.stripeCustomerId,
     purchases: session.purchases
   })
 }
