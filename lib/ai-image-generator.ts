@@ -87,7 +87,7 @@ export async function generateWithGemini(
       return null
     }
 
-    const base64ImageBytes = images[0].image.imageBytes
+    const base64ImageBytes = images[0]?.image?.imageBytes
 
     if (!base64ImageBytes) {
       console.log('  ⚠️  No image data in response')
