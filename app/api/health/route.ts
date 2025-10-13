@@ -38,14 +38,14 @@ export async function GET() {
       checks.services.database = {
         status: 'error',
         responseTime: 0,
-        error: 'Supabase not configured'
+        ...{ error: 'Supabase not configured' }
       }
     }
   } catch (error) {
     checks.services.database = {
       status: 'error',
       responseTime: Date.now() - Date.now(),
-      error: error instanceof Error ? error.message : 'Unknown database error'
+      ...(error instanceof Error && { error: error.message })
     }
   }
 
@@ -63,14 +63,14 @@ export async function GET() {
       checks.services.stripe = {
         status: 'error',
         responseTime: 0,
-        error: 'Stripe not configured'
+        ...{ error: 'Stripe not configured' }
       }
     }
   } catch (error) {
     checks.services.stripe = {
       status: 'error',
       responseTime: Date.now() - Date.now(),
-      error: error instanceof Error ? error.message : 'Unknown Stripe error'
+      ...(error instanceof Error && { error: error.message })
     }
   }
 
@@ -90,20 +90,20 @@ export async function GET() {
       checks.services.email = {
         status: response.ok ? 'healthy' : 'error',
         responseTime: Date.now() - emailStart,
-        error: response.ok ? undefined : `HTTP ${response.status}`
+        ...(!response.ok && { error: `HTTP ${response.status}` })
       }
     } else {
       checks.services.email = {
         status: 'error',
         responseTime: 0,
-        error: 'Resend API key not configured'
+        ...{ error: 'Resend API key not configured' }
       }
     }
   } catch (error) {
     checks.services.email = {
       status: 'error',
       responseTime: Date.now() - Date.now(),
-      error: error instanceof Error ? error.message : 'Unknown email error'
+      ...(error instanceof Error && { error: error.message })
     }
   }
 
