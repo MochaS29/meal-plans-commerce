@@ -67,56 +67,24 @@ export default function RecipesPage() {
           setRecipes(shuffled.slice(0, 9))
         }
       } else {
-        // Fetch one recipe from each diet type
-        const dietTypes = [
-          'mediterranean',
-          'keto',
-          'vegan',
-          'paleo',
-          'vegetarian',
-          'intermittent-fasting',
-          'family-focused',
-          'global-cuisine'
-        ]
-
-        const recipePromises = dietTypes.map(async (diet) => {
-          const params = new URLSearchParams()
-          params.append('diet', diet)
-          params.append('limit', '20') // Get more recipes to have better selection
-          params.append('prioritize_images', 'true') // Prioritize recipes with images
-
-          const response = await fetch(`/api/admin/recipes?${params}`)
-          const data = await response.json()
-
-          if (data.success && data.recipes && data.recipes.length > 0) {
-            // Pick a random recipe from this diet (prioritized ones with images first)
-            const recipesWithImages = data.recipes.filter((r: Recipe) => r.image_url)
-
-            // Prefer recipes with images, but fallback to any recipe if none have images
-            const recipesToChooseFrom = recipesWithImages.length > 0 ? recipesWithImages : data.recipes
-            return recipesToChooseFrom[Math.floor(Math.random() * recipesToChooseFrom.length)]
-          }
-          return null
-        })
-
-        const dietRecipes = (await Promise.all(recipePromises)).filter(Boolean)
-
-        // Add 2 more random recipes for variety (to make 9 total)
+        // Fetch recipes from all diets at once with prioritize_images
         const params = new URLSearchParams()
-        params.append('limit', '50')
-        params.append('prioritize_images', 'true') // Prioritize recipes with images
+        params.append('limit', '100')
+        params.append('prioritize_images', 'true')
+
         const response = await fetch(`/api/admin/recipes?${params}`)
         const data = await response.json()
 
-        if (data.success && data.recipes) {
-          const extraRecipes = data.recipes
-            .filter((r: Recipe) => r.image_url && !dietRecipes.find((dr: Recipe) => dr.id === r.id))
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 2)
+        if (data.success && data.recipes && data.recipes.length > 0) {
+          // Filter to only recipes with images
+          const recipesWithImages = data.recipes.filter((r: Recipe) => r.image_url)
 
-          setRecipes([...dietRecipes, ...extraRecipes])
-        } else {
-          setRecipes(dietRecipes)
+          // Shuffle and take first 9
+          const shuffled = recipesWithImages
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 9)
+
+          setRecipes(shuffled)
         }
       }
     } catch (error) {
