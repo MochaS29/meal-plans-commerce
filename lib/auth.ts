@@ -302,23 +302,28 @@ export function generateSecureToken(): string {
 
 // Password reset functionality
 export async function createPasswordResetToken(userId: string): Promise<string> {
-    const token = generateSecureToken()
+  const token = generateSecureToken()
   const expiresAt = new Date()
   expiresAt.setHours(expiresAt.getHours() + 24) // 24 hour expiry
 
-  await supabase
-    .from('password_reset_tokens')
-    .insert({
-      user_id: userId,
-      token,
-      expires_at: expiresAt.toISOString()
-    })
+  if (supabase) {
+    await supabase
+      .from('password_reset_tokens')
+      .insert({
+        user_id: userId,
+        token,
+        expires_at: expiresAt.toISOString()
+      })
+  }
 
   return token
 }
 
 export async function validatePasswordResetToken(token: string): Promise<string | null> {
-  
+  if (!supabase) {
+    return null
+  }
+
   const { data, error } = await supabase
     .from('password_reset_tokens')
     .select('user_id, expires_at, used')
@@ -333,13 +338,17 @@ export async function validatePasswordResetToken(token: string): Promise<string 
 }
 
 export async function resetUserPassword(token: string, newPassword: string): Promise<boolean> {
+  if (!supabase) {
+    return false
+  }
+
   const userId = await validatePasswordResetToken(token)
 
   if (!userId) {
     return false
   }
 
-    const passwordHash = await hashPassword(newPassword)
+  const passwordHash = await hashPassword(newPassword)
 
   // Update password
   const { error: updateError } = await supabase
