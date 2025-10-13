@@ -230,16 +230,21 @@ export async function authenticateUser(email: string, password: string): Promise
   }
 
   // Update last login
+  if (supabase) {
     await supabase
-    .from('users')
-    .update({ last_login: new Date().toISOString() })
-    .eq('id', user.id)
+      .from('users')
+      .update({ last_login: new Date().toISOString() })
+      .eq('id', user.id)
+  }
 
   return user
 }
 
 export async function updateUserStripeId(userId: string, stripeCustomerId: string): Promise<void> {
-  
+  if (!supabase) {
+    return
+  }
+
   await supabase
     .from('users')
     .update({ stripe_customer_id: stripeCustomerId })
@@ -254,7 +259,10 @@ export async function addUserPurchase(
   dietPlan: string,
   amount: number
 ): Promise<void> {
-  
+  if (!supabase) {
+    return
+  }
+
   await supabase
     .from('user_purchases')
     .insert({
@@ -269,7 +277,10 @@ export async function addUserPurchase(
 }
 
 export async function getUserDietAccess(userId: string): Promise<string[]> {
-  
+  if (!supabase) {
+    return []
+  }
+
   const { data, error } = await supabase
     .from('user_purchases')
     .select('diet_plan')
