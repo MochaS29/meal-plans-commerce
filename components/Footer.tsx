@@ -50,7 +50,6 @@ export default function Footer() {
           <div className="flex space-x-6 text-amber-200">
             <Link href="/privacy" className="hover:text-white transition">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition">Terms of Service</Link>
-            <Link href="/admin/login" className="hover:text-white transition text-amber-300/50">Admin</Link>
           </div>
         </div>
       </div>
