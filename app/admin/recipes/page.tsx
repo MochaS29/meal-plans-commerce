@@ -57,6 +57,7 @@ export default function RecipeLibrary() {
     try {
       const params = new URLSearchParams()
       if (selectedDiet) params.append('diet', selectedDiet)
+      params.append('limit', '10000') // Fetch all recipes
 
       const response = await fetch(`/api/admin/recipes?${params}`)
       const data = await response.json()
