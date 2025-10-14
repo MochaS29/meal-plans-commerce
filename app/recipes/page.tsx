@@ -1,11 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { ChefHat, Clock, Users, Flame, Search, Sparkles, X } from 'lucide-react'
 import Link from 'next/link'
+import { featuredRecipes } from './featured-recipes'
 
-interface Recipe {
+type Recipe = {
   id: string
   name: string
   description: string
@@ -31,15 +32,13 @@ const difficultyColors = {
 }
 
 export default function RecipesPage() {
-  const [recipes, setRecipes] = useState<Recipe[]>([])
-  const [loading, setLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
-  const [selectedDiet, setSelectedDiet] = useState('')
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null)
 
+  // Debug: Log recipes on mount
   useEffect(() => {
-    fetchRecipes()
-  }, [selectedDiet])
+    console.log('RecipesPage v2 - Featured recipes loaded:', featuredRecipes.length)
+  }, [])
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -51,64 +50,16 @@ export default function RecipesPage() {
     return () => window.removeEventListener('keydown', handleEsc)
   }, [selectedRecipe])
 
-  const fetchRecipes = async () => {
-    try {
-      if (selectedDiet) {
-        // If a diet is selected, fetch from that diet
-        const params = new URLSearchParams()
-        params.append('diet', selectedDiet)
-        params.append('limit', '100')
+  // Filter recipes based on search query
+  const filteredRecipes = useMemo(() => {
+    if (!searchQuery) return featuredRecipes
 
-        const response = await fetch(`/api/admin/recipes?${params}`)
-        const data = await response.json()
-
-        if (data.success) {
-          const shuffled = [...(data.recipes || [])].sort(() => Math.random() - 0.5)
-          setRecipes(shuffled.slice(0, 9))
-        }
-      } else {
-        // Fetch recipes from all diets at once with prioritize_images
-        const params = new URLSearchParams()
-        params.append('limit', '100')
-        params.append('prioritize_images', 'true')
-
-        const response = await fetch(`/api/admin/recipes?${params}`)
-        const data = await response.json()
-
-        if (data.success && data.recipes && data.recipes.length > 0) {
-          // Filter to only recipes with images
-          const recipesWithImages = data.recipes.filter((r: Recipe) => r.image_url)
-
-          // Shuffle and take first 9
-          const shuffled = recipesWithImages
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 9)
-
-          setRecipes(shuffled)
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching recipes:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const filteredRecipes = recipes.filter(recipe =>
-    recipe.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    recipe.description.toLowerCase().includes(searchQuery.toLowerCase())
-  )
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-teal-50 to-teal-50">
-        <div className="text-center">
-          <ChefHat className="w-16 h-16 text-teal-600 mx-auto mb-4 animate-pulse" />
-          <p className="text-lg text-gray-600">Loading delicious recipes...</p>
-        </div>
-      </div>
+    const query = searchQuery.toLowerCase()
+    return featuredRecipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(query) ||
+      recipe.description.toLowerCase().includes(query)
     )
-  }
+  }, [searchQuery])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-teal-50 to-teal-50">
@@ -139,7 +90,7 @@ export default function RecipesPage() {
       </header>
 
       <section className="max-w-7xl mx-auto px-6 py-8">
-        {/* Search and Filter */}
+        {/* Search */}
         <div className="mb-8 bg-white rounded-2xl shadow-lg p-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
@@ -152,21 +103,6 @@ export default function RecipesPage() {
                 className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-teal-500 transition"
               />
             </div>
-            <select
-              value={selectedDiet}
-              onChange={(e) => setSelectedDiet(e.target.value)}
-              className="px-6 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-teal-500 transition bg-white"
-            >
-              <option value="">All Diet Plans</option>
-              <option value="mediterranean">Mediterranean</option>
-              <option value="keto">Keto</option>
-              <option value="vegan">Vegan</option>
-              <option value="paleo">Paleo</option>
-              <option value="vegetarian">Vegetarian</option>
-              <option value="intermittent-fasting">Intermittent Fasting</option>
-              <option value="family-focused">Family Focused</option>
-              <option value="global-cuisine">Global Cuisine</option>
-            </select>
           </div>
         </div>
 
