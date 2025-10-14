@@ -150,23 +150,17 @@ export default function AdminDatabase() {
       <div className="bg-gradient-to-r from-amber-700 to-teal-700 text-white shadow-lg">
         <nav className="px-6 py-4">
           <div className="max-w-[1800px] mx-auto">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-4">
+            <div className="flex justify-between items-center mb-4">
+              <div className="flex items-center gap-6">
                 <Database className="w-8 h-8 text-white" />
                 <div>
-                  <h1 className="text-2xl font-bold text-white">Recipe Database</h1>
+                  <h1 className="text-2xl font-bold text-white">Admin Recipe Management</h1>
                   <p className="text-sm text-white/80">
                     {totalCount} total recipes | {recipesWithImages} with images | {recipesWithoutImages} without images
                   </p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <Link
-                  href="/admin/recipes"
-                  className="px-4 py-2 bg-white/20 text-white rounded-lg hover:bg-white/30 transition"
-                >
-                  Admin Panel
-                </Link>
+              <div className="flex gap-3 items-center">
                 <button
                   onClick={exportToCSV}
                   className="px-4 py-2 bg-white text-amber-700 rounded-lg hover:bg-white/90 transition flex items-center gap-2 font-semibold"
@@ -174,7 +168,32 @@ export default function AdminDatabase() {
                   <Download className="w-4 h-4" />
                   Export CSV
                 </button>
+                <Link href="/" className="text-sm text-white/70 hover:text-white transition">
+                  ← Back to Site
+                </Link>
               </div>
+            </div>
+
+            {/* Navigation Tabs */}
+            <div className="flex gap-2 border-b border-white/20">
+              <Link
+                href="/admin/recipes"
+                className="px-6 py-3 text-white/80 hover:bg-white/10 hover:text-white font-medium rounded-t-lg transition"
+              >
+                <div className="flex items-center gap-2">
+                  <Book className="w-4 h-4" />
+                  Recipe Library
+                </div>
+              </Link>
+              <Link
+                href="/admin/database"
+                className="px-6 py-3 bg-white/30 text-white font-semibold rounded-t-lg border-b-2 border-white"
+              >
+                <div className="flex items-center gap-2">
+                  <Filter className="w-4 h-4" />
+                  Database View
+                </div>
+              </Link>
             </div>
 
             {/* Filters */}
