@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Database, Download, Search, Filter, Eye, Trash2, X } from 'lucide-react'
+import { Database, Download, Search, Filter, Eye, Trash2, X, Book } from 'lucide-react'
 import Link from 'next/link'
 
 interface Recipe {
