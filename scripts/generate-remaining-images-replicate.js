@@ -109,16 +109,18 @@ async function main() {
     .from('recipes')
     .select('*', { count: 'exact', head: true })
 
-  const { count: recipesWithImages } = await supabase
+  // Get UNIQUE recipe IDs that have images (not total image count)
+  const { data: imageData } = await supabase
     .from('images')
-    .select('*', { count: 'exact', head: true })
+    .select('entity_id')
     .eq('entity_type', 'recipe')
 
-  const remaining = totalRecipes - recipesWithImages
+  const uniqueRecipesWithImages = new Set(imageData?.map(i => i.entity_id) || []).size
+  const remaining = totalRecipes - uniqueRecipesWithImages
 
   console.log(`\n📊 Status:`)
   console.log(`   Total recipes: ${totalRecipes}`)
-  console.log(`   With images: ${recipesWithImages} (${Math.round((recipesWithImages / totalRecipes) * 100)}%)`)
+  console.log(`   With images: ${uniqueRecipesWithImages} (${Math.round((uniqueRecipesWithImages / totalRecipes) * 100)}%)`)
   console.log(`   Remaining: ${remaining}`)
 
   if (remaining === 0) {
@@ -182,7 +184,7 @@ async function main() {
     console.log(`   ❌ Failed: ${failCount} images`)
   }
 
-  const newTotal = recipesWithImages + successCount
+  const newTotal = uniqueRecipesWithImages + successCount
   console.log(`\n📊 Final Progress: ${newTotal}/${totalRecipes} recipes have images`)
   console.log(`   (${Math.round((newTotal / totalRecipes) * 100)}% complete)`)
 

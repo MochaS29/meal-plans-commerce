@@ -60,16 +60,46 @@ Customer enters email → Magic link sent → Clicks link → JWT token created 
 - Resend API for email delivery
 - Next.js middleware for auth protection
 
-### 3. Recipe Generation Flow
+### 3. Autonomous Recipe & Image Generation Workflow
 ```
-Admin triggers → AI generates recipes → Images generated → Database stored → Available for customers
+Customer purchases → Stripe webhook fires → 30 recipes selected (70% library + 30% new) →
+New recipes generated via AI → Auto image generation triggered → Customer tracked →
+PDF created → Emails sent → Customer portal updated
 ```
 
+**Workflow Details:**
+1. **Purchase Event:** Stripe webhook `checkout.session.completed` fires
+2. **Recipe Selection:** `selectRecipesForCustomer()` selects 30 recipes:
+   - 70% from existing library (21 recipes)
+   - 30% newly generated via AI (9 recipes)
+3. **Automatic Image Generation:** Each new recipe triggers `generateRecipeImage()`
+   - Non-blocking async execution
+   - Cost: $0.003 per image (~$0.027 per customer)
+4. **Customer Tracking:** Records saved to `customer_recipes` table
+5. **PDF Generation:** All 30 recipes compiled into downloadable PDF
+6. **Email Delivery:** Welcome email + meal plan download link sent
+7. **Portal Access:** Customer can access all purchased recipes forever
+
 **Tools Used:**
-- Anthropic Claude API (Recipe generation)
-- Google AI API (Backup recipe generation)
-- Replicate API (Image generation using FLUX models)
-- Supabase PostgreSQL (Recipe storage)
+- Anthropic Claude API (Recipe generation - Haiku model)
+- Replicate API (Image generation - FLUX-schnell model $0.003/image)
+- Supabase PostgreSQL (Recipe storage & customer tracking)
+- Hybrid Recipe Selector (70/30 split algorithm)
+- Automatic Image Trigger (lib/ai-recipe-generator.ts:398-413)
+
+**Test Coverage:** 12/12 tests passing (100% success rate)
+- Recipe split validation (70/30)
+- Database growth calculations
+- Image generation cost validation
+- Customer access tracking
+- Data integrity checks
+- Error handling scenarios
+
+**Key Files:**
+- `/lib/ai-recipe-generator.ts:398-413` - Auto image generation trigger
+- `/app/api/stripe-webhook/route.ts:151-157` - 70/30 recipe split config
+- `/lib/hybrid-recipe-selector.ts` - Recipe selection algorithm
+- `/__tests__/autonomous-workflow.test.ts` - Complete test suite
 
 ---
 
