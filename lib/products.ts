@@ -35,28 +35,28 @@ export const products: Product[] = [
   {
     id: 'custom-family',
     name: 'Custom Family Wellness Plan',
-    description: 'Luxury personalized meal planning designed specifically for your family\'s unique wellness goals and preferences',
-    price: 14900, // in cents
+    description: 'AI-powered personalized meal planning designed specifically for your family\'s unique wellness goals and preferences',
+    price: 9900, // in cents
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_CUSTOM_FAMILY || '',
     image: '/images/family-meals.jpg',
     type: 'one-time',
     features: [
-      'Completely personalized 30-day plan',
-      'Customized for your family size',
-      'Multiple dietary accommodations',
-      'Kid-friendly wellness options',
+      'AI-personalized 30-day plan',
+      'Smart portion sizing for 2-8 people',
+      'Multiple dietary accommodations handled',
+      'Kid-friendly wellness options included',
       'Mix of cuisine styles in one plan',
-      'Budget-conscious shopping strategies',
+      'Optimized shopping lists by store section',
       'Batch cooking & meal prep guides',
       'Time-saving meal prep strategies',
-      'One wellness consultation call',
-      'Special occasion meal alternatives'
+      'Generated within 24 hours',
+      'Unlimited regeneration (adjust anytime)'
     ]
   },
   {
     id: 'monthly-calendar',
     name: 'Monthly Wellness Journey',
-    description: 'Fresh curated meal plans delivered monthly featuring rotating global cuisines and seasonal ingredients',
+    description: 'Fresh AI-curated meal plans delivered monthly featuring rotating global cuisines and seasonal ingredients',
     price: 2900, // in cents per month
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_MONTHLY || '',
     image: '/images/monthly-calendar.jpg',
@@ -65,10 +65,10 @@ export const products: Product[] = [
       'New designer calendar each month',
       'Rotating cuisine themes',
       'Seasonal & locally-inspired recipes',
-      'Member-exclusive wellness content',
+      'AI wellness insights & monthly tips',
       'Access to full recipe archive',
-      'Monthly wellness coaching Q&A',
-      'Private wellness community',
+      'AI-powered recipe Q&A chatbot',
+      'Exclusive member resources',
       'Switch cuisine styles anytime',
       'Cancel anytime - no commitment'
     ]

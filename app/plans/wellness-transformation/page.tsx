@@ -134,7 +134,7 @@ export default function WellnessTransformationPage() {
                 'Sunday meal prep strategies',
                 'Portion control guidelines',
                 'Quick-start wellness guide',
-                'Email support from our team',
+                'AI-powered recipe assistance',
                 'Lifetime access to updates'
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-start">

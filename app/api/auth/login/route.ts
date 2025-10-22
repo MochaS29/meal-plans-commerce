@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({
       success: true,
       message: 'Login successful!',
-      redirect: '/dashboard',
+      redirect: '/userportal',
       user: {
         id: userSession.id,
         email: userSession.email,

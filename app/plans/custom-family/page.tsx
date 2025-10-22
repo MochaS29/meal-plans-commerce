@@ -193,27 +193,27 @@ export default function CustomFamilyPage() {
             transition={{ delay: 0.5 }}
             className="bg-white rounded-2xl shadow-lg p-8 mb-12"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">How We Create Your Custom Plan</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">How Your Custom Plan is Generated</h2>
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-1">Complete Your Family Profile</h3>
-                  <p className="text-gray-700">Tell us about family size, dietary needs, allergies, and food preferences</p>
+                  <p className="text-gray-700">Tell us about family size (2-8 people), dietary needs, allergies, and food preferences</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">We Design Your Plan</h3>
-                  <p className="text-gray-700">Our team creates a completely personalized 30-day meal calendar just for your family</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">AI Generates Your Plan</h3>
+                  <p className="text-gray-700">Our AI system creates a personalized 30-day meal calendar optimized for your family&apos;s unique needs</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-10 h-10 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Receive Your Materials</h3>
-                  <p className="text-gray-700">Get your designer calendar, recipes, shopping lists, and meal prep guides within 48 hours</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Quick Delivery</h3>
+                  <p className="text-gray-700">Get your calendar, recipes, shopping lists, and meal prep guides within 24 hours</p>
                 </div>
               </div>
             </div>
@@ -234,7 +234,7 @@ export default function CustomFamilyPage() {
               {loading ? 'Processing...' : 'Start Your Custom Family Plan'}
             </button>
             <p className="text-sm text-gray-600 mt-4">
-              48-hour delivery • 100% satisfaction guarantee
+              Delivered within 24 hours • Unlimited regeneration included
             </p>
           </motion.div>
         </div>

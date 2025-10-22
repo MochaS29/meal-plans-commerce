@@ -1,6 +1,7 @@
 import OpenAI from 'openai'
 import Anthropic from '@anthropic-ai/sdk'
 import { supabase } from './supabase'
+import { generateRecipeImage } from './ai-image-generator'
 
 // Initialize AI clients - prefer Claude if available, fallback to OpenAI
 const anthropic = process.env.ANTHROPIC_API_KEY ? new Anthropic({
@@ -82,6 +83,24 @@ const DIET_CONSTRAINTS = {
     focus: 'vegetables, fruits, grains, dairy, eggs',
     avoid: 'meat, fish, poultry',
     macros: { carbs: 50, protein: 20, fat: 30 }
+  },
+  'family-focused': {
+    focus: 'kid-friendly meals, wholesome ingredients, simple cooking methods, foods children actually enjoy eating, sneaking in vegetables',
+    avoid: 'overly spicy foods, exotic ingredients kids may reject, very complex dishes',
+    macros: { carbs: 45, protein: 25, fat: 30 },
+    uniqueRequirements: 'Must be appealing to children (ages 5-12) and easy for busy parents. Include tips for picky eaters. Focus on familiar flavors with hidden nutrition. Recipe names should sound fun and appetizing to kids (e.g., "Cheesy Chicken Nuggets", "Rainbow Veggie Pizza", "Chocolate Banana Smoothie Bowl").'
+  },
+  'global-cuisine': {
+    focus: 'authentic international dishes from various world cuisines (Asian, Latin American, African, Middle Eastern, European), traditional cooking techniques, regional spices and ingredients',
+    avoid: 'americanized versions, bland adaptations',
+    macros: { carbs: 45, protein: 25, fat: 30 },
+    uniqueRequirements: 'Must be authentic recipes from specific countries or regions. Include the country/region name in the recipe title (e.g., "Japanese Teriyaki Salmon", "Mexican Street Tacos", "Thai Green Curry", "Moroccan Tagine"). Use traditional cooking methods and authentic ingredient combinations. Educate about the cultural context.'
+  },
+  'intermittent-fasting': {
+    focus: 'nutrient-dense meals, high satiety foods, balanced macros for breaking fast, protein-rich options, healthy fats',
+    avoid: 'high-sugar foods that spike insulin, empty calories, highly processed carbs',
+    macros: { carbs: 30, protein: 35, fat: 35 },
+    uniqueRequirements: 'Recipes specifically designed for intermittent fasting eating windows. Focus on meals that keep you full for hours, support stable blood sugar, and maximize nutrition. Include "Breaking Fast" or "Eating Window" indicators in descriptions. Recipe names should emphasize satiety and nutrition (e.g., "Protein-Packed Buddha Bowl", "High-Fiber Chicken Stir-Fry", "Satiating Salmon with Avocado").'
   }
 }
 
@@ -97,6 +116,7 @@ export async function generateRecipe(params: RecipeParams): Promise<GeneratedRec
       Diet Focus: ${dietConstraints.focus}
       Must Avoid: ${dietConstraints.avoid}
       Target Macros: ${JSON.stringify(dietConstraints.macros)}
+      ${'uniqueRequirements' in dietConstraints ? `UNIQUE REQUIREMENTS: ${dietConstraints.uniqueRequirements}` : ''}
       Meal Type: ${params.mealType}
       Servings: ${params.servings || 4}
       Max Prep Time: ${params.maxPrepTime || 30} minutes
@@ -167,6 +187,7 @@ export async function generateRecipe(params: RecipeParams): Promise<GeneratedRec
       Diet Focus: ${dietConstraints.focus}
       Must Avoid: ${dietConstraints.avoid}
       Target Macros: ${JSON.stringify(dietConstraints.macros)}
+      ${'uniqueRequirements' in dietConstraints ? `UNIQUE REQUIREMENTS: ${dietConstraints.uniqueRequirements}` : ''}
       Meal Type: ${params.mealType}
       Servings: ${params.servings || 4}
       Max Prep Time: ${params.maxPrepTime || 30} minutes
@@ -296,6 +317,19 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
   console.log('Diet plan IDs:', dietPlanIds)
 
   try {
+    // Check for duplicate recipe name
+    const { data: existingRecipe, error: checkError } = await supabase
+      .from('recipes')
+      .select('id, name')
+      .eq('name', recipe.name)
+      .maybeSingle()
+
+    if (existingRecipe) {
+      console.log('⚠️  Recipe already exists with this name:', recipe.name)
+      console.log('   Skipping duplicate recipe. ID:', existingRecipe.id)
+      return null
+    }
+
     // Insert recipe
     const { data: newRecipe, error: recipeError } = await supabase
       .from('recipes')
@@ -360,6 +394,24 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
     }
 
     console.log('✅ Recipe saved successfully with ID:', newRecipe.id)
+
+    // Automatically generate image for the new recipe (async, don't block)
+    generateRecipeImage(
+      newRecipe.id,
+      recipe.name,
+      recipe.description,
+      'dinner', // Default to dinner, could be enhanced to detect meal type
+      dietPlanIds[0] || 'general' // Use first diet plan as dietType
+    ).then((result) => {
+      if (result.success) {
+        console.log(`  🎨 Image generated for recipe: ${recipe.name}`)
+      } else {
+        console.log(`  ⚠️  Image generation queued for: ${recipe.name}`)
+      }
+    }).catch((error) => {
+      console.log(`  ⚠️  Image generation will be handled later for: ${recipe.name}`)
+    })
+
     return newRecipe
   } catch (error) {
     console.error('❌ Error saving recipe:', error)

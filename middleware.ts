@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { jwtVerify } from 'jose';
 
-// Protected routes that require subscription
+// Protected routes that require authentication
 const protectedRoutes = [
-  '/dashboard',
+  '/userportal',
   '/meal-plans',
   '/api/meal-plans',
   '/api/shopping-list',
@@ -19,35 +20,54 @@ const previewRoutes = [
   '/recipes', // Sample recipes
 ];
 
-export function middleware(request: NextRequest) {
+const secret = new TextEncoder().encode(
+  process.env.JWT_SECRET || 'your-secret-key-change-in-production'
+)
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Allow demo mode in development
+  const isDevelopment = process.env.NODE_ENV === 'development';
+  const demoModeCookie = request.cookies.get('demo_mode');
+  const demoMode = demoModeCookie || isDevelopment;
 
   // Check if this is a protected route
   const isProtected = protectedRoutes.some(route => pathname.startsWith(route));
 
-  if (isProtected) {
-    // Check for subscription cookie or session
-    const subscriptionToken = request.cookies.get('subscription_token');
-    const stripeCustomerId = request.cookies.get('stripe_customer_id');
+  if (isProtected && !demoMode) {
+    // Check for session cookie (JWT-based authentication)
+    const sessionCookie = request.cookies.get('session');
 
-    // For API routes, return JSON error
-    if (pathname.startsWith('/api/')) {
-      if (!subscriptionToken && !stripeCustomerId) {
-        return NextResponse.json(
-          {
-            error: 'Subscription required',
-            message: 'Please subscribe to access meal plans and recipes',
-            redirectUrl: '/pricing'
-          },
-          { status: 403 }
-        );
+    let isAuthenticated = false;
+
+    if (sessionCookie) {
+      try {
+        // Verify JWT token
+        const { payload } = await jwtVerify(sessionCookie.value, secret);
+        isAuthenticated = !!payload.userId;
+      } catch (error) {
+        // Invalid or expired token
+        isAuthenticated = false;
       }
     }
 
-    // For page routes, redirect to pricing
-    if (!subscriptionToken && !stripeCustomerId) {
+    if (!isAuthenticated) {
+      // For API routes, return JSON error
+      if (pathname.startsWith('/api/')) {
+        return NextResponse.json(
+          {
+            error: 'Authentication required',
+            message: 'Please log in to access this resource',
+            redirectUrl: '/login'
+          },
+          { status: 401 }
+        );
+      }
+
+      // For page routes, redirect to login
       const url = request.nextUrl.clone();
-      url.pathname = '/pricing';
+      url.pathname = '/login';
       url.searchParams.set('redirect', pathname);
       return NextResponse.redirect(url);
     }
@@ -58,7 +78,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/dashboard/:path*',
+    '/userportal/:path*',
     '/meal-plans/:path*',
     '/api/meal-plans/:path*',
     '/api/shopping-list/:path*',

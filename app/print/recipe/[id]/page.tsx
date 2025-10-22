@@ -70,6 +70,20 @@ export default function PrintRecipePage({ params }: { params: { id: string } }) 
           .no-print {
             display: none !important;
           }
+          * {
+            color: #000 !important;
+          }
+          h1, h2, h3, h4, h5, h6, p, span, div, li, ul, ol {
+            color: #000 !important;
+          }
+          .text-gray-600,
+          .text-gray-500,
+          .text-gray-400,
+          .text-teal-700,
+          .text-amber-600,
+          .text-amber-800 {
+            color: #000 !important;
+          }
         }
       `}</style>
 

@@ -203,10 +203,13 @@ export default function RecipeLibrary() {
                 className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
               >
                 <option value="">All Diets</option>
-                <option value="mediterranean">Mediterranean</option>
+                <option value="family-focused">Family Focused</option>
+                <option value="global-cuisine">Global Cuisine</option>
+                <option value="intermittent-fasting">Intermittent Fasting</option>
                 <option value="keto">Keto</option>
-                <option value="vegan">Vegan</option>
+                <option value="mediterranean">Mediterranean</option>
                 <option value="paleo">Paleo</option>
+                <option value="vegan">Vegan</option>
                 <option value="vegetarian">Vegetarian</option>
               </select>
             </div>

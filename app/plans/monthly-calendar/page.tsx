@@ -195,7 +195,7 @@ export default function MonthlyCalendarPage() {
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <Star className="w-10 h-10 text-teal-500 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Member Exclusives</h3>
-              <p className="text-gray-700">Access to bonus recipes, cooking videos, and monthly Q&A sessions</p>
+              <p className="text-gray-700">Access to bonus recipes, meal prep guides, and AI-powered recipe Q&A</p>
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <RefreshCw className="w-10 h-10 text-green-500 mb-4" />

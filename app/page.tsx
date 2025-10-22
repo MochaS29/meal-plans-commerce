@@ -56,13 +56,13 @@ export default function HomePage() {
               Transform your wellness journey with personalized meal plans and mindful insights
             </p>
             <p className="text-gray-600 mb-8 text-lg leading-relaxed max-w-4xl mx-auto">
-              Experience the luxury of having a personal wellness chef design your family's health journey.
+              Experience the luxury of having an AI wellness chef design your family's health journey.
               Our custom monthly menu plans are thoughtfully curated to match your wellness goals, dietary
               preferences, and lifestyle. Each month includes a designer printable calendar featuring your
               choice of wellness-focused cuisines—from heart-healthy recipes and clean eating to keto-friendly,
               plant-based, globally-inspired dishes, and beyond—professionally organized shopping lists
               that streamline your wellness routine, and restaurant-quality recipes simplified for mindful home cooking.
-              Choose from our curated wellness themes or let us create a completely personalized meal plan just for you.
+              Choose from our curated wellness themes or let our AI wellness chef create a completely personalized meal plan just for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -1,5 +1,26 @@
 import { put, del, list } from '@vercel/blob'
-import { MealPlanPDFGenerator } from './pdf-generator'
+import PDFDocument from 'pdfkit'
+import { createClient } from '@supabase/supabase-js'
+import crypto from 'crypto'
+
+// Initialize Supabase client
+function getSupabaseClient() {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    throw new Error('Missing Supabase environment variables')
+  }
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  )
+}
+
+// Generate hash from recipe IDs for caching
+function generateRecipeHash(recipeIds: string[]): string {
+  return crypto
+    .createHash('sha256')
+    .update(recipeIds.sort().join(','))
+    .digest('hex')
+}
 
 // Upload PDF to Vercel Blob storage
 export async function uploadPDFToStorage(
@@ -27,164 +48,506 @@ export async function uploadPDFToStorage(
   }
 }
 
-// Generate and upload meal plan PDF
+// Generate and upload meal plan PDF with caching
 export async function generateAndUploadMealPlan(
   customerEmail: string,
   planType: string,
   sessionId: string,
-  selectedRecipes?: any[]
+  selectedRecipes?: any[],
+  dietPlanId?: string
 ): Promise<string> {
   try {
-    // Create sample meal plan data
-    // In production, this would be fetched based on the plan type
-    const mealPlanData = {
-      menuType: planType,
-      month: new Date().getMonth() + 1,
-      year: new Date().getFullYear(),
-      dailyMeals: generateSampleMeals(planType),
-      weeklyShoppingLists: generateSampleShoppingLists(),
-      nutritionTargets: {
-        calories: 2000,
-        protein: 75,
-        carbs: 225,
-        fat: 75,
-        fiber: 35
-      },
-      mealPrepGuides: {
-        sunday: [
-          'Prep vegetables for the week',
-          'Cook grains in batch',
-          'Marinate proteins',
-          'Make sauces and dressings',
-          'Portion out snacks'
-        ]
-      }
+    console.log(`🎨 Processing meal plan for ${customerEmail} - ${planType}`)
+
+    if (!selectedRecipes || selectedRecipes.length === 0) {
+      throw new Error('No recipes provided for meal plan')
     }
 
-    // Generate PDF using the existing generator
-    const generator = new MealPlanPDFGenerator()
+    const supabase = getSupabaseClient()
 
-    // The generator expects a specific format, so we'll create a simple version
-    // In production, you'd have a full implementation
-    const pdfDoc = generator['doc'] // Access the jsPDF instance
+    // Generate hash from recipe IDs
+    const recipeIds = selectedRecipes.map(r => r.id).sort()
+    const recipeHash = generateRecipeHash(recipeIds)
 
-    // Add content to PDF
-    generator['drawHeader'](planType, `${new Date().toLocaleDateString()}`)
-    generator['currentY'] = 50
+    console.log(`🔍 Checking for existing PDF (hash: ${recipeHash.substring(0, 12)}...)`)
 
-    // Add some basic content
-    pdfDoc.setFontSize(14)
-    pdfDoc.text('Your Personalized Meal Plan', 20, generator['currentY'])
-    generator['currentY'] += 10
+    // Check if we already have a PDF with this exact recipe combination
+    const { data: existingPdf, error: lookupError } = await supabase
+      .from('meal_plan_pdfs')
+      .select('*')
+      .eq('recipe_hash', recipeHash)
+      .eq('plan_type', planType)
+      .single()
 
-    pdfDoc.setFontSize(11)
-    pdfDoc.text(`Customer: ${customerEmail}`, 20, generator['currentY'])
-    generator['currentY'] += 10
-    pdfDoc.text(`Plan Type: ${planType}`, 20, generator['currentY'])
-    generator['currentY'] += 20
+    if (existingPdf && !lookupError) {
+      console.log(`♻️  Found existing PDF! Reusing instead of generating new one`)
+      console.log(`📊 This PDF has been reused ${existingPdf.times_reused} times before`)
 
-    // Add recipes to the PDF
-    if (selectedRecipes && selectedRecipes.length > 0) {
-      pdfDoc.setFontSize(12)
-      pdfDoc.setFont('helvetica', 'bold')
-      pdfDoc.text('Your Monthly Meal Plan (30 Recipes)', 20, generator['currentY'])
-      generator['currentY'] += 15
+      // Update usage tracking
+      await supabase
+        .from('meal_plan_pdfs')
+        .update({
+          times_reused: existingPdf.times_reused + 1,
+          last_used_at: new Date().toISOString()
+        })
+        .eq('id', existingPdf.id)
 
-      // Group recipes by week
-      const weeksInMonth = 5 // 30 days = 4 weeks + 2 days
-      let recipeIndex = 0
+      // Link this customer to the existing PDF
+      await supabase
+        .from('customer_meal_plans')
+        .insert({
+          customer_email: customerEmail,
+          meal_plan_pdf_id: existingPdf.id,
+          stripe_session_id: sessionId,
+          purchase_date: new Date().toISOString()
+        })
 
-      for (let week = 1; week <= weeksInMonth; week++) {
-        const daysInWeek = week <= 4 ? 7 : 2 // First 4 weeks have 7 days, 5th week has 2 days
-
-        if (recipeIndex >= selectedRecipes.length) break
-
-        pdfDoc.setFontSize(11)
-        pdfDoc.setFont('helvetica', 'bold')
-        pdfDoc.text(`Week ${week}`, 20, generator['currentY'])
-        generator['currentY'] += 8
-
-        pdfDoc.setFont('helvetica', 'normal')
-        pdfDoc.setFontSize(9)
-
-        // Add recipes for this week
-        for (let day = 1; day <= daysInWeek && recipeIndex < selectedRecipes.length; day++) {
-          const recipe = selectedRecipes[recipeIndex]
-          const dayName = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][day - 1]
-
-          // Check if we need a new page
-          if (generator['currentY'] > 250) {
-            pdfDoc.addPage()
-            generator['currentY'] = 20
-          }
-
-          pdfDoc.text(`${dayName}: ${recipe.name}`, 25, generator['currentY'])
-          generator['currentY'] += 6
-
-          if (recipe.description) {
-            pdfDoc.setFontSize(8)
-            pdfDoc.setTextColor(100, 100, 100)
-            pdfDoc.text(`     ${recipe.description.substring(0, 80)}...`, 25, generator['currentY'])
-            pdfDoc.setTextColor(0, 0, 0)
-            pdfDoc.setFontSize(9)
-            generator['currentY'] += 4
-          }
-
-          recipeIndex++
-        }
-
-        generator['currentY'] += 8
-      }
-
-      // Add summary
-      pdfDoc.setFontSize(10)
-      pdfDoc.setFont('helvetica', 'bold')
-      pdfDoc.text('Recipe Summary:', 20, generator['currentY'])
-      generator['currentY'] += 8
-
-      pdfDoc.setFont('helvetica', 'normal')
-      pdfDoc.setFontSize(8)
-      const newRecipeCount = selectedRecipes.filter(r => r.isNew).length
-      const libraryRecipeCount = selectedRecipes.length - newRecipeCount
-
-      pdfDoc.text(`• ${selectedRecipes.length} total recipes for this month`, 25, generator['currentY'])
-      generator['currentY'] += 5
-      pdfDoc.text(`• ${libraryRecipeCount} from our curated library`, 25, generator['currentY'])
-      generator['currentY'] += 5
-      pdfDoc.text(`• ${newRecipeCount} freshly generated for you`, 25, generator['currentY'])
-      generator['currentY'] += 5
-
-    } else {
-      // Fallback to simple menu
-      pdfDoc.setFontSize(12)
-      pdfDoc.setFont('helvetica', 'bold')
-      pdfDoc.text('Week 1 Sample Menu', 20, generator['currentY'])
-      generator['currentY'] += 10
-
-      pdfDoc.setFont('helvetica', 'normal')
-      pdfDoc.setFontSize(10)
-      const sampleDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-      sampleDays.forEach(day => {
-        pdfDoc.text(`${day}: Breakfast | Lunch | Dinner`, 20, generator['currentY'])
-        generator['currentY'] += 8
-      })
+      console.log(`✅ Linked customer to existing PDF: ${existingPdf.pdf_url}`)
+      return existingPdf.pdf_url
     }
 
-    // Get PDF as buffer
-    const pdfBuffer = Buffer.from(pdfDoc.output('arraybuffer'))
+    // No existing PDF found, generate a new one
+    console.log(`🎨 No existing PDF found. Generating new meal plan...`)
+    const pdfBuffer = await generateMealPlanPDF(
+      customerEmail,
+      planType,
+      selectedRecipes
+    )
 
     // Generate filename
     const timestamp = Date.now()
     const filename = `meal-plans/${sessionId}-${timestamp}.pdf`
 
     // Upload to storage
-    const url = await uploadPDFToStorage(pdfBuffer, filename)
+    const pdfUrl = await uploadPDFToStorage(pdfBuffer, filename)
 
-    return url
+    // Calculate file size and page count
+    const fileSizeBytes = pdfBuffer.length
+    const pageCount = selectedRecipes.length + 4 // Cover + Calendar + Shopping + Recipes + Prep Guide
+
+    // Save PDF metadata to database
+    const { data: newPdf, error: saveError } = await supabase
+      .from('meal_plan_pdfs')
+      .insert({
+        pdf_url: pdfUrl,
+        diet_plan_id: dietPlanId || null,
+        plan_type: planType,
+        recipe_ids: recipeIds,
+        recipe_hash: recipeHash,
+        recipe_count: selectedRecipes.length,
+        file_size_bytes: fileSizeBytes,
+        page_count: pageCount,
+        generation_date: new Date().toISOString(),
+        times_reused: 0
+      })
+      .select()
+      .single()
+
+    if (saveError) {
+      console.error('⚠️  Failed to save PDF metadata:', saveError)
+      // Don't throw - PDF was still generated successfully
+    } else {
+      console.log(`💾 Saved PDF metadata to database (ID: ${newPdf.id})`)
+
+      // Link customer to the new PDF
+      await supabase
+        .from('customer_meal_plans')
+        .insert({
+          customer_email: customerEmail,
+          meal_plan_pdf_id: newPdf.id,
+          stripe_session_id: sessionId,
+          purchase_date: new Date().toISOString()
+        })
+    }
+
+    console.log(`✅ PDF generated and uploaded: ${pdfUrl}`)
+    return pdfUrl
   } catch (error) {
     console.error('Failed to generate and upload meal plan:', error)
     throw new Error('Failed to generate meal plan PDF')
   }
+}
+
+// Generate meal plan PDF with PDFKit
+async function generateMealPlanPDF(
+  customerEmail: string,
+  planType: string,
+  recipes: any[]
+): Promise<Buffer> {
+  return new Promise((resolve, reject) => {
+    try {
+      const doc = new PDFDocument({
+        size: 'A4',
+        margin: 50,
+        info: {
+          Title: `${planType} Meal Plan`,
+          Author: 'Mindful Meal Plan',
+          Subject: 'Monthly Meal Plan'
+        }
+      })
+
+      const buffers: Buffer[] = []
+
+      doc.on('data', buffers.push.bind(buffers))
+      doc.on('end', () => {
+        const pdfBuffer = Buffer.concat(buffers)
+        resolve(pdfBuffer)
+      })
+      doc.on('error', reject)
+
+      // === COVER PAGE ===
+      drawHeader(doc, planType)
+      doc.moveDown(3)
+
+      doc.fontSize(14).text(`Prepared for: ${customerEmail}`, { align: 'left' })
+      doc.moveDown()
+      doc.fontSize(12).text(`Generated: ${new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+      })}`, { align: 'left' })
+
+      // === MONTHLY CALENDAR ===
+      doc.addPage()
+      drawHeader(doc, '📅 Monthly Meal Calendar')
+      doc.moveDown(2)
+
+      drawMonthlyCalendar(doc, recipes)
+
+      // === WEEKLY SHOPPING LISTS ===
+      doc.addPage()
+      drawHeader(doc, '🛒 Weekly Shopping Lists')
+      doc.moveDown(2)
+
+      drawWeeklyShoppingLists(doc, recipes)
+
+      // === RECIPE BOOK ===
+      doc.addPage()
+      drawHeader(doc, '📖 Recipe Book')
+      doc.moveDown(2)
+
+      drawRecipeBook(doc, recipes)
+
+      // === SUNDAY MEAL PREP GUIDE ===
+      doc.addPage()
+      drawHeader(doc, '🍳 Sunday Meal Prep Guide')
+      doc.moveDown(2)
+
+      drawSundayPrepGuide(doc, recipes)
+
+      // Add footer to all pages
+      const range = doc.bufferedPageRange()
+      for (let i = range.start; i < (range.start + range.count); i++) {
+        doc.switchToPage(i)
+        drawFooter(doc, i - range.start + 1, range.count)
+      }
+
+      doc.end()
+    } catch (error) {
+      reject(error)
+    }
+  })
+}
+
+function drawHeader(doc: PDFKit.PDFDocument, title: string) {
+  doc
+    .fillColor('#14b8a6')
+    .fontSize(24)
+    .font('Helvetica-Bold')
+    .text(title, { align: 'center' })
+    .fillColor('#000000')
+    .moveDown()
+}
+
+function drawFooter(doc: PDFKit.PDFDocument, pageNum: number, totalPages: number) {
+  doc
+    .fontSize(10)
+    .fillColor('#888888')
+    .text(
+      `Page ${pageNum} of ${totalPages} | Mindful Meal Plan © ${new Date().getFullYear()}`,
+      50,
+      doc.page.height - 50,
+      { align: 'center', width: doc.page.width - 100 }
+    )
+    .fillColor('#000000')
+}
+
+function drawMonthlyCalendar(doc: PDFKit.PDFDocument, recipes: any[]) {
+  const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+  const currentMonth = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+
+  doc.fontSize(16).font('Helvetica-Bold').text(currentMonth, { align: 'center' })
+  doc.moveDown()
+
+  // Group recipes into weeks (7 days each)
+  const weeks = []
+  for (let i = 0; i < recipes.length; i += 7) {
+    weeks.push(recipes.slice(i, i + 7))
+  }
+
+  weeks.forEach((week, weekIndex) => {
+    doc.fontSize(14).font('Helvetica-Bold')
+      .fillColor('#14b8a6')
+      .text(`Week ${weekIndex + 1}`, { underline: true })
+      .fillColor('#000000')
+    doc.moveDown(0.5)
+
+    week.forEach((recipe, dayIndex) => {
+      if (doc.y > 700) {
+        doc.addPage()
+        doc.moveDown(2)
+      }
+
+      doc.fontSize(11).font('Helvetica-Bold')
+        .text(`${daysOfWeek[dayIndex]}: `, { continued: true })
+        .font('Helvetica')
+        .text(recipe.name || 'No recipe')
+
+      if (recipe.prep_time || recipe.cook_time) {
+        doc.fontSize(9).fillColor('#666666')
+          .text(`   ⏱ ${recipe.prep_time || 0} + ${recipe.cook_time || 0} min`, { indent: 20 })
+          .fillColor('#000000')
+      }
+
+      doc.moveDown(0.3)
+    })
+
+    doc.moveDown()
+  })
+}
+
+function drawWeeklyShoppingLists(doc: PDFKit.PDFDocument, recipes: any[]) {
+  // Group recipes into weeks
+  const weeks = []
+  for (let i = 0; i < recipes.length; i += 7) {
+    weeks.push(recipes.slice(i, i + 7))
+  }
+
+  weeks.forEach((week, weekIndex) => {
+    if (weekIndex > 0) {
+      doc.addPage()
+      doc.moveDown(2)
+    }
+
+    doc.fontSize(16).font('Helvetica-Bold')
+      .fillColor('#14b8a6')
+      .text(`Week ${weekIndex + 1} Shopping List`)
+      .fillColor('#000000')
+    doc.moveDown()
+
+    // Aggregate ingredients from all recipes in the week
+    const ingredients: { [key: string]: Set<string> } = {
+      'Proteins': new Set(),
+      'Vegetables': new Set(),
+      'Fruits': new Set(),
+      'Grains & Starches': new Set(),
+      'Dairy': new Set(),
+      'Pantry': new Set(),
+      'Herbs & Spices': new Set()
+    }
+
+    week.forEach(recipe => {
+      if (recipe.ingredients && Array.isArray(recipe.ingredients)) {
+        recipe.ingredients.forEach((ing: any) => {
+          const item = typeof ing === 'string' ? ing : ing.item || ing.name
+          if (item) {
+            // Categorize ingredients (simplified categorization)
+            if (item.match(/chicken|beef|pork|fish|salmon|turkey|tofu/i)) {
+              ingredients['Proteins'].add(item)
+            } else if (item.match(/tomato|lettuce|spinach|carrot|broccoli|pepper|onion|garlic/i)) {
+              ingredients['Vegetables'].add(item)
+            } else if (item.match(/apple|banana|berry|orange|lemon/i)) {
+              ingredients['Fruits'].add(item)
+            } else if (item.match(/rice|pasta|bread|quinoa|oat|flour/i)) {
+              ingredients['Grains & Starches'].add(item)
+            } else if (item.match(/milk|cheese|yogurt|cream|butter/i)) {
+              ingredients['Dairy'].add(item)
+            } else if (item.match(/basil|oregano|thyme|salt|pepper|cumin|paprika/i)) {
+              ingredients['Herbs & Spices'].add(item)
+            } else {
+              ingredients['Pantry'].add(item)
+            }
+          }
+        })
+      }
+    })
+
+    // Print categorized ingredients
+    Object.entries(ingredients).forEach(([category, items]) => {
+      if (items.size > 0) {
+        if (doc.y > 650) {
+          doc.addPage()
+          doc.moveDown(2)
+        }
+
+        doc.fontSize(13).font('Helvetica-Bold')
+          .fillColor('#14b8a6')
+          .text(category)
+          .fillColor('#000000')
+        doc.moveDown(0.5)
+
+        doc.fontSize(10).font('Helvetica')
+        Array.from(items).forEach(item => {
+          doc.text(`  • ${item}`)
+        })
+
+        doc.moveDown()
+      }
+    })
+  })
+}
+
+function drawRecipeBook(doc: PDFKit.PDFDocument, recipes: any[]) {
+  recipes.forEach((recipe, index) => {
+    if (index > 0) {
+      doc.addPage()
+      doc.moveDown(2)
+    }
+
+    // Recipe title
+    doc.fontSize(18).font('Helvetica-Bold')
+      .fillColor('#14b8a6')
+      .text(recipe.name || 'Untitled Recipe')
+      .fillColor('#000000')
+    doc.moveDown()
+
+    // Recipe metadata
+    doc.fontSize(10).font('Helvetica')
+    const metadata = []
+    if (recipe.prep_time) metadata.push(`Prep: ${recipe.prep_time} min`)
+    if (recipe.cook_time) metadata.push(`Cook: ${recipe.cook_time} min`)
+    if (recipe.servings) metadata.push(`Servings: ${recipe.servings}`)
+    if (recipe.difficulty) metadata.push(`Difficulty: ${recipe.difficulty}`)
+
+    if (metadata.length > 0) {
+      doc.text(metadata.join('  |  '))
+      doc.moveDown()
+    }
+
+    // Description
+    if (recipe.description) {
+      doc.fontSize(11).font('Helvetica')
+        .text(recipe.description, { align: 'justify' })
+      doc.moveDown()
+    }
+
+    // Ingredients
+    doc.fontSize(14).font('Helvetica-Bold').text('Ingredients')
+    doc.moveDown(0.5)
+
+    doc.fontSize(10).font('Helvetica')
+    if (recipe.ingredients && Array.isArray(recipe.ingredients)) {
+      recipe.ingredients.forEach((ing: any) => {
+        const text = typeof ing === 'string' ? ing :
+                    `${ing.item || ing.name}: ${ing.quantity || ''} ${ing.unit || ''}`
+        doc.text(`  • ${text}`)
+      })
+    }
+    doc.moveDown()
+
+    // Instructions
+    doc.fontSize(14).font('Helvetica-Bold').text('Instructions')
+    doc.moveDown(0.5)
+
+    doc.fontSize(10).font('Helvetica')
+    if (recipe.instructions && Array.isArray(recipe.instructions)) {
+      recipe.instructions.forEach((step: any, i: number) => {
+        const text = typeof step === 'string' ? step : step.step || step.text
+        doc.text(`${i + 1}. ${text}`, { align: 'justify' })
+        doc.moveDown(0.3)
+      })
+    }
+
+    // Nutrition info
+    if (recipe.nutrition || (recipe.recipe_nutrition && recipe.recipe_nutrition[0])) {
+      const nutrition = recipe.nutrition || recipe.recipe_nutrition[0]
+      doc.moveDown()
+      doc.fontSize(12).font('Helvetica-Bold').text('Nutrition (per serving)')
+      doc.moveDown(0.5)
+      doc.fontSize(10).font('Helvetica')
+
+      if (nutrition.calories) doc.text(`Calories: ${nutrition.calories}`)
+      if (nutrition.protein) doc.text(`Protein: ${nutrition.protein}g`)
+      if (nutrition.carbs) doc.text(`Carbs: ${nutrition.carbs}g`)
+      if (nutrition.fat) doc.text(`Fat: ${nutrition.fat}g`)
+      if (nutrition.fiber) doc.text(`Fiber: ${nutrition.fiber}g`)
+    }
+  })
+}
+
+function drawSundayPrepGuide(doc: PDFKit.PDFDocument, recipes: any[]) {
+  doc.fontSize(14).font('Helvetica')
+    .text('Make your week easier with Sunday meal prep! Here are tasks you can do in advance:', { align: 'justify' })
+  doc.moveDown(2)
+
+  const prepTasks = [
+    {
+      title: '🥗 Wash & Chop Vegetables',
+      tasks: [
+        'Wash all produce for the week',
+        'Chop vegetables for quick cooking',
+        'Store in airtight containers with paper towels',
+        'Pre-portion snack vegetables'
+      ]
+    },
+    {
+      title: '🍚 Cook Grains & Proteins',
+      tasks: [
+        'Cook rice, quinoa, or other grains in batch',
+        'Grill or bake chicken breasts for the week',
+        'Hard-boil eggs for quick protein',
+        'Prepare any marinades needed'
+      ]
+    },
+    {
+      title: '🥫 Prep Ingredients',
+      tasks: [
+        'Measure out spices for each recipe',
+        'Make salad dressings and sauces',
+        'Portion out nuts and seeds',
+        'Prep overnight oats if applicable'
+      ]
+    },
+    {
+      title: '📦 Organization Tips',
+      tasks: [
+        'Label all containers with dates',
+        'Stack containers for easy access',
+        'Keep a meal prep checklist',
+        'Plan for 2-3 hours of Sunday prep time'
+      ]
+    }
+  ]
+
+  prepTasks.forEach(section => {
+    if (doc.y > 650) {
+      doc.addPage()
+      doc.moveDown(2)
+    }
+
+    doc.fontSize(14).font('Helvetica-Bold')
+      .fillColor('#14b8a6')
+      .text(section.title)
+      .fillColor('#000000')
+    doc.moveDown(0.5)
+
+    doc.fontSize(11).font('Helvetica')
+    section.tasks.forEach(task => {
+      doc.text(`  • ${task}`)
+      doc.moveDown(0.3)
+    })
+
+    doc.moveDown()
+  })
+
+  // Add motivational footer
+  doc.moveDown(2)
+  doc.fontSize(12).font('Helvetica-Bold')
+    .fillColor('#14b8a6')
+    .text('💡 Pro Tip:', { continued: true })
+    .fillColor('#000000')
+    .font('Helvetica')
+    .text(' Spend 2-3 hours on Sunday to save 1+ hour each weekday!')
 }
 
 // Helper functions to generate sample data
