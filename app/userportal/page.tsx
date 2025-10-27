@@ -81,7 +81,9 @@ export default function DashboardPage() {
       }
     `
     document.head.appendChild(style)
-    return () => document.head.removeChild(style)
+    return () => {
+      document.head.removeChild(style)
+    }
   }, [])
 
   useEffect(() => {
