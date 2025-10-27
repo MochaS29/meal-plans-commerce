@@ -226,7 +226,7 @@ export function optimizeShoppingList(ingredients: IngredientItem[]): OptimizedSh
 
   for (const item of combined) {
     const category = item.category || categorizeIngredient(item.name)
-    const sectionName = STORE_SECTIONS[category]
+    const sectionName = STORE_SECTIONS[category as keyof typeof STORE_SECTIONS]
 
     if (!optimized[sectionName]) {
       optimized[sectionName] = []
