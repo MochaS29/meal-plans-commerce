@@ -195,7 +195,7 @@ export default function RecipesStaticPage() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Flame className="w-4 h-4" />
-                    <span>{recipe.recipe_nutrition?.[0]?.calories || 0} cal</span>
+                    <span>{recipe.recipe_nutrition?.calories || 0} cal</span>
                   </div>
                 </div>
 
