@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       .select('*')
       .eq('published', true)
       .order('display_order', { ascending: true })
-      .order('created_at', { descending: true })
+      .order('created_at', { ascending: false })
 
     if (category) {
       query = query.eq('category', category)
