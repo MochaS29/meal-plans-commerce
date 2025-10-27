@@ -305,38 +305,38 @@ export default function RecipesStaticPage() {
               </div>
 
               {/* Nutrition */}
-              {selectedRecipe.recipe_nutrition?.[0] && (
+              {selectedRecipe.recipe_nutrition && (
                 <div className="mb-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-3">Nutrition Per Serving</h3>
                   <div className="grid grid-cols-5 gap-3">
                     <div className="bg-green-50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-700 font-medium">Calories</p>
                       <p className="text-lg font-bold text-green-700">
-                        {selectedRecipe.recipe_nutrition[0].calories}
+                        {selectedRecipe.recipe_nutrition.calories}
                       </p>
                     </div>
                     <div className="bg-blue-50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-700 font-medium">Protein</p>
                       <p className="text-lg font-bold text-blue-700">
-                        {selectedRecipe.recipe_nutrition[0].protein}g
+                        {selectedRecipe.recipe_nutrition.protein}g
                       </p>
                     </div>
                     <div className="bg-yellow-50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-700 font-medium">Carbs</p>
                       <p className="text-lg font-bold text-yellow-700">
-                        {selectedRecipe.recipe_nutrition[0].carbs}g
+                        {selectedRecipe.recipe_nutrition.carbs}g
                       </p>
                     </div>
                     <div className="bg-purple-50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-700 font-medium">Fat</p>
                       <p className="text-lg font-bold text-purple-700">
-                        {selectedRecipe.recipe_nutrition[0].fat}g
+                        {selectedRecipe.recipe_nutrition.fat}g
                       </p>
                     </div>
                     <div className="bg-teal-50 rounded-lg p-3 text-center">
                       <p className="text-xs text-gray-700 font-medium">Fiber</p>
                       <p className="text-lg font-bold text-teal-700">
-                        {selectedRecipe.recipe_nutrition[0].fiber}g
+                        {selectedRecipe.recipe_nutrition.fiber}g
                       </p>
                     </div>
                   </div>
