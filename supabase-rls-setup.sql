@@ -11,7 +11,7 @@ ALTER TABLE subscriptions ENABLE ROW LEVEL SECURITY;
 -- Step 2: Create policies for users table
 CREATE POLICY "Users can view own profile"
 ON users FOR SELECT
-USING (auth.uid()::text = id OR auth.jwt()->>'email' = email);
+USING (auth.jwt()->>'email' = email);
 
 -- Step 3: Create policies for purchases table
 CREATE POLICY "Users can view own purchases"

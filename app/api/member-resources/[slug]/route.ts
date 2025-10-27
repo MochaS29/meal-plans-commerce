@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase'
 // GET /api/member-resources/[slug] - Get a specific resource
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const session = await getSession()
 
@@ -24,7 +24,7 @@ export async function GET(
   }
 
   try {
-    const { slug } = params
+    const { slug } = await params
 
     // Fetch resource
     const { data: resource, error } = await supabase
@@ -65,7 +65,7 @@ export async function GET(
 // PUT /api/member-resources/[slug] - Mark resource as completed
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const session = await getSession()
 
@@ -84,7 +84,7 @@ export async function PUT(
   }
 
   try {
-    const { slug } = params
+    const { slug } = await params
     const body = await request.json()
     const { completed } = body
 
