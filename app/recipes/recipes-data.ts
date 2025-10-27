@@ -18,7 +18,7 @@ export interface Recipe {
     carbs: number
     fat: number
     fiber: number
-  }[]
+  }
 }
 
 export const recipesByDiet = {
