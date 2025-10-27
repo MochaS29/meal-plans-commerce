@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Printer } from 'lucide-react'
 
@@ -19,7 +19,7 @@ const dietPlans: { [key: string]: string } = {
   'family-focused': 'Family Focused',
 }
 
-export default function PrintCalendarPage() {
+function CalendarContent() {
   const searchParams = useSearchParams()
   const diet = searchParams.get('diet') || 'mediterranean'
   const month = parseInt(searchParams.get('month') || '1')
@@ -218,10 +218,33 @@ export default function PrintCalendarPage() {
       </div>
 
       {/* Footer */}
-      <div className="mt-8 pt-4 border-t text-center text-sm text-gray-900">
-        <p>From Mocha's MindLab Meal Plans • mochasmindlab.com</p>
-        <p className="text-xs text-gray-700 mt-1">🌅 Breakfast • ☀️ Lunch • 🌙 Dinner</p>
+      <div className="mt-8 pt-4 border-t border-gray-300 text-center text-xs text-gray-900">
+        <p className="font-bold mb-1">Meal Prep Tips:</p>
+        <div className="grid grid-cols-3 gap-4 text-left max-w-4xl mx-auto">
+          <div>
+            <strong className="text-amber-800">Breakfast Prep:</strong> Prepare overnight oats, smoothie packs, or egg muffins in advance
+          </div>
+          <div>
+            <strong className="text-teal-700">Lunch Prep:</strong> Batch cook proteins and grains on Sunday for easy assembly
+          </div>
+          <div>
+            <strong className="text-purple-700">Dinner Prep:</strong> Chop vegetables and marinate proteins the night before
+          </div>
+        </div>
+        <p className="mt-4">© 2025 Mindful Meal Plan - Your Journey to Healthier Eating</p>
       </div>
     </div>
+  )
+}
+
+export default function PrintCalendarPage() {
+  return (
+    <Suspense fallback={
+      <div className="p-8 max-w-7xl mx-auto">
+        <div className="text-center">Loading calendar...</div>
+      </div>
+    }>
+      <CalendarContent />
+    </Suspense>
   )
 }
