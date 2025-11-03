@@ -1,5 +1,4 @@
 // Email service for sending meal plans to customers
-import { Resend } from 'resend'
 import { trackEmailError } from '@/lib/monitoring'
 
 interface SendEmailParams {
@@ -12,12 +11,27 @@ interface SendEmailParams {
   }[]
 }
 
-// Initialize Resend client
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null
+// Lazy load Resend only when needed
+let resend: any = null
+async function getResendClient() {
+  if (!process.env.RESEND_API_KEY) {
+    return null
+  }
+  
+  if (!resend) {
+    const { Resend } = await import('resend')
+    resend = new Resend(process.env.RESEND_API_KEY)
+  }
+  
+  return resend
+}
 
 export async function sendEmail({ to, subject, html, attachments }: SendEmailParams) {
+  // Get Resend client (will be null if no API key)
+  const resendClient = await getResendClient()
+  
   // Only log instead of sending if no API key is configured
-  if (!resend) {
+  if (!resendClient) {
     console.log('📧 Email would be sent (no API key):', {
       to,
       subject,
@@ -33,7 +47,7 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
     console.log('Subject:', subject)
 
     // Send email with Resend
-    const response = await resend.emails.send({
+    const response = await resendClient.emails.send({
       from: process.env.EMAIL_FROM || 'Meal Plans <onboarding@resend.dev>',
       to,
       subject,
