@@ -11,6 +11,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Not authorized' }, { status: 401 })
     }
 
+    if (!supabase) {
+      return NextResponse.json({ error: 'Database not configured' }, { status: 500 })
+    }
+
     // Get user data directly
     const { data: user, error } = await supabase
       .from('users')
