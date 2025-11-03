@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
-import { SimpleMealPlanPDFGenerator } from '@/lib/pdf-generator-simple';
+import { EnhancedMealPlanPDFGenerator } from '@/lib/pdf-generator-enhanced';
 
 export async function GET(request: NextRequest) {
   // Check authentication (would normally check session/cookie)
@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     const mealPlan = JSON.parse(data);
 
     // Generate PDF
-    const pdfGenerator = new SimpleMealPlanPDFGenerator();
+    const pdfGenerator = new EnhancedMealPlanPDFGenerator();
     const pdfBlob = await pdfGenerator.generateMealPlanPDF(mealPlan, {
       name: searchParams.get('userName') || undefined,
       email: searchParams.get('userEmail') || undefined

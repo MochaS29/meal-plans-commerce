@@ -42,7 +42,7 @@ export default function MemberRecipesPage() {
         setMealPlanData(data)
         
         // Then fetch full recipe details for each meal
-        const recipePromises: Promise<FullRecipe>[] = []
+        const recipePromises: Promise<FullRecipe | null>[] = []
         
         if (data?.dailyMeals) {
           Object.entries(data.dailyMeals).forEach(([dayKey, dayData]: [string, any]) => {
@@ -72,7 +72,7 @@ export default function MemberRecipesPage() {
         }
         
         const recipes = await Promise.all(recipePromises)
-        setFullRecipes(recipes.filter(recipe => recipe !== null))
+        setFullRecipes(recipes.filter((recipe): recipe is FullRecipe => recipe !== null))
       }
     } catch (error) {
       console.error('Error fetching meal plan and recipes:', error)
@@ -130,14 +130,14 @@ export default function MemberRecipesPage() {
             Your Recipe Collection
           </motion.h1>
           <p className="text-xl text-white/90">
-            All {allRecipes.length} recipes from your {mealPlanData?.title || 'meal plan'}
+            All {fullRecipes.length} recipes from your {mealPlanData?.title || 'meal plan'}
           </p>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Search */}
-        <div className="mb-8">
+        {/* Action Bar */}
+        <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
           <div className="relative max-w-md">
             <Search className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
             <input
@@ -148,6 +148,17 @@ export default function MemberRecipesPage() {
               className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
+          
+          <button
+            onClick={() => {
+              const url = `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}&demo=true`;
+              window.open(url, '_blank');
+            }}
+            className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
+          >
+            <Printer className="w-5 h-5" />
+            Print This Week's Recipes
+          </button>
         </div>
 
         {/* Recipe Grid */}
@@ -162,7 +173,12 @@ export default function MemberRecipesPage() {
             >
               <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{recipe.name}</h3>
+                  <button 
+                    onClick={() => setSelectedRecipe(recipe)}
+                    className="text-left"
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 mb-1 hover:text-amber-600 transition-colors cursor-pointer">{recipe.name}</h3>
+                  </button>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <span className="bg-amber-100 text-amber-800 px-2 py-1 rounded text-xs font-medium">
                       Day {recipe.day} • {recipe.meal}
