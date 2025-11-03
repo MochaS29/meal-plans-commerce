@@ -202,7 +202,7 @@ export class EnhancedMealPlanPDFGenerator {
     return score;
   }
 
-  private addRecipeToPage(recipe: RecipeDetails, day: number, meal: string) {
+  private addRecipeToPage(recipe: RecipeDetails, day: number, meal: string, mealPlan?: MealPlan) {
     this.addNewPageIfNeeded(80);
 
     // Recipe header
@@ -211,7 +211,17 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.setTextColor(255, 255, 255);
     this.doc.setFontSize(14);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text(`Day ${day} • ${meal}`, this.margins.left + 5, this.currentY + 7);
+    
+    // Show where this recipe appears in the meal plan
+    let occurrenceText = `Day ${day} • ${meal}`;
+    if (mealPlan) {
+      const occurrences = this.findRecipeOccurrences(recipe.name, mealPlan);
+      if (occurrences.length > 1) {
+        occurrenceText = `Appears on: ${occurrences.map(occ => `Day ${occ.day} ${occ.meal}`).join(', ')}`;
+      }
+    }
+    
+    this.doc.text(occurrenceText, this.margins.left + 5, this.currentY + 7);
     this.doc.setTextColor(0, 0, 0);
     this.currentY += 15;
 
@@ -347,53 +357,67 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.text('Weekly Meal Calendar with Complete Recipes', this.margins.left, this.currentY);
     this.currentY += 15;
 
-    // Generate calendar for each week with full recipe details
+    // Collect all unique recipes from the meal plan to avoid duplicates
+    const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}}>();
     const weeks = this.groupMealsByWeek(mealPlan.dailyMeals);
 
+    // First, collect all unique recipe names from the meal plan
     for (const [weekNum, days] of Object.entries(weeks)) {
-      // Week header
-      this.addNewPageIfNeeded(20);
-      this.doc.setFontSize(16);
-      this.doc.setFont('helvetica', 'bold');
-      this.doc.setFillColor(0, 150, 136);
-      this.doc.setTextColor(255, 255, 255);
-      this.doc.rect(this.margins.left, this.currentY, this.pageWidth - 40, 10, 'F');
-      this.doc.text(`Week ${weekNum} Recipes`, this.margins.left + 5, this.currentY + 7);
-      this.doc.setTextColor(0, 0, 0);
-      this.currentY += 15;
-
-      // Process each day in the week
       for (const day of days as number[]) {
         const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
-
+        
         if (dayMeals) {
-          // Fetch and add breakfast recipe
-          if (dayMeals.breakfast?.name) {
-            const breakfastRecipe = await this.fetchRecipeDetails(dayMeals.breakfast.name);
-            if (breakfastRecipe) {
-              this.addRecipeToPage(breakfastRecipe, day, 'Breakfast');
+          // Collect breakfast
+          if (dayMeals.breakfast?.name && !uniqueRecipes.has(dayMeals.breakfast.name)) {
+            const recipe = await this.fetchRecipeDetails(dayMeals.breakfast.name);
+            if (recipe) {
+              uniqueRecipes.set(dayMeals.breakfast.name, {
+                recipe,
+                firstOccurrence: { day, meal: 'Breakfast' }
+              });
             }
           }
 
-          // Fetch and add lunch recipe
-          if (dayMeals.lunch?.name) {
-            const lunchRecipe = await this.fetchRecipeDetails(dayMeals.lunch.name);
-            if (lunchRecipe) {
-              this.addRecipeToPage(lunchRecipe, day, 'Lunch');
+          // Collect lunch
+          if (dayMeals.lunch?.name && !uniqueRecipes.has(dayMeals.lunch.name)) {
+            const recipe = await this.fetchRecipeDetails(dayMeals.lunch.name);
+            if (recipe) {
+              uniqueRecipes.set(dayMeals.lunch.name, {
+                recipe,
+                firstOccurrence: { day, meal: 'Lunch' }
+              });
             }
           }
 
-          // Fetch and add dinner recipe
-          if (dayMeals.dinner?.name) {
-            const dinnerRecipe = await this.fetchRecipeDetails(dayMeals.dinner.name);
-            if (dinnerRecipe) {
-              this.addRecipeToPage(dinnerRecipe, day, 'Dinner');
+          // Collect dinner
+          if (dayMeals.dinner?.name && !uniqueRecipes.has(dayMeals.dinner.name)) {
+            const recipe = await this.fetchRecipeDetails(dayMeals.dinner.name);
+            if (recipe) {
+              uniqueRecipes.set(dayMeals.dinner.name, {
+                recipe,
+                firstOccurrence: { day, meal: 'Dinner' }
+              });
             }
           }
         }
       }
+    }
 
-      this.drawFooter(pageNum++);
+    // Now add each unique recipe to the PDF only once
+    console.log(`Found ${uniqueRecipes.size} unique recipes out of total meal plan`);
+    
+    let recipeCount = 0;
+    for (const [recipeName, {recipe, firstOccurrence}] of uniqueRecipes) {
+      recipeCount++;
+      console.log(`Adding recipe ${recipeCount}: ${recipeName} (first appears on day ${firstOccurrence.day} as ${firstOccurrence.meal})`);
+      this.addRecipeToPage(recipe, firstOccurrence.day, firstOccurrence.meal, mealPlan);
+      
+      // Add page break after every 2-3 recipes to avoid overcrowding
+      if (recipeCount % 2 === 0) {
+        this.drawFooter(pageNum++);
+        this.doc.addPage();
+        this.currentY = this.margins.top;
+      }
     }
 
     // Shopping Lists Section
@@ -503,5 +527,25 @@ export class EnhancedMealPlanPDFGenerator {
 
   private capitalizeFirst(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  private findRecipeOccurrences(recipeName: string, mealPlan: MealPlan): {day: number, meal: string}[] {
+    const occurrences: {day: number, meal: string}[] = [];
+    
+    Object.entries(mealPlan.dailyMeals).forEach(([dayKey, dayData]) => {
+      const dayNum = parseInt(dayKey.replace('day_', ''));
+      
+      if ((dayData as any).breakfast?.name === recipeName) {
+        occurrences.push({day: dayNum, meal: 'Breakfast'});
+      }
+      if ((dayData as any).lunch?.name === recipeName) {
+        occurrences.push({day: dayNum, meal: 'Lunch'});
+      }
+      if ((dayData as any).dinner?.name === recipeName) {
+        occurrences.push({day: dayNum, meal: 'Dinner'});
+      }
+    });
+    
+    return occurrences;
   }
 }
