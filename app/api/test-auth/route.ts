@@ -3,6 +3,19 @@ import { supabase } from '@/lib/supabase'
 
 export async function GET() {
   try {
+    if (!supabase) {
+      return NextResponse.json({
+        status: 'error',
+        message: 'Supabase client not initialized',
+        environment: {
+          supabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+          supabaseServiceKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+          jwtSecret: !!process.env.JWT_SECRET,
+          nodeEnv: process.env.NODE_ENV
+        }
+      })
+    }
+
     // Test basic Supabase connection
     const { data, error } = await supabase
       .from('users')
