@@ -50,6 +50,8 @@ export default function DashboardPage() {
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [copiedList, setCopiedList] = useState(false)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
+  const [mealPlanData, setMealPlanData] = useState<any>(null)
+  const [loadingMeals, setLoadingMeals] = useState(false)
   const router = useRouter()
 
   // Add print styles
@@ -90,6 +92,10 @@ export default function DashboardPage() {
     fetchUserData()
   }, [])
 
+  useEffect(() => {
+    fetchMealPlan()
+  }, [selectedDiet, selectedMonth, selectedYear])
+
   const fetchUserData = async () => {
     try {
       const response = await fetch('/api/user/profile')
@@ -122,6 +128,25 @@ export default function DashboardPage() {
       })
     } finally {
       setLoading(false)
+    }
+  }
+
+  const fetchMealPlan = async () => {
+    setLoadingMeals(true)
+    try {
+      const response = await fetch(`/api/meal-plans?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`)
+      if (response.ok) {
+        const data = await response.json()
+        setMealPlanData(data)
+      } else {
+        console.error('Failed to fetch meal plan data')
+        setMealPlanData(null)
+      }
+    } catch (error) {
+      console.error('Error fetching meal plan:', error)
+      setMealPlanData(null)
+    } finally {
+      setLoadingMeals(false)
     }
   }
 
@@ -473,38 +498,26 @@ Weekly Shopping List:
                 ))}
 
                 {/* Calendar Days */}
-                {Array.from({ length: 30 }, (_, i) => {
+                {loadingMeals ? (
+                  <div className="col-span-7 text-center py-8">
+                    <div className="animate-pulse text-amber-700">Loading your meal plan...</div>
+                  </div>
+                ) : Array.from({ length: 30 }, (_, i) => {
                   const dayNum = i + 1
                   const dayOfWeek = (i + new Date(selectedYear, selectedMonth - 1, 1).getDay()) % 7
+                  const dayKey = `day_${dayNum}`
 
-                  // Mediterranean meal rotation with variety
-                  const breakfasts = [
-                    'Greek Yogurt Bowl', 'Avocado Toast', 'Berry Smoothie', 'Mediterranean Scramble', 
-                    'Overnight Oats', 'Fruit & Nut Bowl', 'Veggie Omelet', 'Chia Pudding',
-                    'Smoked Salmon Bagel', 'Granola Parfait'
-                  ]
+                  // Get real meal data from the database
+                  const dayMeals = mealPlanData?.dailyMeals?.[dayKey]
                   
-                  const lunches = [
-                    'Quinoa Salad', 'Mediterranean Wrap', 'Grilled Chicken', 'Lentil Soup',
-                    'Greek Salad', 'Hummus Bowl', 'Tuna Nicoise', 'Falafel Plate',
-                    'Chickpea Salad', 'Veggie Pita', 'Turkey Club', 'Caprese Salad'
-                  ]
-                  
-                  const dinners = [
-                    'Salmon & Veggies', 'Turkey Meatballs', 'Stuffed Peppers', 'Grilled Lamb',
-                    'Herb-Crusted Cod', 'Chicken Souvlaki', 'Eggplant Moussaka', 'Seafood Paella',
-                    'Mediterranean Pasta', 'Grilled Halloumi', 'Beef Kebabs', 'Zucchini Boats',
-                    'Baked Sea Bass', 'Chicken Cacciatore', 'Ratatouille', 'Shrimp Risotto',
-                    'Lamb Chops', 'Fish Tagine', 'Veggie Lasagna', 'Grilled Octopus',
-                    'Turkey Burgers', 'Salmon Tartare', 'Chicken Gyros', 'Stuffed Tomatoes',
-                    'Grilled Branzino', 'Beef Stew', 'Seafood Stew', 'Roasted Chicken',
-                    'Fish & Chips', 'Lamb Stew'
-                  ]
-
-                  const meals = {
-                    breakfast: breakfasts[dayNum % breakfasts.length],
-                    lunch: lunches[dayNum % lunches.length],
-                    dinner: dinners[dayNum % dinners.length]
+                  const meals = dayMeals ? {
+                    breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
+                    lunch: dayMeals.lunch?.name || 'No lunch planned', 
+                    dinner: dayMeals.dinner?.name || 'No dinner planned'
+                  } : {
+                    breakfast: 'Loading...',
+                    lunch: 'Loading...',
+                    dinner: 'Loading...'
                   }
 
                   return (
