@@ -174,36 +174,58 @@ export default function DashboardPage() {
   }
 
   const handleCopyShoppingList = async () => {
-    const shoppingList = `Shopping List - ${months[selectedMonth - 1]} ${selectedYear}
-
-Weekly Shopping List:
-• 2 lbs chicken breast
-• 1 lb salmon fillet
-• 3 avocados
-• 2 bunches spinach
-• 1 lb cherry tomatoes
-• Greek yogurt (32 oz)
-• Olive oil (extra virgin)
-• 1 dozen eggs
-• Mixed nuts (almonds, walnuts)
-• Fresh herbs (basil, parsley, oregano)
-• Lemons (6)
-• Garlic (2 bulbs)
-• Quinoa (1 lb)
-• Brown rice (2 lbs)
-• Whole grain bread
-• Feta cheese (8 oz)
-• Chickpeas (2 cans)
-• Black olives
-• Bell peppers (4)
-• Cucumber (3)`
-
     try {
-      await navigator.clipboard.writeText(shoppingList)
-      setCopiedList(true)
-      setTimeout(() => setCopiedList(false), 2000)
+      // Fetch real shopping list from API
+      const response = await fetch(`/api/shopping-list?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`)
+      
+      if (response.ok) {
+        const data = await response.json()
+        let shoppingListText = `Shopping List - ${months[selectedMonth - 1]} ${selectedYear}\n\n`
+        
+        if (data.shoppingLists) {
+          // Show all weeks' shopping lists for the month
+          Object.entries(data.shoppingLists).forEach(([weekKey, weekData]: [string, any]) => {
+            const weekNum = weekKey.replace('week', '')
+            shoppingListText += `Week ${weekNum}:\n`
+            
+            if (weekData.produce) {
+              shoppingListText += '\nProduce:\n'
+              weekData.produce.forEach((item: string) => shoppingListText += `• ${item}\n`)
+            }
+            
+            if (weekData.proteins) {
+              shoppingListText += '\nProteins:\n'
+              weekData.proteins.forEach((item: string) => shoppingListText += `• ${item}\n`)
+            }
+            
+            if (weekData.dairy) {
+              shoppingListText += '\nDairy:\n'
+              weekData.dairy.forEach((item: string) => shoppingListText += `• ${item}\n`)
+            }
+            
+            if (weekData.pantry) {
+              shoppingListText += '\nPantry:\n'
+              weekData.pantry.forEach((item: string) => shoppingListText += `• ${item}\n`)
+            }
+            
+            shoppingListText += '\n'
+          })
+        } else {
+          shoppingListText += 'No shopping list available for this meal plan.'
+        }
+        
+        await navigator.clipboard.writeText(shoppingListText)
+        setCopiedList(true)
+        setTimeout(() => setCopiedList(false), 2000)
+      } else {
+        throw new Error('Failed to fetch shopping list')
+      }
     } catch (err) {
       console.error('Failed to copy shopping list:', err)
+      // Fallback to a basic message
+      await navigator.clipboard.writeText(`Shopping List - ${months[selectedMonth - 1]} ${selectedYear}\n\nPlease check your meal plan for shopping list details.`)
+      setCopiedList(true)
+      setTimeout(() => setCopiedList(false), 2000)
     }
   }
 
