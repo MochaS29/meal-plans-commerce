@@ -46,7 +46,7 @@ export default function DashboardPage() {
   const [user, setUser] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
   const [selectedDiet, setSelectedDiet] = useState('mediterranean')
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1)
+  const [selectedMonth, setSelectedMonth] = useState(1) // Default to January since we have data for months 1-4
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [copiedList, setCopiedList] = useState(false)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
@@ -139,12 +139,19 @@ export default function DashboardPage() {
         const data = await response.json()
         setMealPlanData(data)
       } else {
-        console.error('Failed to fetch meal plan data')
-        setMealPlanData(null)
+        console.error('Failed to fetch meal plan data - meal plan not available for this month')
+        // Create a fallback message for unavailable months
+        setMealPlanData({ 
+          error: true, 
+          message: 'Meal plan not available for this month. Please select January-April 2025.' 
+        })
       }
     } catch (error) {
       console.error('Error fetching meal plan:', error)
-      setMealPlanData(null)
+      setMealPlanData({ 
+        error: true, 
+        message: 'Unable to load meal plan. Please try again.' 
+      })
     } finally {
       setLoadingMeals(false)
     }
@@ -445,7 +452,7 @@ Weekly Shopping List:
                       onChange={(e) => setSelectedMonth(Number(e.target.value))}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900 font-medium"
                     >
-                      {months.map((month, index) => (
+                      {months.slice(0, 4).map((month, index) => (
                         <option key={month} value={index + 1}>{month}</option>
                       ))}
                     </select>
@@ -501,6 +508,11 @@ Weekly Shopping List:
                 {loadingMeals ? (
                   <div className="col-span-7 text-center py-8">
                     <div className="animate-pulse text-amber-700">Loading your meal plan...</div>
+                  </div>
+                ) : mealPlanData?.error ? (
+                  <div className="col-span-7 text-center py-8">
+                    <div className="text-red-600 mb-2">⚠️ {mealPlanData.message}</div>
+                    <div className="text-gray-600 text-sm">Try selecting a different month from the dropdown above.</div>
                   </div>
                 ) : Array.from({ length: 30 }, (_, i) => {
                   const dayNum = i + 1
