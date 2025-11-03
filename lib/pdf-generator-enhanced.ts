@@ -91,7 +91,7 @@ export class EnhancedMealPlanPDFGenerator {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       );
 
-      const { data: recipe, error } = await supabase
+      const { data: recipes, error } = await supabase
         .from('recipes')
         .select(`
           *,
@@ -99,15 +99,21 @@ export class EnhancedMealPlanPDFGenerator {
           recipe_instructions (*),
           recipe_nutrition (*)
         `)
-        .ilike('name', recipeName)
-        .single();
+        .ilike('name', `%${recipeName}%`)
+        .order('created_at', { ascending: false });
 
       if (error) {
         console.error('Error fetching recipe from Supabase:', error);
         return null;
       }
 
-      return recipe;
+      if (!recipes || recipes.length === 0) {
+        console.log(`No recipes found for: ${recipeName}`);
+        return null;
+      }
+
+      // Return the first (most recent) recipe that matches
+      return recipes[0];
     } catch (error) {
       console.error(`Error fetching recipe ${recipeName}:`, error);
     }
