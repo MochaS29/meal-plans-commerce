@@ -91,33 +91,115 @@ export class EnhancedMealPlanPDFGenerator {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       );
 
-      const { data: recipes, error } = await supabase
-        .from('recipes')
-        .select(`
-          *,
-          recipe_ingredients (*),
-          recipe_instructions (*),
-          recipe_nutrition (*)
-        `)
-        .ilike('name', `%${recipeName}%`)
-        .order('created_at', { ascending: false });
+      // Multi-tier matching strategy for better recipe variety
+      const searchStrategies = [
+        // Strategy 1: Exact match
+        recipeName,
+        
+        // Strategy 2: Remove common words and search by key ingredients
+        this.extractKeyIngredients(recipeName),
+        
+        // Strategy 3: Search by meal type keywords
+        this.extractMealType(recipeName),
+        
+        // Strategy 4: Broad category search
+        this.extractBroadCategory(recipeName)
+      ].filter(Boolean);
 
-      if (error) {
-        console.error('Error fetching recipe from Supabase:', error);
-        return null;
+      for (const searchTerm of searchStrategies) {
+        const { data: recipes, error } = await supabase
+          .from('recipes')
+          .select(`
+            *,
+            recipe_ingredients (*),
+            recipe_instructions (*),
+            recipe_nutrition (*)
+          `)
+          .ilike('name', `%${searchTerm}%`)
+          .order('created_at', { ascending: false })
+          .limit(5);
+
+        if (!error && recipes && recipes.length > 0) {
+          console.log(`Found ${recipes.length} recipes for "${recipeName}" using search term: "${searchTerm}"`);
+          
+          // Try to find the best match by scoring similarity
+          const bestMatch = this.findBestMatch(recipeName, recipes);
+          if (bestMatch) {
+            return bestMatch;
+          }
+        }
       }
 
-      if (!recipes || recipes.length === 0) {
-        console.log(`No recipes found for: ${recipeName}`);
-        return null;
-      }
-
-      // Return the first (most recent) recipe that matches
-      return recipes[0];
+      console.log(`No recipes found for: ${recipeName}`);
+      return null;
     } catch (error) {
       console.error(`Error fetching recipe ${recipeName}:`, error);
     }
     return null;
+  }
+
+  private extractKeyIngredients(recipeName: string): string {
+    // Extract key cooking ingredients/proteins
+    const keyWords = ['salmon', 'chicken', 'fish', 'chickpea', 'lentil', 'tofu', 'beef', 'pork', 'turkey', 'tuna', 'shrimp', 'pasta', 'quinoa', 'rice', 'oats', 'yogurt'];
+    const words = recipeName.toLowerCase().split(/\s+/);
+    const found = words.find(word => keyWords.some(key => word.includes(key) || key.includes(word)));
+    return found || '';
+  }
+
+  private extractMealType(recipeName: string): string {
+    // Extract cooking method or dish type
+    const mealTypes = ['grilled', 'baked', 'roasted', 'soup', 'salad', 'stir', 'curry', 'stew', 'pasta', 'toast', 'overnight', 'smoothie'];
+    const words = recipeName.toLowerCase().split(/\s+/);
+    const found = words.find(word => mealTypes.some(type => word.includes(type) || type.includes(word)));
+    return found || '';
+  }
+
+  private extractBroadCategory(recipeName: string): string {
+    // Fallback to broad Mediterranean categories
+    if (recipeName.toLowerCase().includes('breakfast') || recipeName.toLowerCase().includes('oats') || recipeName.toLowerCase().includes('toast')) {
+      return 'breakfast';
+    }
+    if (recipeName.toLowerCase().includes('salad') || recipeName.toLowerCase().includes('chickpea')) {
+      return 'mediterranean';
+    }
+    if (recipeName.toLowerCase().includes('fish') || recipeName.toLowerCase().includes('salmon')) {
+      return 'fish';
+    }
+    return 'mediterranean';
+  }
+
+  private findBestMatch(originalName: string, recipes: any[]): any {
+    // Score recipes based on name similarity and return the best match
+    const scoredRecipes = recipes.map(recipe => ({
+      ...recipe,
+      score: this.calculateSimilarityScore(originalName, recipe.name)
+    }));
+
+    // Sort by score (highest first) and return the best match
+    scoredRecipes.sort((a, b) => b.score - a.score);
+    return scoredRecipes[0];
+  }
+
+  private calculateSimilarityScore(original: string, candidate: string): number {
+    const originalWords = original.toLowerCase().split(/\s+/);
+    const candidateWords = candidate.toLowerCase().split(/\s+/);
+    
+    let score = 0;
+    
+    // Award points for matching words
+    for (const word of originalWords) {
+      if (candidateWords.some(cWord => cWord.includes(word) || word.includes(cWord))) {
+        score += 1;
+      }
+    }
+    
+    // Bonus for matching key ingredients
+    const keyIngredient = this.extractKeyIngredients(original);
+    if (keyIngredient && candidate.toLowerCase().includes(keyIngredient)) {
+      score += 2;
+    }
+    
+    return score;
   }
 
   private addRecipeToPage(recipe: RecipeDetails, day: number, meal: string) {
