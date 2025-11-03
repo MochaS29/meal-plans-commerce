@@ -41,7 +41,7 @@ export default function LoginPage() {
         }
       } else {
         // Login existing user
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch('/api/simple-login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })
@@ -52,7 +52,7 @@ export default function LoginPage() {
         if (response.ok) {
           setMessage('Login successful! Redirecting...')
           setTimeout(() => {
-            router.push('/dashboard')
+            router.push('/userportal')
           }, 1000)
         } else {
           setMessage(data.error || 'Invalid email or password')
