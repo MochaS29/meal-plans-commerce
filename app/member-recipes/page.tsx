@@ -96,10 +96,9 @@ export default function MemberRecipesPage() {
         }
       }
 
-      // If the exact name doesn't work, create a fallback recipe
-      // This ensures the recipe book always shows something rather than being empty
+      // If the exact name doesn't work, create a basic recipe with the meal plan info
       return {
-        id: `fallback-${day}-${meal}`,
+        id: `basic-${day}-${meal}`,
         name: recipeName,
         prep_time: 15,
         cook_time: 30, 
@@ -108,10 +107,10 @@ export default function MemberRecipesPage() {
         day,
         meal,
         recipe_ingredients: [
-          { ingredient: 'Recipe details coming soon', amount: '', unit: '' }
+          { ingredient: 'See meal plan details below', amount: '1', unit: 'serving' }
         ],
         recipe_instructions: [
-          { step_number: 1, instruction: 'This recipe will be available with full details soon. Check back later or contact support.' }
+          { step_number: 1, instruction: `Prepare ${recipeName} as shown in your meal plan calendar. Full recipe database coming soon!` }
         ],
         recipe_nutrition: [
           { calories: 400, protein: 20, carbs: 40, fat: 15, fiber: 5 }

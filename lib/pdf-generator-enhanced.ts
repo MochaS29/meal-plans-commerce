@@ -354,68 +354,65 @@ export class EnhancedMealPlanPDFGenerator {
 
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text('Weekly Meal Calendar with Complete Recipes', this.margins.left, this.currentY);
+    this.doc.text('Week 1 Recipes & Shopping List', this.margins.left, this.currentY);
     this.currentY += 15;
 
-    // Collect all unique recipes from the meal plan to avoid duplicates
+    // Collect unique recipes for Week 1 only (days 1-7)
     const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}}>();
-    const weeks = this.groupMealsByWeek(mealPlan.dailyMeals);
-
-    // First, collect all unique recipe names from the meal plan
-    for (const [weekNum, days] of Object.entries(weeks)) {
-      for (const day of days as number[]) {
-        const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
-        
-        if (dayMeals) {
-          // Collect breakfast
-          if (dayMeals.breakfast?.name) {
-            const recipeName = dayMeals.breakfast.name.trim();
-            if (!uniqueRecipes.has(recipeName)) {
-              const recipe = await this.fetchRecipeDetails(recipeName);
-              if (recipe) {
-                uniqueRecipes.set(recipeName, {
-                  recipe,
-                  firstOccurrence: { day, meal: 'Breakfast' }
-                });
-                console.log(`Added unique recipe: ${recipeName}`);
-              }
-            } else {
-              console.log(`Skipping duplicate recipe: ${recipeName}`);
+    
+    // Process only the first week (days 1-7)
+    for (let day = 1; day <= 7; day++) {
+      const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
+      
+      if (dayMeals) {
+        // Collect breakfast
+        if (dayMeals.breakfast?.name) {
+          const recipeName = dayMeals.breakfast.name.trim();
+          if (!uniqueRecipes.has(recipeName)) {
+            const recipe = await this.fetchRecipeDetails(recipeName);
+            if (recipe) {
+              uniqueRecipes.set(recipeName, {
+                recipe,
+                firstOccurrence: { day, meal: 'Breakfast' }
+              });
+              console.log(`Added unique recipe: ${recipeName}`);
             }
+          } else {
+            console.log(`Skipping duplicate recipe: ${recipeName}`);
           }
+        }
 
-          // Collect lunch
-          if (dayMeals.lunch?.name) {
-            const recipeName = dayMeals.lunch.name.trim();
-            if (!uniqueRecipes.has(recipeName)) {
-              const recipe = await this.fetchRecipeDetails(recipeName);
-              if (recipe) {
-                uniqueRecipes.set(recipeName, {
-                  recipe,
-                  firstOccurrence: { day, meal: 'Lunch' }
-                });
-                console.log(`Added unique recipe: ${recipeName}`);
-              }
-            } else {
-              console.log(`Skipping duplicate recipe: ${recipeName}`);
+        // Collect lunch
+        if (dayMeals.lunch?.name) {
+          const recipeName = dayMeals.lunch.name.trim();
+          if (!uniqueRecipes.has(recipeName)) {
+            const recipe = await this.fetchRecipeDetails(recipeName);
+            if (recipe) {
+              uniqueRecipes.set(recipeName, {
+                recipe,
+                firstOccurrence: { day, meal: 'Lunch' }
+              });
+              console.log(`Added unique recipe: ${recipeName}`);
             }
+          } else {
+            console.log(`Skipping duplicate recipe: ${recipeName}`);
           }
+        }
 
-          // Collect dinner
-          if (dayMeals.dinner?.name) {
-            const recipeName = dayMeals.dinner.name.trim();
-            if (!uniqueRecipes.has(recipeName)) {
-              const recipe = await this.fetchRecipeDetails(recipeName);
-              if (recipe) {
-                uniqueRecipes.set(recipeName, {
-                  recipe,
-                  firstOccurrence: { day, meal: 'Dinner' }
-                });
-                console.log(`Added unique recipe: ${recipeName}`);
-              }
-            } else {
-              console.log(`Skipping duplicate recipe: ${recipeName}`);
+        // Collect dinner
+        if (dayMeals.dinner?.name) {
+          const recipeName = dayMeals.dinner.name.trim();
+          if (!uniqueRecipes.has(recipeName)) {
+            const recipe = await this.fetchRecipeDetails(recipeName);
+            if (recipe) {
+              uniqueRecipes.set(recipeName, {
+                recipe,
+                firstOccurrence: { day, meal: 'Dinner' }
+              });
+              console.log(`Added unique recipe: ${recipeName}`);
             }
+          } else {
+            console.log(`Skipping duplicate recipe: ${recipeName}`);
           }
         }
       }
@@ -444,60 +441,54 @@ export class EnhancedMealPlanPDFGenerator {
 
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text('Weekly Shopping Lists', this.margins.left, this.currentY);
+    this.doc.text('Week 1 Shopping List', this.margins.left, this.currentY);
     this.currentY += 15;
 
-    if (mealPlan.weeklyShoppingLists) {
-      for (const [week, list] of Object.entries(mealPlan.weeklyShoppingLists)) {
-        this.addNewPageIfNeeded(80);
+    // Show only Week 1 shopping list
+    if (mealPlan.weeklyShoppingLists?.week1 || mealPlan.weeklyShoppingLists?.week_1) {
+      const week1List = mealPlan.weeklyShoppingLists.week1 || mealPlan.weeklyShoppingLists.week_1;
 
-        this.doc.setFontSize(14);
-        this.doc.setFont('helvetica', 'bold');
-        this.doc.text(`${this.formatWeekName(week)}`, this.margins.left, this.currentY);
-        this.currentY += 10;
+      // Shopping list categories
+      const categories = ['produce', 'proteins', 'pantry', 'dairy', 'herbs'];
 
-        // Shopping list categories
-        const categories = ['produce', 'proteins', 'pantry', 'dairy', 'herbs'];
-
-        for (const category of categories) {
-          if ((list as any)[category]) {
-            this.doc.setFontSize(12);
-            this.doc.setFont('helvetica', 'bold');
-            this.doc.setFillColor(245, 245, 245);
-            this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 8, 'F');
-            this.doc.text(this.capitalizeFirst(category), this.margins.left + 2, this.currentY);
-            this.currentY += 8;
-
-            this.doc.setFont('helvetica', 'normal');
-            this.doc.setFontSize(10);
-
-            const items = (list as any)[category];
-            if (Array.isArray(items)) {
-              items.forEach(item => {
-                if (typeof item === 'string') {
-                  this.doc.text(`• ${item}`, this.margins.left + 5, this.currentY);
-                } else if (item.item) {
-                  const costText = item.estimatedCost ? ` - ${item.estimatedCost}` : '';
-                  this.doc.text(`• ${item.item}: ${item.quantity}${costText}`, this.margins.left + 5, this.currentY);
-                }
-                this.currentY += 6;
-              });
-            }
-            this.currentY += 5;
-          }
-        }
-
-        // Add estimated cost if available
-        if ((list as any).estimatedCost || (list as any).totalEstimatedCost) {
-          this.doc.setFont('helvetica', 'bold');
+      for (const category of categories) {
+        if (week1List[category]) {
           this.doc.setFontSize(12);
-          this.doc.text(
-            `Estimated Weekly Cost: ${(list as any).estimatedCost || (list as any).totalEstimatedCost}`,
-            this.margins.left,
-            this.currentY
-          );
-          this.currentY += 10;
+          this.doc.setFont('helvetica', 'bold');
+          this.doc.setFillColor(245, 245, 245);
+          this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 8, 'F');
+          this.doc.text(this.capitalizeFirst(category), this.margins.left + 2, this.currentY);
+          this.currentY += 8;
+
+          this.doc.setFont('helvetica', 'normal');
+          this.doc.setFontSize(10);
+
+          const items = week1List[category];
+          if (Array.isArray(items)) {
+            items.forEach(item => {
+              if (typeof item === 'string') {
+                this.doc.text(`• ${item}`, this.margins.left + 5, this.currentY);
+              } else if (item.item) {
+                const costText = item.estimatedCost ? ` - ${item.estimatedCost}` : '';
+                this.doc.text(`• ${item.item}: ${item.quantity}${costText}`, this.margins.left + 5, this.currentY);
+              }
+              this.currentY += 6;
+            });
+          }
+          this.currentY += 5;
         }
+      }
+
+      // Add estimated cost if available
+      if (week1List.estimatedCost || week1List.totalEstimatedCost) {
+        this.doc.setFont('helvetica', 'bold');
+        this.doc.setFontSize(12);
+        this.doc.text(
+          `Estimated Weekly Cost: ${week1List.estimatedCost || week1List.totalEstimatedCost}`,
+          this.margins.left,
+          this.currentY
+        );
+        this.currentY += 10;
       }
     }
 
