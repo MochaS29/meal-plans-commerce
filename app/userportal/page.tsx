@@ -6,7 +6,8 @@ import {
   Download, Calendar, ShoppingCart, Book,
   Printer, Copy, User, LogOut, Check,
   ChefHat, Clock, Heart, Sparkles, Home,
-  CopyCheck, Settings, Library, BarChart3
+  CopyCheck, Settings, Library, BarChart3,
+  X, Users
 } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -52,6 +53,8 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [mealPlanData, setMealPlanData] = useState<any>(null)
   const [loadingMeals, setLoadingMeals] = useState(false)
+  const [selectedRecipe, setSelectedRecipe] = useState<any>(null)
+  const [loadingRecipe, setLoadingRecipe] = useState(false)
   const router = useRouter()
 
   // Add print styles
@@ -219,6 +222,27 @@ Weekly Shopping List:
       window.URL.revokeObjectURL(url)
       document.body.removeChild(a)
     }
+  }
+
+  const fetchRecipeDetails = async (recipeName: string) => {
+    setLoadingRecipe(true)
+    try {
+      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(recipeName)}`)
+      if (response.ok) {
+        const recipe = await response.json()
+        setSelectedRecipe(recipe)
+      } else {
+        console.error('Failed to fetch recipe details')
+      }
+    } catch (error) {
+      console.error('Error fetching recipe:', error)
+    } finally {
+      setLoadingRecipe(false)
+    }
+  }
+
+  const handleRecipeClick = (recipeName: string) => {
+    fetchRecipeDetails(recipeName)
   }
 
   const handleLogout = async () => {
@@ -398,7 +422,7 @@ Weekly Shopping List:
               </button>
 
               <Link
-                href="/recipes"
+                href="/member-recipes"
                 className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 hover:shadow-lg transition flex items-center gap-4 border border-purple-200"
               >
                 <Book className="w-8 h-8 text-purple-700" />
@@ -540,15 +564,27 @@ Weekly Shopping List:
                     >
                       <div className="font-bold text-gray-900 mb-2">{dayNum}</div>
                       <div className="space-y-1 text-xs">
-                        <div className="text-amber-800 font-semibold truncate" title={meals.breakfast}>
+                        <button 
+                          onClick={() => handleRecipeClick(meals.breakfast)}
+                          className="text-amber-800 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          title={meals.breakfast}
+                        >
                           🌅 {meals.breakfast}
-                        </div>
-                        <div className="text-teal-700 font-semibold truncate" title={meals.lunch}>
+                        </button>
+                        <button 
+                          onClick={() => handleRecipeClick(meals.lunch)}
+                          className="text-teal-700 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          title={meals.lunch}
+                        >
                           ☀️ {meals.lunch}
-                        </div>
-                        <div className="text-purple-700 font-semibold truncate" title={meals.dinner}>
+                        </button>
+                        <button 
+                          onClick={() => handleRecipeClick(meals.dinner)}
+                          className="text-purple-700 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          title={meals.dinner}
+                        >
                           🌙 {meals.dinner}
-                        </div>
+                        </button>
                       </div>
                     </div>
                   )
@@ -686,6 +722,145 @@ Weekly Shopping List:
           </motion.div>
         )}
       </div>
+
+      {/* Recipe Modal */}
+      {selectedRecipe && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-hidden"
+          >
+            <div className="flex justify-between items-center p-6 border-b">
+              <h2 className="text-2xl font-bold text-gray-900">{selectedRecipe.name}</h2>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => window.open(`/print/recipe/${selectedRecipe.id}`, '_blank')}
+                  className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 flex items-center gap-2"
+                >
+                  <Printer className="w-4 h-4" />
+                  Print
+                </button>
+                <button
+                  onClick={() => setSelectedRecipe(null)}
+                  className="p-2 hover:bg-gray-100 rounded-lg"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+
+            <div className="overflow-y-auto max-h-[calc(90vh-100px)]">
+              {loadingRecipe ? (
+                <div className="p-8 text-center">
+                  <div className="animate-pulse text-amber-700">Loading recipe details...</div>
+                </div>
+              ) : (
+                <div className="p-6">
+                  {/* Recipe Header */}
+                  <div className="grid md:grid-cols-4 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-5 h-5 text-amber-600" />
+                      <div>
+                        <div className="text-sm text-gray-600">Prep Time</div>
+                        <div className="font-semibold">{selectedRecipe.prep_time} min</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-5 h-5 text-teal-600" />
+                      <div>
+                        <div className="text-sm text-gray-600">Cook Time</div>
+                        <div className="font-semibold">{selectedRecipe.cook_time} min</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Users className="w-5 h-5 text-purple-600" />
+                      <div>
+                        <div className="text-sm text-gray-600">Servings</div>
+                        <div className="font-semibold">{selectedRecipe.servings}</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <ChefHat className="w-5 h-5 text-green-600" />
+                      <div>
+                        <div className="text-sm text-gray-600">Difficulty</div>
+                        <div className="font-semibold capitalize">{selectedRecipe.difficulty}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-2 gap-8">
+                    {/* Ingredients */}
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <ShoppingCart className="w-5 h-5 text-teal-600" />
+                        Ingredients
+                      </h3>
+                      <div className="space-y-2">
+                        {selectedRecipe.recipe_ingredients?.map((ingredient: any, index: number) => (
+                          <div key={index} className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
+                            <span className="text-gray-900">{ingredient.ingredient}</span>
+                            <span className="text-sm text-gray-600 font-medium">
+                              {ingredient.amount} {ingredient.unit}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Instructions */}
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <Book className="w-5 h-5 text-amber-600" />
+                        Instructions
+                      </h3>
+                      <div className="space-y-3">
+                        {selectedRecipe.recipe_instructions?.map((instruction: any, index: number) => (
+                          <div key={index} className="flex gap-3">
+                            <div className="flex-shrink-0 w-6 h-6 bg-amber-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                              {instruction.step_number}
+                            </div>
+                            <p className="text-gray-700 leading-relaxed">{instruction.instruction}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Nutrition */}
+                  {selectedRecipe.recipe_nutrition?.length > 0 && (
+                    <div className="mt-8 p-4 bg-green-50 rounded-lg">
+                      <h3 className="text-lg font-bold text-gray-900 mb-3">Nutritional Information</h3>
+                      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                        <div>
+                          <div className="text-2xl font-bold text-green-600">{selectedRecipe.recipe_nutrition[0].calories}</div>
+                          <div className="text-sm text-gray-600">Calories</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-blue-600">{selectedRecipe.recipe_nutrition[0].protein}g</div>
+                          <div className="text-sm text-gray-600">Protein</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-orange-600">{selectedRecipe.recipe_nutrition[0].carbs}g</div>
+                          <div className="text-sm text-gray-600">Carbs</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-purple-600">{selectedRecipe.recipe_nutrition[0].fat}g</div>
+                          <div className="text-sm text-gray-600">Fat</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-amber-600">{selectedRecipe.recipe_nutrition[0].fiber}g</div>
+                          <div className="text-sm text-gray-600">Fiber</div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   )
 }
