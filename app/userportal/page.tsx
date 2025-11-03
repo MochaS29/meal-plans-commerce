@@ -477,11 +477,34 @@ Weekly Shopping List:
                   const dayNum = i + 1
                   const dayOfWeek = (i + new Date(selectedYear, selectedMonth - 1, 1).getDay()) % 7
 
-                  // Sample meals for each day (in production, fetch from database)
+                  // Mediterranean meal rotation with variety
+                  const breakfasts = [
+                    'Greek Yogurt Bowl', 'Avocado Toast', 'Berry Smoothie', 'Mediterranean Scramble', 
+                    'Overnight Oats', 'Fruit & Nut Bowl', 'Veggie Omelet', 'Chia Pudding',
+                    'Smoked Salmon Bagel', 'Granola Parfait'
+                  ]
+                  
+                  const lunches = [
+                    'Quinoa Salad', 'Mediterranean Wrap', 'Grilled Chicken', 'Lentil Soup',
+                    'Greek Salad', 'Hummus Bowl', 'Tuna Nicoise', 'Falafel Plate',
+                    'Chickpea Salad', 'Veggie Pita', 'Turkey Club', 'Caprese Salad'
+                  ]
+                  
+                  const dinners = [
+                    'Salmon & Veggies', 'Turkey Meatballs', 'Stuffed Peppers', 'Grilled Lamb',
+                    'Herb-Crusted Cod', 'Chicken Souvlaki', 'Eggplant Moussaka', 'Seafood Paella',
+                    'Mediterranean Pasta', 'Grilled Halloumi', 'Beef Kebabs', 'Zucchini Boats',
+                    'Baked Sea Bass', 'Chicken Cacciatore', 'Ratatouille', 'Shrimp Risotto',
+                    'Lamb Chops', 'Fish Tagine', 'Veggie Lasagna', 'Grilled Octopus',
+                    'Turkey Burgers', 'Salmon Tartare', 'Chicken Gyros', 'Stuffed Tomatoes',
+                    'Grilled Branzino', 'Beef Stew', 'Seafood Stew', 'Roasted Chicken',
+                    'Fish & Chips', 'Lamb Stew'
+                  ]
+
                   const meals = {
-                    breakfast: dayNum % 3 === 0 ? 'Greek Yogurt Bowl' : dayNum % 2 === 0 ? 'Avocado Toast' : 'Berry Smoothie',
-                    lunch: dayNum % 3 === 0 ? 'Quinoa Salad' : dayNum % 2 === 0 ? 'Mediterranean Wrap' : 'Grilled Chicken',
-                    dinner: dayNum % 3 === 0 ? 'Salmon & Veggies' : dayNum % 2 === 0 ? 'Turkey Meatballs' : 'Stuffed Peppers'
+                    breakfast: breakfasts[dayNum % breakfasts.length],
+                    lunch: lunches[dayNum % lunches.length],
+                    dinner: dinners[dayNum % dinners.length]
                   }
 
                   return (
