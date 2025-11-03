@@ -31,22 +31,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/recipes-static`,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/recipes-showcase`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/menu-benefits`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/userportal`,
+      lastModified: currentDate,
+      changeFrequency: 'daily' as const,
+      priority: 0.6,
+    },
+    {
       url: `${baseUrl}/login`,
       lastModified: currentDate,
       changeFrequency: 'yearly' as const,
       priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/dashboard`,
-      lastModified: currentDate,
-      changeFrequency: 'daily' as const,
-      priority: 0.6,
     },
   ]
 
@@ -71,9 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Plan pages
   const planPages = [
-    'mediterranean-challenge',
-    'family-meal-plan',
-    'monthly-subscription'
+    'wellness-transformation',
+    'custom-family',
+    'monthly-calendar'
   ].map(plan => ({
     url: `${baseUrl}/plans/${plan}`,
     lastModified: currentDate,
