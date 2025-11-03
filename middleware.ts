@@ -5,6 +5,7 @@ import { jwtVerify } from 'jose';
 // Protected routes that require authentication
 const protectedRoutes = [
   '/userportal',
+  '/member-recipes',
   '/meal-plans',
   '/api/meal-plans',
   '/api/shopping-list',
@@ -79,6 +80,7 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     '/userportal/:path*',
+    '/member-recipes/:path*',
     '/meal-plans/:path*',
     '/api/meal-plans/:path*',
     '/api/shopping-list/:path*',

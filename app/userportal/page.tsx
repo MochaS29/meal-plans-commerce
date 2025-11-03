@@ -230,19 +230,32 @@ export default function DashboardPage() {
   }
 
   const handleDownloadPDF = async () => {
-    const response = await fetch(
-      `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`
-    )
-    if (response.ok) {
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = `${selectedDiet}-${selectedYear}-${selectedMonth}.pdf`
-      document.body.appendChild(a)
-      a.click()
-      window.URL.revokeObjectURL(url)
-      document.body.removeChild(a)
+    try {
+      const response = await fetch(
+        `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}&demo=true`,
+        {
+          credentials: 'include' // Include cookies for authentication
+        }
+      )
+      
+      if (response.ok) {
+        const blob = await response.blob()
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = `${selectedDiet}-${selectedYear}-${selectedMonth}.pdf`
+        document.body.appendChild(a)
+        a.click()
+        window.URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+      } else {
+        const errorData = await response.json()
+        console.error('PDF download error:', errorData)
+        alert('Unable to download PDF. Please try again.')
+      }
+    } catch (error) {
+      console.error('PDF download failed:', error)
+      alert('Unable to download PDF. Please try again.')
     }
   }
 
