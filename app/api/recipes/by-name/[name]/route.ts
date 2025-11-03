@@ -3,10 +3,11 @@ import { createClient } from '@supabase/supabase-js'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { name: string } }
+  { params }: { params: Promise<{ name: string }> }
 ) {
   try {
-    const recipeName = decodeURIComponent(params.name)
+    const { name } = await params
+    const recipeName = decodeURIComponent(name)
     
     if (!recipeName) {
       return NextResponse.json(
