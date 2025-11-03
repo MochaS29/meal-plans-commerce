@@ -614,72 +614,33 @@ export default function DashboardPage() {
               </div>
             </motion.div>
 
-            {/* Weekly Overview */}
+            {/* Recipe Usage Instructions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-8"
+              className="bg-gradient-to-r from-teal-100 to-cyan-100 rounded-2xl p-8 mb-8 border border-teal-200"
             >
-              <h2 className="text-2xl font-bold text-amber-800 mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-teal-800 mb-4 flex items-center gap-2">
                 <ChefHat className="w-6 h-6" />
-                This Week's Meals
+                How to Use Your Meal Plan
               </h2>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {[1, 2, 3, 4].map((week) => (
-                  <div key={week} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
-                    <div className="flex justify-between items-start mb-3">
-                      <div>
-                        <h3 className="font-semibold text-amber-900">Week {week}</h3>
-                        <p className="text-sm text-gray-800">28 recipes</p>
-                      </div>
-                      <Sparkles className="w-5 h-5 text-amber-400" />
-                    </div>
-
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-900">Breakfast</span>
-                        <button
-                          onClick={() => handlePrintRecipe(`${selectedDiet}-week${week}-breakfast`)}
-                          className="text-amber-600 hover:underline flex items-center gap-1"
-                        >
-                          <Printer className="w-3 h-3" />
-                          Print
-                        </button>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-900">Lunch</span>
-                        <button
-                          onClick={() => handlePrintRecipe(`${selectedDiet}-week${week}-lunch`)}
-                          className="text-amber-600 hover:underline flex items-center gap-1"
-                        >
-                          <Printer className="w-3 h-3" />
-                          Print
-                        </button>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-gray-900">Dinner</span>
-                        <button
-                          onClick={() => handlePrintRecipe(`${selectedDiet}-week${week}-dinner`)}
-                          className="text-amber-600 hover:underline flex items-center gap-1"
-                        >
-                          <Printer className="w-3 h-3" />
-                          Print
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-4 border-t">
-                      <button
-                        onClick={() => handlePrintRecipe(`${selectedDiet}-week${week}-all`)}
-                        className="w-full text-center text-sm font-semibold text-teal-600 hover:text-teal-700"
-                      >
-                        Print All Week {week} Recipes
-                      </button>
-                    </div>
-                  </div>
-                ))}
+              <div className="grid md:grid-cols-3 gap-6 text-teal-700">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">📅</div>
+                  <h3 className="font-semibold mb-2">Click Any Recipe</h3>
+                  <p className="text-sm">Click on any meal name in the calendar above to see full ingredients, instructions, and nutrition info.</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🖨️</div>
+                  <h3 className="font-semibold mb-2">Print Individual Recipes</h3>
+                  <p className="text-sm">Each recipe modal has a print button for easy kitchen reference while cooking.</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🛒</div>
+                  <h3 className="font-semibold mb-2">Get Shopping Lists</h3>
+                  <p className="text-sm">Use the "Copy List" button above to get organized shopping lists for your meal plan.</p>
+                </div>
               </div>
             </motion.div>
 
