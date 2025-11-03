@@ -368,35 +368,53 @@ export class EnhancedMealPlanPDFGenerator {
         
         if (dayMeals) {
           // Collect breakfast
-          if (dayMeals.breakfast?.name && !uniqueRecipes.has(dayMeals.breakfast.name)) {
-            const recipe = await this.fetchRecipeDetails(dayMeals.breakfast.name);
-            if (recipe) {
-              uniqueRecipes.set(dayMeals.breakfast.name, {
-                recipe,
-                firstOccurrence: { day, meal: 'Breakfast' }
-              });
+          if (dayMeals.breakfast?.name) {
+            const recipeName = dayMeals.breakfast.name.trim();
+            if (!uniqueRecipes.has(recipeName)) {
+              const recipe = await this.fetchRecipeDetails(recipeName);
+              if (recipe) {
+                uniqueRecipes.set(recipeName, {
+                  recipe,
+                  firstOccurrence: { day, meal: 'Breakfast' }
+                });
+                console.log(`Added unique recipe: ${recipeName}`);
+              }
+            } else {
+              console.log(`Skipping duplicate recipe: ${recipeName}`);
             }
           }
 
           // Collect lunch
-          if (dayMeals.lunch?.name && !uniqueRecipes.has(dayMeals.lunch.name)) {
-            const recipe = await this.fetchRecipeDetails(dayMeals.lunch.name);
-            if (recipe) {
-              uniqueRecipes.set(dayMeals.lunch.name, {
-                recipe,
-                firstOccurrence: { day, meal: 'Lunch' }
-              });
+          if (dayMeals.lunch?.name) {
+            const recipeName = dayMeals.lunch.name.trim();
+            if (!uniqueRecipes.has(recipeName)) {
+              const recipe = await this.fetchRecipeDetails(recipeName);
+              if (recipe) {
+                uniqueRecipes.set(recipeName, {
+                  recipe,
+                  firstOccurrence: { day, meal: 'Lunch' }
+                });
+                console.log(`Added unique recipe: ${recipeName}`);
+              }
+            } else {
+              console.log(`Skipping duplicate recipe: ${recipeName}`);
             }
           }
 
           // Collect dinner
-          if (dayMeals.dinner?.name && !uniqueRecipes.has(dayMeals.dinner.name)) {
-            const recipe = await this.fetchRecipeDetails(dayMeals.dinner.name);
-            if (recipe) {
-              uniqueRecipes.set(dayMeals.dinner.name, {
-                recipe,
-                firstOccurrence: { day, meal: 'Dinner' }
-              });
+          if (dayMeals.dinner?.name) {
+            const recipeName = dayMeals.dinner.name.trim();
+            if (!uniqueRecipes.has(recipeName)) {
+              const recipe = await this.fetchRecipeDetails(recipeName);
+              if (recipe) {
+                uniqueRecipes.set(recipeName, {
+                  recipe,
+                  firstOccurrence: { day, meal: 'Dinner' }
+                });
+                console.log(`Added unique recipe: ${recipeName}`);
+              }
+            } else {
+              console.log(`Skipping duplicate recipe: ${recipeName}`);
             }
           }
         }
