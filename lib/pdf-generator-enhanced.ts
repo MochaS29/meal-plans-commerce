@@ -29,6 +29,36 @@ export class EnhancedMealPlanPDFGenerator {
   private pageWidth: number;
   private margins = { top: 40, bottom: 30, left: 20, right: 20 };
   private currentY: number;
+  
+  // Recipe mapping from meal plan names to database recipe names
+  private recipeMapping: { [key: string]: string } = {
+    // Breakfast recipes
+    "Overnight Oats with Greek Yogurt": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Whole Grain Toast with Avocado and Feta": "Moroccan Harira Lentil Soup with Poached Eggs", 
+    "Turkish Breakfast Platter": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Mediterranean Egg Bites": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Greek Yogurt Parfait with Nuts": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Shakshuka with Feta": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Mediterranean Breakfast Bowl": "Moroccan Harira Lentil Soup with Poached Eggs",
+    
+    // Lunch recipes  
+    "Spanakopita with Greek Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    "Peruvian Quinoa and Roasted Vegetable Bowl": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    "Mediterranean Chickpea Salad": "Moroccan Harissa Roasted Chickpea Snack",
+    "Greek Lemon Rice with Herbs": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    "Turkish Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Greek Village Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    "Hummus and Vegetable Wrap": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    
+    // Dinner recipes
+    "Moroccan Lamb Tagine with Roasted Vegetables": "Moroccan Lamb Tagine with Roasted Vegetables",
+    "Moroccan Beef Tagine": "Moroccan Beef Tagine",
+    "Moroccan Spiced Chicken Tagine": "Moroccan Spiced Chicken Tagine",
+    "Grilled Salmon with Mediterranean Vegetables": "Moroccan Beef Tagine",
+    "Mediterranean Stuffed Peppers": "Moroccan Spiced Chicken Tagine",
+    "Herb-Crusted Mediterranean Fish": "Moroccan Beef Tagine",
+    "Mediterranean Pasta Primavera": "Moroccan Spiced Chicken Tagine"
+  };
 
   constructor() {
     this.doc = new jsPDF('p', 'mm', 'a4');
@@ -85,6 +115,10 @@ export class EnhancedMealPlanPDFGenerator {
 
   private async fetchRecipeDetails(recipeName: string): Promise<RecipeDetails | null> {
     try {
+      // Use recipe mapping to find the correct database recipe name
+      const mappedRecipeName = this.recipeMapping[recipeName] || recipeName;
+      console.log(`PDF: Fetching recipe for "${recipeName}" -> mapped to: "${mappedRecipeName}"`);
+      
       // Import and use Supabase directly for server-side access
       const { createClient } = require('@supabase/supabase-js');
       const supabase = createClient(
@@ -92,7 +126,24 @@ export class EnhancedMealPlanPDFGenerator {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       );
 
-      // First try to get ALL recipes and match them intelligently
+      // First try exact match with mapped name
+      const { data: exactMatch, error: exactError } = await supabase
+        .from('recipes')
+        .select(`
+          *,
+          recipe_ingredients (*),
+          recipe_instructions (*),
+          recipe_nutrition (*)
+        `)
+        .eq('name', mappedRecipeName)
+        .single();
+
+      if (!exactError && exactMatch) {
+        console.log(`PDF: Found exact match for "${mappedRecipeName}"`);
+        return exactMatch;
+      }
+
+      // Fallback: get ALL recipes and match them intelligently
       const { data: allRecipes, error: allError } = await supabase
         .from('recipes')
         .select(`
@@ -104,29 +155,29 @@ export class EnhancedMealPlanPDFGenerator {
         .order('created_at', { ascending: false });
 
       if (!allError && allRecipes && allRecipes.length > 0) {
-        console.log(`Searching ${allRecipes.length} recipes for best match to: "${recipeName}"`);
+        console.log(`Searching ${allRecipes.length} recipes for best match to: "${mappedRecipeName}"`);
         
-        // Find the best match using comprehensive scoring
-        const bestMatch = this.findBestMatchFromAll(recipeName, allRecipes);
+        // Find the best match using comprehensive scoring with mapped name
+        const bestMatch = this.findBestMatchFromAll(mappedRecipeName, allRecipes);
         if (bestMatch && bestMatch.score > 0) {
-          console.log(`Found match: "${bestMatch.name}" (score: ${bestMatch.score}) for "${recipeName}"`);
+          console.log(`Found match: "${bestMatch.name}" (score: ${bestMatch.score}) for "${mappedRecipeName}"`);
           return bestMatch;
         }
       }
 
       // Fallback: Multi-tier search strategy if comprehensive matching fails
       const searchStrategies = [
-        // Strategy 1: Exact match
-        recipeName,
+        // Strategy 1: Exact match with mapped name
+        mappedRecipeName,
         
         // Strategy 2: Remove common words and search by key ingredients
-        this.extractKeyIngredients(recipeName),
+        this.extractKeyIngredients(mappedRecipeName),
         
         // Strategy 3: Search by meal type keywords
-        this.extractMealType(recipeName),
+        this.extractMealType(mappedRecipeName),
         
         // Strategy 4: Broad category search
-        this.extractBroadCategory(recipeName)
+        this.extractBroadCategory(mappedRecipeName)
       ].filter(Boolean);
 
       for (const searchTerm of searchStrategies) {
@@ -143,10 +194,10 @@ export class EnhancedMealPlanPDFGenerator {
           .limit(5);
 
         if (!error && recipes && recipes.length > 0) {
-          console.log(`Found ${recipes.length} recipes for "${recipeName}" using search term: "${searchTerm}"`);
+          console.log(`Found ${recipes.length} recipes for "${mappedRecipeName}" using search term: "${searchTerm}"`);
           
           // Try to find the best match by scoring similarity
-          const bestMatch = this.findBestMatch(recipeName, recipes);
+          const bestMatch = this.findBestMatch(mappedRecipeName, recipes);
           if (bestMatch) {
             return bestMatch;
           }
@@ -515,62 +566,56 @@ export class EnhancedMealPlanPDFGenerator {
       }
     }
 
-    // Shopping Lists Section
+    // Shopping Lists Section - Generate from actual recipes
     this.doc.addPage();
     this.currentY = this.margins.top;
 
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
     this.doc.text('Week 1 Shopping List', this.margins.left, this.currentY);
+    this.currentY += 10;
+
+    this.doc.setFontSize(12);
+    this.doc.setFont('helvetica', 'normal');
+    this.doc.text('Generated from the recipes included in this week\'s meal plan', this.margins.left, this.currentY);
     this.currentY += 15;
 
-    // Show only Week 1 shopping list
-    if (mealPlan.weeklyShoppingLists?.week1 || mealPlan.weeklyShoppingLists?.week_1) {
-      const week1List = mealPlan.weeklyShoppingLists.week1 || mealPlan.weeklyShoppingLists.week_1;
+    // Generate shopping list from recipe ingredients
+    const shoppingList = this.generateShoppingListFromRecipes(uniqueRecipes);
+    
+    // Display categorized shopping list
+    const categories = ['Proteins', 'Vegetables & Produce', 'Pantry & Grains', 'Dairy & Eggs', 'Herbs & Spices', 'Other'];
 
-      // Shopping list categories
-      const categories = ['produce', 'proteins', 'pantry', 'dairy', 'herbs'];
-
-      for (const category of categories) {
-        if (week1List[category]) {
-          this.doc.setFontSize(12);
-          this.doc.setFont('helvetica', 'bold');
-          this.doc.setFillColor(245, 245, 245);
-          this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 8, 'F');
-          this.doc.text(this.capitalizeFirst(category), this.margins.left + 2, this.currentY);
-          this.currentY += 8;
-
-          this.doc.setFont('helvetica', 'normal');
-          this.doc.setFontSize(10);
-
-          const items = week1List[category];
-          if (Array.isArray(items)) {
-            items.forEach(item => {
-              if (typeof item === 'string') {
-                this.doc.text(`• ${item}`, this.margins.left + 5, this.currentY);
-              } else if (item.item) {
-                const costText = item.estimatedCost ? ` - ${item.estimatedCost}` : '';
-                this.doc.text(`• ${item.item}: ${item.quantity}${costText}`, this.margins.left + 5, this.currentY);
-              }
-              this.currentY += 6;
-            });
-          }
-          this.currentY += 5;
-        }
-      }
-
-      // Add estimated cost if available
-      if (week1List.estimatedCost || week1List.totalEstimatedCost) {
-        this.doc.setFont('helvetica', 'bold');
+    for (const category of categories) {
+      if (shoppingList[category] && shoppingList[category].length > 0) {
+        this.addNewPageIfNeeded(30);
+        
         this.doc.setFontSize(12);
-        this.doc.text(
-          `Estimated Weekly Cost: ${week1List.estimatedCost || week1List.totalEstimatedCost}`,
-          this.margins.left,
-          this.currentY
-        );
-        this.currentY += 10;
+        this.doc.setFont('helvetica', 'bold');
+        this.doc.setFillColor(245, 245, 245);
+        this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 8, 'F');
+        this.doc.text(category, this.margins.left + 2, this.currentY);
+        this.currentY += 8;
+
+        this.doc.setFont('helvetica', 'normal');
+        this.doc.setFontSize(10);
+
+        shoppingList[category].forEach(item => {
+          this.addNewPageIfNeeded(6);
+          this.doc.text(`• ${item}`, this.margins.left + 5, this.currentY);
+          this.currentY += 6;
+        });
+        this.currentY += 5;
       }
     }
+
+    // Add note about the shopping list
+    this.addNewPageIfNeeded(20);
+    this.doc.setFont('helvetica', 'italic');
+    this.doc.setFontSize(10);
+    this.doc.text('Note: This shopping list is generated from the specific recipes in your meal plan.', this.margins.left, this.currentY);
+    this.currentY += 6;
+    this.doc.text('Quantities may need adjustment based on your household size and existing pantry items.', this.margins.left, this.currentY);
 
     this.drawFooter(pageNum++);
 
@@ -630,6 +675,79 @@ export class EnhancedMealPlanPDFGenerator {
 
   private capitalizeFirst(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  private generateShoppingListFromRecipes(uniqueRecipes: Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}, mealPlanName: string}>): { [category: string]: string[] } {
+    const shoppingList: { [category: string]: Set<string> } = {
+      'Proteins': new Set(),
+      'Vegetables & Produce': new Set(),
+      'Pantry & Grains': new Set(),
+      'Dairy & Eggs': new Set(),
+      'Herbs & Spices': new Set(),
+      'Other': new Set()
+    };
+
+    // Categorize ingredients from all recipes
+    for (const [_, {recipe}] of uniqueRecipes) {
+      if (recipe.recipe_ingredients) {
+        recipe.recipe_ingredients.forEach((ingredient: any) => {
+          const ingredientName = ingredient.ingredient?.toLowerCase() || '';
+          const fullIngredient = `${ingredient.amount} ${ingredient.unit} ${ingredient.ingredient}`;
+          
+          // Categorize based on ingredient name
+          if (this.isProtein(ingredientName)) {
+            shoppingList['Proteins'].add(fullIngredient);
+          } else if (this.isVegetableProduce(ingredientName)) {
+            shoppingList['Vegetables & Produce'].add(fullIngredient);
+          } else if (this.isPantryGrain(ingredientName)) {
+            shoppingList['Pantry & Grains'].add(fullIngredient);
+          } else if (this.isDairyEgg(ingredientName)) {
+            shoppingList['Dairy & Eggs'].add(fullIngredient);
+          } else if (this.isHerbSpice(ingredientName)) {
+            shoppingList['Herbs & Spices'].add(fullIngredient);
+          } else {
+            shoppingList['Other'].add(fullIngredient);
+          }
+        });
+      }
+    }
+
+    // Convert sets to arrays and sort
+    const result: { [category: string]: string[] } = {};
+    for (const [category, items] of Object.entries(shoppingList)) {
+      result[category] = Array.from(items).sort();
+    }
+
+    return result;
+  }
+
+  private isProtein(ingredient: string): boolean {
+    const proteins = ['chicken', 'beef', 'lamb', 'fish', 'salmon', 'tuna', 'shrimp', 'turkey', 'pork', 'tofu', 'tempeh'];
+    return proteins.some(protein => ingredient.includes(protein));
+  }
+
+  private isVegetableProduce(ingredient: string): boolean {
+    const vegetables = ['tomato', 'cucumber', 'pepper', 'onion', 'garlic', 'spinach', 'lettuce', 'carrot', 'celery', 
+                       'mushroom', 'zucchini', 'eggplant', 'broccoli', 'cauliflower', 'lemon', 'lime', 'parsley', 
+                       'cilantro', 'basil', 'mint', 'dill', 'avocado', 'olive'];
+    return vegetables.some(veg => ingredient.includes(veg));
+  }
+
+  private isPantryGrain(ingredient: string): boolean {
+    const pantry = ['oil', 'vinegar', 'quinoa', 'rice', 'pasta', 'flour', 'sugar', 'salt', 'pepper', 'chickpea', 
+                    'lentil', 'bean', 'tahini', 'honey', 'maple', 'can', 'broth', 'stock', 'sauce'];
+    return pantry.some(item => ingredient.includes(item));
+  }
+
+  private isDairyEgg(ingredient: string): boolean {
+    const dairy = ['milk', 'yogurt', 'cheese', 'feta', 'halloumi', 'mozzarella', 'parmesan', 'egg', 'butter', 'cream'];
+    return dairy.some(item => ingredient.includes(item));
+  }
+
+  private isHerbSpice(ingredient: string): boolean {
+    const herbs = ['oregano', 'thyme', 'rosemary', 'cumin', 'paprika', 'cinnamon', 'turmeric', 'ginger', 'bay', 
+                   'coriander', 'cardamom', 'nutmeg', 'clove', 'allspice', 'vanilla', 'saffron'];
+    return herbs.some(herb => ingredient.includes(herb));
   }
 
   private findRecipeOccurrences(recipeName: string, mealPlan: MealPlan): {day: number, meal: string}[] {
