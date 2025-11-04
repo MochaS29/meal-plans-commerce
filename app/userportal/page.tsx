@@ -43,6 +43,36 @@ const months = [
 
 type TabType = 'dashboard' | 'preferences' | 'resources' | 'analytics'
 
+// Recipe mapping from meal plan names to database recipe names
+const recipeMapping: { [key: string]: string } = {
+  // Breakfast recipes
+  "Overnight Oats with Greek Yogurt": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Whole Grain Toast with Avocado and Feta": "Moroccan Harira Lentil Soup with Poached Eggs", 
+  "Turkish Breakfast Platter": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Mediterranean Egg Bites": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Greek Yogurt Parfait with Nuts": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Shakshuka with Feta": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Mediterranean Breakfast Bowl": "Moroccan Harira Lentil Soup with Poached Eggs",
+  
+  // Lunch recipes  
+  "Spanakopita with Greek Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  "Peruvian Quinoa and Roasted Vegetable Bowl": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  "Mediterranean Chickpea Salad": "Moroccan Harissa Roasted Chickpea Snack",
+  "Greek Lemon Rice with Herbs": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  "Turkish Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Greek Village Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  "Hummus and Vegetable Wrap": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  
+  // Dinner recipes
+  "Moroccan Lamb Tagine with Roasted Vegetables": "Moroccan Lamb Tagine with Roasted Vegetables",
+  "Moroccan Beef Tagine": "Moroccan Beef Tagine",
+  "Moroccan Spiced Chicken Tagine": "Moroccan Spiced Chicken Tagine",
+  "Grilled Salmon with Mediterranean Vegetables": "Moroccan Beef Tagine",
+  "Mediterranean Stuffed Peppers": "Moroccan Spiced Chicken Tagine",
+  "Herb-Crusted Mediterranean Fish": "Moroccan Beef Tagine",
+  "Mediterranean Pasta Primavera": "Moroccan Spiced Chicken Tagine"
+}
+
 // Fallback meal plan data for testing when API fails
 const createFallbackMealPlan = () => ({
   title: "Mediterranean - January 2025 (Demo)",
@@ -299,8 +329,11 @@ export default function DashboardPage() {
   const fetchRecipeDetails = async (recipeName: string) => {
     setLoadingRecipe(true)
     try {
-      console.log(`Fetching recipe details for: "${recipeName}"`)
-      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(recipeName)}`)
+      // Use recipe mapping to find the correct database recipe name
+      const mappedRecipeName = recipeMapping[recipeName] || recipeName
+      console.log(`Fetching recipe details for: "${recipeName}" -> mapped to: "${mappedRecipeName}"`)
+      
+      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`)
       
       if (response.ok) {
         const recipe = await response.json()
