@@ -43,6 +43,48 @@ const months = [
 
 type TabType = 'dashboard' | 'preferences' | 'resources' | 'analytics'
 
+// Fallback meal plan data for testing when API fails
+const createFallbackMealPlan = () => ({
+  title: "Mediterranean - January 2025 (Demo)",
+  dailyMeals: {
+    day_1: {
+      breakfast: { name: "Overnight Oats with Greek Yogurt", calories: 340, protein: "18g", prepTime: "5 min" },
+      lunch: { name: "Spanakopita with Greek Salad", calories: 440, protein: "17g", prepTime: "30 min" },
+      dinner: { name: "Moroccan Lamb Tagine with Roasted Vegetables", calories: 485, protein: "26g", prepTime: "45 min" }
+    },
+    day_2: {
+      breakfast: { name: "Whole Grain Toast with Avocado and Feta", calories: 330, protein: "15g", prepTime: "10 min" },
+      lunch: { name: "Peruvian Quinoa and Roasted Vegetable Bowl", calories: 420, protein: "16g", prepTime: "25 min" },
+      dinner: { name: "Moroccan Beef Tagine", calories: 460, protein: "28g", prepTime: "40 min" }
+    },
+    day_3: {
+      breakfast: { name: "Turkish Breakfast Platter", calories: 360, protein: "19g", prepTime: "15 min" },
+      lunch: { name: "Mediterranean Chickpea Salad", calories: 380, protein: "14g", prepTime: "15 min" },
+      dinner: { name: "Moroccan Spiced Chicken Tagine", calories: 445, protein: "32g", prepTime: "35 min" }
+    },
+    day_4: {
+      breakfast: { name: "Mediterranean Egg Bites", calories: 280, protein: "22g", prepTime: "25 min" },
+      lunch: { name: "Greek Lemon Rice with Herbs", calories: 340, protein: "8g", prepTime: "20 min" },
+      dinner: { name: "Grilled Salmon with Mediterranean Vegetables", calories: 520, protein: "35g", prepTime: "30 min" }
+    },
+    day_5: {
+      breakfast: { name: "Greek Yogurt Parfait with Nuts", calories: 320, protein: "20g", prepTime: "5 min" },
+      lunch: { name: "Turkish Lentil Soup", calories: 290, protein: "18g", prepTime: "25 min" },
+      dinner: { name: "Mediterranean Stuffed Peppers", calories: 380, protein: "22g", prepTime: "40 min" }
+    },
+    day_6: {
+      breakfast: { name: "Shakshuka with Feta", calories: 350, protein: "18g", prepTime: "20 min" },
+      lunch: { name: "Greek Village Salad", calories: 310, protein: "12g", prepTime: "10 min" },
+      dinner: { name: "Herb-Crusted Mediterranean Fish", calories: 425, protein: "38g", prepTime: "25 min" }
+    },
+    day_7: {
+      breakfast: { name: "Mediterranean Breakfast Bowl", calories: 385, protein: "16g", prepTime: "15 min" },
+      lunch: { name: "Hummus and Vegetable Wrap", calories: 360, protein: "14g", prepTime: "10 min" },
+      dinner: { name: "Mediterranean Pasta Primavera", calories: 445, protein: "18g", prepTime: "30 min" }
+    }
+  }
+})
+
 export default function DashboardPage() {
   const [user, setUser] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
@@ -142,19 +184,14 @@ export default function DashboardPage() {
         const data = await response.json()
         setMealPlanData(data)
       } else {
-        console.error('Failed to fetch meal plan data - meal plan not available for this month')
-        // Create a fallback message for unavailable months
-        setMealPlanData({ 
-          error: true, 
-          message: 'Meal plan not available for this month. Please select January-April 2025.' 
-        })
+        console.error('Failed to fetch meal plan data - using fallback data')
+        // Create fallback meal data with clickable recipes
+        setMealPlanData(createFallbackMealPlan())
       }
     } catch (error) {
       console.error('Error fetching meal plan:', error)
-      setMealPlanData({ 
-        error: true, 
-        message: 'Unable to load meal plan. Please try again.' 
-      })
+      console.log('Using fallback meal plan data')
+      setMealPlanData(createFallbackMealPlan())
     } finally {
       setLoadingMeals(false)
     }
@@ -262,21 +299,43 @@ export default function DashboardPage() {
   const fetchRecipeDetails = async (recipeName: string) => {
     setLoadingRecipe(true)
     try {
+      console.log(`Fetching recipe details for: "${recipeName}"`)
       const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(recipeName)}`)
+      
       if (response.ok) {
         const recipe = await response.json()
-        setSelectedRecipe(recipe)
+        console.log('Received recipe:', recipe)
+        
+        if (recipe && !recipe.placeholder) {
+          setSelectedRecipe(recipe)
+          console.log('Recipe modal should now open')
+        } else {
+          console.log('Recipe is placeholder or invalid, not opening modal')
+          alert(`Sorry, full recipe details are not available for "${recipeName}". This recipe is being matched from our curated database.`)
+        }
       } else {
-        console.error('Failed to fetch recipe details')
+        console.error(`Failed to fetch recipe details - Status: ${response.status}`)
+        alert(`Sorry, we couldn't find recipe details for "${recipeName}". Please try another recipe.`)
       }
     } catch (error) {
       console.error('Error fetching recipe:', error)
+      alert('Error loading recipe. Please try again.')
     } finally {
       setLoadingRecipe(false)
     }
   }
 
   const handleRecipeClick = (recipeName: string) => {
+    // Don't try to fetch recipes for loading states or placeholder text
+    if (!recipeName || 
+        recipeName === 'Loading...' || 
+        recipeName.includes('No ') || 
+        recipeName.includes('planned')) {
+      console.log('Skipping recipe click for:', recipeName)
+      return
+    }
+    
+    console.log('Fetching recipe details for:', recipeName)
     fetchRecipeDetails(recipeName)
   }
 
@@ -601,21 +660,36 @@ export default function DashboardPage() {
                       <div className="space-y-1 text-xs">
                         <button 
                           onClick={() => handleRecipeClick(meals.breakfast)}
-                          className="text-amber-800 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          disabled={!meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')}
+                          className={`truncate text-left w-full transition-all ${
+                            !meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')
+                              ? 'text-gray-400 cursor-not-allowed'
+                              : 'text-amber-800 font-semibold hover:underline hover:bg-amber-50 cursor-pointer p-1 rounded'
+                          }`}
                           title={meals.breakfast}
                         >
                           🌅 {meals.breakfast}
                         </button>
                         <button 
                           onClick={() => handleRecipeClick(meals.lunch)}
-                          className="text-teal-700 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          disabled={!meals.lunch || meals.lunch === 'Loading...' || meals.lunch.includes('No ')}
+                          className={`truncate text-left w-full transition-all ${
+                            !meals.lunch || meals.lunch === 'Loading...' || meals.lunch.includes('No ')
+                              ? 'text-gray-400 cursor-not-allowed'
+                              : 'text-teal-700 font-semibold hover:underline hover:bg-teal-50 cursor-pointer p-1 rounded'
+                          }`}
                           title={meals.lunch}
                         >
                           ☀️ {meals.lunch}
                         </button>
                         <button 
                           onClick={() => handleRecipeClick(meals.dinner)}
-                          className="text-purple-700 font-semibold truncate hover:underline cursor-pointer text-left w-full" 
+                          disabled={!meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')}
+                          className={`truncate text-left w-full transition-all ${
+                            !meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')
+                              ? 'text-gray-400 cursor-not-allowed'
+                              : 'text-purple-700 font-semibold hover:underline hover:bg-purple-50 cursor-pointer p-1 rounded'
+                          }`}
                           title={meals.dinner}
                         >
                           🌙 {meals.dinner}
@@ -718,6 +792,16 @@ export default function DashboardPage() {
           </motion.div>
         )}
       </div>
+
+      {/* Loading Modal */}
+      {loadingRecipe && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-8 flex items-center gap-4">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-600"></div>
+            <span className="text-lg text-gray-700">Loading recipe...</span>
+          </div>
+        </div>
+      )}
 
       {/* Recipe Modal */}
       {selectedRecipe && (

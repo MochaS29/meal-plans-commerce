@@ -12,6 +12,7 @@ interface MealPlan {
 }
 
 interface RecipeDetails {
+  id?: string;
   name: string;
   prep_time: number;
   cook_time: number;
@@ -91,7 +92,29 @@ export class EnhancedMealPlanPDFGenerator {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
       );
 
-      // Multi-tier matching strategy for better recipe variety
+      // First try to get ALL recipes and match them intelligently
+      const { data: allRecipes, error: allError } = await supabase
+        .from('recipes')
+        .select(`
+          *,
+          recipe_ingredients (*),
+          recipe_instructions (*),
+          recipe_nutrition (*)
+        `)
+        .order('created_at', { ascending: false });
+
+      if (!allError && allRecipes && allRecipes.length > 0) {
+        console.log(`Searching ${allRecipes.length} recipes for best match to: "${recipeName}"`);
+        
+        // Find the best match using comprehensive scoring
+        const bestMatch = this.findBestMatchFromAll(recipeName, allRecipes);
+        if (bestMatch && bestMatch.score > 0) {
+          console.log(`Found match: "${bestMatch.name}" (score: ${bestMatch.score}) for "${recipeName}"`);
+          return bestMatch;
+        }
+      }
+
+      // Fallback: Multi-tier search strategy if comprehensive matching fails
       const searchStrategies = [
         // Strategy 1: Exact match
         recipeName,
@@ -168,6 +191,21 @@ export class EnhancedMealPlanPDFGenerator {
     return 'mediterranean';
   }
 
+  private findBestMatchFromAll(originalName: string, recipes: any[]): any {
+    // Enhanced scoring for comprehensive matching
+    const scoredRecipes = recipes.map(recipe => ({
+      ...recipe,
+      score: this.calculateAdvancedSimilarityScore(originalName, recipe.name, recipe.recipe_ingredients)
+    }));
+
+    // Sort by score (highest first) and return the best match if score is above threshold
+    scoredRecipes.sort((a, b) => b.score - a.score);
+    const bestMatch = scoredRecipes[0];
+    
+    // Only return if we have a reasonable match (score > 1)
+    return bestMatch && bestMatch.score > 1 ? bestMatch : null;
+  }
+
   private findBestMatch(originalName: string, recipes: any[]): any {
     // Score recipes based on name similarity and return the best match
     const scoredRecipes = recipes.map(recipe => ({
@@ -178,6 +216,61 @@ export class EnhancedMealPlanPDFGenerator {
     // Sort by score (highest first) and return the best match
     scoredRecipes.sort((a, b) => b.score - a.score);
     return scoredRecipes[0];
+  }
+
+  private calculateAdvancedSimilarityScore(original: string, candidate: string, ingredients: any[]): number {
+    const originalLower = original.toLowerCase();
+    const candidateLower = candidate.toLowerCase();
+    const originalWords = originalLower.split(/\s+/);
+    const candidateWords = candidateLower.split(/\s+/);
+    
+    let score = 0;
+    
+    // 1. Direct word matching (high value)
+    for (const word of originalWords) {
+      if (word.length > 2) { // Ignore short words like "and", "of", etc.
+        if (candidateWords.some(cWord => cWord.includes(word) || word.includes(cWord))) {
+          score += 3;
+        }
+      }
+    }
+    
+    // 2. Key ingredient matching (very high value)
+    const keyIngredients = ['avocado', 'feta', 'oats', 'yogurt', 'chicken', 'salmon', 'quinoa', 'chickpea', 'lentil', 'beef', 'lamb', 'egg', 'spinach', 'toast'];
+    for (const ingredient of keyIngredients) {
+      if (originalLower.includes(ingredient)) {
+        if (candidateLower.includes(ingredient)) {
+          score += 5; // Exact ingredient match
+        } else if (ingredients?.some((ing: any) => ing.ingredient?.toLowerCase().includes(ingredient))) {
+          score += 4; // Ingredient in recipe ingredients
+        }
+      }
+    }
+    
+    // 3. Cuisine type matching
+    const cuisineTypes = ['mediterranean', 'greek', 'moroccan', 'turkish', 'italian', 'spanish'];
+    for (const cuisine of cuisineTypes) {
+      if (originalLower.includes(cuisine) && candidateLower.includes(cuisine)) {
+        score += 2;
+      }
+    }
+    
+    // 4. Cooking method matching
+    const cookingMethods = ['grilled', 'roasted', 'baked', 'fried', 'sauteed', 'overnight', 'poached'];
+    for (const method of cookingMethods) {
+      if (originalLower.includes(method) && candidateLower.includes(method)) {
+        score += 2;
+      }
+    }
+    
+    // 5. Food category matching
+    if (originalLower.includes('salad') && candidateLower.includes('salad')) score += 3;
+    if (originalLower.includes('soup') && candidateLower.includes('soup')) score += 3;
+    if (originalLower.includes('toast') && candidateLower.includes('toast')) score += 3;
+    if (originalLower.includes('bowl') && candidateLower.includes('bowl')) score += 2;
+    if (originalLower.includes('platter') && candidateLower.includes('platter')) score += 2;
+    
+    return score;
   }
 
   private calculateSimilarityScore(original: string, candidate: string): number {
@@ -358,61 +451,48 @@ export class EnhancedMealPlanPDFGenerator {
     this.currentY += 15;
 
     // Collect unique recipes for Week 1 only (days 1-7)
-    const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}}>();
+    // Use database recipe ID as primary key for deduplication
+    const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}, mealPlanName: string}>();
     
     // Process only the first week (days 1-7)
     for (let day = 1; day <= 7; day++) {
       const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
       
       if (dayMeals) {
-        // Collect breakfast
-        if (dayMeals.breakfast?.name) {
-          const recipeName = dayMeals.breakfast.name.trim();
-          if (!uniqueRecipes.has(recipeName)) {
-            const recipe = await this.fetchRecipeDetails(recipeName);
-            if (recipe) {
-              uniqueRecipes.set(recipeName, {
-                recipe,
-                firstOccurrence: { day, meal: 'Breakfast' }
-              });
-              console.log(`Added unique recipe: ${recipeName}`);
-            }
-          } else {
-            console.log(`Skipping duplicate recipe: ${recipeName}`);
-          }
-        }
+        // Process each meal type
+        const mealsToProcess = [
+          { mealData: dayMeals.breakfast, mealType: 'Breakfast' },
+          { mealData: dayMeals.lunch, mealType: 'Lunch' },
+          { mealData: dayMeals.dinner, mealType: 'Dinner' }
+        ];
 
-        // Collect lunch
-        if (dayMeals.lunch?.name) {
-          const recipeName = dayMeals.lunch.name.trim();
-          if (!uniqueRecipes.has(recipeName)) {
-            const recipe = await this.fetchRecipeDetails(recipeName);
-            if (recipe) {
-              uniqueRecipes.set(recipeName, {
-                recipe,
-                firstOccurrence: { day, meal: 'Lunch' }
-              });
-              console.log(`Added unique recipe: ${recipeName}`);
-            }
-          } else {
-            console.log(`Skipping duplicate recipe: ${recipeName}`);
-          }
-        }
+        for (const { mealData, mealType } of mealsToProcess) {
+          if (mealData?.name) {
+            const recipeName = mealData.name.trim();
+            
+            console.log(`Processing: Day ${day} ${mealType} - "${recipeName}"`);
 
-        // Collect dinner
-        if (dayMeals.dinner?.name) {
-          const recipeName = dayMeals.dinner.name.trim();
-          if (!uniqueRecipes.has(recipeName)) {
             const recipe = await this.fetchRecipeDetails(recipeName);
             if (recipe) {
-              uniqueRecipes.set(recipeName, {
+              // Use database recipe ID as the key for deduplication
+              const uniqueKey = recipe.id || `fallback_${recipeName}`;
+              
+              // Check if we already have this database recipe
+              if (uniqueRecipes.has(uniqueKey)) {
+                console.log(`Skipping duplicate database recipe: "${recipe.name}" (ID: ${recipe.id}) - already included from Day ${uniqueRecipes.get(uniqueKey)?.firstOccurrence.day}`);
+                continue;
+              }
+              
+              uniqueRecipes.set(uniqueKey, {
                 recipe,
-                firstOccurrence: { day, meal: 'Dinner' }
+                firstOccurrence: { day, meal: mealType },
+                mealPlanName: recipeName
               });
-              console.log(`Added unique recipe: ${recipeName}`);
+              
+              console.log(`Added unique recipe: "${recipeName}" -> "${recipe.name}" (ID: ${recipe.id}) for Day ${day} ${mealType}`);
+            } else {
+              console.log(`No recipe found for: "${recipeName}"`);
             }
-          } else {
-            console.log(`Skipping duplicate recipe: ${recipeName}`);
           }
         }
       }
@@ -422,9 +502,9 @@ export class EnhancedMealPlanPDFGenerator {
     console.log(`Found ${uniqueRecipes.size} unique recipes out of total meal plan`);
     
     let recipeCount = 0;
-    for (const [recipeName, {recipe, firstOccurrence}] of uniqueRecipes) {
+    for (const [uniqueKey, {recipe, firstOccurrence, mealPlanName}] of uniqueRecipes) {
       recipeCount++;
-      console.log(`Adding recipe ${recipeCount}: ${recipeName} (first appears on day ${firstOccurrence.day} as ${firstOccurrence.meal})`);
+      console.log(`Adding recipe ${recipeCount}: "${recipe.name}" (from meal plan: "${mealPlanName}") - first appears on Day ${firstOccurrence.day} as ${firstOccurrence.meal}`);
       this.addRecipeToPage(recipe, firstOccurrence.day, firstOccurrence.meal, mealPlan);
       
       // Add page break after every 2-3 recipes to avoid overcrowding
@@ -494,6 +574,20 @@ export class EnhancedMealPlanPDFGenerator {
 
     this.drawFooter(pageNum++);
 
+    // Meal Prep Guide Section
+    this.doc.addPage();
+    this.currentY = this.margins.top;
+
+    this.doc.setFontSize(18);
+    this.doc.setFont('helvetica', 'bold');
+    this.doc.text('Weekly Meal Prep Guide', this.margins.left, this.currentY);
+    this.currentY += 15;
+
+    // Add meal prep strategies and tips
+    this.addMealPrepGuide(mealPlan);
+
+    this.drawFooter(pageNum++);
+
     // Return the PDF as blob
     return this.doc.output('blob');
   }
@@ -556,5 +650,118 @@ export class EnhancedMealPlanPDFGenerator {
     });
     
     return occurrences;
+  }
+
+  private addMealPrepGuide(mealPlan: MealPlan) {
+    // Mediterranean meal prep strategies
+    const mealPrepStrategies = [
+      {
+        title: "Sunday Prep Day Strategy",
+        content: [
+          "Wash and chop all vegetables for the week",
+          "Cook grains in bulk (quinoa, brown rice, farro)",
+          "Prepare protein sources (grill chicken, bake fish)",
+          "Make large batches of Mediterranean staples (hummus, tzatziki)",
+          "Prep grab-and-go snacks (olives, nuts, fresh fruit)"
+        ]
+      },
+      {
+        title: "Storage & Organization",
+        content: [
+          "Use glass containers for better food preservation",
+          "Label everything with dates and contents",
+          "Store herbs in water to keep them fresh longer",
+          "Keep olive oil, vinegar, and spices easily accessible",
+          "Prep mason jar salads for quick lunches"
+        ]
+      },
+      {
+        title: "Time-Saving Tips",
+        content: [
+          "Use a slow cooker for beans and legumes",
+          "Freeze portions of soups and stews",
+          "Pre-make healthy dressings and marinades",
+          "Keep frozen vegetables on hand for quick additions",
+          "Batch cook proteins that can be used multiple ways"
+        ]
+      },
+      {
+        title: "Daily Prep Strategies",
+        content: [
+          "Morning: Prep fresh components for dinner",
+          "Afternoon: Start slow-cooking items",
+          "Evening: Prep breakfast ingredients for next day",
+          "Always keep healthy snacks ready",
+          "Use weekend time for bigger prep sessions"
+        ]
+      }
+    ];
+
+    this.doc.setFontSize(12);
+    this.doc.setFont('helvetica', 'normal');
+    
+    const introText = `This guide helps you efficiently prepare your ${this.formatMenuType(mealPlan.menuType)} meals for the week, saving time while maintaining nutrition and flavor.`;
+    
+    const introLines = this.doc.splitTextToSize(introText, this.pageWidth - 40);
+    introLines.forEach((line: string) => {
+      this.doc.text(line, this.margins.left, this.currentY);
+      this.currentY += 6;
+    });
+    
+    this.currentY += 10;
+
+    // Add each strategy section
+    mealPrepStrategies.forEach((strategy, index) => {
+      this.addNewPageIfNeeded(50);
+      
+      // Strategy title
+      this.doc.setFillColor(0, 150, 136);
+      this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 12, 'F');
+      this.doc.setTextColor(255, 255, 255);
+      this.doc.setFont('helvetica', 'bold');
+      this.doc.setFontSize(14);
+      this.doc.text(strategy.title, this.margins.left + 5, this.currentY + 3);
+      this.doc.setTextColor(0, 0, 0);
+      this.currentY += 15;
+
+      // Strategy content
+      this.doc.setFont('helvetica', 'normal');
+      this.doc.setFontSize(11);
+      
+      strategy.content.forEach(tip => {
+        this.addNewPageIfNeeded(8);
+        this.doc.text(`• ${tip}`, this.margins.left + 5, this.currentY);
+        this.currentY += 7;
+      });
+      
+      this.currentY += 8;
+    });
+
+    // Add specific weekly tips based on meal plan
+    this.addNewPageIfNeeded(30);
+    
+    this.doc.setFont('helvetica', 'bold');
+    this.doc.setFontSize(14);
+    this.doc.setFillColor(245, 245, 245);
+    this.doc.rect(this.margins.left, this.currentY - 5, this.pageWidth - 40, 12, 'F');
+    this.doc.text('This Week\'s Specific Prep Tips', this.margins.left + 5, this.currentY + 3);
+    this.currentY += 15;
+
+    this.doc.setFont('helvetica', 'normal');
+    this.doc.setFontSize(11);
+
+    const weeklyTips = [
+      "Focus on ingredients that appear multiple times this week",
+      "Prep base sauces that work for several recipes",
+      "Cook proteins that can be portioned for different meals",
+      "Prepare vegetables that store well after cutting",
+      "Make extra portions of popular recipes for leftovers"
+    ];
+
+    weeklyTips.forEach(tip => {
+      this.addNewPageIfNeeded(8);
+      this.doc.text(`• ${tip}`, this.margins.left + 5, this.currentY);
+      this.currentY += 7;
+    });
   }
 }

@@ -84,38 +84,34 @@ export default function MemberRecipesPage() {
 
   const fetchRecipeDetails = async (recipeName: string, day: number, meal: string): Promise<FullRecipe | null> => {
     try {
+      console.log(`Fetching recipe details for: "${recipeName}" (Day ${day} ${meal})`)
+      
       // Try the API endpoint first
       const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(recipeName)}`)
       
       if (response.ok) {
         const recipe = await response.json()
-        return {
-          ...recipe,
-          day,
-          meal
+        console.log(`Received recipe:`, recipe)
+        
+        // Only return if it's not a placeholder and has valid data
+        if (!recipe.placeholder && recipe.id) {
+          const fullRecipe = {
+            ...recipe,
+            day,
+            meal
+          }
+          console.log(`Successfully processed recipe: "${recipe.name}" with ${recipe.recipe_ingredients?.length || 0} ingredients and ${recipe.recipe_instructions?.length || 0} instructions`)
+          return fullRecipe
+        } else {
+          console.log(`Recipe is placeholder or missing ID for: ${recipeName}`)
         }
+      } else {
+        console.log(`API request failed with status ${response.status} for: ${recipeName}`)
       }
 
-      // If the exact name doesn't work, create a basic recipe with the meal plan info
-      return {
-        id: `basic-${day}-${meal}`,
-        name: recipeName,
-        prep_time: 15,
-        cook_time: 30, 
-        servings: 4,
-        difficulty: 'medium',
-        day,
-        meal,
-        recipe_ingredients: [
-          { ingredient: 'See meal plan details below', amount: '1', unit: 'serving' }
-        ],
-        recipe_instructions: [
-          { step_number: 1, instruction: `Prepare ${recipeName} as shown in your meal plan calendar. Full recipe database coming soon!` }
-        ],
-        recipe_nutrition: [
-          { calories: 400, protein: 20, carbs: 40, fat: 15, fiber: 5 }
-        ]
-      }
+      // If no real recipe found, don't create fallbacks - just return null
+      console.log(`No matching recipe found in database for: ${recipeName}`)
+      return null
     } catch (error) {
       console.error(`Error fetching recipe ${recipeName}:`, error)
       return null
@@ -198,7 +194,10 @@ export default function MemberRecipesPage() {
               <div className="flex justify-between items-start mb-3">
                 <div>
                   <button 
-                    onClick={() => setSelectedRecipe(recipe)}
+                    onClick={() => {
+                      console.log('Setting selected recipe:', recipe)
+                      setSelectedRecipe(recipe)
+                    }}
                     className="text-left"
                   >
                     <h3 className="text-lg font-bold text-gray-900 mb-1 hover:text-amber-600 transition-colors cursor-pointer">{recipe.name}</h3>
@@ -240,7 +239,10 @@ export default function MemberRecipesPage() {
 
               <div className="mt-4 pt-4 border-t">
                 <button 
-                  onClick={() => setSelectedRecipe(recipe)}
+                  onClick={() => {
+                    console.log('View Full Recipe clicked for:', recipe)
+                    setSelectedRecipe(recipe)
+                  }}
                   className="w-full text-center text-sm font-semibold text-amber-600 hover:text-amber-700"
                 >
                   View Full Recipe
