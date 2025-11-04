@@ -46,31 +46,39 @@ type TabType = 'dashboard' | 'preferences' | 'resources' | 'analytics'
 // Recipe mapping from meal plan names to database recipe names
 const recipeMapping: { [key: string]: string } = {
   // Breakfast recipes
-  "Overnight Oats with Greek Yogurt": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Whole Grain Toast with Avocado and Feta": "Moroccan Harira Lentil Soup with Poached Eggs", 
-  "Turkish Breakfast Platter": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Mediterranean Egg Bites": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Greek Yogurt Parfait with Nuts": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Shakshuka with Feta": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Mediterranean Breakfast Bowl": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Overnight Oats with Greek Yogurt": "Satiating Pumpkin Spice Overnight Oats",
+  "Whole Grain Toast with Avocado and Feta": "Mediterranean Quinoa and Egg Breakfast Bowl", 
+  "Turkish Breakfast Platter": "Turkish Menemen",
+  "Mediterranean Egg Bites": "Mediterranean Shakshuka",
+  "Greek Yogurt Parfait with Honey": "Autumn Protein-Packed Oatmeal Bowl",
+  "Shakshuka with Whole Grain Pita": "Mediterranean Shakshuka",
+  "Mediterranean Smoothie Bowl": "Pumpkin Pie Smoothie Bowl",
+  "Mediterranean Omelet": "Turkish Menemen: Eggs in Tomato Sauce",
+  "Ricotta Pancakes with Berry Compote": "Autumn Protein-Packed Oatmeal Bowl",
   
   // Lunch recipes  
-  "Spanakopita with Greek Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
-  "Peruvian Quinoa and Roasted Vegetable Bowl": "Peruvian Quinoa and Roasted Vegetable Bowl",
-  "Mediterranean Chickpea Salad": "Moroccan Harissa Roasted Chickpea Snack",
-  "Greek Lemon Rice with Herbs": "Peruvian Quinoa and Roasted Vegetable Bowl",
-  "Turkish Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
-  "Greek Village Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
-  "Hummus and Vegetable Wrap": "Peruvian Quinoa and Roasted Vegetable Bowl",
+  "Spanakopita with Greek Salad": "Mediterranean Roasted Vegetable and Feta Salad",
+  "Mediterranean Chickpea Salad": "Mediterranean Chickpea Salad",
+  "Greek Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
+  "Falafel Wrap with Tahini": "Mediterranean Baked Falafel Bites",
+  "Stuffed Bell Peppers": "Mediterranean Quinoa Stuffed Peppers",
+  "Greek Orzo Salad": "Mediterranean Chickpea and Quinoa Salad",
+  "Mediterranean Quinoa Bowl": "Mediterranean Quinoa and Egg Breakfast Bowl",
+  "Mediterranean Tuna Salad": "Mediterranean Tuna and Chickpea Salad",
+  "Mezze Platter with Hummus": "Middle Eastern Hummus Platter",
+  "Tabbouleh with Grilled Halloumi": "Mediterranean Roasted Vegetable and Feta Salad",
   
   // Dinner recipes
-  "Moroccan Lamb Tagine with Roasted Vegetables": "Moroccan Lamb Tagine with Roasted Vegetables",
-  "Moroccan Beef Tagine": "Moroccan Beef Tagine",
-  "Moroccan Spiced Chicken Tagine": "Moroccan Spiced Chicken Tagine",
-  "Grilled Salmon with Mediterranean Vegetables": "Moroccan Beef Tagine",
-  "Mediterranean Stuffed Peppers": "Moroccan Spiced Chicken Tagine",
-  "Herb-Crusted Mediterranean Fish": "Moroccan Beef Tagine",
-  "Mediterranean Pasta Primavera": "Moroccan Spiced Chicken Tagine"
+  "Grilled Lemon Herb Salmon": "Mediterranean Salmon and Quinoa Salad",
+  "Ratatouille with Grilled Chicken": "Mediterranean Roasted Vegetable Medley",
+  "Mediterranean Baked Fish": "Mediterranean Baked Feta with Roasted Vegetables",
+  "Moussaka": "Mediterranean Quinoa Stuffed Peppers",
+  "Chicken Souvlaki with Tzatziki": "Moroccan Spiced Chicken Tagine",
+  "Grilled Vegetable and Halloumi Skewers": "Mediterranean Roasted Vegetable and Feta Salad",
+  "Seafood Paella": "Mediterranean Salmon and Quinoa Salad",
+  "Baked Cod with Tomatoes and Olives": "Mediterranean Baked Feta with Roasted Vegetables",
+  "Chicken Tagine with Couscous": "Moroccan Tagine with Chicken and Seasonal Vegetables",
+  "Lamb Kofta with Mint Yogurt": "Moroccan Lamb Tagine with Roasted Vegetables"
 }
 
 // Fallback meal plan data for testing when API fails

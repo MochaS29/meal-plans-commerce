@@ -29,6 +29,44 @@ export default function MemberRecipesPage() {
   const [selectedMonth] = useState(1) // Default to January
   const [selectedYear] = useState(2025)
 
+  // Recipe mapping from meal plan names to database recipe names
+  const recipeMapping: { [key: string]: string } = {
+    // Breakfast recipes
+    "Overnight Oats with Greek Yogurt": "Satiating Pumpkin Spice Overnight Oats",
+    "Whole Grain Toast with Avocado and Feta": "Mediterranean Quinoa and Egg Breakfast Bowl", 
+    "Turkish Breakfast Platter": "Turkish Menemen",
+    "Mediterranean Egg Bites": "Mediterranean Shakshuka",
+    "Greek Yogurt Parfait with Honey": "Autumn Protein-Packed Oatmeal Bowl",
+    "Shakshuka with Whole Grain Pita": "Mediterranean Shakshuka",
+    "Mediterranean Smoothie Bowl": "Pumpkin Pie Smoothie Bowl",
+    "Mediterranean Omelet": "Turkish Menemen: Eggs in Tomato Sauce",
+    "Ricotta Pancakes with Berry Compote": "Autumn Protein-Packed Oatmeal Bowl",
+    
+    // Lunch recipes  
+    "Spanakopita with Greek Salad": "Mediterranean Roasted Vegetable and Feta Salad",
+    "Mediterranean Chickpea Salad": "Mediterranean Chickpea Salad",
+    "Greek Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Falafel Wrap with Tahini": "Mediterranean Baked Falafel Bites",
+    "Stuffed Bell Peppers": "Mediterranean Quinoa Stuffed Peppers",
+    "Greek Orzo Salad": "Mediterranean Chickpea and Quinoa Salad",
+    "Mediterranean Quinoa Bowl": "Mediterranean Quinoa and Egg Breakfast Bowl",
+    "Mediterranean Tuna Salad": "Mediterranean Tuna and Chickpea Salad",
+    "Mezze Platter with Hummus": "Middle Eastern Hummus Platter",
+    "Tabbouleh with Grilled Halloumi": "Mediterranean Roasted Vegetable and Feta Salad",
+    
+    // Dinner recipes
+    "Grilled Lemon Herb Salmon": "Mediterranean Salmon and Quinoa Salad",
+    "Ratatouille with Grilled Chicken": "Mediterranean Roasted Vegetable Medley",
+    "Mediterranean Baked Fish": "Mediterranean Baked Feta with Roasted Vegetables",
+    "Moussaka": "Mediterranean Quinoa Stuffed Peppers",
+    "Chicken Souvlaki with Tzatziki": "Moroccan Spiced Chicken Tagine",
+    "Grilled Vegetable and Halloumi Skewers": "Mediterranean Roasted Vegetable and Feta Salad",
+    "Seafood Paella": "Mediterranean Salmon and Quinoa Salad",
+    "Baked Cod with Tomatoes and Olives": "Mediterranean Baked Feta with Roasted Vegetables",
+    "Chicken Tagine with Couscous": "Moroccan Tagine with Chicken and Seasonal Vegetables",
+    "Lamb Kofta with Mint Yogurt": "Moroccan Lamb Tagine with Roasted Vegetables"
+  }
+
   useEffect(() => {
     fetchMealPlanAndRecipes()
   }, [])
@@ -84,10 +122,12 @@ export default function MemberRecipesPage() {
 
   const fetchRecipeDetails = async (recipeName: string, day: number, meal: string): Promise<FullRecipe | null> => {
     try {
-      console.log(`Fetching recipe details for: "${recipeName}" (Day ${day} ${meal})`)
+      // Use recipe mapping to find the correct database recipe name
+      const mappedRecipeName = recipeMapping[recipeName] || recipeName
+      console.log(`Fetching recipe details for: "${recipeName}" -> mapped to: "${mappedRecipeName}" (Day ${day} ${meal})`)
       
       // Try the API endpoint first
-      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(recipeName)}`)
+      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`)
       
       if (response.ok) {
         const recipe = await response.json()

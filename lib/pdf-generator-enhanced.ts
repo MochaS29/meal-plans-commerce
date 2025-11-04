@@ -33,31 +33,39 @@ export class EnhancedMealPlanPDFGenerator {
   // Recipe mapping from meal plan names to database recipe names
   private recipeMapping: { [key: string]: string } = {
     // Breakfast recipes
-    "Overnight Oats with Greek Yogurt": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Whole Grain Toast with Avocado and Feta": "Moroccan Harira Lentil Soup with Poached Eggs", 
-    "Turkish Breakfast Platter": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Mediterranean Egg Bites": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Greek Yogurt Parfait with Nuts": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Shakshuka with Feta": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Mediterranean Breakfast Bowl": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Overnight Oats with Greek Yogurt": "Satiating Pumpkin Spice Overnight Oats",
+    "Whole Grain Toast with Avocado and Feta": "Mediterranean Quinoa and Egg Breakfast Bowl", 
+    "Turkish Breakfast Platter": "Turkish Menemen",
+    "Mediterranean Egg Bites": "Mediterranean Shakshuka",
+    "Greek Yogurt Parfait with Honey": "Autumn Protein-Packed Oatmeal Bowl",
+    "Shakshuka with Whole Grain Pita": "Mediterranean Shakshuka",
+    "Mediterranean Smoothie Bowl": "Pumpkin Pie Smoothie Bowl",
+    "Mediterranean Omelet": "Turkish Menemen: Eggs in Tomato Sauce",
+    "Ricotta Pancakes with Berry Compote": "Autumn Protein-Packed Oatmeal Bowl",
     
     // Lunch recipes  
-    "Spanakopita with Greek Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
-    "Peruvian Quinoa and Roasted Vegetable Bowl": "Peruvian Quinoa and Roasted Vegetable Bowl",
-    "Mediterranean Chickpea Salad": "Moroccan Harissa Roasted Chickpea Snack",
-    "Greek Lemon Rice with Herbs": "Peruvian Quinoa and Roasted Vegetable Bowl",
-    "Turkish Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
-    "Greek Village Salad": "Peruvian Quinoa and Roasted Vegetable Bowl",
-    "Hummus and Vegetable Wrap": "Peruvian Quinoa and Roasted Vegetable Bowl",
+    "Spanakopita with Greek Salad": "Mediterranean Roasted Vegetable and Feta Salad",
+    "Mediterranean Chickpea Salad": "Mediterranean Chickpea Salad",
+    "Greek Lentil Soup": "Moroccan Harira Lentil Soup with Poached Eggs",
+    "Falafel Wrap with Tahini": "Mediterranean Baked Falafel Bites",
+    "Stuffed Bell Peppers": "Mediterranean Quinoa Stuffed Peppers",
+    "Greek Orzo Salad": "Mediterranean Chickpea and Quinoa Salad",
+    "Mediterranean Quinoa Bowl": "Mediterranean Quinoa and Egg Breakfast Bowl",
+    "Mediterranean Tuna Salad": "Mediterranean Tuna and Chickpea Salad",
+    "Mezze Platter with Hummus": "Middle Eastern Hummus Platter",
+    "Tabbouleh with Grilled Halloumi": "Mediterranean Roasted Vegetable and Feta Salad",
     
     // Dinner recipes
-    "Moroccan Lamb Tagine with Roasted Vegetables": "Moroccan Lamb Tagine with Roasted Vegetables",
-    "Moroccan Beef Tagine": "Moroccan Beef Tagine",
-    "Moroccan Spiced Chicken Tagine": "Moroccan Spiced Chicken Tagine",
-    "Grilled Salmon with Mediterranean Vegetables": "Moroccan Beef Tagine",
-    "Mediterranean Stuffed Peppers": "Moroccan Spiced Chicken Tagine",
-    "Herb-Crusted Mediterranean Fish": "Moroccan Beef Tagine",
-    "Mediterranean Pasta Primavera": "Moroccan Spiced Chicken Tagine"
+    "Grilled Lemon Herb Salmon": "Mediterranean Salmon and Quinoa Salad",
+    "Ratatouille with Grilled Chicken": "Mediterranean Roasted Vegetable Medley",
+    "Mediterranean Baked Fish": "Mediterranean Baked Feta with Roasted Vegetables",
+    "Moussaka": "Mediterranean Quinoa Stuffed Peppers",
+    "Chicken Souvlaki with Tzatziki": "Moroccan Spiced Chicken Tagine",
+    "Grilled Vegetable and Halloumi Skewers": "Mediterranean Roasted Vegetable and Feta Salad",
+    "Seafood Paella": "Mediterranean Salmon and Quinoa Salad",
+    "Baked Cod with Tomatoes and Olives": "Mediterranean Baked Feta with Roasted Vegetables",
+    "Chicken Tagine with Couscous": "Moroccan Tagine with Chicken and Seasonal Vegetables",
+    "Lamb Kofta with Mint Yogurt": "Moroccan Lamb Tagine with Roasted Vegetables"
   };
 
   constructor() {
@@ -498,15 +506,19 @@ export class EnhancedMealPlanPDFGenerator {
 
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text('Week 1 Recipes & Shopping List', this.margins.left, this.currentY);
+    this.doc.text(`${this.formatMenuType(mealPlan.menuType)} - ${this.getMonthName(mealPlan.month)} ${mealPlan.year} Recipes`, this.margins.left, this.currentY);
     this.currentY += 15;
 
-    // Collect unique recipes for Week 1 only (days 1-7)
+    // Collect unique recipes for the entire month
     // Use database recipe ID as primary key for deduplication
     const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}, mealPlanName: string}>();
     
-    // Process only the first week (days 1-7)
-    for (let day = 1; day <= 7; day++) {
+    // Get the number of days in the month
+    const daysInMonth = new Date(mealPlan.year, mealPlan.month, 0).getDate();
+    console.log(`Processing ${daysInMonth} days for ${this.getMonthName(mealPlan.month)} ${mealPlan.year}`);
+    
+    // Process all days in the month
+    for (let day = 1; day <= daysInMonth; day++) {
       const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
       
       if (dayMeals) {
@@ -572,12 +584,12 @@ export class EnhancedMealPlanPDFGenerator {
 
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text('Week 1 Shopping List', this.margins.left, this.currentY);
+    this.doc.text(`${this.getMonthName(mealPlan.month)} ${mealPlan.year} Shopping List`, this.margins.left, this.currentY);
     this.currentY += 10;
 
     this.doc.setFontSize(12);
     this.doc.setFont('helvetica', 'normal');
-    this.doc.text('Generated from the recipes included in this week\'s meal plan', this.margins.left, this.currentY);
+    this.doc.text('Generated from all recipes included in this month\'s meal plan', this.margins.left, this.currentY);
     this.currentY += 15;
 
     // Generate shopping list from recipe ingredients
