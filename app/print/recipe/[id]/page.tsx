@@ -164,10 +164,10 @@ export default function PrintRecipePage({ params }: { params: { id: string } }) 
         </div>
 
         {/* Nutrition */}
-        <div>
-          <h2 className="text-xl font-semibold text-teal-700 mb-4">Nutrition Per Serving</h2>
-          <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
-            {recipe.recipe_nutrition?.[0] && (
+        {recipe.recipe_nutrition?.[0] && (
+          <div>
+            <h2 className="text-xl font-semibold text-teal-700 mb-4">Nutrition Per Serving</h2>
+            <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div className="flex justify-between">
                   <span>Calories:</span>
@@ -190,9 +190,18 @@ export default function PrintRecipePage({ params }: { params: { id: string } }) 
                   <span className="font-semibold">{recipe.recipe_nutrition[0].fiber}g</span>
                 </div>
               </div>
-            )}
+              {recipe.image_url && (
+                <div className="mt-4 pt-4 border-t border-amber-300">
+                  <img
+                    src={recipe.image_url}
+                    alt={recipe.name}
+                    className="w-full max-w-xs mx-auto rounded-lg shadow-md"
+                  />
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Instructions */}
