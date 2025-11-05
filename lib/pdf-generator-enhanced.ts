@@ -642,19 +642,19 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private drawCenteredCalendar(mealPlan: MealPlan, startY: number) {
-    // Calculate calendar dimensions (smaller, centered)
-    const calendarWidth = 140; // Reduced from full width
-    const cellWidth = 20;
-    const cellHeight = 16;
-    const headerHeight = 12;
+    // Calculate calendar dimensions with larger cells for meal labels
+    const calendarWidth = 161; // 7 cells * 23
+    const cellWidth = 23;
+    const cellHeight = 32; // Taller to fit meal names
+    const headerHeight = 10;
 
     // Get days in month
     const daysInMonth = new Date(mealPlan.year, mealPlan.month, 0).getDate();
     const firstDay = new Date(mealPlan.year, mealPlan.month - 1, 1).getDay();
 
-    // Center the calendar horizontally and vertically
+    // Center the calendar horizontally
     const calendarX = (this.pageWidth - calendarWidth) / 2;
-    const calendarY = startY + (this.pageHeight - startY - this.margins.bottom - (headerHeight + cellHeight * 6)) / 2;
+    const calendarY = startY + 10;
 
     // Draw month/year title
     this.doc.setFontSize(14);
@@ -665,22 +665,21 @@ export class EnhancedMealPlanPDFGenerator {
     let currentY = calendarY + 10;
 
     // Draw day headers
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    this.doc.setFontSize(9);
+    const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+    this.doc.setFontSize(8);
     this.doc.setFont('helvetica', 'bold');
     this.doc.setFillColor(240, 240, 240);
     this.doc.rect(calendarX, currentY, calendarWidth, headerHeight, 'F');
 
     days.forEach((day, i) => {
       const x = calendarX + (i * cellWidth) + (cellWidth / 2);
-      this.doc.text(day, x, currentY + 8, { align: 'center' });
+      this.doc.text(day, x, currentY + 7, { align: 'center' });
     });
 
     currentY += headerHeight;
 
     // Draw calendar grid
     this.doc.setFont('helvetica', 'normal');
-    this.doc.setFontSize(10);
 
     let dayNum = 1;
     for (let week = 0; week < 6; week++) {
@@ -695,19 +694,54 @@ export class EnhancedMealPlanPDFGenerator {
         // Check if this cell should have a day number
         if ((week === 0 && dayOfWeek >= firstDay) || (week > 0 && dayNum <= daysInMonth)) {
           if (dayNum <= daysInMonth) {
-            // Check if this day has meals in the meal plan
-            const hasMeals = mealPlan.dailyMeals[`day_${dayNum}`];
+            // Get meals for this day
+            const dayMeals = mealPlan.dailyMeals[`day_${dayNum}`];
 
             // Highlight days with meals
-            if (hasMeals) {
-              this.doc.setFillColor(220, 240, 255); // Light blue
+            if (dayMeals) {
+              this.doc.setFillColor(250, 250, 250);
               this.doc.rect(x, y, cellWidth, cellHeight, 'F');
               this.doc.rect(x, y, cellWidth, cellHeight); // Redraw border
             }
 
             // Draw day number
+            this.doc.setFontSize(8);
+            this.doc.setFont('helvetica', 'bold');
             this.doc.setTextColor(0, 0, 0);
-            this.doc.text(dayNum.toString(), x + cellWidth / 2, y + cellHeight / 2 + 2, { align: 'center' });
+            this.doc.text(dayNum.toString(), x + 2, y + 6);
+
+            // Draw meal labels if available
+            if (dayMeals) {
+              this.doc.setFontSize(5);
+              this.doc.setFont('helvetica', 'normal');
+              let mealY = y + 11;
+
+              // Truncate meal names to fit
+              const truncate = (text: string, maxLen: number) => {
+                if (!text) return '';
+                return text.length > maxLen ? text.substring(0, maxLen) : text;
+              };
+
+              if (dayMeals.breakfast?.name) {
+                this.doc.setTextColor(180, 100, 0); // Brown for breakfast
+                const mealText = truncate(dayMeals.breakfast.name, 18);
+                this.doc.text(`B: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+                mealY += 5;
+              }
+
+              if (dayMeals.lunch?.name) {
+                this.doc.setTextColor(0, 120, 0); // Green for lunch
+                const mealText = truncate(dayMeals.lunch.name, 18);
+                this.doc.text(`L: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+                mealY += 5;
+              }
+
+              if (dayMeals.dinner?.name) {
+                this.doc.setTextColor(0, 80, 150); // Blue for dinner
+                const mealText = truncate(dayMeals.dinner.name, 18);
+                this.doc.text(`D: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+              }
+            }
 
             dayNum++;
           }
@@ -717,13 +751,6 @@ export class EnhancedMealPlanPDFGenerator {
 
       if (dayNum > daysInMonth) break;
     }
-
-    // Add legend
-    currentY += 8;
-    this.doc.setFontSize(8);
-    this.doc.setFont('helvetica', 'italic');
-    this.doc.setTextColor(100, 100, 100);
-    this.doc.text('Days with meals are highlighted', this.pageWidth / 2, currentY, { align: 'center' });
   }
 
   private formatMenuType(menuType: string): string {
