@@ -710,7 +710,7 @@ export class EnhancedMealPlanPDFGenerator {
             this.doc.setTextColor(0, 0, 0);
             this.doc.text(dayNum.toString(), x + 2, y + 6);
 
-            // Draw meal labels if available
+            // Draw meal labels if available (matching web calendar design)
             if (dayMeals) {
               this.doc.setFontSize(5);
               this.doc.setFont('helvetica', 'normal');
@@ -723,23 +723,23 @@ export class EnhancedMealPlanPDFGenerator {
               };
 
               if (dayMeals.breakfast?.name) {
-                this.doc.setTextColor(180, 100, 0); // Brown for breakfast
+                this.doc.setTextColor(146, 64, 14); // Amber-800 (matches web)
                 const mealText = truncate(dayMeals.breakfast.name, 18);
-                this.doc.text(`B: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+                this.doc.text(`🌅 ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
                 mealY += 5;
               }
 
               if (dayMeals.lunch?.name) {
-                this.doc.setTextColor(0, 120, 0); // Green for lunch
+                this.doc.setTextColor(15, 118, 110); // Teal-700 (matches web)
                 const mealText = truncate(dayMeals.lunch.name, 18);
-                this.doc.text(`L: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+                this.doc.text(`☀️ ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
                 mealY += 5;
               }
 
               if (dayMeals.dinner?.name) {
-                this.doc.setTextColor(0, 80, 150); // Blue for dinner
+                this.doc.setTextColor(126, 34, 206); // Purple-700 (matches web)
                 const mealText = truncate(dayMeals.dinner.name, 18);
-                this.doc.text(`D: ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
+                this.doc.text(`🌙 ${mealText}`, x + 1, mealY, { maxWidth: cellWidth - 2 });
               }
             }
 
