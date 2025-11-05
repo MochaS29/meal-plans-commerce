@@ -112,9 +112,10 @@ export async function GET(request: NextRequest) {
         }
       }
 
-      // Try to get primary image
-      let imageUrl = null
-      if (supabase) {
+      // Use the image_url column directly (populated by image generation)
+      // Fall back to images table if not set
+      let imageUrl = recipe.image_url || null
+      if (!imageUrl && supabase) {
         try {
           const { data } = await supabase
             .from('images')
