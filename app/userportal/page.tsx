@@ -1009,27 +1009,38 @@ export default function DashboardPage() {
                   {selectedRecipe.recipe_nutrition?.length > 0 && (
                     <div className="mt-8 p-4 bg-green-50 rounded-lg">
                       <h3 className="text-lg font-bold text-gray-900 mb-3">Nutritional Information</h3>
-                      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-                        <div>
-                          <div className="text-2xl font-bold text-green-600">{selectedRecipe.recipe_nutrition[0].calories}</div>
-                          <div className="text-sm text-gray-600">Calories</div>
+                      <div className="flex gap-6 items-start">
+                        <div className="flex-1 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                          <div>
+                            <div className="text-2xl font-bold text-green-600">{selectedRecipe.recipe_nutrition[0].calories}</div>
+                            <div className="text-sm text-gray-600">Calories</div>
+                          </div>
+                          <div>
+                            <div className="text-2xl font-bold text-blue-600">{selectedRecipe.recipe_nutrition[0].protein}g</div>
+                            <div className="text-sm text-gray-600">Protein</div>
+                          </div>
+                          <div>
+                            <div className="text-2xl font-bold text-orange-600">{selectedRecipe.recipe_nutrition[0].carbs}g</div>
+                            <div className="text-sm text-gray-600">Carbs</div>
+                          </div>
+                          <div>
+                            <div className="text-2xl font-bold text-purple-600">{selectedRecipe.recipe_nutrition[0].fat}g</div>
+                            <div className="text-sm text-gray-600">Fat</div>
+                          </div>
+                          <div>
+                            <div className="text-2xl font-bold text-amber-600">{selectedRecipe.recipe_nutrition[0].fiber}g</div>
+                            <div className="text-sm text-gray-600">Fiber</div>
+                          </div>
                         </div>
-                        <div>
-                          <div className="text-2xl font-bold text-blue-600">{selectedRecipe.recipe_nutrition[0].protein}g</div>
-                          <div className="text-sm text-gray-600">Protein</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold text-orange-600">{selectedRecipe.recipe_nutrition[0].carbs}g</div>
-                          <div className="text-sm text-gray-600">Carbs</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold text-purple-600">{selectedRecipe.recipe_nutrition[0].fat}g</div>
-                          <div className="text-sm text-gray-600">Fat</div>
-                        </div>
-                        <div>
-                          <div className="text-2xl font-bold text-amber-600">{selectedRecipe.recipe_nutrition[0].fiber}g</div>
-                          <div className="text-sm text-gray-600">Fiber</div>
-                        </div>
+                        {selectedRecipe.image_url && (
+                          <div className="flex-shrink-0">
+                            <img
+                              src={selectedRecipe.image_url}
+                              alt={selectedRecipe.name}
+                              className="w-32 h-32 object-cover rounded-lg shadow-md"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
