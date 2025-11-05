@@ -318,7 +318,8 @@ export default function MemberRecipesPage() {
       {/* Recipe Modal */}
       {selectedRecipe && (
         <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/50 flex items-center justify-center p-4"
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 99999 }}
           onClick={() => setSelectedRecipe(null)}
         >
           <motion.div
