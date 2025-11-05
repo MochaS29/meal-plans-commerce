@@ -111,7 +111,18 @@ export default function MemberRecipesPage() {
         
         const recipes = await Promise.all(recipePromises)
         const validRecipes = recipes.filter((recipe): recipe is FullRecipe => recipe !== null)
-        setFullRecipes(validRecipes)
+
+        // Deduplicate recipes by ID (only show unique recipes)
+        const uniqueRecipes = validRecipes.reduce((acc, recipe) => {
+          const existing = acc.find(r => r.id === recipe.id)
+          if (!existing) {
+            acc.push(recipe)
+          }
+          return acc
+        }, [] as FullRecipe[])
+
+        console.log(`Loaded ${validRecipes.length} total meals, ${uniqueRecipes.length} unique recipes`)
+        setFullRecipes(uniqueRecipes)
       }
     } catch (error) {
       console.error('Error fetching meal plan and recipes:', error)
@@ -211,7 +222,8 @@ export default function MemberRecipesPage() {
           
           <button
             onClick={() => {
-              const url = `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}&demo=true`;
+              // Use personalized recipes (no demo=true) for authenticated users
+              const url = `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`;
               window.open(url, '_blank');
             }}
             className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
@@ -225,7 +237,7 @@ export default function MemberRecipesPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredRecipes.map((recipe, index) => (
             <motion.div
-              key={`${recipe.day}-${recipe.meal}`}
+              key={recipe.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
@@ -315,7 +327,7 @@ export default function MemberRecipesPage() {
             className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] shadow-2xl flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center p-6 border-b flex-shrink-0">
+            <div className="flex justify-between items-center px-6 pt-8 pb-6 border-b flex-shrink-0">
               <h2 className="text-2xl font-bold text-gray-900">{selectedRecipe.name}</h2>
               <div className="flex gap-2">
                 <button

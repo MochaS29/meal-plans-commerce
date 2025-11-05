@@ -910,7 +910,7 @@ export default function DashboardPage() {
             className="bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] shadow-2xl flex flex-col overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center p-6 border-b flex-shrink-0">
+            <div className="flex justify-between items-center px-6 pt-8 pb-6 border-b flex-shrink-0">
               <h2 className="text-2xl font-bold text-gray-900">{selectedRecipe.name}</h2>
               <div className="flex gap-2">
                 <button

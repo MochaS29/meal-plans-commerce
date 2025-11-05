@@ -31,12 +31,42 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // Load the meal plan data
-    const filename = `${menuType}-${year}-${month.padStart(2, '0')}.json`;
-    const filePath = path.join(process.cwd(), 'data', 'meal-plans', filename);
+    let mealPlan;
 
-    const data = await fs.readFile(filePath, 'utf-8');
-    const mealPlan = JSON.parse(data);
+    // Try to fetch personalized meal plan from API (for authenticated users)
+    if (!isDemoMode) {
+      try {
+        const baseUrl = request.nextUrl.origin;
+        const mealPlanUrl = `${baseUrl}/api/meal-plans?menuType=${menuType}&month=${month}&year=${year}`;
+
+        // Forward the session cookie to the meal-plans API
+        const response = await fetch(mealPlanUrl, {
+          headers: {
+            'Cookie': request.headers.get('cookie') || ''
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.isPersonalized) {
+            console.log('Using personalized meal plan for PDF generation');
+            mealPlan = data;
+          }
+        }
+      } catch (error) {
+        console.log('Could not fetch personalized meal plan, falling back to static');
+      }
+    }
+
+    // Fall back to static JSON file if no personalized plan
+    if (!mealPlan) {
+      const filename = `${menuType}-${year}-${month.padStart(2, '0')}.json`;
+      const filePath = path.join(process.cwd(), 'data', 'meal-plans', filename);
+
+      const data = await fs.readFile(filePath, 'utf-8');
+      mealPlan = JSON.parse(data);
+      console.log('Using static meal plan for PDF generation');
+    }
 
     // Generate PDF
     const pdfGenerator = new EnhancedMealPlanPDFGenerator();
