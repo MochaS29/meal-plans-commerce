@@ -114,7 +114,7 @@ export class EnhancedMealPlanPDFGenerator {
       { align: 'center' }
     );
     this.doc.text(
-      'Generated from meal-plans.mochasmindlab.com',
+      'Generated from mindfulmealplan.com',
       this.pageWidth / 2,
       this.pageHeight - 10,
       { align: 'center' }
@@ -459,10 +459,19 @@ export class EnhancedMealPlanPDFGenerator {
   public async generateMealPlanPDF(mealPlan: MealPlan, userInfo?: { name?: string; email?: string }) {
     let pageNum = 1;
 
+    // Calculate day range first (needed for title page)
+    const dayKeys = Object.keys(mealPlan.dailyMeals).filter(key => key.startsWith('day_'));
+    const dayNumbers = dayKeys.map(key => parseInt(key.replace('day_', ''))).sort((a, b) => a - b);
+    const isWeekly = dayNumbers.length <= 7;
+
     // Cover Page
+    const subtitle = isWeekly && dayNumbers.length > 0
+      ? `${this.getMonthName(mealPlan.month)} ${mealPlan.year} - Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]} Meal Plan with Full Recipes`
+      : `${this.getMonthName(mealPlan.month)} ${mealPlan.year} Meal Plan with Full Recipes`;
+
     this.drawHeader(
       this.formatMenuType(mealPlan.menuType),
-      `${this.getMonthName(mealPlan.month)} ${mealPlan.year} Meal Plan with Full Recipes`
+      subtitle
     );
 
     // User info if provided
@@ -509,18 +518,16 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.text(`${this.formatMenuType(mealPlan.menuType)} - ${this.getMonthName(mealPlan.month)} ${mealPlan.year} Recipes`, this.margins.left, this.currentY);
     this.currentY += 15;
 
-    // Collect unique recipes for the entire month
+    // Collect unique recipes from the meal plan (could be full month or specific week)
     // Use database recipe ID as primary key for deduplication
     const uniqueRecipes = new Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}, mealPlanName: string}>();
-    
-    // Get the number of days in the month
-    const daysInMonth = new Date(mealPlan.year, mealPlan.month, 0).getDate();
-    console.log(`Processing ${daysInMonth} days for ${this.getMonthName(mealPlan.month)} ${mealPlan.year}`);
-    
-    // Process all days in the month
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dayMeals = mealPlan.dailyMeals[`day_${day}`] || mealPlan.dailyMeals[day.toString()];
-      
+
+    console.log(`Processing ${dayNumbers.length} days: ${dayNumbers.join(', ')}`);
+
+    // Process only the days present in the meal plan
+    for (const day of dayNumbers) {
+      const dayMeals = mealPlan.dailyMeals[`day_${day}`];
+
       if (dayMeals) {
         // Process each meal type
         const mealsToProcess = [
@@ -582,14 +589,24 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.addPage();
     this.currentY = this.margins.top;
 
+    // Determine if this is a weekly or monthly plan
+    const isWeekly = dayNumbers.length <= 7;
+    const planPeriod = isWeekly ? `Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]}` : 'Month';
+
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text(`${this.getMonthName(mealPlan.month)} ${mealPlan.year} Shopping List`, this.margins.left, this.currentY);
+    const shoppingListTitle = mealPlan.title?.includes('Week')
+      ? `${mealPlan.title} Shopping List`
+      : `${this.getMonthName(mealPlan.month)} ${mealPlan.year} Shopping List`;
+    this.doc.text(shoppingListTitle, this.margins.left, this.currentY);
     this.currentY += 10;
 
     this.doc.setFontSize(12);
     this.doc.setFont('helvetica', 'normal');
-    this.doc.text('Generated from all recipes included in this month\'s meal plan', this.margins.left, this.currentY);
+    const shoppingListDesc = isWeekly
+      ? `Generated from recipes for days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]} (${dayNumbers.length} days)`
+      : `Generated from all recipes included in this month's meal plan (${dayNumbers.length} days)`;
+    this.doc.text(shoppingListDesc, this.margins.left, this.currentY);
     this.currentY += 15;
 
     // Generate shopping list from recipe ingredients
