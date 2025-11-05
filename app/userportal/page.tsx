@@ -335,38 +335,78 @@ export default function DashboardPage() {
   }
 
   const fetchRecipeDetails = async (recipeName: string) => {
+    console.log('=== fetchRecipeDetails called ===')
+    console.log('Setting loadingRecipe to true')
     setLoadingRecipe(true)
+    
     try {
       // Use recipe mapping to find the correct database recipe name
       const mappedRecipeName = recipeMapping[recipeName] || recipeName
-      console.log(`Fetching recipe details for: "${recipeName}" -> mapped to: "${mappedRecipeName}"`)
+      console.log(`Recipe mapping check:`)
+      console.log(`- Original name: "${recipeName}"`)
+      console.log(`- Mapped name: "${mappedRecipeName}"`)
+      console.log(`- Recipe found in mapping: ${recipeName in recipeMapping}`)
       
-      const response = await fetch(`/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`)
+      const apiUrl = `/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`
+      console.log(`API URL: ${apiUrl}`)
+      
+      console.log('Making fetch request...')
+      const response = await fetch(apiUrl)
+      console.log(`Response status: ${response.status}`)
+      console.log(`Response ok: ${response.ok}`)
       
       if (response.ok) {
+        console.log('Response is OK, parsing JSON...')
         const recipe = await response.json()
-        console.log('Received recipe:', recipe)
+        console.log('Parsed recipe data:', recipe)
+        console.log('Recipe has ingredients:', !!recipe.recipe_ingredients)
+        console.log('Recipe has instructions:', !!recipe.recipe_instructions)
         
         if (recipe && !recipe.placeholder) {
+          console.log('Recipe is valid, setting selectedRecipe state')
           setSelectedRecipe(recipe)
-          console.log('Recipe modal should now open')
+          console.log('selectedRecipe state should be updated, modal should open')
+          
+          // Force a re-render check
+          setTimeout(() => {
+            console.log('After setState - selectedRecipe is:', recipe)
+          }, 100)
         } else {
           console.log('Recipe is placeholder or invalid, not opening modal')
           alert(`Sorry, full recipe details are not available for "${recipeName}". This recipe is being matched from our curated database.`)
         }
       } else {
-        console.error(`Failed to fetch recipe details - Status: ${response.status}`)
+        console.error(`Failed to fetch recipe details`)
+        console.error(`Status: ${response.status}`)
+        console.error(`Status text: ${response.statusText}`)
+        
+        try {
+          const errorData = await response.json()
+          console.error('Error response:', errorData)
+        } catch (e) {
+          console.error('Could not parse error response')
+        }
+        
         alert(`Sorry, we couldn't find recipe details for "${recipeName}". Please try another recipe.`)
       }
     } catch (error) {
-      console.error('Error fetching recipe:', error)
+      console.error('=== Error in fetchRecipeDetails ===')
+      console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error)
+      console.error('Error message:', error instanceof Error ? error.message : String(error))
+      console.error('Full error:', error)
       alert('Error loading recipe. Please try again.')
     } finally {
+      console.log('Setting loadingRecipe to false')
       setLoadingRecipe(false)
     }
   }
 
   const handleRecipeClick = (recipeName: string) => {
+    // Debug log for every click
+    console.log('=== handleRecipeClick called ===')
+    console.log('Recipe name received:', recipeName)
+    console.log('Type of recipe name:', typeof recipeName)
+    
     // Don't try to fetch recipes for loading states or placeholder text
     if (!recipeName || 
         recipeName === 'Loading...' || 
@@ -376,7 +416,10 @@ export default function DashboardPage() {
       return
     }
     
-    console.log('Fetching recipe details for:', recipeName)
+    console.log('Valid recipe name, proceeding to fetch details...')
+    console.log('Current selectedRecipe state:', selectedRecipe)
+    console.log('Current loadingRecipe state:', loadingRecipe)
+    
     fetchRecipeDetails(recipeName)
   }
 
@@ -700,7 +743,11 @@ export default function DashboardPage() {
                       <div className="font-bold text-gray-900 mb-2">{dayNum}</div>
                       <div className="space-y-1 text-xs">
                         <button 
-                          onClick={() => handleRecipeClick(meals.breakfast)}
+                          onClick={() => {
+                            console.log('=== Breakfast button clicked ===')
+                            console.log('Meal name:', meals.breakfast)
+                            handleRecipeClick(meals.breakfast)
+                          }}
                           disabled={!meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')}
                           className={`truncate text-left w-full transition-all ${
                             !meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')
@@ -845,14 +892,25 @@ export default function DashboardPage() {
       )}
 
       {/* Recipe Modal */}
+      {console.log('=== Recipe Modal Render Check ===', {
+        selectedRecipe: !!selectedRecipe,
+        selectedRecipeName: selectedRecipe?.name,
+        modalShouldRender: selectedRecipe !== null
+      })}
       {selectedRecipe && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999] p-4"
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+          onClick={() => setSelectedRecipe(null)}
+        >
+          {console.log('Recipe modal is rendering with recipe:', selectedRecipe.name)}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-hidden"
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] shadow-2xl flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center p-6 border-b">
+            <div className="flex justify-between items-center p-6 border-b flex-shrink-0">
               <h2 className="text-2xl font-bold text-gray-900">{selectedRecipe.name}</h2>
               <div className="flex gap-2">
                 <button
@@ -871,7 +929,7 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            <div className="overflow-y-auto max-h-[calc(90vh-100px)]">
+            <div className="overflow-y-auto flex-1">
               {loadingRecipe ? (
                 <div className="p-8 text-center">
                   <div className="animate-pulse text-amber-700">Loading recipe details...</div>

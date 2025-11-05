@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, Suspense } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Printer } from 'lucide-react'
 
@@ -24,24 +24,70 @@ function CalendarContent() {
   const diet = searchParams.get('diet') || 'mediterranean'
   const month = parseInt(searchParams.get('month') || '1')
   const year = parseInt(searchParams.get('year') || '2025')
+  const [mealPlanData, setMealPlanData] = useState<any>(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Auto-print when page loads
-    setTimeout(() => {
-      window.print()
-    }, 500)
-  }, [])
+    // Fetch real meal plan data from API
+    const fetchMealPlan = async () => {
+      try {
+        const response = await fetch(`/api/meal-plans?menuType=${diet}&month=${month}&year=${year}`)
+        if (response.ok) {
+          const data = await response.json()
+          setMealPlanData(data)
+        } else {
+          console.error('Failed to fetch meal plan data')
+        }
+      } catch (error) {
+        console.error('Error fetching meal plan:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchMealPlan()
+  }, [diet, month, year])
+
+  useEffect(() => {
+    // Auto-print when page loads and data is ready
+    if (!loading && mealPlanData) {
+      setTimeout(() => {
+        window.print()
+      }, 500)
+    }
+  }, [loading, mealPlanData])
 
   // Calculate first day of month
   const firstDayOfMonth = new Date(year, month - 1, 1).getDay()
 
-  // Sample meals for each day (in production, fetch from database)
+  // Get real meals for each day from API data
   const getMealsForDay = (dayNum: number) => {
-    return {
-      breakfast: dayNum % 3 === 0 ? 'Greek Yogurt Bowl with Honey & Berries' : dayNum % 2 === 0 ? 'Whole Grain Avocado Toast' : 'Mixed Berry Smoothie Bowl',
-      lunch: dayNum % 3 === 0 ? 'Mediterranean Quinoa Salad' : dayNum % 2 === 0 ? 'Grilled Chicken Wrap' : 'Pan-Seared Salmon Salad',
-      dinner: dayNum % 3 === 0 ? 'Herb-Crusted Salmon with Roasted Vegetables' : dayNum % 2 === 0 ? 'Turkey Meatballs with Zucchini Noodles' : 'Stuffed Bell Peppers with Brown Rice'
+    const dayKey = `day_${dayNum}`
+    const dayMeals = mealPlanData?.dailyMeals?.[dayKey]
+
+    if (dayMeals) {
+      return {
+        breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
+        lunch: dayMeals.lunch?.name || 'No lunch planned',
+        dinner: dayMeals.dinner?.name || 'No dinner planned'
+      }
     }
+
+    return {
+      breakfast: 'Loading...',
+      lunch: 'Loading...',
+      dinner: 'Loading...'
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="p-8 max-w-7xl mx-auto bg-white">
+        <div className="text-center">
+          <div className="animate-pulse text-amber-700">Loading your meal plan calendar...</div>
+        </div>
+      </div>
+    )
   }
 
   return (

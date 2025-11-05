@@ -76,11 +76,18 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ name: string }> }
 ) {
+  console.log('=== Recipe API Route Called ===')
+  console.log('Request URL:', request.url)
+  
   try {
     const { name } = await params
     const recipeName = decodeURIComponent(name)
     
+    console.log('Decoded recipe name:', recipeName)
+    console.log('Recipe name length:', recipeName.length)
+    
     if (!recipeName) {
+      console.error('No recipe name provided')
       return NextResponse.json(
         { error: 'Recipe name is required' },
         { status: 400 }
@@ -125,11 +132,6 @@ export async function GET(
           carbs,
           fat,
           fiber
-        ),
-        images (
-          id,
-          url,
-          is_primary
         )
       `)
       .ilike('name', `%${recipeName}%`)
@@ -169,11 +171,6 @@ export async function GET(
             carbs,
             fat,
             fiber
-          ),
-          images (
-            id,
-            url,
-            is_primary
           )
         `)
         .order('created_at', { ascending: false });

@@ -305,13 +305,17 @@ export default function MemberRecipesPage() {
 
       {/* Recipe Modal */}
       {selectedRecipe && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          onClick={() => setSelectedRecipe(null)}
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl max-w-4xl max-h-[90vh] overflow-hidden"
+            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] shadow-2xl flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-center p-6 border-b">
+            <div className="flex justify-between items-center p-6 border-b flex-shrink-0">
               <h2 className="text-2xl font-bold text-gray-900">{selectedRecipe.name}</h2>
               <div className="flex gap-2">
                 <button
@@ -330,7 +334,7 @@ export default function MemberRecipesPage() {
               </div>
             </div>
 
-            <div className="overflow-y-auto max-h-[calc(90vh-100px)]">
+            <div className="overflow-y-auto flex-1">
               <div className="p-6">
                 {/* Recipe Header */}
                 <div className="grid md:grid-cols-4 gap-4 mb-6 p-4 bg-gray-50 rounded-lg">
