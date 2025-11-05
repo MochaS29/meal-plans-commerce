@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
   const menuType = searchParams.get('menuType');
   const month = searchParams.get('month') || '1';
   const year = searchParams.get('year') || '2025';
+  const week = searchParams.get('week'); // Optional: 1, 2, 3, or 4
 
   if (!menuType) {
     return NextResponse.json(
@@ -70,6 +71,29 @@ export async function GET(request: NextRequest) {
       const data = await fs.readFile(filePath, 'utf-8');
       mealPlan = JSON.parse(data);
       console.log('Using static meal plan for PDF generation');
+    }
+
+    // Filter to specific week if requested
+    if (week && mealPlan.dailyMeals) {
+      const weekNum = parseInt(week);
+      const startDay = (weekNum - 1) * 7 + 1; // Week 1: 1, Week 2: 8, Week 3: 15, Week 4: 22
+      const endDay = Math.min(weekNum * 7, 30); // Week 1: 7, Week 2: 14, Week 3: 21, Week 4: 28/30
+
+      console.log(`Filtering to week ${weekNum}: days ${startDay}-${endDay}`);
+
+      const filteredDailyMeals: any = {};
+      for (let day = startDay; day <= endDay; day++) {
+        const dayKey = `day_${day}`;
+        if (mealPlan.dailyMeals[dayKey]) {
+          filteredDailyMeals[dayKey] = mealPlan.dailyMeals[dayKey];
+        }
+      }
+
+      mealPlan = {
+        ...mealPlan,
+        title: `${mealPlan.title} - Week ${weekNum}`,
+        dailyMeals: filteredDailyMeals
+      };
     }
 
     // Generate PDF

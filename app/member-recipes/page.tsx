@@ -222,8 +222,13 @@ export default function MemberRecipesPage() {
           
           <button
             onClick={() => {
-              // Use personalized recipes (no demo=true) for authenticated users
-              const url = `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`;
+              // Calculate current week (1-4) based on today's date
+              const today = new Date();
+              const currentDay = today.getDate();
+              const currentWeek = Math.ceil(currentDay / 7); // Week 1-4
+
+              // Use personalized recipes for current week only
+              const url = `/api/download-pdf?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}&week=${currentWeek}`;
               window.open(url, '_blank');
             }}
             className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
