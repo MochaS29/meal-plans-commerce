@@ -5,6 +5,7 @@ interface MealPlan {
   menuType: string;
   month: number;
   year: number;
+  title?: string;
   dailyMeals: any;
   weeklyShoppingLists: any;
   nutritionTargets: any;

@@ -362,6 +362,17 @@ export async function generateRecipeImage(
           error: `Image generated but not saved to database: ${dbError.message}`
         }
       }
+
+      // Also update the recipe's image_url column for easy access
+      const { error: recipeUpdateError } = await supabase
+        .from('recipes')
+        .update({ image_url: finalUrl })
+        .eq('id', recipeId)
+
+      if (recipeUpdateError) {
+        console.error('  ⚠️  Warning: Could not update recipe image_url:', recipeUpdateError.message)
+        // Don't fail the whole operation, image is still saved in images table
+      }
     }
 
     console.log(`  💾 Image saved to database (provider: ${usedProvider})`)
