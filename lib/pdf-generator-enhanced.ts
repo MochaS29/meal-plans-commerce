@@ -589,10 +589,6 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.addPage();
     this.currentY = this.margins.top;
 
-    // Determine if this is a weekly or monthly plan
-    const isWeekly = dayNumbers.length <= 7;
-    const planPeriod = isWeekly ? `Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]}` : 'Month';
-
     this.doc.setFontSize(18);
     this.doc.setFont('helvetica', 'bold');
     const shoppingListTitle = mealPlan.title?.includes('Week')
