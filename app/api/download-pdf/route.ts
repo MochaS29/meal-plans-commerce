@@ -4,7 +4,8 @@ import path from 'path';
 import { EnhancedMealPlanPDFGenerator } from '@/lib/pdf-generator-enhanced';
 
 export async function GET(request: NextRequest) {
-  // Check authentication (would normally check session/cookie)
+  // Check authentication (session cookie, subscription token, or Stripe customer ID)
+  const sessionCookie = request.cookies.get('session');
   const subscriptionToken = request.cookies.get('subscription_token');
   const stripeCustomerId = request.cookies.get('stripe_customer_id');
 
@@ -12,9 +13,12 @@ export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const isDemoMode = searchParams.get('demo') === 'true';
 
-  if (!isDemoMode && !subscriptionToken && !stripeCustomerId) {
+  // Allow access if user has any form of authentication
+  const isAuthenticated = isDemoMode || sessionCookie || subscriptionToken || stripeCustomerId;
+
+  if (!isAuthenticated) {
     return NextResponse.json(
-      { error: 'Subscription required to download PDF' },
+      { error: 'Authentication required to download PDF' },
       { status: 403 }
     );
   }

@@ -903,7 +903,6 @@ export default function DashboardPage() {
           style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 99999 }}
           onClick={() => setSelectedRecipe(null)}
         >
-          {console.log('Recipe modal is rendering with recipe:', selectedRecipe.name)}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
