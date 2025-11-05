@@ -480,33 +480,11 @@ export class EnhancedMealPlanPDFGenerator {
       this.currentY = 45;
       this.doc.setFontSize(14);
       this.doc.text(`Prepared for: ${userInfo.name}`, this.margins.left, this.currentY);
-      this.currentY += 10;
+      this.currentY += 15;
     }
 
-    // Plan Overview Section
-    this.currentY = 60;
-    this.doc.setFontSize(16);
-    this.doc.setFont('helvetica', 'bold');
-    this.doc.text('Your Complete Meal Plan', this.margins.left, this.currentY);
-    this.currentY += 10;
-
-    // Nutrition Targets Box
-    this.doc.setFillColor(245, 245, 245);
-    this.doc.roundedRect(this.margins.left, this.currentY, this.pageWidth - 40, 40, 5, 5, 'F');
-
-    this.doc.setFontSize(12);
-    this.doc.setFont('helvetica', 'normal');
-    this.currentY += 10;
-
-    if (mealPlan.nutritionTargets) {
-      this.doc.text(`Daily Calories: ${mealPlan.nutritionTargets.dailyCalories}`, this.margins.left + 10, this.currentY);
-      this.currentY += 8;
-      this.doc.text(`Protein: ${mealPlan.nutritionTargets.proteinGrams}g daily`, this.margins.left + 10, this.currentY);
-      this.currentY += 8;
-      if (mealPlan.nutritionTargets.fiberGrams) {
-        this.doc.text(`Fiber: ${mealPlan.nutritionTargets.fiberGrams}g daily`, this.margins.left + 10, this.currentY);
-      }
-    }
+    // Draw centered calendar on title page
+    this.drawCenteredCalendar(mealPlan, userInfo ? 60 : 45);
 
     this.drawFooter(pageNum++);
 
@@ -661,6 +639,91 @@ export class EnhancedMealPlanPDFGenerator {
 
     // Return the PDF as blob
     return this.doc.output('blob');
+  }
+
+  private drawCenteredCalendar(mealPlan: MealPlan, startY: number) {
+    // Calculate calendar dimensions (smaller, centered)
+    const calendarWidth = 140; // Reduced from full width
+    const cellWidth = 20;
+    const cellHeight = 16;
+    const headerHeight = 12;
+
+    // Get days in month
+    const daysInMonth = new Date(mealPlan.year, mealPlan.month, 0).getDate();
+    const firstDay = new Date(mealPlan.year, mealPlan.month - 1, 1).getDay();
+
+    // Center the calendar horizontally and vertically
+    const calendarX = (this.pageWidth - calendarWidth) / 2;
+    const calendarY = startY + (this.pageHeight - startY - this.margins.bottom - (headerHeight + cellHeight * 6)) / 2;
+
+    // Draw month/year title
+    this.doc.setFontSize(14);
+    this.doc.setFont('helvetica', 'bold');
+    const monthYearText = `${this.getMonthName(mealPlan.month)} ${mealPlan.year}`;
+    this.doc.text(monthYearText, this.pageWidth / 2, calendarY, { align: 'center' });
+
+    let currentY = calendarY + 10;
+
+    // Draw day headers
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    this.doc.setFontSize(9);
+    this.doc.setFont('helvetica', 'bold');
+    this.doc.setFillColor(240, 240, 240);
+    this.doc.rect(calendarX, currentY, calendarWidth, headerHeight, 'F');
+
+    days.forEach((day, i) => {
+      const x = calendarX + (i * cellWidth) + (cellWidth / 2);
+      this.doc.text(day, x, currentY + 8, { align: 'center' });
+    });
+
+    currentY += headerHeight;
+
+    // Draw calendar grid
+    this.doc.setFont('helvetica', 'normal');
+    this.doc.setFontSize(10);
+
+    let dayNum = 1;
+    for (let week = 0; week < 6; week++) {
+      for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+        const x = calendarX + (dayOfWeek * cellWidth);
+        const y = currentY;
+
+        // Draw cell border
+        this.doc.setDrawColor(200, 200, 200);
+        this.doc.rect(x, y, cellWidth, cellHeight);
+
+        // Check if this cell should have a day number
+        if ((week === 0 && dayOfWeek >= firstDay) || (week > 0 && dayNum <= daysInMonth)) {
+          if (dayNum <= daysInMonth) {
+            // Check if this day has meals in the meal plan
+            const hasMeals = mealPlan.dailyMeals[`day_${dayNum}`];
+
+            // Highlight days with meals
+            if (hasMeals) {
+              this.doc.setFillColor(220, 240, 255); // Light blue
+              this.doc.rect(x, y, cellWidth, cellHeight, 'F');
+              this.doc.rect(x, y, cellWidth, cellHeight); // Redraw border
+            }
+
+            // Draw day number
+            this.doc.setTextColor(0, 0, 0);
+            this.doc.text(dayNum.toString(), x + cellWidth / 2, y + cellHeight / 2 + 2, { align: 'center' });
+
+            dayNum++;
+          }
+        }
+      }
+      currentY += cellHeight;
+
+      if (dayNum > daysInMonth) break;
+    }
+
+    // Add legend
+    currentY += 8;
+    this.doc.setFontSize(8);
+    this.doc.setFont('helvetica', 'italic');
+    this.doc.setTextColor(100, 100, 100);
+    this.doc.text('Days with meals are highlighted', this.pageWidth / 2, currentY, { align: 'center' });
   }
 
   private formatMenuType(menuType: string): string {
