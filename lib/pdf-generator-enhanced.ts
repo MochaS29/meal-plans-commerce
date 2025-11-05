@@ -794,47 +794,89 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private generateShoppingListFromRecipes(uniqueRecipes: Map<string, {recipe: any, firstOccurrence: {day: number, meal: string}, mealPlanName: string}>): { [category: string]: string[] } {
-    const shoppingList: { [category: string]: Set<string> } = {
-      'Proteins': new Set(),
-      'Vegetables & Produce': new Set(),
-      'Pantry & Grains': new Set(),
-      'Dairy & Eggs': new Set(),
-      'Herbs & Spices': new Set(),
-      'Other': new Set()
+    // Store ingredients with quantities that can be combined
+    const shoppingList: { [category: string]: Map<string, number> } = {
+      'Proteins': new Map(),
+      'Vegetables & Produce': new Map(),
+      'Pantry & Grains': new Map(),
+      'Dairy & Eggs': new Map(),
+      'Herbs & Spices': new Map(),
+      'Other': new Map()
     };
 
-    // Categorize ingredients from all recipes
+    // Categorize and combine ingredients from all recipes
     for (const [_, {recipe}] of uniqueRecipes) {
       if (recipe.recipe_ingredients) {
         recipe.recipe_ingredients.forEach((ingredient: any) => {
           const ingredientName = ingredient.ingredient?.toLowerCase() || '';
-          const fullIngredient = `${ingredient.amount} ${ingredient.unit} ${ingredient.ingredient}`;
-          
-          // Categorize based on ingredient name
+          const amount = ingredient.amount || '';
+          const unit = ingredient.unit || '';
+
+          // Create a key for combining: "unit ingredient" (e.g., "pieces chicken thighs")
+          const key = `${unit} ${ingredient.ingredient}`.trim();
+
+          // Parse the amount (handle fractions, decimals, and numbers)
+          const quantity = this.parseQuantity(amount);
+
+          // Determine category
+          let category = 'Other';
           if (this.isProtein(ingredientName)) {
-            shoppingList['Proteins'].add(fullIngredient);
+            category = 'Proteins';
           } else if (this.isVegetableProduce(ingredientName)) {
-            shoppingList['Vegetables & Produce'].add(fullIngredient);
+            category = 'Vegetables & Produce';
           } else if (this.isPantryGrain(ingredientName)) {
-            shoppingList['Pantry & Grains'].add(fullIngredient);
+            category = 'Pantry & Grains';
           } else if (this.isDairyEgg(ingredientName)) {
-            shoppingList['Dairy & Eggs'].add(fullIngredient);
+            category = 'Dairy & Eggs';
           } else if (this.isHerbSpice(ingredientName)) {
-            shoppingList['Herbs & Spices'].add(fullIngredient);
-          } else {
-            shoppingList['Other'].add(fullIngredient);
+            category = 'Herbs & Spices';
           }
+
+          // Add or combine quantities
+          const currentQty = shoppingList[category].get(key) || 0;
+          shoppingList[category].set(key, currentQty + quantity);
         });
       }
     }
 
-    // Convert sets to arrays and sort
+    // Convert maps to formatted arrays and sort
     const result: { [category: string]: string[] } = {};
     for (const [category, items] of Object.entries(shoppingList)) {
-      result[category] = Array.from(items).sort();
+      result[category] = Array.from(items.entries())
+        .map(([key, quantity]) => {
+          // Format the quantity nicely (whole numbers or decimals)
+          const formattedQty = quantity % 1 === 0 ? quantity.toString() : quantity.toFixed(1);
+          return `${formattedQty} ${key}`;
+        })
+        .sort();
     }
 
     return result;
+  }
+
+  private parseQuantity(amount: string): number {
+    if (!amount) return 0;
+
+    // Handle fractions like "1/2", "1/4", "3/4"
+    const fractionMatch = amount.match(/^(\d+)\/(\d+)$/);
+    if (fractionMatch) {
+      return parseInt(fractionMatch[1]) / parseInt(fractionMatch[2]);
+    }
+
+    // Handle mixed numbers like "1 1/2"
+    const mixedMatch = amount.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+    if (mixedMatch) {
+      return parseInt(mixedMatch[1]) + (parseInt(mixedMatch[2]) / parseInt(mixedMatch[3]));
+    }
+
+    // Handle regular numbers (integers or decimals)
+    const numMatch = amount.match(/[\d.]+/);
+    if (numMatch) {
+      return parseFloat(numMatch[0]);
+    }
+
+    // If we can't parse it, return 1 (assume single item like "to taste")
+    return 1;
   }
 
   private isProtein(ingredient: string): boolean {
