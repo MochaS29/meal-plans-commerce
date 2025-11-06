@@ -86,20 +86,43 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private drawHeader(title: string, subtitle: string) {
-    // Add gradient-like header background
+    // Create an elegant two-tone design
+    // Top section - Teal gradient effect (simulated with overlapping rectangles)
     this.doc.setFillColor(0, 150, 136); // Teal
-    this.doc.rect(0, 0, this.pageWidth, 35, 'F');
+    this.doc.rect(0, 0, this.pageWidth, 45, 'F');
 
-    // Add title
+    // Lighter overlay for gradient effect
+    this.doc.setFillColor(20, 184, 166); // Lighter teal
+    this.doc.rect(0, 0, this.pageWidth, 30, 'F');
+    this.doc.setGState(new this.doc.GState({ opacity: 0.6 }));
+    this.doc.rect(0, 0, this.pageWidth, 20, 'F');
+    this.doc.setGState(new this.doc.GState({ opacity: 1 })); // Reset opacity
+
+    // Accent stripe - Amber
+    this.doc.setFillColor(245, 158, 11); // Amber
+    this.doc.rect(0, 45, this.pageWidth, 8, 'F');
+
+    // Add decorative elements
+    this.doc.setDrawColor(255, 255, 255);
+    this.doc.setLineWidth(0.5);
+    this.doc.line(20, 55, this.pageWidth - 20, 55);
+
+    // Add title with shadow effect
     this.doc.setTextColor(255, 255, 255);
-    this.doc.setFontSize(24);
+    this.doc.setFontSize(28);
     this.doc.setFont('helvetica', 'bold');
-    this.doc.text(title, this.pageWidth / 2, 15, { align: 'center' });
+    this.doc.text(title, this.pageWidth / 2, 22, { align: 'center' });
 
     // Add subtitle
-    this.doc.setFontSize(12);
+    this.doc.setFontSize(13);
     this.doc.setFont('helvetica', 'normal');
-    this.doc.text(subtitle, this.pageWidth / 2, 25, { align: 'center' });
+    this.doc.text(subtitle, this.pageWidth / 2, 37, { align: 'center' });
+
+    // Add tagline below the line
+    this.doc.setTextColor(100, 100, 100);
+    this.doc.setFontSize(10);
+    this.doc.setFont('helvetica', 'italic');
+    this.doc.text('Your Personalized Meal Plan with Complete Recipes', this.pageWidth / 2, 65, { align: 'center' });
 
     // Reset text color
     this.doc.setTextColor(0, 0, 0);
@@ -336,26 +359,59 @@ export class EnhancedMealPlanPDFGenerator {
   private calculateSimilarityScore(original: string, candidate: string): number {
     const originalWords = original.toLowerCase().split(/\s+/);
     const candidateWords = candidate.toLowerCase().split(/\s+/);
-    
+
     let score = 0;
-    
+
     // Award points for matching words
     for (const word of originalWords) {
       if (candidateWords.some(cWord => cWord.includes(word) || word.includes(cWord))) {
         score += 1;
       }
     }
-    
+
     // Bonus for matching key ingredients
     const keyIngredient = this.extractKeyIngredients(original);
     if (keyIngredient && candidate.toLowerCase().includes(keyIngredient)) {
       score += 2;
     }
-    
+
     return score;
   }
 
-  private addRecipeToPage(recipe: RecipeDetails, day: number, meal: string, mealPlan?: MealPlan) {
+  private async fetchImageAsBase64(url: string): Promise<string | null> {
+    try {
+      // Fetch the image
+      const response = await fetch(url);
+      if (!response.ok) {
+        console.log(`Failed to fetch image: ${response.status}`);
+        return null;
+      }
+
+      // Convert to buffer
+      const arrayBuffer = await response.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+
+      // Convert to base64
+      const base64 = buffer.toString('base64');
+
+      // Determine format from URL or response headers
+      const contentType = response.headers.get('content-type');
+      let format = 'JPEG';
+      if (contentType?.includes('png')) {
+        format = 'PNG';
+      } else if (contentType?.includes('webp')) {
+        format = 'WEBP';
+      }
+
+      // Return with data URI format
+      return `data:image/${format.toLowerCase()};base64,${base64}`;
+    } catch (error) {
+      console.error(`Error fetching image from ${url}:`, error);
+      return null;
+    }
+  }
+
+  private async addRecipeToPage(recipe: RecipeDetails, day: number, meal: string, mealPlan?: MealPlan) {
     this.addNewPageIfNeeded(80);
 
     // Recipe header
@@ -364,7 +420,7 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.setTextColor(255, 255, 255);
     this.doc.setFontSize(14);
     this.doc.setFont('helvetica', 'bold');
-    
+
     // Show where this recipe appears in the meal plan
     let occurrenceText = `Day ${day} • ${meal}`;
     if (mealPlan) {
@@ -373,7 +429,7 @@ export class EnhancedMealPlanPDFGenerator {
         occurrenceText = `Appears on: ${occurrences.map(occ => `Day ${occ.day} ${occ.meal}`).join(', ')}`;
       }
     }
-    
+
     this.doc.text(occurrenceText, this.margins.left + 5, this.currentY + 7);
     this.doc.setTextColor(0, 0, 0);
     this.currentY += 15;
@@ -384,11 +440,41 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.text(recipe.name, this.margins.left, this.currentY);
     this.currentY += 10;
 
-    // Recipe info bar
+    // Add recipe image if available
+    const imageUrl = (recipe as any).image_url;
+    if (imageUrl) {
+      try {
+        // Fetch and add image
+        const imageData = await this.fetchImageAsBase64(imageUrl);
+        if (imageData) {
+          const imgWidth = 60; // mm
+          const imgHeight = 45; // mm (4:3 ratio)
+          const imgX = this.pageWidth - this.margins.right - imgWidth;
+          const imgY = this.currentY;
+
+          // Add white background/border for image
+          this.doc.setFillColor(255, 255, 255);
+          this.doc.setDrawColor(220, 220, 220);
+          this.doc.setLineWidth(0.5);
+          this.doc.roundedRect(imgX - 2, imgY - 2, imgWidth + 4, imgHeight + 4, 2, 2, 'FD');
+
+          // Add image
+          this.doc.addImage(imageData, 'JPEG', imgX, imgY, imgWidth, imgHeight);
+
+          console.log(`✅ Added image for recipe: ${recipe.name}`);
+        }
+      } catch (error) {
+        console.log(`⚠️  Could not add image for ${recipe.name}:`, error);
+      }
+    }
+
+    // Recipe info bar (position adjusted if there's no image)
     this.doc.setFontSize(10);
     this.doc.setFont('helvetica', 'normal');
-    this.doc.text(`Prep: ${recipe.prep_time}min | Cook: ${recipe.cook_time}min | Serves: ${recipe.servings} | ${recipe.difficulty}`, this.margins.left, this.currentY);
-    this.currentY += 10;
+    const infoText = `Prep: ${recipe.prep_time}min | Cook: ${recipe.cook_time}min | Serves: ${recipe.servings} | ${recipe.difficulty}`;
+    const maxWidth = imageUrl ? this.pageWidth - 80 : this.pageWidth - 40;
+    this.doc.text(infoText, this.margins.left, this.currentY, { maxWidth });
+    this.currentY += imageUrl ? 50 : 10; // More space if image is present
 
     // Nutrition info if available
     if (recipe.recipe_nutrition?.[0]) {
@@ -549,13 +635,13 @@ export class EnhancedMealPlanPDFGenerator {
 
     // Now add each unique recipe to the PDF only once
     console.log(`Found ${uniqueRecipes.size} unique recipes out of total meal plan`);
-    
+
     let recipeCount = 0;
     for (const [uniqueKey, {recipe, firstOccurrence, mealPlanName}] of uniqueRecipes) {
       recipeCount++;
       console.log(`Adding recipe ${recipeCount}: "${recipe.name}" (from meal plan: "${mealPlanName}") - first appears on Day ${firstOccurrence.day} as ${firstOccurrence.meal}`);
-      this.addRecipeToPage(recipe, firstOccurrence.day, firstOccurrence.meal, mealPlan);
-      
+      await this.addRecipeToPage(recipe, firstOccurrence.day, firstOccurrence.meal, mealPlan);
+
       // Add page break after every 2-3 recipes to avoid overcrowding
       if (recipeCount % 2 === 0) {
         this.drawFooter(pageNum++);
