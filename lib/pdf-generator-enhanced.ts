@@ -86,17 +86,18 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private drawHeader(title: string, subtitle: string) {
-    // Create an elegant two-tone design
-    // Top section - Teal gradient effect (simulated with overlapping rectangles)
+    // Create an elegant two-tone design with gradient effect
+    // Bottom layer - Dark teal
     this.doc.setFillColor(0, 150, 136); // Teal
     this.doc.rect(0, 0, this.pageWidth, 45, 'F');
 
-    // Lighter overlay for gradient effect
-    this.doc.setFillColor(20, 184, 166); // Lighter teal
+    // Middle layer - Medium teal (simulated gradient)
+    this.doc.setFillColor(10, 167, 151); // Medium teal
     this.doc.rect(0, 0, this.pageWidth, 30, 'F');
-    this.doc.setGState(new this.doc.GState({ opacity: 0.6 }));
-    this.doc.rect(0, 0, this.pageWidth, 20, 'F');
-    this.doc.setGState(new this.doc.GState({ opacity: 1 })); // Reset opacity
+
+    // Top layer - Light teal (simulated gradient)
+    this.doc.setFillColor(20, 184, 166); // Lighter teal
+    this.doc.rect(0, 0, this.pageWidth, 15, 'F');
 
     // Accent stripe - Amber
     this.doc.setFillColor(245, 158, 11); // Amber
@@ -107,7 +108,7 @@ export class EnhancedMealPlanPDFGenerator {
     this.doc.setLineWidth(0.5);
     this.doc.line(20, 55, this.pageWidth - 20, 55);
 
-    // Add title with shadow effect
+    // Add title
     this.doc.setTextColor(255, 255, 255);
     this.doc.setFontSize(28);
     this.doc.setFont('helvetica', 'bold');
