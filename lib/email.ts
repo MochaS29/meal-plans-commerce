@@ -82,7 +82,7 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
   }
 }
 
-export function getMealPlanEmailTemplate(customerName: string, planType: string, downloadUrl: string) {
+export function getMealPlanEmailTemplate(customerName: string, planType: string, downloadUrl: string, portalUrl: string = 'https://mindfulmealplan.com/portal') {
   return `
     <!DOCTYPE html>
     <html>
@@ -95,6 +95,7 @@ export function getMealPlanEmailTemplate(customerName: string, planType: string,
           .header { background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
           .content { background: white; padding: 30px; border: 1px solid #e5e5e5; border-radius: 0 0 10px 10px; }
           .button { display: inline-block; padding: 12px 30px; background: #14b8a6; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
+          .button-secondary { display: inline-block; padding: 12px 30px; background: #f59e0b; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px 5px; }
           .features { background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0; }
           .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
         </style>
@@ -111,6 +112,8 @@ export function getMealPlanEmailTemplate(customerName: string, planType: string,
 
             <center>
               <a href="${downloadUrl}" class="button">Download Your Meal Plan</a>
+              <br>
+              <a href="${portalUrl}" class="button-secondary">Access Your Portal</a>
             </center>
 
             <div class="features">
@@ -147,7 +150,7 @@ export function getMealPlanEmailTemplate(customerName: string, planType: string,
   `
 }
 
-export function getWelcomeEmailTemplate(customerName: string, customerEmail: string, isSubscription: boolean) {
+export function getWelcomeEmailTemplate(customerName: string, customerEmail: string, isSubscription: boolean, portalUrl: string = 'https://mindfulmealplan.com/portal') {
   return `
     <!DOCTYPE html>
     <html>
@@ -160,6 +163,7 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
           .header { background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
           .content { background: white; padding: 30px; border: 1px solid #e5e5e5; border-radius: 0 0 10px 10px; }
           .info-box { background: #f0fdf4; border-left: 4px solid #14b8a6; padding: 15px; margin: 20px 0; }
+          .button { display: inline-block; padding: 12px 30px; background: #14b8a6; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
           .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
         </style>
       </head>
@@ -179,6 +183,10 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
               Plan Type: ${isSubscription ? 'Monthly Subscription' : 'One-Time Purchase'}<br>
               ${isSubscription ? 'Next Delivery: ' + new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString() : ''}
             </div>
+
+            <center>
+              <a href="${portalUrl}" class="button">Access Your Member Portal</a>
+            </center>
 
             ${isSubscription ? `
             <h3>Your Monthly Benefits:</h3>
