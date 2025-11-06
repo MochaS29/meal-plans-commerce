@@ -16,6 +16,11 @@ export function getBaseUrl() {
   if (typeof window !== 'undefined') {
     return window.location.origin
   }
+  // Prioritize custom domain for production
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL
+  }
+  // Fall back to Vercel URL for preview deployments
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`
   }
