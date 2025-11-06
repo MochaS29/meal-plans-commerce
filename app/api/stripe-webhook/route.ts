@@ -148,12 +148,12 @@ async function generateMealPlanPDF(session: Stripe.Checkout.Session, customerEma
   const dietType = session.metadata?.diet_plan || 'mediterranean' // Default to mediterranean
 
   try {
-    // Step 1: Select 30 recipes using hybrid approach (75% library + 25% new)
+    // Step 1: Select 30 recipes from library only (for fast webhook response)
     console.log(`🍽️ Selecting recipes for ${dietType} diet...`)
     const selectedRecipes = await selectRecipesForCustomer({
       dietType,
       totalRecipes: 30, // One month worth
-      newRecipesPercentage: 25 // 25% new recipes, 75% from library
+      newRecipesPercentage: 0 // Use 100% library recipes to avoid timeout
     })
 
     console.log(`✅ Selected ${selectedRecipes.length} recipes:`)
