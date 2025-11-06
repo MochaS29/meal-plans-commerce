@@ -51,12 +51,18 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
         .single()
 
       if (dietPlans) {
-        // Get random recipes from library
-        const { data: existingRecipes } = await supabase
+        // Get random recipes from library, filtered by meal types
+        let query = supabase
           .from('recipes')
           .select('*')
           .contains('diet_plans', [dietPlans.id])
-          .limit(existingRecipesCount * 2) // Get extra for variety
+
+        // Filter by meal types if specified
+        if (mealTypes && mealTypes.length > 0) {
+          query = query.in('meal_type', mealTypes)
+        }
+
+        const { data: existingRecipes } = await query.limit(existingRecipesCount * 2) // Get extra for variety
 
         if (existingRecipes && existingRecipes.length > 0) {
           // Randomly select from existing recipes
@@ -71,7 +77,7 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
             })
           })
 
-          console.log(`✅ Selected ${selected.length} recipes from library`)
+          console.log(`✅ Selected ${selected.length} recipes from library (meal types: ${mealTypes.join(', ')})`)
         }
       }
     } catch (error) {

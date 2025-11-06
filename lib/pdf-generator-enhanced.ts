@@ -634,7 +634,7 @@ export class EnhancedMealPlanPDFGenerator {
       }
     }
 
-    // Now add each unique recipe to the PDF only once
+    // Now add each unique recipe to the PDF only once (continuous layout)
     console.log(`Found ${uniqueRecipes.size} unique recipes out of total meal plan`);
 
     let recipeCount = 0;
@@ -643,13 +643,12 @@ export class EnhancedMealPlanPDFGenerator {
       console.log(`Adding recipe ${recipeCount}: "${recipe.name}" (from meal plan: "${mealPlanName}") - first appears on Day ${firstOccurrence.day} as ${firstOccurrence.meal}`);
       await this.addRecipeToPage(recipe, firstOccurrence.day, firstOccurrence.meal, mealPlan);
 
-      // Add page break after every 2-3 recipes to avoid overcrowding
-      if (recipeCount % 2 === 0) {
-        this.drawFooter(pageNum++);
-        this.doc.addPage();
-        this.currentY = this.margins.top;
-      }
+      // Add spacing between recipes instead of page breaks (continuous layout to save paper)
+      this.currentY += 10;
     }
+
+    // Add footer at the end of recipes section
+    this.drawFooter(pageNum++);
 
     // Shopping Lists Section - Generate from actual recipes
     this.doc.addPage();

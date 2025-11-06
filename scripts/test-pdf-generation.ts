@@ -26,11 +26,18 @@ async function testPDFGeneration() {
   console.log('🧪 Testing PDF Generation System\n');
 
   try {
-    // Fetch 30 sample recipes from the database
-    console.log('📚 Fetching sample recipes from database...');
+    // Fetch 30 sample DINNER recipes from the database with all details
+    console.log('📚 Fetching sample dinner recipes from database...');
     const { data: recipes, error } = await supabase
       .from('recipes')
-      .select('*')
+      .select(`
+        *,
+        recipe_ingredients (*),
+        recipe_instructions (*),
+        recipe_nutrition (*)
+      `)
+      .eq('meal_type', 'dinner') // Only dinner recipes (not snacks)
+      .not('image_url', 'is', null) // Only recipes with images
       .limit(30);
 
     if (error) {
@@ -38,7 +45,8 @@ async function testPDFGeneration() {
       process.exit(1);
     }
 
-    console.log(`✅ Fetched ${recipes!.length} recipes\n`);
+    console.log(`✅ Fetched ${recipes!.length} dinner recipes`);
+    console.log(`📸 Recipes with images: ${recipes!.filter(r => r.image_url).length}\n`);
 
     // Generate PDF
     console.log('🎨 Generating PDF...');
