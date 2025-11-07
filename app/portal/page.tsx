@@ -1,9 +1,17 @@
 'use client'
 
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
 
 export default function PortalPage() {
+  const router = useRouter()
+
+  useEffect(() => {
+    // Redirect to login page
+    router.push('/login')
+  }, [router])
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/20 to-white">
       <div className="bg-white shadow-sm">
