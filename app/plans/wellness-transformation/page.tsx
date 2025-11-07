@@ -21,43 +21,9 @@ export default function WellnessTransformationPage() {
     { id: 'family', name: 'Family Recipes', description: 'Kid-friendly, crowd-pleasing meals' }
   ]
 
-  const handleCheckout = async () => {
-    try {
-      setLoading(true)
-
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productId: 'wellness-transformation',
-          dietPlan: selectedDiet,
-          customizations: {}
-        })
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to create checkout session')
-      }
-
-      const { sessionId } = await response.json()
-      const stripe = await stripePromise
-
-      if (!stripe) {
-        throw new Error('Stripe failed to load')
-      }
-
-      const { error } = await stripe.redirectToCheckout({ sessionId })
-
-      if (error) {
-        throw error
-      }
-    } catch (error) {
-      console.error('Checkout error:', error)
-      alert('Something went wrong. Please try again or contact support.')
-    } finally {
-      setLoading(false)
-    }
+  const handleGetStarted = () => {
+    // Redirect to unified customization page
+    window.location.href = '/plans/customize'
   }
 
   return (
@@ -171,22 +137,46 @@ export default function WellnessTransformationPage() {
             </div>
           </div>
 
-          {/* CTA */}
+          {/* CTA - Dual Pricing Options */}
           <div className="text-center">
-            <div className="mb-4">
-              <span className="text-5xl font-bold text-teal-600">$79</span>
-              <span className="text-gray-600 ml-2">one-time payment</span>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Choose Your Plan</h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-6">
+              {/* One-Time Purchase */}
+              <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 border-2 border-teal-200">
+                <div className="text-sm font-semibold text-teal-700 mb-2">ONE-TIME</div>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-teal-600">$59</span>
+                  <span className="text-gray-600 ml-2">one month</span>
+                </div>
+                <button
+                  onClick={handleGetStarted}
+                  className="w-full bg-gradient-to-r from-teal-600 to-amber-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
+                >
+                  Get One Month
+                </button>
+                <p className="text-xs text-gray-600 mt-3">Perfect for trying it out</p>
+              </div>
+
+              {/* Monthly Subscription */}
+              <div className="bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-6 border-2 border-amber-300 relative">
+                <div className="absolute -top-3 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  SAVE 50%
+                </div>
+                <div className="text-sm font-semibold text-amber-700 mb-2">SUBSCRIPTION</div>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-amber-600">$29</span>
+                  <span className="text-gray-600 ml-2">/month</span>
+                </div>
+                <button
+                  onClick={handleGetStarted}
+                  className="w-full bg-gradient-to-r from-amber-600 to-teal-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
+                >
+                  Subscribe Monthly
+                </button>
+                <p className="text-xs text-gray-600 mt-3">Cancel anytime • New plan on 1st</p>
+              </div>
             </div>
-            <button
-              onClick={handleCheckout}
-              disabled={loading}
-              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full font-bold text-lg hover:shadow-xl transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Processing...' : (
-                <>Start Your Transformation <ArrowRight className="inline w-5 h-5 ml-2" /></>
-              )}
-            </button>
-            <p className="text-sm text-gray-600 mt-4">Instant download • 30-day money-back guarantee</p>
+            <p className="text-sm text-gray-600">Delivered in 2-4 hours • 30-day money-back guarantee</p>
           </div>
         </motion.div>
 

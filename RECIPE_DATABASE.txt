@@ -1,13 +1,13 @@
 # MEAL PLANS RECIPE DATABASE
-Generated: 2025-10-14, 12:58:38 p.m.
+Generated: 2025-11-04, 2:30:16 p.m.
 Total Recipes: 851
 
 ================================================================================
 
 ## SUMMARY
 
-Recipes with images: 591
-Recipes without images: 260
+Recipes with images: 851
+Recipes without images: 0
 
 ================================================================================
 
@@ -19,7 +19,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan stew featuring tender lamb, aromatic spices, and a medley of roasted seasonal vegetables. Served over fluffy couscous, this authentic dish transports you to the vibrant souks of Marrakech.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 430 cal, 30g protein, 45g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8eff0770-c31a-4e12-8f9d-656bea26753a/moroccan-lamb-tagine-with-roasted-vegetables-1760555996729.png
    Created: 2025-10-14, 6:55:11 p.m.
 
 --------------------------------------------------------------------------------
@@ -28,7 +29,8 @@ Recipes without images: 260
    Description: A vibrant and flavorful Peruvian-inspired lunch bowl featuring quinoa, roasted seasonal vegetables, and a zesty chimichurri sauce.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/18dce8e0-faa7-4fa8-aa62-dc9107d5e270/peruvian-quinoa-and-roasted-vegetable-bowl-1760555989929.png
    Created: 2025-10-14, 6:55:10 p.m.
 
 --------------------------------------------------------------------------------
@@ -37,7 +39,8 @@ Recipes without images: 260
    Description: A flavorful and nutritious snack inspired by the vibrant spices of Moroccan cuisine. Roasted chickpeas seasoned with harissa paste, cumin, and warming spices make for a satisfying and authentic treat.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 10g protein, 30g carbs, 9g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/836b8694-c0fe-473f-b770-b5238ef0b8b7/moroccan-harissa-roasted-chickpea-snack-1760555982777.png
    Created: 2025-10-14, 6:55:10 p.m.
 
 --------------------------------------------------------------------------------
@@ -46,7 +49,8 @@ Recipes without images: 260
    Description: A hearty and authentic Moroccan breakfast soup made with lentils, vegetables, and traditional spices, topped with poached eggs for a protein-packed start to the day.
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 360 cal, 25g protein, 45g carbs, 30g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/602d274d-2c82-4665-9845-942d08eb5064/moroccan-harira-lentil-soup-with-poached-eggs-1760555975788.png
    Created: 2025-10-14, 6:55:09 p.m.
 
 --------------------------------------------------------------------------------
@@ -55,7 +59,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan beef tagine, featuring tender beef, aromatic spices, and seasonal vegetables. This authentic dish is a delightful exploration of Moroccan cuisine.
    Prep: 25m | Cook: 40m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 28g protein, 35g carbs, 18g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a948888e-a329-4d57-8892-345bc654bf0a/moroccan-beef-tagine-1760555968776.png
    Created: 2025-10-14, 6:55:06 p.m.
 
 --------------------------------------------------------------------------------
@@ -64,7 +69,8 @@ Recipes without images: 260
    Description: A fragrant and authentic Moroccan tagine featuring tender chicken, warm spices, and seasonal vegetables simmered in a flavorful broth.
    Prep: 20m | Cook: 40m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 28g protein, 28g carbs, 17g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/1f1e2dd2-c3c7-41b7-8921-3c0b44c6e5a6/moroccan-spiced-chicken-tagine-1760555962134.png
    Created: 2025-10-14, 6:55:04 p.m.
 
 --------------------------------------------------------------------------------
@@ -73,7 +79,8 @@ Recipes without images: 260
    Description: A vibrant and flavorful Moroccan-inspired chickpea dip, perfect as a snack or appetizer. Featuring aromatic spices, fresh herbs, and a touch of tangy lemon.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 6g protein, 18g carbs, 7g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/58ac3ff7-533e-4d15-b850-4b00a7bd6f92/moroccan-spiced-chickpea-dip-1760555955256.png
    Created: 2025-10-14, 6:51:57 p.m.
 
 --------------------------------------------------------------------------------
@@ -82,7 +89,8 @@ Recipes without images: 260
    Description: Start your day with this aromatic and nutritious Moroccan-style breakfast couscous, featuring seasonal fall produce and traditional spices.
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e7cb152c-6605-4989-a7b2-2bf76cf5a993/moroccan-breakfast-couscous-1760555948266.png
    Created: 2025-10-14, 6:51:56 p.m.
 
 --------------------------------------------------------------------------------
@@ -91,7 +99,8 @@ Recipes without images: 260
    Description: A fragrant and authentic Moroccan tagine featuring chicken, seasonal root vegetables, and a blend of warm spices. Served over fluffy couscous for a nourishing and culturally-immersive dinner.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 450 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/bde268fd-5c4c-44b3-8125-09920a9c78b8/moroccan-tagine-with-chicken-and-seasonal-vegetables-1760555941434.png
    Created: 2025-10-14, 6:51:55 p.m.
 
 --------------------------------------------------------------------------------
@@ -100,7 +109,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful breakfast dish from the Horn of Africa, featuring lentils, spices, and traditional Ethiopian injera bread.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8ba38da7-1a7c-446e-b501-3bc781f947f9/ethiopian-spiced-lentil-scramble-1760555912691.png
    Created: 2025-10-14, 6:51:54 p.m.
 
 --------------------------------------------------------------------------------
@@ -109,7 +119,8 @@ Recipes without images: 260
    Description: A flavorful and nutritious snack inspired by the vibrant spices of Moroccan cuisine. These roasted pumpkin seeds are seasoned with a blend of warm spices, lemon, and honey for a perfect balance of sweet, savory, and tangy.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 11g protein, 18g carbs, 18g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/707d565c-0f79-40fd-97fa-19c0977713d7/moroccan-spiced-pumpkin-seeds-1760555934330.png
    Created: 2025-10-14, 6:51:54 p.m.
 
 --------------------------------------------------------------------------------
@@ -118,7 +129,8 @@ Recipes without images: 260
    Description: A crunchy, flavorful snack inspired by the vibrant spices and roasting techniques of Egyptian cuisine.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 210 cal, 9g protein, 27g carbs, 9g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/98841625-8379-447b-89c8-543619d3000f/egyptian-roasted-chickpea-snack-1760555927161.png
    Created: 2025-10-14, 6:51:52 p.m.
 
 --------------------------------------------------------------------------------
@@ -127,7 +139,8 @@ Recipes without images: 260
    Description: A hearty and flavorful Moroccan breakfast soup made with lentils, chickpeas, and warm spices for a nourishing start to the day.
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b3544838-0b9e-41df-af48-a2c9dcef6ea4/moroccan-harira-breakfast-soup-1760555919866.png
    Created: 2025-10-14, 6:51:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -136,7 +149,8 @@ Recipes without images: 260
    Description: Roasted pumpkin seeds infused with warm Moroccan spices like cumin, coriander, and cinnamon. A flavorful and nutritious snack that celebrates the flavors of North Africa.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 185 cal, 8g protein, 9g carbs, 14g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/fc6806f4-80ef-4771-89e7-d5f73c30f4ef/moroccan-spiced-pumpkin-seeds-snack-1760555905689.png
    Created: 2025-10-14, 6:51:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -145,7 +159,8 @@ Recipes without images: 260
    Description: A traditional Moroccan breakfast dish featuring a fragrant blend of spices, vegetables, and eggs simmered in a flavorful tomato-based sauce.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/bb27ecb9-fd23-4092-85d9-196e76638f97/moroccan-breakfast-tagine-1760555898467.png
    Created: 2025-10-14, 6:51:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -154,7 +169,8 @@ Recipes without images: 260
    Description: These nutrient-dense pumpkin seed protein bites are the perfect snack for breaking your intermittent fasting window. They're packed with healthy fats, fiber, and protein to keep you feeling full and satisfied.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 10g protein, 14g carbs, 16g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/3e22a2d5-eec4-48e2-a7d7-e2c44b50c8ff/autumn-pumpkin-seed-protein-bites-1760555891404.png
    Created: 2025-10-14, 6:49:51 p.m.
 
 --------------------------------------------------------------------------------
@@ -163,7 +179,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety breakfast to break your intermittent fasting window. This warm, comforting oatmeal is packed with protein, healthy fats, and seasonal produce to keep you feeling full and energized.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 12g protein, 33g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0bd42b4c-1344-41e8-98a8-4daf7607edc9/autumn-protein-packed-oatmeal-bowl-1760555884348.png
    Created: 2025-10-14, 6:49:49 p.m.
 
 --------------------------------------------------------------------------------
@@ -172,7 +189,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein snack perfect for breaking your intermittent fasting window. This hearty bowl features seasonal fall ingredients to keep you full and satisfied.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/01b0863b-a668-44c4-8f04-146f1d658707/autumn-quinoa-protein-bowl-1760555863200.png
    Created: 2025-10-14, 6:49:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -181,7 +199,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch perfect for breaking your intermittent fast. This autumnal lentil salad is packed with protein, fiber, and healthy fats to keep you full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 15g protein, 30g carbs, 18g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2138bf8e-ecbe-41ff-8f2b-0398f38097ec/protein-packed-autumn-lentil-salad-1760555877188.png
    Created: 2025-10-14, 6:49:46 p.m.
 
 --------------------------------------------------------------------------------
@@ -190,7 +209,8 @@ Recipes without images: 260
    Description: These nutrient-dense Autumn Apple Pecan Protein Bites are the perfect high-satiety snack to break your intermittent fasting window. Made with wholesome ingredients like apples, pecans, and protein powder, they'll keep you feeling full and fueled for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 8g protein, 15g carbs, 12g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/aecd4da4-a852-40e2-8060-6dec07c50e93/autumn-apple-pecan-protein-bites-1760555870183.png
    Created: 2025-10-14, 6:49:45 p.m.
 
 --------------------------------------------------------------------------------
@@ -199,7 +219,8 @@ Recipes without images: 260
    Description: This nutrient-dense, protein-packed bowl is the perfect meal to break your intermittent fast. It features roasted fall vegetables, hearty quinoa, and a creamy avocado dressing to keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 390 cal, 35g protein, 30g carbs, 16g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/74d32876-1952-4a9f-aef6-17be1890f9c1/satiating-autumn-harvest-bowl-breaking-fast-1760555856244.png
    Created: 2025-10-14, 6:49:44 p.m.
 
 --------------------------------------------------------------------------------
@@ -208,7 +229,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-rich pudding made with pumpkin, almond milk, and toasted pumpkin seeds to keep you full and satisfied during your intermittent fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 170 cal, 14g protein, 15g carbs, 9g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e15dee93-2686-42ff-99a7-50d51b9891b5/autumn-pumpkin-protein-pudding-breaking-fast-1760555849213.png
    Created: 2025-10-14, 6:49:43 p.m.
 
 --------------------------------------------------------------------------------
@@ -217,7 +239,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety snack perfect for breaking your intermittent fasting window. Packed with protein, healthy fats, and fall-inspired flavors to keep you full and energized.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 9g protein, 13g carbs, 16g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8c0cac88-c44a-427f-a6b7-992881b04373/autumn-spiced-pumpkin-seeds-1760555842378.png
    Created: 2025-10-14, 6:49:42 p.m.
 
 --------------------------------------------------------------------------------
@@ -226,7 +249,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein stir-fry featuring fall vegetables and lean chicken. Designed to keep you full and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 340 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/54f134f7-09a9-4f90-9a06-d380c2100670/protein-packed-autumn-stir-fry-breaking-fast-1760555835420.png
    Created: 2025-10-14, 6:49:41 p.m.
 
 --------------------------------------------------------------------------------
@@ -235,7 +259,8 @@ Recipes without images: 260
    Description: Authentic Moroccan vegetable stew with fragrant spices, tender vegetables, and a flavorful broth. Served over aromatic saffron-infused couscous.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 10g protein, 45g carbs, 10g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f47017a4-e1e3-41c8-ae9f-f6adce2382ac/moroccan-spiced-vegetable-tagine-1760555793838.png
    Created: 2025-10-14, 6:48:08 p.m.
 
 --------------------------------------------------------------------------------
@@ -244,7 +269,8 @@ Recipes without images: 260
    Description: Authentic Moroccan-style roasted pumpkin seeds bursting with warm spices and a touch of sweetness. A nourishing global-inspired snack.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 190 cal, 9g protein, 12g carbs, 14g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/110bd64d-b2ac-4487-9fd7-8177373fd84c/moroccan-spiced-roasted-pumpkin-seeds-1760555828626.png
    Created: 2025-10-14, 6:48:06 p.m.
 
 --------------------------------------------------------------------------------
@@ -253,7 +279,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan-inspired tagine featuring tender chickpeas and sweet potatoes simmered in a rich tomato-based sauce with aromatic spices.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 300 cal, 10g protein, 45g carbs, 8g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d8eceab7-1c12-40f7-9b65-96796b2188f0/moroccan-chickpea-and-sweet-potato-tagine-1760555814634.png
    Created: 2025-10-14, 6:48:05 p.m.
 
 --------------------------------------------------------------------------------
@@ -262,7 +289,8 @@ Recipes without images: 260
    Description: A traditional Turkish breakfast dish of scrambled eggs with tomatoes, peppers, and aromatic spices. This savory and flavorful meal is a delightful way to start the day.
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 25g protein, 15g carbs, 14g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/af50732a-b93b-42ec-88ff-1321f11985ff/turkish-menemen-1760555821615.png
    Created: 2025-10-14, 6:48:04 p.m.
 
 --------------------------------------------------------------------------------
@@ -271,7 +299,8 @@ Recipes without images: 260
    Description: A traditional Turkish breakfast dish of scrambled eggs cooked in a flavorful tomato, onion, and pepper sauce, seasoned with authentic spices.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0c7a4654-f912-40bf-afbf-40d72038d3c4/turkish-menemen-eggs-in-tomato-sauce-1760555807831.png
    Created: 2025-10-14, 6:48:03 p.m.
 
 --------------------------------------------------------------------------------
@@ -280,7 +309,8 @@ Recipes without images: 260
    Description: A fragrant and authentic Moroccan stew featuring tender lamb, aromatic spices, and seasonal root vegetables.
    Prep: 20m | Cook: 40m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/98bd5caa-0257-450c-aebb-cfebd27bc845/moroccan-lamb-tagine-1760555800860.png
    Created: 2025-10-14, 6:48:02 p.m.
 
 --------------------------------------------------------------------------------
@@ -289,7 +319,8 @@ Recipes without images: 260
    Description: A vibrant and authentic Middle Eastern snack featuring homemade hummus, warm pita bread, and a selection of fresh seasonal vegetables and herbs.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 10g protein, 45g carbs, 12g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e29334d3-8a09-4dd3-9ba9-3be95523dca5/middle-eastern-hummus-platter-1760555786545.png
    Created: 2025-10-14, 6:48:00 p.m.
 
 --------------------------------------------------------------------------------
@@ -298,7 +329,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan stew simmered with tender lamb, aromatic spices, and seasonal vegetables, served over fluffy couscous.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 420 cal, 25g protein, 45g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e9d68a67-6055-4aca-877f-5f8a0b1d3b54/moroccan-lamb-tagine-with-couscous-1760555779196.png
    Created: 2025-10-14, 6:47:59 p.m.
 
 --------------------------------------------------------------------------------
@@ -307,7 +339,8 @@ Recipes without images: 260
    Description: A creamy, nutrient-dense pumpkin smoothie bowl topped with crunchy granola and fresh fruit - a fun and healthy fall snack the whole family will love!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 300 cal, 12g protein, 45g carbs, 10g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/99102e37-7335-45e3-83f6-5552c8276c37/pumpkin-pie-smoothie-bowl-1760555772042.png
    Created: 2025-10-14, 6:46:06 p.m.
 
 --------------------------------------------------------------------------------
@@ -316,7 +349,8 @@ Recipes without images: 260
    Description: Delicious and nutritious baked sweet potato fries paired with crispy parmesan-crusted chicken bites - a kid-friendly lunch that sneaks in veggies!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/9527ec3a-3b34-4682-829e-e51049addf3f/baked-sweet-potato-fries-with-parmesan-chicken-bites-1760555680372.png
    Created: 2025-10-14, 6:46:05 p.m.
 
 --------------------------------------------------------------------------------
@@ -325,7 +359,8 @@ Recipes without images: 260
    Description: Crispy, cheesy chicken bites that kids love! Packed with hidden veggies for a wholesome family dinner.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 340 cal, 30g protein, 30g carbs, 13g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/98ee4982-b0dc-48d1-aa1b-7f143d11160d/baked-chicken-parmesan-bites-1760555673305.png
    Created: 2025-10-14, 6:46:04 p.m.
 
 --------------------------------------------------------------------------------
@@ -334,7 +369,8 @@ Recipes without images: 260
    Description: Delicious fall-inspired snack that kids love! Baked apple slices with a cinnamon-sugar coating, perfect for a healthy treat.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 1g protein, 22g carbs, 7g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7f3ff27d-9052-4d21-a089-67bf63e99445/baked-apple-cinnamon-bites-1760555666279.png
    Created: 2025-10-14, 6:46:03 p.m.
 
 --------------------------------------------------------------------------------
@@ -343,7 +379,8 @@ Recipes without images: 260
    Description: A delicious and easy-to-make pasta bake that's packed with hidden veggies and kid-approved flavors. Perfect for busy families!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 35g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4e66609d-7776-4a7a-b556-2680c03fd79d/creamy-chicken-and-veggie-pasta-bake-1760555743145.png
    Created: 2025-10-14, 6:46:02 p.m.
 
 --------------------------------------------------------------------------------
@@ -352,7 +389,8 @@ Recipes without images: 260
    Description: Delicious fall-themed apple bites filled with creamy peanut butter and crunchy granola, perfect for a healthy snack that kids will love!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 225 cal, 7g protein, 27g carbs, 12g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4a34263f-f570-41dd-a3ff-edc044df5c13/autumn-apple-bites-1760555729012.png
    Created: 2025-10-14, 6:46:01 p.m.
 
 --------------------------------------------------------------------------------
@@ -361,7 +399,8 @@ Recipes without images: 260
    Description: Crispy, cheesy quesadillas packed with hidden veggies - a kid-friendly lunch that's easy for busy parents!
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/3e04c7ee-7643-4832-947c-6860ac1c2e58/cheesy-veggie-quesadillas-1760555764976.png
    Created: 2025-10-14, 6:46:00 p.m.
 
 --------------------------------------------------------------------------------
@@ -370,7 +409,8 @@ Recipes without images: 260
    Description: Tender, crunchy chicken tenders baked to perfection and served with a colorful array of roasted fall vegetables - a kid-approved dinner the whole family will love!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 25g protein, 45g carbs, 30g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/16c94bd3-128d-42b3-a720-3a4a61bbd3ee/cheesy-baked-chicken-tenders-with-rainbow-roasted-veggies-1760555757577.png
    Created: 2025-10-14, 6:45:59 p.m.
 
 --------------------------------------------------------------------------------
@@ -379,7 +419,8 @@ Recipes without images: 260
    Description: A fun, cheesy pasta bake with hidden veggies that kids will love! Baked in a hollowed-out pumpkin for a festive fall twist.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 475 cal, 35g protein, 45g carbs, 20g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c12eaf2b-7329-42d7-bc8c-57283dfb2921/cheesy-stuffed-pumpkin-pasta-bake-1760555721902.png
    Created: 2025-10-14, 6:45:58 p.m.
 
 --------------------------------------------------------------------------------
@@ -388,7 +429,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed smoothie to break your fast. Filled with healthy fats, fiber, and fall flavors to keep you feeling full and satisfied.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/3d5e7ce6-637c-47be-9b9a-27786a39510f/autumn-pumpkin-spice-smoothie-1760555715017.png
    Created: 2025-10-14, 6:45:56 p.m.
 
 --------------------------------------------------------------------------------
@@ -397,7 +439,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein meal perfect for breaking your intermittent fasting window. This Autumn Harvest Bowl is loaded with seasonal veggies, healthy fats, and a balance of macros to keep you feeling full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 370 cal, 13g protein, 41g carbs, 17g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/53b2515a-1351-4eea-83a6-18b8fe42e031/satiating-autumn-harvest-bowl-1760555750236.png
    Created: 2025-10-14, 6:45:55 p.m.
 
 --------------------------------------------------------------------------------
@@ -406,7 +449,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-fiber lunch that will keep you feeling full and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 15g protein, 30g carbs, 15g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a74c361b-97b4-401c-8fe8-1c9617891f59/autumn-harvest-lentil-and-quinoa-salad-1760555708217.png
    Created: 2025-10-14, 6:45:54 p.m.
 
 --------------------------------------------------------------------------------
@@ -415,7 +459,8 @@ Recipes without images: 260
    Description: A nourishing and satisfying quinoa bowl filled with seasonal fall produce, protein-rich eggs, and healthy fats to keep you full and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0daf15cb-41b2-4bc9-9219-ee3a78340cd1/autumn-harvest-quinoa-bowl-breaking-fast-1760555659140.png
    Created: 2025-10-14, 6:45:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -424,7 +469,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety lunch is perfect for breaking your intermittent fasting window. The combination of roasted fall veggies, lean protein, and healthy fats will keep you feeling full and energized all afternoon.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 375 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6c010d56-1c2f-4bfa-91cd-0ba37f787dc2/autumn-protein-packed-harvest-bowl-1760555651977.png
    Created: 2025-10-14, 6:45:52 p.m.
 
 --------------------------------------------------------------------------------
@@ -433,7 +479,8 @@ Recipes without images: 260
    Description: A satisfying, nutrient-dense snack bowl to break your intermittent fasting window. This recipe features seasonal fall ingredients like roasted butternut squash, crunchy pecans, and protein-rich Greek yogurt to keep you full and fueled.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 12g protein, 27g carbs, 11g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e7cd2d7c-872f-45b7-87bc-5c66b5760fd1/autumn-harvest-protein-snack-bowl-1760555736134.png
    Created: 2025-10-14, 6:45:51 p.m.
 
 --------------------------------------------------------------------------------
@@ -442,7 +489,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-fiber salad is perfect for breaking your intermittent fasting window. The combination of protein-rich lentils, healthy fats from avocado, and fiber-filled vegetables will keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 15g protein, 30g carbs, 15g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ebf304bc-e318-470f-86d0-2204b6523a49/hearty-autumn-lentil-and-vegetable-salad-1760555701259.png
    Created: 2025-10-14, 6:45:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -451,7 +499,8 @@ Recipes without images: 260
    Description: A hearty, nutrient-dense meal that will keep you full and energized during your intermittent fasting eating window. This protein-packed bowl combines lentils, sweet potatoes, and healthy fats to support stable blood sugar and maximize nutrition.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 18g protein, 45g carbs, 12g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/47260371-6572-4036-acd6-3560e1f7ad42/autumn-lentil-and-sweet-potato-protein-bowl-breaking-fast-1760555694086.png
    Created: 2025-10-14, 6:45:49 p.m.
 
 --------------------------------------------------------------------------------
@@ -460,7 +509,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch that's perfect for breaking your intermittent fasting window. This autumn-inspired Buddha bowl is loaded with roasted fall veggies, hearty quinoa, and a creamy avocado dressing to keep you full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 345 cal, 12g protein, 30g carbs, 19g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b06153fc-ec35-40cd-8682-0789a9e8a1c7/autumn-protein-packed-buddha-bowl-1760555687326.png
    Created: 2025-10-14, 6:45:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -469,7 +519,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein snack that will keep you full and satisfied during your intermittent fasting eating window. Packed with seasonal pumpkin seeds, healthy fats, and balanced macros.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 12g protein, 11g carbs, 22g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/34e1262f-2ec4-4e88-ab33-0e7787b848ba/autumn-protein-packed-pumpkin-seed-snack-1760555644914.png
    Created: 2025-10-14, 6:45:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -478,7 +529,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed breakfast bowl to break your fast and keep you full for hours. Featuring seasonal fall flavors and a balance of complex carbs, healthy fats, and satiating protein.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 325 cal, 12g protein, 32g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/3ae96b07-5d24-4e9b-92a9-f3a1fa8a12fc/autumn-spiced-quinoa-bowl-1760555636812.png
    Created: 2025-10-14, 6:45:46 p.m.
 
 --------------------------------------------------------------------------------
@@ -487,7 +539,8 @@ Recipes without images: 260
    Description: A savory and fragrant Moroccan-inspired chickpea dip, made with traditional spices and herbs. Serve with pita bread or vegetable crudités for a healthy global-inspired snack.
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 7g protein, 22g carbs, 8g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/35d2bb00-e7bb-45d5-b486-bb53d7ccc0da/moroccan-harira-chickpea-dip-1760555572052.png
    Created: 2025-10-14, 6:41:57 p.m.
 
 --------------------------------------------------------------------------------
@@ -496,7 +549,8 @@ Recipes without images: 260
    Description: A fragrant and nourishing Moroccan-style lentil stew, simmered with aromatic spices, vegetables, and herbs. Served over fluffy couscous for a wholesome and authentic lunch.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e4cb3b83-e552-42c1-8098-b330bdeeacbb/moroccan-lentil-tagine-1760555495748.png
    Created: 2025-10-14, 6:41:56 p.m.
 
 --------------------------------------------------------------------------------
@@ -505,7 +559,8 @@ Recipes without images: 260
    Description: Menemen is a traditional Turkish breakfast dish of scrambled eggs with tomatoes, peppers, and onions. This authentic recipe features the vibrant flavors of the Mediterranean region.
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 25g protein, 45g carbs, 30g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/9a0aa1f1-e834-4637-9d8f-4f13db3a2100/turkish-menemen-savory-eggs-with-peppers-and-tomatoes-1760555600751.png
    Created: 2025-10-14, 6:41:55 p.m.
 
 --------------------------------------------------------------------------------
@@ -514,7 +569,8 @@ Recipes without images: 260
    Description: Authentic Moroccan-style hummus made with chickpeas, harissa, and warm spices. Served with crunchy pita chips for a satisfying snack.
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 9g protein, 35g carbs, 12g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/fa9208bd-03eb-4b09-a758-03141f4a69d6/moroccan-chickpea-hummus-1760555488925.png
    Created: 2025-10-14, 6:41:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -523,7 +579,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan-inspired tagine featuring chickpeas, seasonal vegetables, and aromatic spices. Served over fluffy couscous, this dish showcases the vibrant tastes of North Africa.
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7aa525a4-8a7d-4738-838c-7ff851f78b81/moroccan-chickpea-and-vegetable-tagine-1760555406101.png
    Created: 2025-10-14, 6:41:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -532,7 +589,8 @@ Recipes without images: 260
    Description: A hearty and flavorful Moroccan-inspired breakfast featuring lentils, eggs, and traditional spices. This dish is packed with protein and nutrients to fuel your day.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f5282283-ca27-43a4-877d-f9000ad16f7a/moroccan-spiced-lentil-and-egg-breakfast-1760555564953.png
    Created: 2025-10-14, 6:41:52 p.m.
 
 --------------------------------------------------------------------------------
@@ -541,7 +599,8 @@ Recipes without images: 260
    Description: Authentic Moroccan-style chickpea snacks packed with aromatic spices and roasted to perfection. A nutritious and flavorful global-inspired treat.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 250 cal, 10g protein, 35g carbs, 10g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5cf076f4-3aa5-47fb-bb04-30f0c7736e89/moroccan-spiced-chickpea-snacks-1760555482268.png
    Created: 2025-10-14, 6:41:51 p.m.
 
 --------------------------------------------------------------------------------
@@ -550,7 +609,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan-style beef stew, slow-cooked with traditional spices and served over fluffy couscous.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 425 cal, 25g protein, 45g carbs, 30g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/9f8f0106-2834-4f50-912c-b6614d1d825f/moroccan-beef-tagine-with-couscous-1760555593402.png
    Created: 2025-10-14, 6:41:51 p.m.
 
 --------------------------------------------------------------------------------
@@ -559,7 +619,8 @@ Recipes without images: 260
    Description: Authentic Moroccan chicken stew with aromatic spices, vegetables, and preserved lemon. Served over fluffy couscous.
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 450 cal, 35g protein, 45g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/993b1c4f-da57-49c0-b42b-909665e6ec20/moroccan-chicken-tagine-1760555629579.png
    Created: 2025-10-14, 6:41:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -568,7 +629,8 @@ Recipes without images: 260
    Description: A delicious and healthy global-inspired snack featuring roasted chickpeas seasoned with authentic Moroccan spices like cumin, paprika, and cinnamon.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 190 cal, 9g protein, 22g carbs, 9g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8ca13a89-1958-4d42-bad0-abb680311f58/moroccan-spiced-roasted-chickpea-snack-1760555475445.png
    Created: 2025-10-14, 6:41:49 p.m.
 
 --------------------------------------------------------------------------------
@@ -577,7 +639,8 @@ Recipes without images: 260
    Description: Flavorful Moroccan-inspired chickpea bites made with authentic spices and herbs, perfect for a healthy global-cuisine snack.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 160 cal, 7g protein, 22g carbs, 6g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/10d4a7d6-0f10-4ef6-b5f8-09c30300e61a/moroccan-spiced-chickpea-bites-1760555622445.png
    Created: 2025-10-14, 6:41:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -586,7 +649,8 @@ Recipes without images: 260
    Description: A fragrant and flavorful Moroccan dish featuring tender chicken, aromatic spices, and fluffy couscous. This authentic recipe transports you to the vibrant markets of Marrakech.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 415 cal, 25g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5bd6e06f-9b80-44bb-91f5-33c596565484/moroccan-chicken-tagine-with-couscous-1760555399070.png
    Created: 2025-10-14, 6:41:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -595,7 +659,8 @@ Recipes without images: 260
    Description: A flavorful and authentic Moroccan vegetable tagine made with seasonal fall produce, aromatic spices, and traditional cooking methods.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 290 cal, 10g protein, 45g carbs, 8g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/801a6fd2-1e33-416c-a0aa-f5e2c43c97bb/moroccan-vegetable-tagine-1760555557927.png
    Created: 2025-10-14, 6:41:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -604,7 +669,8 @@ Recipes without images: 260
    Description: A traditional Moroccan breakfast dish of poached eggs simmered in a flavorful tomato and spice sauce, served with warm pita bread.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 330 cal, 18g protein, 35g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/45087356-c65e-47e2-8450-7226ceccc63d/moroccan-shakshuka-1760555468804.png
    Created: 2025-10-14, 6:41:46 p.m.
 
 --------------------------------------------------------------------------------
@@ -613,7 +679,8 @@ Recipes without images: 260
    Description: A fun and easy lunch that kids will love! Whole wheat tortillas are filled with a creamy cheese spread, shredded veggies, and rolled up for a delicious and nutritious meal.
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 15g protein, 40g carbs, 12g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2831c696-50a7-4b96-9b43-22fa785fe27d/cheesy-veggie-tortilla-roll-ups-1760555462178.png
    Created: 2025-10-14, 6:41:22 p.m.
 
 --------------------------------------------------------------------------------
@@ -622,7 +689,8 @@ Recipes without images: 260
    Description: Delicious pumpkin boats stuffed with a creamy, cheesy filling and hidden veggies - a fun and nutritious dinner the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 360 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4b62932e-0ba5-4df2-bd88-87013c34c79c/cheesy-stuffed-pumpkin-boats-1760555455027.png
    Created: 2025-10-14, 6:41:21 p.m.
 
 --------------------------------------------------------------------------------
@@ -631,7 +699,8 @@ Recipes without images: 260
    Description: Fluffy pumpkin pancake bites packed with hidden veggies and warm spices. A perfect fall breakfast kids will love!
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 8g protein, 33g carbs, 7g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5590745c-5780-427b-a68c-5c00fd6ede39/pumpkin-pie-pancake-bites-1760555586404.png
    Created: 2025-10-14, 6:41:20 p.m.
 
 --------------------------------------------------------------------------------
@@ -640,7 +709,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly snack bites packed with wholesome ingredients and hidden veggies!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 3g protein, 27g carbs, 4g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a058361e-ef9f-416d-b31f-ad5874a02e40/pumpkin-spice-oat-bites-1760555615004.png
    Created: 2025-10-14, 6:41:19 p.m.
 
 --------------------------------------------------------------------------------
@@ -649,7 +719,8 @@ Recipes without images: 260
    Description: Tender chicken tenders coated in a crispy Parmesan breadcrumb crust, served with a colorful medley of roasted vegetables - a kid-friendly dinner the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/72d6c91b-671a-4aae-94a4-c051a6c163d5/baked-parmesan-chicken-tenders-with-roasted-veggies-1760555392267.png
    Created: 2025-10-14, 6:41:18 p.m.
 
 --------------------------------------------------------------------------------
@@ -658,7 +729,8 @@ Recipes without images: 260
    Description: A comforting and kid-friendly pasta bake loaded with hidden veggies and cheesy goodness.
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/aa179aa5-0fb5-42c5-a37d-f62658499ab4/harvest-vegetable-pasta-bake-1760555550593.png
    Created: 2025-10-14, 6:41:18 p.m.
 
 --------------------------------------------------------------------------------
@@ -667,7 +739,8 @@ Recipes without images: 260
    Description: A fun and wholesome fall-themed snack mix that kids will love! Featuring roasted pumpkin seeds, dried fruit, and a touch of cinnamon-sugar for a tasty and nutritious treat.
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 6g protein, 20g carbs, 12g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c2c2beca-acae-45fe-a503-369ad0884959/spooky-pumpkin-seed-snack-mix-1760555607958.png
    Created: 2025-10-14, 6:41:17 p.m.
 
 --------------------------------------------------------------------------------
@@ -676,7 +749,8 @@ Recipes without images: 260
    Description: Tasty, kid-friendly pumpkin bites packed with protein and hidden veggies. Perfect for a healthy fall snack!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 160 cal, 10g protein, 25g carbs, 4g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8f194eb0-6064-4e0d-9b5c-25b294ee4e5c/pumpkin-spice-protein-bites-1760555543045.png
    Created: 2025-10-14, 6:41:16 p.m.
 
 --------------------------------------------------------------------------------
@@ -685,7 +759,8 @@ Recipes without images: 260
    Description: Tender chicken nuggets baked to perfection, served with crunchy roasted veggie fries - a kid-friendly dinner the whole family will love!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 28g protein, 38g carbs, 13g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c7c11393-8ed4-4998-b9d9-c3f0fcb32586/baked-chicken-nuggets-with-veggie-fries-1760555385227.png
    Created: 2025-10-14, 6:41:14 p.m.
 
 --------------------------------------------------------------------------------
@@ -694,7 +769,8 @@ Recipes without images: 260
    Description: A nutrient-dense and satiating snack that's perfect for breaking your intermittent fasting window. This apple chia pudding is packed with protein, healthy fats, and fiber to keep you feeling full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 250 cal, 8g protein, 28g carbs, 13g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/917bd7d1-5130-4165-a309-833ab2488674/autumn-apple-chia-pudding-1760555378457.png
    Created: 2025-10-14, 6:40:54 p.m.
 
 --------------------------------------------------------------------------------
@@ -703,7 +779,8 @@ Recipes without images: 260
    Description: A nourishing and satiating quinoa salad featuring seasonal fall produce to fuel your intermittent fasting eating window.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: medium
    Nutrition: 342 cal, 10g protein, 45g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/63e9253d-c969-47f5-8c07-d44dba924913/autumn-harvest-quinoa-salad-breaking-fast-1760555579075.png
    Created: 2025-10-14, 6:40:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -712,7 +789,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed snack that will keep you feeling full and satisfied during your Intermittent Fasting eating window. This recipe features seasonal fall flavors and a balance of healthy fats, complex carbs, and fiber to support stable blood sugar.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 235 cal, 7g protein, 25g carbs, 13g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8db76013-b7e3-4761-89d5-34ad0c8525a1/autumn-apple-pie-chia-pudding-1760555535648.png
    Created: 2025-10-14, 6:40:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -721,7 +799,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety breakfast perfect for breaking your intermittent fasting window. This protein-packed oat bake features seasonal fall produce and healthy fats to keep you full for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c8f523f0-716b-4352-b404-a92ac39a9f02/autumn-protein-packed-oat-bake-1760555502853.png
    Created: 2025-10-14, 6:40:52 p.m.
 
 --------------------------------------------------------------------------------
@@ -730,7 +809,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed breakfast smoothie bowl to break your fast and keep you full for hours. Featuring seasonal fall produce, healthy fats, and a balance of macros to support stable blood sugar.
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 235 cal, 15g protein, 28g carbs, 10g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d8bab05f-5809-4c5a-82f9-c312118acd9f/autumn-harvest-protein-smoothie-bowl-1760555426929.png
    Created: 2025-10-14, 6:40:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -739,7 +819,8 @@ Recipes without images: 260
    Description: Delicious, nutrient-dense truffles made with pumpkin, protein powder, and healthy fats to keep you full and satisfied during your Intermittent Fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 165 cal, 10g protein, 10g carbs, 12g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/015410b1-d8cb-4af2-971b-c7fd088b460f/autumn-pumpkin-spice-protein-truffles-1760555448311.png
    Created: 2025-10-14, 6:40:49 p.m.
 
 --------------------------------------------------------------------------------
@@ -748,7 +829,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein meal perfect for breaking your intermittent fasting window. This salmon salad is loaded with healthy fats, fiber, and balanced macros to keep you full and satisfied.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 32g protein, 28g carbs, 17g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e1415781-4e4b-4049-95af-8389eaa8b4e6/satiating-salmon-salad-with-roasted-veggies-1760555419973.png
    Created: 2025-10-14, 6:40:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -757,7 +839,8 @@ Recipes without images: 260
    Description: A nourishing and satisfying breakfast to break your intermittent fast, featuring hearty oats, spiced pumpkin, crunchy pecans, and creamy almond butter.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 340 cal, 12g protein, 30g carbs, 16g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/761708ac-f4b8-4230-8a00-f2bafebd93d4/autumnal-protein-packed-oatmeal-1760555371545.png
    Created: 2025-10-14, 6:40:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -766,7 +849,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-fiber chia pudding made with seasonal fruits and nuts to keep you full and energized during your intermittent fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 7g protein, 30g carbs, 14g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/28d03dae-96ba-40ac-9e26-9c1953356be7/autumn-harvest-chia-pudding-breaking-fast-1760555441450.png
    Created: 2025-10-14, 6:40:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -775,7 +859,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-rich breakfast that will keep you full for hours. Perfect for breaking your intermittent fasting window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 12g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2d1d7734-b49a-447b-b095-eca8148540c1/satiating-pumpkin-spice-overnight-oats-1760555433952.png
    Created: 2025-10-14, 6:40:45 p.m.
 
 --------------------------------------------------------------------------------
@@ -784,7 +869,8 @@ Recipes without images: 260
    Description: A high-fiber, protein-rich dinner that will keep you full for hours. This nutrient-dense meal is perfect for breaking your intermittent fasting window and supporting stable blood sugar.
    Prep: 25m | Cook: 20m | Servings: 4 | Difficulty: medium
    Nutrition: 320 cal, 16g protein, 45g carbs, 8g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e6a441f0-9e24-4e69-9131-396bda6e2638/satiating-autumn-lentil-and-butternut-squash-stir-fry-1760555413209.png
    Created: 2025-10-14, 6:40:45 p.m.
 
 --------------------------------------------------------------------------------
@@ -793,7 +879,8 @@ Recipes without images: 260
    Description: This hearty, nutrient-dense grain bowl is the perfect way to break your intermittent fasting window. It's loaded with fiber, healthy fats, and lean protein to keep you full and energized for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 35g protein, 30g carbs, 18g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/35aff760-bab2-41aa-99c6-b14f01697dd3/protein-packed-autumn-grain-bowl-1760555364299.png
    Created: 2025-10-14, 6:40:44 p.m.
 
 --------------------------------------------------------------------------------
@@ -802,7 +889,8 @@ Recipes without images: 260
    Description: Tender chicken bites coated in a sweet and savory apple cider glaze, served with roasted fall vegetables for a wholesome and kid-friendly lunch.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 360 cal, 25g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6159ce92-81de-4e3e-b6c8-96344ec7fba6/autumn-apple-chicken-bites-1760555357605.png
    Created: 2025-10-14, 6:37:56 p.m.
 
 --------------------------------------------------------------------------------
@@ -811,7 +899,8 @@ Recipes without images: 260
    Description: These delicious and nutritious pumpkin energy bites are the perfect fall snack for kids! They're packed with wholesome ingredients like pumpkin puree, oats, and nut butter, and they're easy to make for busy parents. Plus, the fun pumpkin shape makes them extra appealing to little ones.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 6g protein, 24g carbs, 10g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/89185a1e-4545-4d58-8040-a4195d653681/spooky-pumpkin-energy-bites-1760555350510.png
    Created: 2025-10-14, 6:37:55 p.m.
 
 --------------------------------------------------------------------------------
@@ -820,7 +909,8 @@ Recipes without images: 260
    Description: Delicious and nutritious fall-themed snack that kids will love! Chewy pumpkin seed bites packed with protein and fiber to fuel little bodies.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 8g protein, 20g carbs, 13g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7d7f3932-de9f-4b0b-934c-c274ff891cdb/pumpkin-seed-energy-bites-1760555343684.png
    Created: 2025-10-14, 6:37:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -829,7 +919,8 @@ Recipes without images: 260
    Description: Delicious, chewy granola bites packed with pumpkin seeds, oats, and a touch of honey - perfect for a healthy, kid-approved snack!
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 6g protein, 28g carbs, 8g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/781a6d7b-dea2-4336-81ce-9ebc25625219/pumpkin-seed-granola-bites-1760555336150.png
    Created: 2025-10-14, 6:37:51 p.m.
 
 --------------------------------------------------------------------------------
@@ -838,7 +929,8 @@ Recipes without images: 260
    Description: A delicious and nutritious twist on classic mac and cheese, packed with hidden veggies that kids will love!
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 10g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5d280328-0fc4-496b-83d5-8c7bbcbb9079/cheesy-veggie-mac-1760555328871.png
    Created: 2025-10-14, 6:37:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -847,7 +939,8 @@ Recipes without images: 260
    Description: A family-friendly twist on classic mac and cheese, packed with hidden veggies for a nutritious and delicious lunch.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 385 cal, 18g protein, 45g carbs, 15g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0c8b9678-c8c5-42c3-bfb8-6faf6b075abd/harvest-veggie-mac-and-cheese-1760555321684.png
    Created: 2025-10-14, 6:35:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -856,7 +949,8 @@ Recipes without images: 260
    Description: A delicious and wholesome family-friendly dinner featuring tender chicken, roasted veggies, and a creamy cheese sauce - a comforting meal the whole family will enjoy!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 375 cal, 35g protein, 35g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a4893f22-bd3c-4036-a5eb-fdf19dea224d/cozy-autumn-chicken-bake-1760555314828.png
    Created: 2025-10-14, 6:35:46 p.m.
 
 --------------------------------------------------------------------------------
@@ -865,7 +959,8 @@ Recipes without images: 260
    Description: Colorful veggie-packed wraps with a creamy pumpkin seed dressing - a fun and nutritious lunch the whole family will enjoy!
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: medium
    Nutrition: 320 cal, 12g protein, 45g carbs, 12g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6b86b096-1bef-4fd6-ad28-4b41f6b2ef5e/harvest-veggie-wraps-1760555307213.png
    Created: 2025-10-14, 6:35:46 p.m.
 
 --------------------------------------------------------------------------------
@@ -874,7 +969,8 @@ Recipes without images: 260
    Description: Delicious fall-inspired snack bars packed with wholesome oats, apples, and a touch of cinnamon - perfect for busy kids and parents!
    Prep: 10m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 5g protein, 45g carbs, 5g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5d217c1b-7c17-4f7d-9596-9dd1940a9384/autumn-apple-oat-bars-1760555300004.png
    Created: 2025-10-14, 6:35:44 p.m.
 
 --------------------------------------------------------------------------------
@@ -883,7 +979,8 @@ Recipes without images: 260
    Description: Tender baked chicken, roasted sweet potatoes, and fresh veggies wrapped in a whole wheat tortilla - a delicious and nutritious lunch the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 25g protein, 45g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0178624f-14ec-4e51-9ec6-cf5e99a24e12/autumn-harvest-chicken-wraps-1760555292908.png
    Created: 2025-10-14, 6:35:43 p.m.
 
 --------------------------------------------------------------------------------
@@ -892,7 +989,8 @@ Recipes without images: 260
    Description: Tender chicken nuggets baked to crispy perfection and smothered in a creamy, cheesy sauce - a kid-friendly dinner the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 480 cal, 37g protein, 37g carbs, 22g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/574a96ea-ed74-46c9-a083-648dd9b44b1f/cheesy-chicken-nugget-bake-1760555285500.png
    Created: 2025-10-14, 6:35:41 p.m.
 
 --------------------------------------------------------------------------------
@@ -901,7 +999,8 @@ Recipes without images: 260
    Description: Fluffy pumpkin-flavored pancakes packed with hidden veggies and topped with a creamy maple glaze - a perfect fall breakfast the whole family will love!
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 300 cal, 12g protein, 45g carbs, 9g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/59418fb4-c7fb-4452-999e-b18fad47c08b/pumpkin-spice-pancakes-1760555278684.png
    Created: 2025-10-14, 6:35:41 p.m.
 
 --------------------------------------------------------------------------------
@@ -910,7 +1009,8 @@ Recipes without images: 260
    Description: Delicious pumpkin-flavored oat bites that are packed with wholesome ingredients and perfect for an easy, kid-friendly snack!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 5g protein, 35g carbs, 3g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/88dbc126-d3ba-4c3a-adca-64aef054c8a5/baked-pumpkin-spice-oat-bites-1760555271843.png
    Created: 2025-10-14, 6:35:40 p.m.
 
 --------------------------------------------------------------------------------
@@ -919,7 +1019,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety pumpkin parfait is the perfect snack to break your intermittent fasting window. Packed with protein, healthy fats, and seasonal spices, it will keep you feeling full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 290 cal, 21g protein, 28g carbs, 13g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b562b4da-aaba-4395-996c-04e9b18fe4d9/autumn-protein-packed-pumpkin-parfait-1760555264833.png
    Created: 2025-10-14, 6:34:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -928,7 +1029,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety dinner is perfect for breaking your intermittent fasting window. The combination of protein-rich salmon, fiber-filled greens, and healthy fats from avocado and nuts will keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 35g protein, 30g carbs, 20g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/49d1479d-a768-46ab-9959-4bdaf48f41f7/satiating-autumn-harvest-salad-with-maple-glazed-salmon-1760555257822.png
    Created: 2025-10-14, 6:34:53 p.m.
 
 --------------------------------------------------------------------------------
@@ -937,7 +1039,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety granola perfect for breaking your intermittent fasting window. Packed with healthy fats, fiber, and protein to keep you full for hours.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 340 cal, 12g protein, 30g carbs, 20g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/20c3cd6d-de6a-4872-b602-4a2dfc71caa7/autumn-spiced-pumpkin-seed-granola-1760555250747.png
    Created: 2025-10-14, 6:34:52 p.m.
 
 --------------------------------------------------------------------------------
@@ -946,7 +1049,8 @@ Recipes without images: 260
    Description: This nutrient-dense salmon bowl is perfect for breaking your intermittent fasting window. The combination of protein-rich salmon, fiber-packed sweet potatoes, and healthy fats from avocado will keep you feeling full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 420 cal, 35g protein, 30g carbs, 20g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/bde0b260-e35e-46d3-bb08-25aaad7c370c/satiating-autumn-salmon-bowl-1760555243672.png
    Created: 2025-10-14, 6:34:50 p.m.
 
 --------------------------------------------------------------------------------
@@ -955,7 +1059,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed risotto made with autumn squash, quinoa, and roasted walnuts. This recipe is perfect for breaking your intermittent fasting window, providing sustained energy and satiety.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 12g protein, 30g carbs, 18g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/1d8d7fba-17ed-453b-b6c3-4dfbcfae83a3/satiating-autumn-squash-risotto-1760555236844.png
    Created: 2025-10-14, 6:34:49 p.m.
 
 --------------------------------------------------------------------------------
@@ -964,7 +1069,8 @@ Recipes without images: 260
    Description: These nutrient-dense pumpkin spice energy bites are the perfect snack to break your intermittent fasting window. Packed with protein, healthy fats, and complex carbs, they'll keep you feeling full and satisfied for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 235 cal, 7g protein, 27g carbs, 13g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/87670dd8-81f3-42b6-ac11-a4e74e1c3586/autumn-pumpkin-spice-energy-bites-1760555229709.png
    Created: 2025-10-14, 6:34:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -973,7 +1079,8 @@ Recipes without images: 260
    Description: This nutrient-dense dinner is perfect for breaking your fast during intermittent fasting. The protein-rich salmon, healthy fats from avocado, and fiber-filled roasted vegetables will keep you feeling full and satisfied for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/aa260c77-ad70-4ae8-a57c-a7347716ae3a/satiating-salmon-with-roasted-veggies-and-avocado-1760555222315.png
    Created: 2025-10-14, 6:34:48 p.m.
 
 --------------------------------------------------------------------------------
@@ -982,7 +1089,8 @@ Recipes without images: 260
    Description: A nutrient-dense, satiating snack mix perfect for breaking your intermittent fasting window. Packed with healthy fats, protein, and fiber to keep you full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 10g protein, 10g carbs, 20g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d5395ff5-a8f6-4827-98bf-57a27dbca2a1/autumn-pumpkin-seed-snack-mix-1760555215102.png
    Created: 2025-10-14, 6:34:47 p.m.
 
 --------------------------------------------------------------------------------
@@ -991,7 +1099,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-rich breakfast bowl to fuel your intermittent fasting eating window. This satiating meal features a balance of healthy fats, complex carbs, and high-quality protein to keep you full for hours.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ccfd5f52-f08b-4c07-abcd-e772685d0b1c/autumn-abundance-protein-bowl-1760555207913.png
    Created: 2025-10-14, 6:34:45 p.m.
 
 --------------------------------------------------------------------------------
@@ -1000,7 +1109,8 @@ Recipes without images: 260
    Description: A hearty, nutrient-dense breakfast perfect for breaking your intermittent fasting window. This warm, comforting porridge is packed with protein, fiber, and healthy fats to keep you full and satisfied for hours.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 330 cal, 13g protein, 33g carbs, 16g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/176aefde-2bcc-4cc6-839e-48e199980b1c/autumn-harvest-protein-porridge-1760555200890.png
    Created: 2025-10-14, 6:34:43 p.m.
 
 --------------------------------------------------------------------------------
@@ -1009,7 +1119,8 @@ Recipes without images: 260
    Description: A delicious and nutritious family-friendly dinner made with hearty lentils, sweet potatoes, and hidden veggies - perfect for the fall season!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/49e0cfac-e637-449b-9ce0-acd6be2776d3/cozy-autumn-lentil-bake-1760555193501.png
    Created: 2025-10-14, 6:32:13 p.m.
 
 --------------------------------------------------------------------------------
@@ -1018,7 +1129,8 @@ Recipes without images: 260
    Description: A kid-friendly twist on classic mac and cheese, packed with hidden veggies for a nutritious and delicious dinner the whole family will love.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 20g protein, 45g carbs, 15g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/06030f7e-a0bd-4acf-b3fb-ffef2253e76c/creamy-veggie-mac-and-cheese-1760555186213.png
    Created: 2025-10-14, 6:32:10 p.m.
 
 --------------------------------------------------------------------------------
@@ -1027,7 +1139,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly pumpkin spice bites packed with wholesome ingredients and hidden veggies. Perfect for busy mornings!
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 5g protein, 30g carbs, 5g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/08902923-e24f-475d-9790-6a0db4604c9d/pumpkin-spice-breakfast-bites-1760555179075.png
    Created: 2025-10-14, 6:32:08 p.m.
 
 --------------------------------------------------------------------------------
@@ -1036,7 +1149,8 @@ Recipes without images: 260
    Description: Delicious fall-inspired baked apple bites with a sweet pumpkin spice coating, perfect for a nutritious and kid-friendly snack.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 120 cal, 1g protein, 30g carbs, 0g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ffe07ba1-572b-4048-8b8b-df5476e90d64/pumpkin-spice-baked-apple-bites-1760555171726.png
    Created: 2025-10-14, 6:32:08 p.m.
 
 --------------------------------------------------------------------------------
@@ -1045,7 +1159,8 @@ Recipes without images: 260
    Description: Crispy, cheesy veggie nuggets that kids love! Packed with hidden nutrition from broccoli and carrots.
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 15g protein, 22g carbs, 10g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/76edc991-800f-4889-b209-3c0ce6aa5057/cheesy-baked-veggie-nuggets-1760555164377.png
    Created: 2025-10-14, 6:32:07 p.m.
 
 --------------------------------------------------------------------------------
@@ -1054,7 +1169,8 @@ Recipes without images: 260
    Description: Delicious pumpkin-flavored pancake bites, perfect for a fun and nutritious breakfast that kids will love!
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 310 cal, 12g protein, 45g carbs, 10g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/58005ceb-0bc8-4576-846b-e9f4fe34a4e9/pumpkin-pancake-pops-1760555157051.png
    Created: 2025-10-14, 6:32:05 p.m.
 
 --------------------------------------------------------------------------------
@@ -1063,7 +1179,8 @@ Recipes without images: 260
    Description: A delicious and wholesome baked oatmeal dish that's packed with the flavors of fall. Kids will love the sweet pumpkin and cinnamon flavors, while parents will appreciate the hidden nutrition from the oats, pumpkin, and sneaky veggies.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/119fc81d-93c5-4ad0-ad47-3b9b29b16f0d/pumpkin-pie-oatmeal-bake-1760555150460.png
    Created: 2025-10-14, 6:30:26 p.m.
 
 --------------------------------------------------------------------------------
@@ -1072,7 +1189,8 @@ Recipes without images: 260
    Description: Delicious fall-inspired snack that kids will love! Crisp apple slices with a sweet pumpkin spice yogurt dip - a perfect way to sneak in some veggies.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 7g protein, 25g carbs, 3g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/74ab3a74-612b-4275-a2b5-a52260b7195c/pumpkin-spice-apple-bites-1760555143168.png
    Created: 2025-10-14, 6:30:24 p.m.
 
 --------------------------------------------------------------------------------
@@ -1081,7 +1199,8 @@ Recipes without images: 260
    Description: Delicious and nutritious fall-inspired granola bites that kids will love! Packed with whole grains, seeds, and a touch of pumpkin spice for a fun seasonal snack.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 6g protein, 28g carbs, 8g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/81811326-7691-4e6c-90d1-fff1fbd2473a/pumpkin-spice-granola-bites-1760555136088.png
    Created: 2025-10-14, 6:30:23 p.m.
 
 --------------------------------------------------------------------------------
@@ -1090,7 +1209,8 @@ Recipes without images: 260
    Description: A kid-friendly, family-friendly pasta bake with hidden veggies and a cheesy, comforting flavor. Perfect for busy weeknights!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 415 cal, 32g protein, 40g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7f2152bd-850b-45ee-88df-1a253f77d635/cheesy-veggie-baked-ziti-1760555128818.png
    Created: 2025-10-14, 6:30:22 p.m.
 
 --------------------------------------------------------------------------------
@@ -1099,7 +1219,8 @@ Recipes without images: 260
    Description: A family-friendly dinner with crispy baked chicken tenders and sweet potato fries - a delicious way to sneak in veggies!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 32g protein, 36g carbs, 14g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/035108ec-5f81-4f94-a52a-b8680d8fbbc2/cheesy-baked-chicken-tenders-with-roasted-veggie-fries-1760555121397.png
    Created: 2025-10-14, 6:30:20 p.m.
 
 --------------------------------------------------------------------------------
@@ -1108,7 +1229,8 @@ Recipes without images: 260
    Description: Crispy, sweet, and cinnamon-y apple chips that are perfect for a healthy snack or lunchbox treat!
    Prep: 10m | Cook: 30m | Servings: 4 | Difficulty: easy
    Nutrition: 110 cal, 0g protein, 27g carbs, 0g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/66fa1e96-137a-4132-8271-e3fe61cd63c1/baked-apple-cinnamon-chips-1760555113694.png
    Created: 2025-10-14, 6:28:41 p.m.
 
 --------------------------------------------------------------------------------
@@ -1117,7 +1239,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly oatmeal cups packed with pumpkin, cinnamon, and a touch of maple syrup - a perfect wholesome breakfast!
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 230 cal, 8g protein, 35g carbs, 7g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6e91a3e1-e4b4-42ab-81ee-91e0a9da3197/pumpkin-pie-oatmeal-cups-1760555106414.png
    Created: 2025-10-14, 6:28:40 p.m.
 
 --------------------------------------------------------------------------------
@@ -1126,7 +1249,8 @@ Recipes without images: 260
    Description: Crispy baked chicken nuggets made with real cheese and a secret veggie-packed coating, served with fun rainbow veggie fries for a healthy and delicious kid-approved lunch!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 410 cal, 35g protein, 40g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a8b056cd-7e48-45a0-a158-da1ddd60aa8a/cheesy-chicken-nuggets-with-hidden-veggie-fries-1760555099168.png
    Created: 2025-10-14, 6:28:39 p.m.
 
 --------------------------------------------------------------------------------
@@ -1135,7 +1259,8 @@ Recipes without images: 260
    Description: Delicious and nutritious apple bites coated in a sweet cinnamon-honey glaze - a perfect fall snack the whole family will love!
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 5g protein, 35g carbs, 3g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2624ddd1-6997-4705-9fb1-3db1a1efda11/autumn-apple-snack-bites-1760555091906.png
    Created: 2025-10-14, 6:28:38 p.m.
 
 --------------------------------------------------------------------------------
@@ -1144,7 +1269,8 @@ Recipes without images: 260
    Description: A comforting baked pasta dish loaded with hidden veggies that kids will love. Perfectly cheesy and satisfying!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 25g protein, 45g carbs, 13g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/df958ed2-dd1c-469a-9446-cadbde051ff2/cheesy-veggie-baked-pasta-1760555084434.png
    Created: 2025-10-14, 6:28:37 p.m.
 
 --------------------------------------------------------------------------------
@@ -1153,7 +1279,8 @@ Recipes without images: 260
    Description: A creamy, cozy breakfast that's packed with hidden veggies and whole grains to fuel kids all morning long.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 275 cal, 8g protein, 45g carbs, 8g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7c48b174-7bcd-4b04-9f11-d59a81abbdad/pumpkin-spice-overnight-oats-1760555076976.png
    Created: 2025-10-14, 6:28:36 p.m.
 
 --------------------------------------------------------------------------------
@@ -1162,7 +1289,8 @@ Recipes without images: 260
    Description: Crunchy, sweet granola bites packed with apples, cinnamon, and oats - a delicious and healthy snack the whole family will love!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 190 cal, 4g protein, 36g carbs, 5g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f059ddbf-2d84-47e2-9708-3222e67eb707/autumn-apple-cinnamon-granola-bites-1760555069984.png
    Created: 2025-10-14, 6:28:35 p.m.
 
 --------------------------------------------------------------------------------
@@ -1171,7 +1299,8 @@ Recipes without images: 260
    Description: Delicious and nutritious pumpkin spice-flavored energy balls that are perfect for a quick and healthy snack. Kids will love the sweet, autumnal flavor and parents will appreciate the hidden veggies and wholesome ingredients.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 6g protein, 25g carbs, 10g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8d9357bd-b359-4e50-8d86-a61d4ccb0da1/pumpkin-spice-energy-balls-1760555062657.png
    Created: 2025-10-14, 6:28:34 p.m.
 
 --------------------------------------------------------------------------------
@@ -1180,7 +1309,8 @@ Recipes without images: 260
    Description: Crispy baked chicken nuggets with a cheesy twist, served with a rainbow of roasted vegetables - a delicious and wholesome lunch kids will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 375 cal, 27g protein, 35g carbs, 16g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ee9acba9-8d40-40d6-9e09-1b7dd74870d5/cheesy-chicken-nuggets-with-roasted-veggies-1760555055157.png
    Created: 2025-10-14, 6:28:33 p.m.
 
 --------------------------------------------------------------------------------
@@ -1189,7 +1319,8 @@ Recipes without images: 260
    Description: A fun and tasty way to get kids to eat their veggies! Roasted squash halves are stuffed with a savory cheese and veggie filling for a satisfying and balanced meal.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b33d5ee1-42b2-4251-8179-75e7bfdd48e4/cheesy-stuffed-autumn-squash-1760555048084.png
    Created: 2025-10-14, 6:28:32 p.m.
 
 --------------------------------------------------------------------------------
@@ -1198,7 +1329,8 @@ Recipes without images: 260
    Description: Colorful and crunchy veggie wraps filled with roasted sweet potatoes, apples, and a creamy ranch spread - a fun and wholesome lunch kids will love!
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 12g protein, 47g carbs, 9g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/148868f0-7ec5-4091-b5b5-32d233c01e06/autumn-harvest-veggie-wraps-1760555040138.png
    Created: 2025-10-14, 6:26:05 p.m.
 
 --------------------------------------------------------------------------------
@@ -1207,7 +1339,8 @@ Recipes without images: 260
    Description: Crispy baked zucchini fries served with a simple homemade marinara sauce - a fun and healthy twist on classic fries that kids will love!
    Prep: 15m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 300 cal, 15g protein, 35g carbs, 12g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8166073a-bb7e-415c-9cca-5a9b01ab6a12/baked-zucchini-fries-with-marinara-dipping-sauce-1760555032937.png
    Created: 2025-10-14, 6:26:03 p.m.
 
 --------------------------------------------------------------------------------
@@ -1216,7 +1349,8 @@ Recipes without images: 260
    Description: A delicious and nutrient-dense pasta dish that kids will love! Pumpkin puree and hidden veggies make this a wholesome meal the whole family will enjoy.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 345 cal, 15g protein, 45g carbs, 12g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/00539c86-703d-4286-bd76-a42a211f2d2c/veggie-packed-pumpkin-pasta-1760555024930.png
    Created: 2025-10-14, 6:26:01 p.m.
 
 --------------------------------------------------------------------------------
@@ -1225,7 +1359,8 @@ Recipes without images: 260
    Description: A comforting and kid-friendly mac and cheese dish packed with hidden nutrition from roasted fall veggies!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 420 cal, 20g protein, 45g carbs, 20g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d4ba6ebe-6850-447a-9f05-f1246918e0e1/autumn-veggie-mac-and-cheese-1760555017289.png
    Created: 2025-10-14, 6:26:01 p.m.
 
 --------------------------------------------------------------------------------
@@ -1234,7 +1369,8 @@ Recipes without images: 260
    Description: A delicious and wholesome breakfast bake packed with fall flavors and hidden veggies that the whole family will love!
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 305 cal, 10g protein, 45g carbs, 12g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2e108c62-522a-4dbd-8b03-8333aba77307/pumpkin-spice-oatmeal-bake-1760555009361.png
    Created: 2025-10-14, 6:26:00 p.m.
 
 --------------------------------------------------------------------------------
@@ -1243,7 +1379,8 @@ Recipes without images: 260
    Description: Crispy quesadillas packed with gooey cheese and hidden veggies - a kid-friendly lunch that's easy for busy parents!
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 15g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6dd0840a-0ed2-4bf2-8f1a-13db0755441d/cheesy-baked-veggie-quesadillas-1760555002366.png
    Created: 2025-10-14, 6:25:58 p.m.
 
 --------------------------------------------------------------------------------
@@ -1252,7 +1389,8 @@ Recipes without images: 260
    Description: This nutrient-dense, protein-packed dinner is the perfect meal to break your intermittent fast. The combination of roasted fall vegetables, quinoa, and healthy fats from avocado and olive oil will keep you feeling full and satisfied for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 12g protein, 45g carbs, 17g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ecf52ba3-a8bb-4ba4-93f6-306f052d771a/satiating-roasted-vegetable-and-quinoa-bowl-1760554995010.png
    Created: 2025-10-14, 4:52:13 a.m.
 
 --------------------------------------------------------------------------------
@@ -1261,7 +1399,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed lunch that will keep you feeling full and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/94a27a19-770c-4315-9d63-bd60067a762d/hearty-autumn-harvest-bowl-1760554987705.png
    Created: 2025-10-14, 4:52:13 a.m.
 
 --------------------------------------------------------------------------------
@@ -1270,7 +1409,8 @@ Recipes without images: 260
    Description: A nutrient-dense, satiating breakfast bowl packed with seasonal produce, lean protein, and healthy fats to keep you feeling full and energized throughout your Intermittent Fasting eating window.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 15g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8996c404-8ba0-433c-88e6-77e1d1e3ea58/protein-packed-autumn-harvest-buddha-bowl-1760554980601.png
    Created: 2025-10-14, 4:52:12 a.m.
 
 --------------------------------------------------------------------------------
@@ -1279,7 +1419,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein snack that's perfect for breaking your intermittent fasting window. The combination of healthy fats, fiber, and slow-burning carbs will keep you full and satisfied.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 8g protein, 12g carbs, 13g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/892c6d3b-e021-41ad-98ee-830ffda5a1cf/autumn-spiced-pumpkin-seed-snack-1760502819687.png
    Created: 2025-10-14, 4:52:11 a.m.
 
 --------------------------------------------------------------------------------
@@ -1288,7 +1429,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety breakfast perfect for breaking your intermittent fasting window. This hearty porridge features a balance of complex carbs, protein, and healthy fats to keep you full and energized.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 15g protein, 30g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/81e28084-9597-40c3-a2bd-393c10750eaf/autumn-protein-packed-breakfast-porridge-1760502812920.png
    Created: 2025-10-14, 4:52:10 a.m.
 
 --------------------------------------------------------------------------------
@@ -1297,7 +1439,8 @@ Recipes without images: 260
    Description: Delicious nutrient-dense snack to break your fast and keep you full for hours. Packed with protein, healthy fats, and fall flavors.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 155 cal, 10g protein, 13g carbs, 9g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/899fdbcb-cb64-446b-995c-76e9b520b93c/pumpkin-spice-protein-bites-breaking-fast-1760502805839.png
    Created: 2025-10-14, 4:52:09 a.m.
 
 --------------------------------------------------------------------------------
@@ -1306,7 +1449,8 @@ Recipes without images: 260
    Description: A nutrient-dense dinner that's perfect for breaking your intermittent fast. These protein-packed salmon burgers are paired with roasted butternut squash for a satisfying and balanced meal.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4b3d5049-b3e2-4650-86a4-a5d8e95997d9/satiating-salmon-burgers-with-roasted-butternut-squash-1760502799104.png
    Created: 2025-10-14, 4:52:09 a.m.
 
 --------------------------------------------------------------------------------
@@ -1315,7 +1459,8 @@ Recipes without images: 260
    Description: A nutrient-dense, satiating breakfast bowl perfect for breaking your intermittent fasting window. This recipe combines hearty quinoa, roasted sweet potatoes, protein-rich eggs, and healthy fats from avocado and pumpkin seeds for a balanced and filling meal.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 360 cal, 21g protein, 30g carbs, 18g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4ebeabe9-7bfc-4800-9440-96afe3b6f7a4/protein-packed-autumn-breakfast-bowl-1760502791964.png
    Created: 2025-10-14, 4:52:08 a.m.
 
 --------------------------------------------------------------------------------
@@ -1324,7 +1469,8 @@ Recipes without images: 260
    Description: Delicious, protein-packed snack to break your fast and keep you full for hours. Featuring fresh fall apples, creamy almond butter, and crunchy nuts - perfect for an intermittent fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 14g protein, 16g carbs, 14g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8bec500b-d342-48e4-be33-fd392ccdbbdd/autumn-apple-protein-bites-1760502785186.png
    Created: 2025-10-14, 4:52:06 a.m.
 
 --------------------------------------------------------------------------------
@@ -1333,7 +1479,8 @@ Recipes without images: 260
    Description: This nutrient-dense and protein-rich meal is perfect for breaking your intermittent fasting window. The healthy fats from the salmon and avocado will keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 390 cal, 35g protein, 30g carbs, 18g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b3b7879a-ca91-481b-9dd7-a14aecb423f6/satiating-salmon-with-roasted-butternut-squash-and-kale-1760554973742.png
    Created: 2025-10-14, 4:52:05 a.m.
 
 --------------------------------------------------------------------------------
@@ -1342,7 +1489,8 @@ Recipes without images: 260
    Description: This creamy, nutrient-dense smoothie is the perfect snack to break your intermittent fasting window. Packed with protein, fiber, and healthy fats, it will keep you full and energized for hours.
    Prep: 5m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 250 cal, 25g protein, 30g carbs, 10g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4ecf6842-c2be-4dcc-9aca-6558b65dc9d6/protein-packed-pumpkin-spice-smoothie-1760554966578.png
    Created: 2025-10-14, 4:52:04 a.m.
 
 --------------------------------------------------------------------------------
@@ -1351,7 +1499,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed dinner perfect for breaking your intermittent fast. Baked salmon, roasted seasonal vegetables, and healthy fats keep you full for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/92e7c1f8-048b-4b49-911e-10c3c82aff28/satiating-salmon-with-autumn-veggies-1760554959921.png
    Created: 2025-10-14, 4:52:04 a.m.
 
 --------------------------------------------------------------------------------
@@ -1360,7 +1509,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-protein lunch is perfect for breaking your intermittent fasting window. The combination of quinoa, roasted fall veggies, and lean turkey provides long-lasting satiety to keep you full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 360 cal, 30g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0477bb61-6a5e-4e0f-ab3e-8abaa9dc7898/protein-packed-autumn-quinoa-bowl-1760554952932.png
    Created: 2025-10-14, 4:52:03 a.m.
 
 --------------------------------------------------------------------------------
@@ -1369,7 +1519,8 @@ Recipes without images: 260
    Description: These nutrient-dense, protein-packed apple bites are the perfect snack to break your intermittent fasting window. The combination of fiber, healthy fats, and protein will keep you feeling full and satisfied for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 5g protein, 15g carbs, 12g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/da67c8ea-4b0d-49d0-a73b-be3e2a4f7b42/autumn-apple-and-almond-protein-bites-1760554946097.png
    Created: 2025-10-14, 4:52:02 a.m.
 
 --------------------------------------------------------------------------------
@@ -1378,7 +1529,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch to break your intermittent fast. This autumn-inspired Buddha bowl is packed with protein, fiber, and healthy fats to keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 390 cal, 35g protein, 30g carbs, 15g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/450c454d-587b-477f-94b3-31a6016feec6/hearty-autumn-buddha-bowl-breaking-fast-1760502778248.png
    Created: 2025-10-14, 4:52:01 a.m.
 
 --------------------------------------------------------------------------------
@@ -1387,7 +1539,8 @@ Recipes without images: 260
    Description: A protein-packed, nutrient-dense frittata made with seasonal vegetables, eggs, and healthy fats to keep you full and satisfied during your Intermittent Fasting eating window.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 270 cal, 20g protein, 16g carbs, 17g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e66b4968-396b-43a7-87c2-7b2ea2867653/autumn-harvest-frittata-1760554938593.png
    Created: 2025-10-14, 4:52:00 a.m.
 
 --------------------------------------------------------------------------------
@@ -1396,7 +1549,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety snack perfect for breaking your intermittent fasting window. This parfait combines protein-rich Greek yogurt, fiber-packed pumpkin seeds, and fall-inspired spices for a satiating and nourishing treat.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 225 cal, 15g protein, 15g carbs, 12g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e63d59aa-6276-490f-9eb8-117d3914fc2f/autumn-pumpkin-seed-parfait-1760502771265.png
    Created: 2025-10-14, 4:49:45 a.m.
 
 --------------------------------------------------------------------------------
@@ -1405,7 +1559,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-rich stew that will keep you full for hours, perfect for breaking an intermittent fasting window. Packed with fiber, healthy fats, and balanced macros.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 20g protein, 30g carbs, 15g fat, 12g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/bde9b679-730c-4826-ba50-bd12a1f9aef1/hearty-lentil-and-butternut-squash-stew-breaking-fast-1760502764478.png
    Created: 2025-10-14, 4:49:44 a.m.
 
 --------------------------------------------------------------------------------
@@ -1414,7 +1569,8 @@ Recipes without images: 260
    Description: This nutrient-dense Buddha bowl is perfect for breaking your intermittent fast. It's loaded with seasonal vegetables, hearty quinoa, and high-protein chicken to keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e86f4a48-4820-4798-a6d2-77b9ccb4de02/protein-packed-autumn-buddha-bowl-breaking-fast-1760502757655.png
    Created: 2025-10-14, 4:49:44 a.m.
 
 --------------------------------------------------------------------------------
@@ -1423,7 +1579,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety quinoa bowl packed with roasted fall veggies, lean protein, and healthy fats to fuel your intermittent fasting eating window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 365 cal, 32g protein, 30g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/90f0a97e-d857-4d25-a5d9-bc9a87c47820/autumn-quinoa-power-bowl-breaking-fast-1760502750718.png
    Created: 2025-10-14, 4:49:43 a.m.
 
 --------------------------------------------------------------------------------
@@ -1432,7 +1589,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety snack perfect for breaking your intermittent fasting window. These pumpkin spice overnight oats are packed with fiber, protein, and healthy fats to keep you full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 310 cal, 10g protein, 37g carbs, 14g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7ca0ad79-9fc5-48cb-b2b4-2cfeb81c3237/autumn-pumpkin-spice-overnight-oats-1760502743805.png
    Created: 2025-10-14, 4:49:42 a.m.
 
 --------------------------------------------------------------------------------
@@ -1441,7 +1599,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-protein dinner is perfect for breaking your intermittent fasting window. The omega-3-rich salmon, fiber-packed vegetables, and healthy fats will keep you full and satisfied for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 340 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6e83acd3-6d86-4721-bb7a-393ed85b163c/satiating-salmon-with-roasted-fall-veggies-1760554931617.png
    Created: 2025-10-14, 4:49:41 a.m.
 
 --------------------------------------------------------------------------------
@@ -1450,7 +1609,8 @@ Recipes without images: 260
    Description: This high-fiber, protein-rich chicken stir-fry is the perfect meal to break your intermittent fasting window. The combination of nutrient-dense vegetables, lean protein, and healthy fats will keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/efe9c768-2c56-4f88-967e-3743675ef2a0/satiating-autumn-chicken-stir-fry-1760554923990.png
    Created: 2025-10-14, 4:49:40 a.m.
 
 --------------------------------------------------------------------------------
@@ -1459,7 +1619,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch that's perfect for breaking an intermittent fast. This colorful Buddha bowl features roasted seasonal veggies, protein-rich chicken, and healthy fats from avocado and nuts.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 400 cal, 35g protein, 30g carbs, 18g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/1943d83c-f9e4-4cfc-993a-8153d05d0895/autumn-harvest-buddha-bowl-breaking-fast-1760554915953.png
    Created: 2025-10-14, 4:49:39 a.m.
 
 --------------------------------------------------------------------------------
@@ -1468,7 +1629,8 @@ Recipes without images: 260
    Description: A nourishing, satiating snack to break your intermittent fasting window. This creamy pumpkin pudding is packed with protein, healthy fats, and fiber to keep you feeling full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 190 cal, 12g protein, 22g carbs, 8g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/706242c6-e100-4ecf-884f-bb0062469678/autumn-pumpkin-protein-pudding-1760502840483.png
    Created: 2025-10-14, 4:49:38 a.m.
 
 --------------------------------------------------------------------------------
@@ -1477,7 +1639,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein stir-fry featuring fall vegetables and tender chicken to keep you satisfied and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/580ce31a-4c68-4c5b-bac8-f3a0f898a0c3/autumn-harvest-chicken-stir-fry-breaking-fast-1760502833714.png
    Created: 2025-10-14, 4:49:38 a.m.
 
 --------------------------------------------------------------------------------
@@ -1486,7 +1649,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety dinner perfect for breaking your intermittent fasting window. This dish features omega-3-rich salmon, roasted fall vegetables, and healthy fats to keep you feeling full and satisfied.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/348419b9-2515-41c9-9579-a384a28dffa4/satiating-salmon-with-roasted-autumn-vegetables-1760502826721.png
    Created: 2025-10-14, 4:49:36 a.m.
 
 --------------------------------------------------------------------------------
@@ -1495,7 +1659,8 @@ Recipes without images: 260
    Description: This nutrient-dense, protein-packed bowl is the perfect meal to break your intermittent fast. It's loaded with seasonal veggies, healthy fats, and a balance of complex carbs and lean protein to keep you full and energized.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 385 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/36f0a160-e131-4992-bdfc-6458df7607b6/autumn-harvest-protein-bowl-breaking-fast-1760502736982.png
    Created: 2025-10-14, 4:49:36 a.m.
 
 --------------------------------------------------------------------------------
@@ -1504,7 +1669,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed breakfast to fuel your intermittent fasting eating window. This satisfying bowl combines roasted fall veggies, creamy avocado, and a fried egg for a satiating meal that keeps you full for hours.
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 335 cal, 17g protein, 30g carbs, 17g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/bbab9383-72e4-4fde-87fc-126b4a5a7ef6/autumn-harvest-protein-power-bowl-1760502730108.png
    Created: 2025-10-14, 4:49:35 a.m.
 
 --------------------------------------------------------------------------------
@@ -1513,7 +1679,8 @@ Recipes without images: 260
    Description: Protein-packed snack bites made with nutrient-dense fall ingredients to keep you full and satisfied during your intermittent fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 7g protein, 15g carbs, 12g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/27170c60-92f5-4b30-b802-422e618ebc93/autumn-apple-walnut-protein-bites-1760502672976.png
    Created: 2025-10-14, 4:47:08 a.m.
 
 --------------------------------------------------------------------------------
@@ -1522,7 +1689,8 @@ Recipes without images: 260
    Description: A nutrient-dense and satiating snack to break your intermittent fasting window. This seasonal overnight oat recipe is packed with protein, fiber, and healthy fats to keep you full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 12g protein, 33g carbs, 14g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b1bfc9d0-10c9-46c7-850c-c1df28d00ffd/autumn-protein-overnight-oats-breaking-fast-1760502665894.png
    Created: 2025-10-14, 4:47:07 a.m.
 
 --------------------------------------------------------------------------------
@@ -1531,7 +1699,8 @@ Recipes without images: 260
    Description: A nourishing and satiating lunch perfect for breaking your intermittent fasting window. This Buddha bowl is loaded with seasonal veggies, roasted chickpeas, and creamy avocado for a nutrient-dense and high-fiber meal that will keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 15g protein, 30g carbs, 22g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a94f9e71-20a9-4c9f-9c99-00be5ba5fd87/protein-packed-autumn-buddha-bowl-1760502658489.png
    Created: 2025-10-14, 4:47:06 a.m.
 
 --------------------------------------------------------------------------------
@@ -1540,7 +1709,8 @@ Recipes without images: 260
    Description: A nutrient-dense, satiating dinner perfect for breaking your intermittent fasting window. This seasonal bowl features baked salmon, roasted fall veggies, and a creamy avocado dressing to keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 365 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/161e0274-910c-4a3b-8855-79964b7fe857/autumn-harvest-salmon-bowls-1760502723179.png
    Created: 2025-10-14, 4:47:05 a.m.
 
 --------------------------------------------------------------------------------
@@ -1549,7 +1719,8 @@ Recipes without images: 260
    Description: A nutrient-dense and satiating breakfast bowl featuring roasted fall vegetables, creamy avocado, and a protein-rich egg to help break your intermittent fast with balanced macros and stable blood sugar.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 360 cal, 24g protein, 29g carbs, 16g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ac11c6b5-02f3-4c3b-a6e0-747570d35de7/autumn-harvest-protein-packed-breakfast-bowl-1760502716099.png
    Created: 2025-10-14, 4:47:05 a.m.
 
 --------------------------------------------------------------------------------
@@ -1558,7 +1729,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein dinner that will keep you full for hours. This Buddha bowl is perfect for breaking your intermittent fasting window with a balanced, satisfying meal.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 425 cal, 35g protein, 30g carbs, 18g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/9866e432-78c1-44ba-9e77-33f423da3e92/satiating-autumn-harvest-buddha-bowl-1760502708335.png
    Created: 2025-10-14, 4:47:04 a.m.
 
 --------------------------------------------------------------------------------
@@ -1567,7 +1739,8 @@ Recipes without images: 260
    Description: This nutrient-dense and protein-rich salmon salad is the perfect meal to break your intermittent fasting window. The combination of healthy fats, complex carbs, and fiber-rich ingredients will keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ef44cab8-29a7-495a-a58e-60b11d334ad8/autumnal-satiating-salmon-salad-1760502701240.png
    Created: 2025-10-14, 4:47:03 a.m.
 
 --------------------------------------------------------------------------------
@@ -1576,7 +1749,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein snack perfect for breaking your intermittent fast. This parfait features creamy yogurt, crunchy granola, and a medley of seasonal fall fruits for a satiating and satisfying treat.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 25g protein, 30g carbs, 14g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b0c0f67c-3ffe-4093-a650-8793fdecda7a/autumn-harvest-protein-parfait-1760502694356.png
    Created: 2025-10-14, 4:47:02 a.m.
 
 --------------------------------------------------------------------------------
@@ -1585,7 +1759,8 @@ Recipes without images: 260
    Description: A protein-packed, nutrient-dense salad featuring roasted fall vegetables, grilled chicken, and a tangy balsamic vinaigrette. This meal is designed to keep you full and satisfied during your intermittent fasting eating window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/df594147-d059-4888-aa6e-c2952ae6be87/autumn-harvest-chicken-salad-breaking-fast-1760502687119.png
    Created: 2025-10-14, 4:47:01 a.m.
 
 --------------------------------------------------------------------------------
@@ -1594,7 +1769,8 @@ Recipes without images: 260
    Description: A hearty, nutrient-dense breakfast perfect for breaking your intermittent fast. This fall-inspired oatmeal is packed with protein, fiber, and healthy fats to keep you feeling full and energized all morning.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 15g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e0d7c1bc-38b3-4b53-b378-dc2556ac177e/autumn-protein-packed-oatmeal-1760502651143.png
    Created: 2025-10-14, 4:47:00 a.m.
 
 --------------------------------------------------------------------------------
@@ -1603,7 +1779,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein salad featuring roasted autumn squash, grilled chicken, and a creamy tahini dressing. Perfect for breaking your intermittent fasting window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/970ae542-3d95-44b6-85f9-f639f0c04fd2/satiating-autumn-squash-and-chicken-salad-1760502680365.png
    Created: 2025-10-14, 4:46:59 a.m.
 
 --------------------------------------------------------------------------------
@@ -1612,7 +1789,8 @@ Recipes without images: 260
    Description: This nutrient-dense Buddha bowl is perfect for breaking your intermittent fasting window. Packed with seasonal veggies, lean protein, and healthy fats, it will keep you feeling full and energized for hours.
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: medium
    Nutrition: 375 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2cc72195-5951-4e9d-b920-59435aa035a3/autumn-protein-packed-buddha-bowl-breaking-fast-1760502114042.png
    Created: 2025-10-14, 4:46:59 a.m.
 
 --------------------------------------------------------------------------------
@@ -1621,7 +1799,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-fiber snack that's perfect for breaking your intermittent fasting window. This Autumn Harvest Chia Pudding is made with seasonal ingredients like pumpkin, pecans, and cinnamon to keep you feeling full and satisfied.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 7g protein, 16g carbs, 12g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6ce7e66d-5015-4197-9661-4bbd65fc786e/autumn-harvest-chia-pudding-1760502106926.png
    Created: 2025-10-14, 4:46:58 a.m.
 
 --------------------------------------------------------------------------------
@@ -1630,7 +1809,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-rich dinner that will keep you full and satisfied for hours. This salmon and roasted veggie dish is perfect for breaking your intermittent fasting window with balanced macros and healthy fats.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/681810ea-8227-4c2f-91e8-01597e890a0f/satiating-salmon-with-roasted-vegetables-breaking-fast-1760502098926.png
    Created: 2025-10-14, 4:46:57 a.m.
 
 --------------------------------------------------------------------------------
@@ -1639,7 +1819,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed salad perfect for breaking your intermittent fasting window. Loaded with seasonal produce, healthy fats, and balanced macros to keep you full and energized.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/37c0468d-ce80-4e47-a4b0-6feeacae9957/satiating-salmon-salad-with-autumn-veggies-1760502092145.png
    Created: 2025-10-14, 4:46:57 a.m.
 
 --------------------------------------------------------------------------------
@@ -1648,7 +1829,8 @@ Recipes without images: 260
    Description: A hearty, nutrient-dense frittata packed with seasonal veggies, lean protein, and healthy fats to keep you full and energized for hours. Perfect for breaking your intermittent fasting window.
    Prep: 15m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 24g protein, 29g carbs, 16g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f3f14cb4-f9e0-4add-86af-c62c23a8a868/protein-packed-autumn-frittata-1760502644406.png
    Created: 2025-10-14, 4:46:56 a.m.
 
 --------------------------------------------------------------------------------
@@ -1657,7 +1839,8 @@ Recipes without images: 260
    Description: A protein-rich, nutrient-dense snack to break your fast and keep you full for hours. This seasonal treat is packed with healthy fats, fiber, and a balanced blend of macros to support stable blood sugar.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 240 cal, 10g protein, 12g carbs, 18g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/543c5d0e-79f5-4b37-8aad-6c2deac725cf/autumn-pumpkin-seed-snack-1760502084805.png
    Created: 2025-10-14, 4:44:34 a.m.
 
 --------------------------------------------------------------------------------
@@ -1666,7 +1849,8 @@ Recipes without images: 260
    Description: A nutrient-dense and protein-rich meal that's perfect for breaking your intermittent fasting eating window. The healthy fats from the salmon and avocado will keep you full and satisfied for hours.
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/9826697c-5395-4605-b7cd-c3a0fc14eace/satiating-salmon-with-avocado-1760502077648.png
    Created: 2025-10-14, 4:44:33 a.m.
 
 --------------------------------------------------------------------------------
@@ -1675,7 +1859,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety breakfast to break your intermittent fast. This seasonal bowl combines roasted sweet potatoes, crispy bacon, creamy avocado, and protein-rich eggs for a satisfying and balanced meal.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 420 cal, 25g protein, 30g carbs, 22g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f7cf0b13-5a1a-44be-89c8-570b11cfb5f6/autumn-protein-packed-breakfast-bowl-1760502070987.png
    Created: 2025-10-14, 4:44:33 a.m.
 
 --------------------------------------------------------------------------------
@@ -1684,7 +1869,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety snack for breaking your intermittent fasting window. This protein-packed bark is made with crunchy nuts, seeds, and chewy apple slices for a satisfying crunch and lasting fullness.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 310 cal, 13g protein, 25g carbs, 20g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/36253cde-f03e-44e3-b786-c6a107db41d4/autumn-apple-protein-bark-1760502063450.png
    Created: 2025-10-14, 4:44:32 a.m.
 
 --------------------------------------------------------------------------------
@@ -1693,7 +1879,8 @@ Recipes without images: 260
    Description: Start your fasting window with this nutrient-dense, high-satiety breakfast. Packed with fall spices, fiber-rich oats, and a protein boost, this warming meal will keep you satisfied for hours.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 330 cal, 25g protein, 30g carbs, 15g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/e75c1e9a-0308-4384-9ae7-128cb77c77d5/autumn-spiced-protein-oatmeal-breaking-fast-1760502056599.png
    Created: 2025-10-14, 4:44:31 a.m.
 
 --------------------------------------------------------------------------------
@@ -1702,7 +1889,8 @@ Recipes without images: 260
    Description: Nutrient-dense pumpkin bites with protein, healthy fats, and fall spices to keep you full and satisfied during your Intermittent Fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 240 cal, 12g protein, 15g carbs, 16g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/98bf8f03-830c-4060-b342-3b92b9ffd81b/autumn-protein-pumpkin-bites-1760502636348.png
    Created: 2025-10-14, 4:44:30 a.m.
 
 --------------------------------------------------------------------------------
@@ -1711,7 +1899,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety dinner is perfect for breaking your intermittent fasting window. The combination of roasted seasonal veggies, lean turkey, and healthy fats from avocado and nuts will keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 35g protein, 30g carbs, 16g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a199b06f-5c84-428a-8f6f-1e3983c674bc/protein-packed-autumn-harvest-bowl-1760502155925.png
    Created: 2025-10-14, 4:44:30 a.m.
 
 --------------------------------------------------------------------------------
@@ -1720,7 +1909,8 @@ Recipes without images: 260
    Description: A nutrient-dense, protein-packed salad perfect for breaking your intermittent fasting window. This colorful and filling dish features seasonal fall ingredients to keep you full and energized.
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 380 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5c774fe1-5f80-4484-90ed-331cc4dbce58/satiating-autumn-harvest-salad-1760502149002.png
    Created: 2025-10-14, 4:44:29 a.m.
 
 --------------------------------------------------------------------------------
@@ -1729,7 +1919,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein smoothie perfect for breaking your intermittent fasting window. This filling and satisfying snack is packed with healthy fats, complex carbs, and a boost of autumn flavor.
    Prep: 5m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 300 cal, 30g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/94255fdb-51a1-47bf-b901-8198c0e3e6fd/pumpkin-spice-protein-smoothie-1760502142012.png
    Created: 2025-10-14, 4:44:28 a.m.
 
 --------------------------------------------------------------------------------
@@ -1738,7 +1929,8 @@ Recipes without images: 260
    Description: This nourishing quinoa bowl is packed with fiber, protein, and healthy fats to keep you full for hours. Perfect for breaking your intermittent fasting window.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 375 cal, 12g protein, 30g carbs, 25g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a47e00cc-09e2-445c-b97e-0350e973a533/satiating-autumn-quinoa-bowl-1760502135087.png
    Created: 2025-10-14, 4:44:28 a.m.
 
 --------------------------------------------------------------------------------
@@ -1747,7 +1939,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein salad that's perfect for breaking your intermittent fasting window. The combination of salmon, leafy greens, and healthy fats will keep you feeling full and satisfied.
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/cd6662d4-81b4-420e-baef-0dbafbfe34f9/satiating-autumn-salmon-salad-1760502127679.png
    Created: 2025-10-14, 4:44:27 a.m.
 
 --------------------------------------------------------------------------------
@@ -1756,7 +1949,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety breakfast to break your intermittent fasting window. This protein-packed bowl features seasonal fall produce, healthy fats, and balanced macros to keep you full and energized.
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 385 cal, 22g protein, 29g carbs, 20g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/76e5c291-5789-4e74-8575-6facd16b296d/autumn-harvest-breakfast-protein-bowl-1760502120982.png
    Created: 2025-10-14, 4:44:26 a.m.
 
 --------------------------------------------------------------------------------
@@ -1765,7 +1959,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein dinner that's perfect for breaking your intermittent fast. Salmon provides healthy fats and protein to keep you feeling full for hours.
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 35g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5c5eb4e7-c3b0-4e11-a1e5-113f3c73ac47/satiating-salmon-with-roasted-veggies-1760502049616.png
    Created: 2025-10-14, 4:44:25 a.m.
 
 --------------------------------------------------------------------------------
@@ -1774,7 +1969,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch perfect for breaking your intermittent fasting window. This hearty Buddha bowl is loaded with roasted fall veggies, lean protein, healthy fats, and complex carbs to keep you full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 375 cal, 35g protein, 30g carbs, 15g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5b42569a-2651-4aa5-bcb2-7cd1d3cf0dda/autumn-harvest-protein-packed-buddha-bowl-1760502042556.png
    Created: 2025-10-14, 4:44:25 a.m.
 
 --------------------------------------------------------------------------------
@@ -1783,7 +1979,8 @@ Recipes without images: 260
    Description: This hearty, nutrient-dense breakfast scramble is the perfect way to break your fast during an intermittent fasting window. Packed with protein-rich eggs, fiber-filled vegetables, and healthy fats, this meal will keep you feeling full and energized for hours.
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 340 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/72eab049-6d6a-467b-ac69-4c1042fcabec/autumn-harvest-breakfast-scramble-1760502035746.png
    Created: 2025-10-14, 4:44:24 a.m.
 
 --------------------------------------------------------------------------------
@@ -1792,7 +1989,8 @@ Recipes without images: 260
    Description: These nutrient-dense pumpkin protein bites are the perfect snack to break your intermittent fasting window. High in fiber, protein, and healthy fats, they'll keep you feeling full for hours.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 240 cal, 12g protein, 15g carbs, 16g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/af96b75e-1ed1-41b3-9751-5190e51bbca1/autumn-pumpkin-protein-bites-1760502028827.png
    Created: 2025-10-14, 4:44:24 a.m.
 
 --------------------------------------------------------------------------------
@@ -1801,7 +1999,8 @@ Recipes without images: 260
    Description: This nutrient-dense, protein-rich dinner is perfect for breaking your intermittent fasting window. The combination of omega-3-packed salmon, fiber-rich veggies, and healthy fats from avocado will keep you feeling full and satisfied for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 390 cal, 35g protein, 30g carbs, 18g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a18d3e5c-68fe-473f-929c-646d7a2a873e/satiating-salmon-with-roasted-autumn-veggies-1760502021540.png
    Created: 2025-10-14, 4:44:23 a.m.
 
 --------------------------------------------------------------------------------
@@ -1810,7 +2009,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-satiety lunch perfect for breaking your intermittent fasting window. This colorful Buddha bowl features roasted fall veggies, lean turkey, and healthy fats to keep you full and energized.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 420 cal, 35g protein, 30g carbs, 18g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8d315916-b5b7-4832-888b-e8ecda4594c1/autumnal-protein-packed-buddha-bowl-1760502014578.png
    Created: 2025-10-14, 4:44:22 a.m.
 
 --------------------------------------------------------------------------------
@@ -1819,7 +2019,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-protein breakfast bowl packed with seasonal produce to keep you full and energized during your intermittent fasting eating window.
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8a4eb425-fa5d-44a2-b258-d383a28e5340/autumn-harvest-protein-bowl-1760502007760.png
    Created: 2025-10-14, 4:44:22 a.m.
 
 --------------------------------------------------------------------------------
@@ -1828,7 +2029,8 @@ Recipes without images: 260
    Description: A nutrient-dense, high-fiber snack that will keep you feeling full and energized during your intermittent fasting eating window.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 210 cal, 6g protein, 27g carbs, 9g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b23065af-7e4e-4755-9c61-1d2394559a7c/autumn-pumpkin-spice-chia-pudding-1760502000519.png
    Created: 2025-10-14, 4:44:21 a.m.
 
 --------------------------------------------------------------------------------
@@ -1837,7 +2039,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety salad is the perfect choice for your intermittent fasting eating window. Packed with protein-rich salmon, seasonal veggies, and healthy fats, it will keep you full and energized for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 30g protein, 28g carbs, 18g fat, 9g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/556407ad-5f2e-4cc2-ab1b-b1dc77501ef4/autumn-harvest-salmon-salad-breaking-fast-1760501923870.png
    Created: 2025-10-14, 4:44:20 a.m.
 
 --------------------------------------------------------------------------------
@@ -1846,7 +2049,8 @@ Recipes without images: 260
    Description: This nutrient-dense, high-satiety salad is perfect for breaking your intermittent fasting window. Featuring roasted fall veggies, lean turkey, and healthy fats, it will keep you full for hours.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 30g protein, 30g carbs, 15g fat, 10g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f6a30ace-38e2-4d94-96e0-f3625c149f48/protein-packed-autumn-harvest-salad-1760501917017.png
    Created: 2025-10-14, 4:44:20 a.m.
 
 --------------------------------------------------------------------------------
@@ -1855,7 +2059,8 @@ Recipes without images: 260
    Description: Warm and comforting oatmeal packed with protein, healthy fats, and fall flavors to keep you full and energized during your Intermittent Fasting Eating Window.
    Prep: 10m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 340 cal, 12g protein, 30g carbs, 18g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/77108302-73d9-4864-a34b-0384da4987f7/autumn-spiced-protein-oatmeal-1760501909769.png
    Created: 2025-10-14, 4:44:19 a.m.
 
 --------------------------------------------------------------------------------
@@ -1864,7 +2069,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly oatmeal bites packed with wholesome pumpkin and fall spices. A perfect on-the-go breakfast for busy families.
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 8g protein, 45g carbs, 9g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/70a8a654-c600-4132-9068-fe7523180c23/pumpkin-spice-oatmeal-bites-1760501993524.png
    Created: 2025-10-14, 4:43:46 a.m.
 
 --------------------------------------------------------------------------------
@@ -1873,7 +2079,8 @@ Recipes without images: 260
    Description: A delicious and nutritious baked pasta dish loaded with seasonal veggies and melty cheese - a kid-friendly dinner that's easy for busy parents!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 385 cal, 20g protein, 50g carbs, 13g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/dc465be8-c264-4313-8024-c25e9ceef850/cheesy-autumn-veggie-bake-1760501986557.png
    Created: 2025-10-14, 4:43:45 a.m.
 
 --------------------------------------------------------------------------------
@@ -1882,7 +2089,8 @@ Recipes without images: 260
    Description: A delicious and kid-approved pasta bake packed with hidden veggies for a nutritious and satisfying lunch.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 440 cal, 35g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/047257b0-3be1-4b78-97be-08e80f5b3d96/cheesy-veggie-packed-pasta-bake-1760501979745.png
    Created: 2025-10-14, 4:43:44 a.m.
 
 --------------------------------------------------------------------------------
@@ -1891,7 +2099,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly baked oatmeal bites packed with wholesome ingredients and a touch of pumpkin spice flavor - perfect for busy parents looking to sneak in extra nutrition!
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 8g protein, 45g carbs, 8g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0ed464c2-f04a-415f-b126-3fdf4a224095/pumpkin-spice-baked-oatmeal-bites-1760501972976.png
    Created: 2025-10-14, 4:43:43 a.m.
 
 --------------------------------------------------------------------------------
@@ -1900,7 +2109,8 @@ Recipes without images: 260
    Description: A delicious and kid-friendly pasta bake packed with seasonal veggies and a cheesy sauce. The perfect family dinner for busy weeknights!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/47e7d038-3c26-4917-a811-c5dae792e310/autumn-harvest-veggie-pasta-bake-1760501966019.png
    Created: 2025-10-14, 4:43:43 a.m.
 
 --------------------------------------------------------------------------------
@@ -1909,7 +2119,8 @@ Recipes without images: 260
    Description: Delicious, kid-friendly oatmeal bites packed with wholesome ingredients like apples, cinnamon, and honey - a perfect fall snack!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 205 cal, 4g protein, 37g carbs, 5g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b70b9c4c-9206-4446-bd00-b4e508e7418f/autumn-apple-oatmeal-bites-1760501958797.png
    Created: 2025-10-14, 4:43:41 a.m.
 
 --------------------------------------------------------------------------------
@@ -1918,7 +2129,8 @@ Recipes without images: 260
    Description: Crispy baked chicken tenders with a cheesy, kid-approved twist. Served with a side of roasted fall veggies for a wholesome and delicious dinner.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/b27ea078-b5c1-40cf-b9d5-68e013f1b04f/cheesy-baked-chicken-tenders-1760501902121.png
    Created: 2025-10-14, 4:43:39 a.m.
 
 --------------------------------------------------------------------------------
@@ -1927,7 +2139,8 @@ Recipes without images: 260
    Description: Tender chicken bites coated in a crispy, cheesy breading that kids will love. Packed with hidden veggies for a nutritious twist on a classic favorite.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/06c0de26-8756-4664-940e-5745d0669b76/cheesy-chicken-nugget-bites-1760501895327.png
    Created: 2025-10-14, 4:41:18 a.m.
 
 --------------------------------------------------------------------------------
@@ -1936,7 +2149,8 @@ Recipes without images: 260
    Description: Crispy baked zucchini rounds with melted cheese, a fun and easy way to get kids to eat their veggies!
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 180 cal, 10g protein, 15g carbs, 10g fat, 2g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/52e35c5f-fc9b-4ce8-897f-a0c0c4e4d660/cheesy-baked-zucchini-bites-1760501888205.png
    Created: 2025-10-14, 4:41:18 a.m.
 
 --------------------------------------------------------------------------------
@@ -1945,7 +2159,8 @@ Recipes without images: 260
    Description: These fun fall-themed pumpkin bites are packed with cheesy goodness and hidden veggies - a perfect kid-friendly dinner the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 390 cal, 28g protein, 25g carbs, 20g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/a07f2047-9ae2-463a-999d-cd219be72e6b/cheesy-stuffed-pumpkin-bites-1760501881333.png
    Created: 2025-10-14, 4:41:17 a.m.
 
 --------------------------------------------------------------------------------
@@ -1954,7 +2169,8 @@ Recipes without images: 260
    Description: Delicious baked oat bites filled with sweet apples and cinnamon - a perfect kid-friendly breakfast!
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 210 cal, 5g protein, 40g carbs, 5g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4dbf265f-8afd-4871-8cb4-432f857f96b9/autumn-apple-oat-bites-1760501951288.png
    Created: 2025-10-14, 4:41:16 a.m.
 
 --------------------------------------------------------------------------------
@@ -1963,7 +2179,8 @@ Recipes without images: 260
    Description: Fluffy pumpkin pancakes filled with cozy fall flavors and packed with hidden veggies - a perfect family breakfast kids will love!
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 12g protein, 45g carbs, 14g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d592814a-3783-47ee-a116-b73d015dbd2d/autumn-pumpkin-pancakes-1760501944441.png
    Created: 2025-10-14, 4:41:14 a.m.
 
 --------------------------------------------------------------------------------
@@ -1972,7 +2189,8 @@ Recipes without images: 260
    Description: Delicious fall-themed energy bites packed with wholesome ingredients like pumpkin, oats, and nuts. A perfect kid-friendly snack that's easy to make and full of hidden nutrition.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 5g protein, 22g carbs, 12g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/04d3bf07-28cd-45b5-b32c-9adba9190dfc/pumpkin-pie-energy-bites-1760501937517.png
    Created: 2025-10-14, 4:41:14 a.m.
 
 --------------------------------------------------------------------------------
@@ -1981,7 +2199,8 @@ Recipes without images: 260
    Description: A delicious and nutritious twist on a classic kid-favorite, this Baked Butternut Squash Mac and Cheese is packed with hidden veggies and warm, comforting flavors. Perfect for picky eaters!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 16g protein, 45g carbs, 12g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/08fc6147-d333-4714-a8ab-2ecedde05879/baked-butternut-squash-mac-and-cheese-1760501930714.png
    Created: 2025-10-14, 4:41:13 a.m.
 
 --------------------------------------------------------------------------------
@@ -1990,7 +2209,8 @@ Recipes without images: 260
    Description: A fun and nutritious fall snack that kids will love! Crisp apple slices topped with melty cheese, crunchy nuts, and a drizzle of honey.
    Prep: 10m | Cook: 5m | Servings: 4 | Difficulty: easy
    Nutrition: 220 cal, 6g protein, 28g carbs, 12g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/434fde29-d44c-4495-a9ec-eb732e24e733/autumn-apple-nachos-1760501818134.png
    Created: 2025-10-14, 4:41:12 a.m.
 
 --------------------------------------------------------------------------------
@@ -1999,7 +2219,8 @@ Recipes without images: 260
    Description: A comforting, kid-friendly pasta bake with hidden veggies and a delicious cheesy topping that the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 375 cal, 17g protein, 52g carbs, 12g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c6ea6284-2600-4492-bf17-39ccff6b7246/cheesy-autumn-pasta-bake-1760501810831.png
    Created: 2025-10-14, 4:41:12 a.m.
 
 --------------------------------------------------------------------------------
@@ -2008,7 +2229,8 @@ Recipes without images: 260
    Description: Tasty quesadillas packed with shredded chicken, melted cheese, and secret veggies that kids will love!
    Prep: 20m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 380 cal, 30g protein, 30g carbs, 17g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/18f52666-bd77-44cc-b6f2-22df96782e05/cheesy-chicken-quesadillas-with-hidden-veggies-1760501803297.png
    Created: 2025-10-14, 4:41:11 a.m.
 
 --------------------------------------------------------------------------------
@@ -2017,7 +2239,8 @@ Recipes without images: 260
    Description: A delicious and nutritious pumpkin-based dip that's perfect for dipping fresh fall veggies. Kids love the creamy texture and sweet pumpkin flavor!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 120 cal, 5g protein, 18g carbs, 3g fat, 2g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/040812ff-b682-48b3-84f2-08c090e0dc96/creamy-pumpkin-spice-dip-1760501874583.png
    Created: 2025-10-14, 4:41:09 a.m.
 
 --------------------------------------------------------------------------------
@@ -2026,7 +2249,8 @@ Recipes without images: 260
    Description: Soft, fluffy pumpkin pancake bites loaded with hidden veggies and kid-approved flavors. Perfect for busy mornings!
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 230 cal, 8g protein, 45g carbs, 5g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/07fd2c9b-648d-490b-aa27-4f9383ce4ac1/pumpkin-pancake-bites-1760501867714.png
    Created: 2025-10-14, 4:41:08 a.m.
 
 --------------------------------------------------------------------------------
@@ -2035,7 +2259,8 @@ Recipes without images: 260
    Description: Delicious and easy-to-make apple pie bites that kids will love! These bite-sized treats are packed with wholesome ingredients and just the right amount of sweetness.
    Prep: 10m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 210 cal, 3g protein, 37g carbs, 7g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/1763d537-033e-44a3-9d82-0164bffd6bf3/baked-apple-pie-bites-1760501860628.png
    Created: 2025-10-14, 4:38:47 a.m.
 
 --------------------------------------------------------------------------------
@@ -2044,7 +2269,8 @@ Recipes without images: 260
    Description: Crispy, cheesy chicken tenders paired with a colorful medley of roasted fall vegetables - a delicious and nutritious family-friendly dinner!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/01c2ba11-453a-4e00-a74b-6d346b35b42f/cheesy-baked-chicken-tenders-with-roasted-veggies-1760501853789.png
    Created: 2025-10-14, 4:38:47 a.m.
 
 --------------------------------------------------------------------------------
@@ -2053,7 +2279,8 @@ Recipes without images: 260
    Description: A delicious and nutritious twist on classic mac and cheese, featuring roasted butternut squash and sneaky veggies that kids will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/34494f19-3847-4b4b-a199-5e60b7d5b448/butternut-squash-mac-and-cheese-1760501796504.png
    Created: 2025-10-14, 4:38:46 a.m.
 
 --------------------------------------------------------------------------------
@@ -2062,7 +2289,8 @@ Recipes without images: 260
    Description: These fun and festive veggie bites are a great way to sneak in some extra nutrition for your little goblins! Made with roasted sweet potato, spinach, and a cheesy dip, these Halloween-themed snacks are sure to be a hit with kids of all ages.
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 210 cal, 10g protein, 25g carbs, 9g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/08ba59f9-50c2-4cf8-af4a-1a05eb3acd44/spooky-spider-veggie-bites-1760501789561.png
    Created: 2025-10-14, 4:38:44 a.m.
 
 --------------------------------------------------------------------------------
@@ -2071,7 +2299,8 @@ Recipes without images: 260
    Description: Delicious, bite-sized pumpkin muffins packed with hidden vegetables and sweetened with maple syrup. Perfect for picky eaters!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 5g protein, 25g carbs, 5g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/ac52c8b6-3059-4bef-b1c4-2ce26178ec47/pumpkin-spice-muffin-bites-1760501782498.png
    Created: 2025-10-14, 4:38:43 a.m.
 
 --------------------------------------------------------------------------------
@@ -2080,7 +2309,8 @@ Recipes without images: 260
    Description: Crispy baked chicken nuggets with sweet potato fries - a fun and healthy family dinner the whole crew will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 410 cal, 30g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/760195a2-28a7-44bf-a006-18290b512ef6/baked-chicken-nuggets-with-sweet-potato-fries-1760501774964.png
    Created: 2025-10-14, 4:38:42 a.m.
 
 --------------------------------------------------------------------------------
@@ -2089,7 +2319,8 @@ Recipes without images: 260
    Description: Juicy chicken, crisp apples, and a hint of cinnamon wrapped in a soft tortilla - a delicious and nutritious lunch the whole family will love!
    Prep: 20m | Cook: 15m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/6ad0569f-1a63-47a7-85cb-b0b1250a86a2/autumn-apple-chicken-wraps-1760501767018.png
    Created: 2025-10-14, 4:38:42 a.m.
 
 --------------------------------------------------------------------------------
@@ -2098,7 +2329,8 @@ Recipes without images: 260
    Description: Delicious and nutritious pumpkin spice oatmeal cups that are perfect for busy mornings! Kids will love the sweet and cozy flavors.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 260 cal, 8g protein, 45g carbs, 8g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c28823b1-8597-43f4-8c49-e86b4fac98db/pumpkin-spice-oatmeal-cups-1760501759804.png
    Created: 2025-10-14, 4:38:41 a.m.
 
 --------------------------------------------------------------------------------
@@ -2107,7 +2339,8 @@ Recipes without images: 260
    Description: Tender baked chicken nuggets with a crispy breadcrumb coating, served with colorful roasted veggie fries for a fun and nutritious dinner the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 400 cal, 28g protein, 45g carbs, 14g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/337cadd4-0822-4adb-b825-76970829a58d/baked-chicken-nuggets-with-roasted-veggie-fries-1760501846798.png
    Created: 2025-10-14, 4:38:40 a.m.
 
 --------------------------------------------------------------------------------
@@ -2116,7 +2349,8 @@ Recipes without images: 260
    Description: Crispy, cheesy chicken tenders and sweet potato fries make for a delicious and nutritious lunch that kids will love!
    Prep: 15m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 28g protein, 38g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/2f62193e-a054-4aac-88e1-2e30a2c1e18f/cheesy-baked-chicken-tenders-with-roasted-sweet-potato-fries-1760501839959.png
    Created: 2025-10-14, 4:38:39 a.m.
 
 --------------------------------------------------------------------------------
@@ -2125,7 +2359,8 @@ Recipes without images: 260
    Description: A delicious and nutritious fall-themed smoothie bowl that's perfect for picky eaters! Packed with hidden veggies and familiar flavors kids love.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 280 cal, 6g protein, 48g carbs, 8g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/335badbb-8748-490e-ba27-571aab268a3c/pumpkin-pie-smoothie-bowls-1760501832225.png
    Created: 2025-10-14, 4:38:38 a.m.
 
 --------------------------------------------------------------------------------
@@ -2134,7 +2369,8 @@ Recipes without images: 260
    Description: A kid-friendly mac and cheese with a hidden vegetable twist! Packed with nutrients but still tastes deliciously cheesy.
    Prep: 15m | Cook: 20m | Servings: 4 | Difficulty: medium
    Nutrition: 420 cal, 20g protein, 45g carbs, 18g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/33582b18-d137-4946-ba9d-c1d15fd5b5f1/sneaky-veggie-mac-and-cheese-1760501825124.png
    Created: 2025-10-14, 4:38:38 a.m.
 
 --------------------------------------------------------------------------------
@@ -2143,7 +2379,8 @@ Recipes without images: 260
    Description: A delicious and easy-to-make baked chicken dish featuring fall vegetables that kids will love!
    Prep: 20m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 360 cal, 35g protein, 30g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0e8b9975-d1b0-4eaa-81e5-d0b6cbab7c30/autumn-harvest-chicken-bake-1760501738716.png
    Created: 2025-10-14, 4:38:36 a.m.
 
 --------------------------------------------------------------------------------
@@ -2152,7 +2389,8 @@ Recipes without images: 260
    Description: Crispy, golden baked veggie nuggets made with hidden veggies, paired with sweet potato fries for a fun and nutritious kid-friendly lunch!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5400e7aa-5212-41ee-aafe-241e8d118200/baked-veggie-nuggets-with-sweet-potato-fries-1760501732051.png
    Created: 2025-10-14, 4:38:36 a.m.
 
 --------------------------------------------------------------------------------
@@ -2161,7 +2399,8 @@ Recipes without images: 260
    Description: A delicious and nutritious baked oatmeal dish packed with fresh apples, cinnamon, and a touch of honey - perfect for a cozy fall breakfast that the whole family will enjoy!
    Prep: 15m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 10g protein, 45g carbs, 10g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/65b37321-da33-45ed-bdef-cd54bf232727/autumn-apple-oatmeal-bake-1760501752182.png
    Created: 2025-10-14, 4:38:35 a.m.
 
 --------------------------------------------------------------------------------
@@ -2170,7 +2409,8 @@ Recipes without images: 260
    Description: A delightfully creamy and lightly sweet pumpkin dip that's perfect for dipping fresh apple slices, graham crackers, or veggie sticks. Kids will love this healthy fall-themed snack!
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 5g protein, 25g carbs, 3g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/78a049f2-9d50-4a4c-838d-5654cc3e0d77/creamy-pumpkin-dip-1760501725041.png
    Created: 2025-10-14, 4:36:08 a.m.
 
 --------------------------------------------------------------------------------
@@ -2179,7 +2419,8 @@ Recipes without images: 260
    Description: A delicious and nutritious twist on classic french fries, these Cheesy Baked Zucchini Fries are a kid-friendly lunch that packs in the veggies. Coated in a crispy parmesan breadcrumb crust, they're sure to be a hit with the whole family.
    Prep: 15m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 200 cal, 10g protein, 15g carbs, 12g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/17611a28-0a44-43b5-9b06-8f8fb190709c/cheesy-baked-zucchini-fries-1760501717253.png
    Created: 2025-10-14, 4:36:07 a.m.
 
 --------------------------------------------------------------------------------
@@ -2188,7 +2429,8 @@ Recipes without images: 260
    Description: Tasty fall-inspired bites with a hidden veggie twist that kids will love!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 190 cal, 4g protein, 33g carbs, 6g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/32a4b5f8-07c6-4c1d-838a-99e6a37799cc/pumpkin-pie-bites-1760501745377.png
    Created: 2025-10-14, 4:36:06 a.m.
 
 --------------------------------------------------------------------------------
@@ -2197,7 +2439,8 @@ Recipes without images: 260
    Description: A healthier twist on a classic kid-favorite, this Cheesy Butternut Squash Mac and Cheese is loaded with hidden veggies and wholesome ingredients for a meal the whole family will enjoy.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 365 cal, 17g protein, 45g carbs, 12g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/4839c1b1-d883-455d-93d2-5f63b2106fa2/cheesy-butternut-squash-mac-and-cheese-1760501709784.png
    Created: 2025-10-14, 4:36:05 a.m.
 
 --------------------------------------------------------------------------------
@@ -2206,7 +2449,8 @@ Recipes without images: 260
    Description: A kid-friendly, veggie-packed twist on classic mac and cheese, perfect for busy families!
    Prep: 20m | Cook: 20m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 10g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/3be4b2cb-b05c-42bf-ac3c-c3906f7e544e/cheesy-veggie-macaroni-1760501702664.png
    Created: 2025-10-14, 4:36:05 a.m.
 
 --------------------------------------------------------------------------------
@@ -2215,7 +2459,8 @@ Recipes without images: 260
    Description: A cozy, kid-approved pasta dish packed with hidden veggies and gooey cheese for a satisfying family lunch.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 390 cal, 27g protein, 45g carbs, 12g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0b95a4de-dd6a-4bb1-b7dc-0c0f6d9e59db/cheesy-pumpkin-pasta-bake-1760501695958.png
    Created: 2025-10-14, 4:36:04 a.m.
 
 --------------------------------------------------------------------------------
@@ -2224,7 +2469,8 @@ Recipes without images: 260
    Description: Delicious pumpkin-flavored bites with a hidden veggie boost, perfect for a healthy and fun snack the whole family will love!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 150 cal, 7g protein, 18g carbs, 7g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/572e3c10-d25b-4042-aa95-8cb02cf8cbeb/cheesy-pumpkin-bites-1760501689133.png
    Created: 2025-10-14, 4:36:03 a.m.
 
 --------------------------------------------------------------------------------
@@ -2233,7 +2479,8 @@ Recipes without images: 260
    Description: Tender chicken nuggets coated in a crispy, cheesy breadcrumb crust, served with a colorful array of roasted fall veggies. A kid-approved dinner that sneaks in extra nutrition.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/f9e64506-1eff-456c-b28a-06f9a3c9bd25/cheesy-baked-chicken-nuggets-with-roasted-veggies-1760501682019.png
    Created: 2025-10-14, 4:36:02 a.m.
 
 --------------------------------------------------------------------------------
@@ -2242,7 +2489,8 @@ Recipes without images: 260
    Description: A comforting and kid-approved pasta bake featuring hidden veggies and a creamy cheese sauce. Perfect for busy weeknights!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 30g fat, 7g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/8244c6ba-9744-4aa0-af3c-de57ae7cd278/cheesy-butternut-squash-pasta-bake-1760501675062.png
    Created: 2025-10-14, 4:36:02 a.m.
 
 --------------------------------------------------------------------------------
@@ -2251,7 +2499,8 @@ Recipes without images: 260
    Description: Fluffy pumpkin pancakes stacked high with maple syrup and crunchy pecans - a delicious and nutritious way to start the day!
    Prep: 15m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 12g protein, 45g carbs, 13g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/34dad31c-68d4-4c73-a23f-2afee64e1119/pumpkin-spice-pancake-stacks-1760501667975.png
    Created: 2025-10-14, 4:36:01 a.m.
 
 --------------------------------------------------------------------------------
@@ -2260,7 +2509,8 @@ Recipes without images: 260
    Description: Delicious and nutritious pumpkin-flavored baked oatmeal cups, perfect for a healthy snack or breakfast on-the-go!
    Prep: 10m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 230 cal, 8g protein, 37g carbs, 6g fat, 5g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/826660a1-d7e5-4624-999a-4df2197ba83e/pumpkin-spice-baked-oatmeal-cups-1760501660618.png
    Created: 2025-10-14, 4:36:00 a.m.
 
 --------------------------------------------------------------------------------
@@ -2269,7 +2519,8 @@ Recipes without images: 260
    Description: Tender, juicy chicken tenders baked to perfection and served with crispy, seasoned veggie fries - a kid-friendly, healthy dinner the whole family will love!
    Prep: 15m | Cook: 30m | Servings: 4 | Difficulty: medium
    Nutrition: 380 cal, 28g protein, 45g carbs, 12g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/69a90acb-5523-428d-9695-9a0c45de3074/baked-chicken-tenders-with-veggie-fries-1760501653867.png
    Created: 2025-10-14, 4:36:00 a.m.
 
 --------------------------------------------------------------------------------
@@ -2278,7 +2529,8 @@ Recipes without images: 260
    Description: A creamy, cheesy pasta dish loaded with hidden veggies that kids will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 45g carbs, 10g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/84b26234-9d5f-4157-95e0-bcd9209a9374/cheesy-veggie-pasta-bake-1760501646989.png
    Created: 2025-10-14, 4:35:59 a.m.
 
 --------------------------------------------------------------------------------
@@ -2287,7 +2539,8 @@ Recipes without images: 260
    Description: Delicious apple pie-inspired bites with a hidden veggie twist that kids will love!
    Prep: 10m | Cook: 15m | Servings: 4 | Difficulty: easy
    Nutrition: 240 cal, 4g protein, 45g carbs, 5g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/c03799c0-6dba-46ca-9fb0-12e62537c5c7/autumn-apple-pie-bites-1760501640330.png
    Created: 2025-10-14, 4:35:58 a.m.
 
 --------------------------------------------------------------------------------
@@ -2296,7 +2549,8 @@ Recipes without images: 260
    Description: A family-friendly baked ziti dish packed with hidden veggies and gooey cheese - a kid-approved dinner that's easy for busy parents to make!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 450 cal, 30g protein, 45g carbs, 20g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/663ff0d8-7d88-4c4a-9052-c6e0e9e77827/cheesy-baked-ziti-with-hidden-veggies-1760501633531.png
    Created: 2025-10-14, 4:35:58 a.m.
 
 --------------------------------------------------------------------------------
@@ -2305,7 +2559,8 @@ Recipes without images: 260
    Description: Crispy, breaded chicken tenders paired with sweet potato fries - a kid-friendly, healthy lunch the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 410 cal, 25g protein, 45g carbs, 15g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/d729d724-2b50-40fa-ada0-942e55bbfe8e/baked-chicken-tenders-with-sweet-potato-fries-1760501626723.png
    Created: 2025-10-14, 4:35:57 a.m.
 
 --------------------------------------------------------------------------------
@@ -2314,7 +2569,8 @@ Recipes without images: 260
    Description: Fluffy pumpkin spice pancakes packed with hidden veggies, perfect for busy mornings!
    Prep: 15m | Cook: 10m | Servings: 4 | Difficulty: easy
    Nutrition: 300 cal, 11g protein, 45g carbs, 9g fat, 4g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/0052681f-04bd-4c7a-9635-f3c52266ac49/pumpkin-spice-pancake-bites-1760501619959.png
    Created: 2025-10-14, 4:35:56 a.m.
 
 --------------------------------------------------------------------------------
@@ -2323,7 +2579,8 @@ Recipes without images: 260
    Description: Delicious and nutritious fall-themed snack bites that kids will love! These pumpkin spice energy balls are packed with wholesome ingredients like oats, pumpkin puree, and honey, making them a perfect on-the-go treat.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 170 cal, 4g protein, 28g carbs, 5g fat, 3g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/610fd5d2-dbf9-491e-8d62-93e2e78b47f6/pumpkin-spice-bites-1760501613113.png
    Created: 2025-10-14, 4:35:56 a.m.
 
 --------------------------------------------------------------------------------
@@ -2332,7 +2589,8 @@ Recipes without images: 260
    Description: A delicious and nutritious dinner the whole family will love! Crispy chicken tenders made with wholesome ingredients, served with sweet potato wedges for a pop of color and vitamins.
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: medium
    Nutrition: 420 cal, 35g protein, 40g carbs, 16g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/5555a1e2-09ee-4eaf-a934-7016f2c5b619/cheesy-baked-chicken-tenders-with-roasted-sweet-potato-wedges-1760501606268.png
    Created: 2025-10-14, 4:35:55 a.m.
 
 --------------------------------------------------------------------------------
@@ -2341,7 +2599,8 @@ Recipes without images: 260
    Description: Crispy, golden chicken tenders paired with colorful roasted veggies - a delicious and nutritious lunch the whole family will love!
    Prep: 20m | Cook: 25m | Servings: 4 | Difficulty: easy
    Nutrition: 350 cal, 25g protein, 30g carbs, 15g fat, 8g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/7e3845f9-cb12-4927-a716-9aefd10ddb99/baked-chicken-tenders-with-roasted-veggies-1760501599144.png
    Created: 2025-10-14, 4:35:55 a.m.
 
 --------------------------------------------------------------------------------
@@ -2350,7 +2609,8 @@ Recipes without images: 260
    Description: A delicious and nutritious breakfast that tastes like pumpkin pie! Kids will love the creamy texture and familiar flavors.
    Prep: 10m | Cook: 0m | Servings: 4 | Difficulty: easy
    Nutrition: 320 cal, 10g protein, 45g carbs, 12g fat, 6g fiber
-   Image: ✗ NO
+   Image: ✓ YES
+   Image URL: https://rnvowqoqqcrimrybuiea.supabase.co/storage/v1/object/public/recipe-images/recipes/1a8125dd-4f0b-42a2-bc0d-8e4139a3096b/pumpkin-pie-overnight-oats-1760501591377.png
    Created: 2025-10-14, 4:35:54 a.m.
 
 --------------------------------------------------------------------------------

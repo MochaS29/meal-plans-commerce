@@ -321,7 +321,7 @@ export default function CalendarPage() {
           className="mt-8 text-center"
         >
           <CheckoutButton productId="wellness-transformation">
-            Get Your Complete Calendar Package - $79
+            Get Your Complete Calendar Package - $59
           </CheckoutButton>
 
           <p className="mt-4 text-gray-600">

@@ -87,7 +87,7 @@ export default function FamilyFocusedPage() {
               variant="secondary"
             >
               <ShoppingCart className="w-4 h-4" />
-              One-Time $79
+              One-Time $59
             </CheckoutButton>
             <CheckoutButton
               productId="monthly-calendar"

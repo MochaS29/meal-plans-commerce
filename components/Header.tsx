@@ -77,14 +77,8 @@ export default function Header() {
                     🌍 Global Cuisine
                   </Link>
                   <div className="border-t border-gray-100 mt-2 pt-2">
-                    <Link href="/plans/wellness-transformation" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-amber-700 hover:bg-amber-50 hover:text-amber-800 transition font-medium">
-                      ✨ 30-Day Transformation
-                    </Link>
-                    <Link href="/plans/custom-family" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-amber-700 hover:bg-amber-50 hover:text-amber-800 transition font-medium">
-                      🏠 Custom Family Plan
-                    </Link>
-                    <Link href="/plans/monthly-calendar" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-amber-700 hover:bg-amber-50 hover:text-amber-800 transition font-medium">
-                      📅 Monthly Subscription
+                    <Link href="/plans/customize" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 bg-gradient-to-r from-teal-600 to-amber-600 text-white hover:from-teal-700 hover:to-amber-700 transition font-semibold text-center rounded-lg mx-2 mb-2">
+                      🎯 Customize Your Meal Plan
                     </Link>
                   </div>
                 </div>

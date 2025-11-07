@@ -55,7 +55,7 @@ export default function PricingPage() {
     {
       id: 'wellness-transformation',
       name: '30-Day Wellness',
-      price: '$79',
+      price: '$59',
       period: 'one-time',
       description: 'Complete meal planning package with your choice of cuisine',
       features: [

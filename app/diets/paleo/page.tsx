@@ -63,7 +63,7 @@ export default function PaleoDietPage() {
               variant="secondary"
             >
               <ShoppingCart className="w-4 h-4" />
-              One-Time $79
+              One-Time $59
             </CheckoutButton>
             <CheckoutButton
               productId="monthly-calendar"
@@ -160,7 +160,7 @@ export default function PaleoDietPage() {
                 href="/plans/wellness-transformation"
                 className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Paleo Plan - $79
+                Get Paleo Plan - $59
               </Link>
               <Link
                 href="/recipes"

@@ -88,7 +88,7 @@ export default function MediterraneanPage() {
                 href="/checkout?product=wellness-transformation&type=mediterranean"
                 className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition font-semibold"
               >
-                Start Mediterranean Journey - $79
+                Start Mediterranean Journey - $59
               </Link>
               <button
                 onClick={() => setActiveTab('sample')}

@@ -1,0 +1,291 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7] [cursor=pointer]
+        - generic [ref=e8] [cursor=pointer]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10] [cursor=pointer]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11] [cursor=pointer]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17] [cursor=pointer]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - link "Login" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e28]:
+        - heading "Empowering Health Through Mindful Nutrition" [level=1] [ref=e29]:
+          - text: Empowering Health Through Mindful
+          - generic [ref=e30]: Nutrition
+        - paragraph [ref=e31]: Transform your wellness journey with personalized meal plans and mindful insights
+        - paragraph [ref=e32]: Experience the luxury of having an AI wellness chef design your family's health journey. Our custom monthly menu plans are thoughtfully curated to match your wellness goals, dietary preferences, and lifestyle. Each month includes a designer printable calendar featuring your choice of wellness-focused cuisines—from heart-healthy recipes and clean eating to keto-friendly, plant-based, globally-inspired dishes, and beyond—professionally organized shopping lists that streamline your wellness routine, and restaurant-quality recipes simplified for mindful home cooking. Choose from our curated wellness themes or let our AI wellness chef create a completely personalized meal plan just for you.
+        - generic [ref=e33]:
+          - link "Learn More" [ref=e34] [cursor=pointer]:
+            - /url: "#plans"
+          - link "See Menus" [ref=e35] [cursor=pointer]:
+            - /url: /calendar
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - heading "Why Choose Our Menu Plans?" [level=2] [ref=e39]
+          - paragraph [ref=e40]: Professionally curated meal plans that taste incredible and fit your lifestyle
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - img [ref=e45]
+            - heading "Personalized Wellness" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Custom plans for keto, plant-based, clean eating & more
+          - generic [ref=e49]:
+            - img [ref=e52]
+            - heading "Designer Calendars" [level=3] [ref=e54]
+            - paragraph [ref=e55]: Beautiful monthly meal plans with every detail planned
+          - generic [ref=e56]:
+            - img [ref=e59]
+            - heading "Smart Shopping" [level=3] [ref=e63]
+            - paragraph [ref=e64]: Professional lists organized to streamline your routine
+          - generic [ref=e65]:
+            - img [ref=e68]
+            - heading "Global Cuisines" [level=3] [ref=e70]
+            - paragraph [ref=e71]: Restaurant-quality recipes from around the world
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - heading "Choose Your Wellness Journey" [level=2] [ref=e75]
+          - paragraph [ref=e76]: Professional meal planning that makes healthy eating effortless
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - generic [ref=e79]: MOST POPULAR
+            - generic [ref=e80]:
+              - heading "30-Day Wellness Transformation" [level=3] [ref=e81]
+              - generic [ref=e83]: $79.00
+              - paragraph [ref=e84]: Complete meal planning package with your choice of cuisine style - Mediterranean, Intermittent Fasting, Keto, Plant-Based, Clean Eating, or Global Fusion
+              - list [ref=e85]:
+                - listitem [ref=e86]:
+                  - img [ref=e87]
+                  - generic [ref=e89]: 30-day designer printable calendar
+                - listitem [ref=e90]:
+                  - img [ref=e91]
+                  - generic [ref=e93]: Choice of wellness cuisine style
+                - listitem [ref=e94]:
+                  - img [ref=e95]
+                  - generic [ref=e97]: 50+ restaurant-quality recipes
+                - listitem [ref=e98]:
+                  - img [ref=e99]
+                  - generic [ref=e101]: Professionally organized shopping lists
+                - listitem [ref=e102]:
+                  - img [ref=e103]
+                  - generic [ref=e105]: Sunday meal prep strategies
+              - link "Get Started" [ref=e106] [cursor=pointer]:
+                - /url: /plans/wellness-transformation
+          - generic [ref=e108]:
+            - heading "Custom Family Wellness Plan" [level=3] [ref=e109]
+            - generic [ref=e111]: $99.00
+            - paragraph [ref=e112]: AI-powered personalized meal planning designed specifically for your family's unique wellness goals and preferences
+            - list [ref=e113]:
+              - listitem [ref=e114]:
+                - img [ref=e115]
+                - generic [ref=e117]: AI-personalized 30-day plan
+              - listitem [ref=e118]:
+                - img [ref=e119]
+                - generic [ref=e121]: Smart portion sizing for 2-8 people
+              - listitem [ref=e122]:
+                - img [ref=e123]
+                - generic [ref=e125]: Multiple dietary accommodations handled
+              - listitem [ref=e126]:
+                - img [ref=e127]
+                - generic [ref=e129]: Kid-friendly wellness options included
+              - listitem [ref=e130]:
+                - img [ref=e131]
+                - generic [ref=e133]: Mix of cuisine styles in one plan
+            - link "Get Started" [ref=e134] [cursor=pointer]:
+              - /url: /plans/custom-family
+          - generic [ref=e136]:
+            - heading "Monthly Wellness Journey" [level=3] [ref=e137]
+            - generic [ref=e138]:
+              - generic [ref=e139]: $29.00
+              - generic [ref=e140]: /month
+            - paragraph [ref=e141]: Fresh AI-curated meal plans delivered monthly featuring rotating global cuisines and seasonal ingredients
+            - list [ref=e142]:
+              - listitem [ref=e143]:
+                - img [ref=e144]
+                - generic [ref=e146]: New designer calendar each month
+              - listitem [ref=e147]:
+                - img [ref=e148]
+                - generic [ref=e150]: Rotating cuisine themes
+              - listitem [ref=e151]:
+                - img [ref=e152]
+                - generic [ref=e154]: Seasonal & locally-inspired recipes
+              - listitem [ref=e155]:
+                - img [ref=e156]
+                - generic [ref=e158]: AI wellness insights & monthly tips
+              - listitem [ref=e159]:
+                - img [ref=e160]
+                - generic [ref=e162]: Access to full recipe archive
+            - link "Subscribe Now" [ref=e163] [cursor=pointer]:
+              - /url: /plans/monthly-calendar
+      - generic [ref=e165]:
+        - generic [ref=e166]:
+          - heading "See What's Inside" [level=2] [ref=e167]
+          - paragraph [ref=e168]: A sneak peek at your personalized meal calendar
+        - generic [ref=e169]:
+          - heading "September 2025 - Week 1" [level=3] [ref=e171]
+          - generic [ref=e172]:
+            - generic [ref=e173]: Sun
+            - generic [ref=e174]: Mon
+            - generic [ref=e175]: Tue
+            - generic [ref=e176]: Wed
+            - generic [ref=e177]: Thu
+            - generic [ref=e178]: Fri
+            - generic [ref=e179]: Sat
+            - generic [ref=e180] [cursor=pointer]:
+              - generic [ref=e181] [cursor=pointer]: "1"
+              - generic [ref=e182] [cursor=pointer]:
+                - generic [ref=e183] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e184] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e185] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e186] [cursor=pointer]: 1,850 cal
+            - generic [ref=e187] [cursor=pointer]:
+              - generic [ref=e188] [cursor=pointer]: "2"
+              - generic [ref=e189] [cursor=pointer]:
+                - generic [ref=e190] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e191] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e192] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e193] [cursor=pointer]: 1,850 cal
+            - generic [ref=e194] [cursor=pointer]:
+              - generic [ref=e195] [cursor=pointer]: "3"
+              - generic [ref=e196] [cursor=pointer]:
+                - generic [ref=e197] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e198] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e199] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e200] [cursor=pointer]: 1,850 cal
+            - generic [ref=e201] [cursor=pointer]:
+              - generic [ref=e202] [cursor=pointer]: "4"
+              - generic [ref=e203] [cursor=pointer]:
+                - generic [ref=e204] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e205] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e206] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e207] [cursor=pointer]: 1,850 cal
+            - generic [ref=e208] [cursor=pointer]:
+              - generic [ref=e209] [cursor=pointer]: "5"
+              - generic [ref=e210] [cursor=pointer]:
+                - generic [ref=e211] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e212] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e213] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e214] [cursor=pointer]: 1,850 cal
+            - generic [ref=e215] [cursor=pointer]:
+              - generic [ref=e216] [cursor=pointer]: "6"
+              - generic [ref=e217] [cursor=pointer]:
+                - generic [ref=e218] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e219] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e220] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e221] [cursor=pointer]: 1,850 cal
+            - generic [ref=e222] [cursor=pointer]:
+              - generic [ref=e223] [cursor=pointer]: "7"
+              - generic [ref=e224] [cursor=pointer]:
+                - generic [ref=e225] [cursor=pointer]: "B: Greek Yogurt"
+                - generic [ref=e226] [cursor=pointer]: "L: Med Salad"
+                - generic [ref=e227] [cursor=pointer]: "D: Herb Chicken"
+              - generic [ref=e228] [cursor=pointer]: 1,850 cal
+        - link "View Full Interactive Calendar" [ref=e230] [cursor=pointer]:
+          - /url: /calendar
+          - img [ref=e231] [cursor=pointer]
+          - text: View Full Interactive Calendar
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - heading "Success Stories" [level=2] [ref=e236]
+          - paragraph [ref=e237]: Join thousands who've transformed their health
+        - generic [ref=e238]:
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - img [ref=e241]
+              - img [ref=e243]
+              - img [ref=e245]
+              - img [ref=e247]
+              - img [ref=e249]
+            - paragraph [ref=e251]: "\"Lost 15 pounds in 2 months! The meal plans are delicious and easy to follow.\""
+            - paragraph [ref=e252]: "- Sarah M."
+          - generic [ref=e253]:
+            - generic [ref=e254]:
+              - img [ref=e255]
+              - img [ref=e257]
+              - img [ref=e259]
+              - img [ref=e261]
+              - img [ref=e263]
+            - paragraph [ref=e265]: "\"My cholesterol dropped 30 points. These meal plans really work!\""
+            - paragraph [ref=e266]: "- John D."
+          - generic [ref=e267]:
+            - generic [ref=e268]:
+              - img [ref=e269]
+              - img [ref=e271]
+              - img [ref=e273]
+              - img [ref=e275]
+              - img [ref=e277]
+            - paragraph [ref=e279]: "\"Finally found sustainable meal planning. My whole family loves these recipes!\""
+            - paragraph [ref=e280]: "- Maria L."
+  - contentinfo [ref=e281]:
+    - generic [ref=e282]:
+      - generic [ref=e283]:
+        - generic [ref=e284]:
+          - generic [ref=e285]: 🧠
+          - link "Mocha's MindLab" [ref=e286] [cursor=pointer]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e287]: Transform your health with personalized meal planning
+      - generic [ref=e288]:
+        - heading "Meal Plans" [level=4] [ref=e289]
+        - list [ref=e290]:
+          - listitem [ref=e291]:
+            - link "Mediterranean" [ref=e292] [cursor=pointer]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e293]:
+            - link "Keto" [ref=e294] [cursor=pointer]:
+              - /url: /diets/keto
+          - listitem [ref=e295]:
+            - link "Vegan" [ref=e296] [cursor=pointer]:
+              - /url: /diets/vegan
+          - listitem [ref=e297]:
+            - link "View All Plans" [ref=e298] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e299]:
+        - heading "Quick Links" [level=4] [ref=e300]
+        - list [ref=e301]:
+          - listitem [ref=e302]:
+            - link "My Dashboard" [ref=e303] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e304]:
+            - link "Login" [ref=e305] [cursor=pointer]:
+              - /url: /login
+          - listitem [ref=e306]:
+            - link "Pricing" [ref=e307] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e308]:
+        - heading "Resources" [level=4] [ref=e309]
+        - list [ref=e310]:
+          - listitem [ref=e311]:
+            - link "Recipes" [ref=e312] [cursor=pointer]:
+              - /url: /recipes
+          - listitem [ref=e313]:
+            - link "Sample Calendar" [ref=e314] [cursor=pointer]:
+              - /url: /calendar
+          - listitem [ref=e315]:
+            - link "Menu Benefits" [ref=e316] [cursor=pointer]:
+              - /url: /menu-benefits
+          - listitem [ref=e317]:
+            - link "Contact" [ref=e318] [cursor=pointer]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e320]:
+      - paragraph [ref=e321]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e322]:
+        - link "Privacy Policy" [ref=e323] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e324] [cursor=pointer]:
+          - /url: /terms
+  - alert [ref=e325]
+```

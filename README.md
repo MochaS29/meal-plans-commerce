@@ -12,12 +12,13 @@ A full-stack Next.js 15 e-commerce platform for selling personalized meal plans,
 ## 🌟 Features
 
 ### Customer Features
-- **6 Specialized Diet Plans** - Mediterranean, Keto, Vegan, Paleo, Vegetarian, Family Recipes (with 3,586+ recipes ready)
-- **Hybrid Recipe System** - 75% curated library recipes + 25% freshly generated for variety
+- **8 Specialized Diet Plans** - Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family Focused, Global Cuisine
+- **Unified Customization** - Single page for selecting diet type, family size, and dietary preferences
+- **Flexible Pricing** - $59 one-time purchase or $29/month subscription
 - **30-Day Meal Plans** - Complete monthly meal calendars with personalized recipe selection
-- **Smart Recipe Tracking** - Never receive duplicate recipes, perfect for returning customers
-- **Instant PDF Delivery** - Beautiful meal plan PDFs generated and delivered automatically
-- **AI-Powered Variety** - Fresh recipes added to library with every customer order
+- **Beautiful PDF Design** - Stunning cover image with full recipes, ingredients, and nutrition info
+- **Background Processing** - Meal plans generated asynchronously and emailed when ready
+- **AI-Powered Generation** - Fresh, personalized recipes generated based on customer preferences
 - **Secure Payments** - Stripe Checkout integration with automated fulfillment
 - **Mobile Responsive** - Fully optimized for all devices and screen sizes
 
@@ -98,8 +99,9 @@ Open [http://localhost:3000](http://localhost:3000) to see your site!
 
 ### Public Pages
 - `/` - Homepage with all diet plans and pricing
-- `/diets/[slug]` - Individual diet plan pages (mediterranean, keto, vegan, etc.)
-- `/pricing` - Compare all meal plans and pricing options
+- `/diets/[slug]` - Individual diet plan pages (mediterranean, keto, vegan, paleo, vegetarian, intermittent-fasting, family-focused, global-cuisine)
+- `/plans/customize` - Unified customization page for selecting diet, family size, and preferences
+- `/pricing` - Compare pricing options ($59 one-time vs $29/month)
 - `/calendar` - Sample 30-day meal calendar
 - `/recipes` - Browse recipe collection
 - `/menu-benefits` - Why meal planning works
@@ -107,7 +109,7 @@ Open [http://localhost:3000](http://localhost:3000) to see your site!
 
 ### Customer Pages
 - `/dashboard` - Personal dashboard with purchases and meal plans
-- `/success` - Payment success confirmation
+- `/success` - Payment success confirmation with processing notice
 - `/portal` - Stripe customer portal for subscription management
 
 ### Admin Pages
@@ -125,11 +127,14 @@ meal-plans-commerce/
 │   │   └── recipes/             # Recipe library
 │   ├── api/                     # API routes
 │   │   ├── admin/               # Admin endpoints
+│   │   ├── cron/                # Background job processing
 │   │   ├── generate-recipes/    # AI recipe generation
 │   │   ├── stripe/              # Payment processing
-│   │   └── user/                # User management
+│   │   └── webhooks/            # Stripe webhooks
 │   ├── dashboard/               # Customer dashboard
 │   ├── diets/                   # Diet plan pages
+│   ├── plans/                   # Customization pages
+│   │   └── customize/           # Unified customization
 │   └── page.tsx                 # Homepage
 ├── components/                   # Reusable React components
 │   ├── Header.tsx               # Site navigation
@@ -151,9 +156,13 @@ meal-plans-commerce/
 
 ### Create Products in Stripe Dashboard
 
-1. **30-Day Mediterranean Challenge** - $79 (one-time)
-2. **Custom Family Meal Plan** - $149 (one-time)
-3. **Monthly Meal Calendar Access** - $29/month (subscription)
+1. **One-Time Meal Plan** - $59 (one-time payment)
+   - Product ID: `prod_one_time_meal_plan`
+   - 30-day customized meal calendar with full recipes
+
+2. **Monthly Subscription** - $29/month (recurring)
+   - Product ID: `prod_monthly_subscription`
+   - New meal plan every month, auto-renewal
 
 ### Configure Webhook
 - Endpoint: `https://your-domain.com/api/webhooks/stripe`
@@ -296,11 +305,13 @@ export const products = [
 ### Main Tables
 - `users` - Customer accounts and authentication
 - `purchases` - Order history and transactions
+- `meal_plan_jobs` - Background job queue for meal plan generation
 - `diet_plans` - Available meal plan types
 - `recipes` - AI-generated recipe collection
 - `recipe_ingredients` - Ingredient lists with quantities
 - `recipe_instructions` - Step-by-step cooking directions
 - `recipe_nutrition` - Nutritional information per serving
+- `generated_images` - Recipe images from AI generation
 
 ## 📝 Environment Variables
 

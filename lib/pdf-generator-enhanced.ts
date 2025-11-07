@@ -85,7 +85,59 @@ export class EnhancedMealPlanPDFGenerator {
     return false;
   }
 
-  private drawHeader(title: string, subtitle: string) {
+  private async drawCoverPageWithImage(title: string, subtitle: string) {
+    try {
+      // Load the cover image from public directory
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+      const coverImageUrl = `${baseUrl}/images/pdf-cover-mediterranean.png`;
+
+      console.log('Loading cover image from:', coverImageUrl);
+      const imageData = await this.fetchImageAsBase64(coverImageUrl);
+
+      if (imageData) {
+        // Add full-page cover image (A4 dimensions: 210mm x 297mm)
+        this.doc.addImage(imageData, 'PNG', 0, 0, this.pageWidth, this.pageHeight);
+
+        // Add semi-transparent dark overlay at bottom for text readability
+        this.doc.setFillColor(0, 0, 0);
+        this.doc.setGState(new this.doc.GState({ opacity: 0.6 }));
+        this.doc.rect(0, this.pageHeight - 100, this.pageWidth, 100, 'F');
+
+        // Reset opacity for text
+        this.doc.setGState(new this.doc.GState({ opacity: 1 }));
+
+        // Add title on top of image
+        this.doc.setTextColor(255, 255, 255);
+        this.doc.setFontSize(32);
+        this.doc.setFont('helvetica', 'bold');
+        this.doc.text(title, this.pageWidth / 2, this.pageHeight - 70, { align: 'center' });
+
+        // Add subtitle
+        this.doc.setFontSize(16);
+        this.doc.setFont('helvetica', 'normal');
+        // Split subtitle if too long
+        const lines = this.doc.splitTextToSize(subtitle, this.pageWidth - 40);
+        this.doc.text(lines, this.pageWidth / 2, this.pageHeight - 50, { align: 'center' });
+
+        // Add branding
+        this.doc.setFontSize(12);
+        this.doc.setFont('helvetica', 'italic');
+        this.doc.text('Mindful Meal Plans by Mocha\'s MindLab', this.pageWidth / 2, this.pageHeight - 20, { align: 'center' });
+
+        console.log('✅ Cover image added successfully');
+      } else {
+        // Fallback to original header if image fails to load
+        console.log('⚠️  Cover image not available, using fallback header');
+        this.drawHeaderFallback(title, subtitle);
+      }
+    } catch (error) {
+      console.log('⚠️  Error loading cover image, using fallback:', error);
+      this.drawHeaderFallback(title, subtitle);
+    }
+  }
+
+  private drawHeaderFallback(title: string, subtitle: string) {
+    // Original header design as fallback
     // Create an elegant two-tone design with gradient effect
     // Bottom layer - Dark teal
     this.doc.setFillColor(0, 150, 136); // Teal
@@ -122,6 +174,11 @@ export class EnhancedMealPlanPDFGenerator {
     // Add tagline below the line
     this.doc.setTextColor(100, 100, 100);
     this.doc.setFontSize(10);
+  }
+
+  private drawHeader(title: string, subtitle: string) {
+    // Wrapper method for backward compatibility
+    this.drawHeaderFallback(title, subtitle);
     this.doc.setFont('helvetica', 'italic');
     this.doc.text('Your Personalized Meal Plan with Complete Recipes', this.pageWidth / 2, 65, { align: 'center' });
 
@@ -552,30 +609,19 @@ export class EnhancedMealPlanPDFGenerator {
     const dayNumbers = dayKeys.map(key => parseInt(key.replace('day_', ''))).sort((a, b) => a - b);
     const isWeekly = dayNumbers.length <= 7;
 
-    // Cover Page
+    // Cover Page with beautiful Mediterranean image
     const subtitle = isWeekly && dayNumbers.length > 0
       ? `${this.getMonthName(mealPlan.month)} ${mealPlan.year} - Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]} Meal Plan with Full Recipes`
       : `${this.getMonthName(mealPlan.month)} ${mealPlan.year} Meal Plan with Full Recipes`;
 
-    this.drawHeader(
+    await this.drawCoverPageWithImage(
       this.formatMenuType(mealPlan.menuType),
       subtitle
     );
 
-    // User info if provided
-    if (userInfo?.name) {
-      this.currentY = 45;
-      this.doc.setFontSize(14);
-      this.doc.text(`Prepared for: ${userInfo.name}`, this.margins.left, this.currentY);
-      this.currentY += 15;
-    }
-
-    // Draw centered calendar on title page
-    this.drawCenteredCalendar(mealPlan, userInfo ? 60 : 45);
-
     this.drawFooter(pageNum++);
 
-    // Weekly Calendar Pages with Full Recipes
+    // Start recipes on new page
     this.doc.addPage();
     this.currentY = this.margins.top;
 

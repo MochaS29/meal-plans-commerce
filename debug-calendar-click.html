@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Calendar Recipe Click</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .log {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .recipe-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        .recipe-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Debug Calendar Recipe Click Flow</h1>
+    
+    <div class="test-section">
+        <h2>Test Recipe Click Flow</h2>
+        <p>Click the buttons below to test each part of the recipe click flow:</p>
+        
+        <button onclick="testRecipeAPI()">1. Test Recipe API Directly</button>
+        <button onclick="testRecipeMapping()">2. Test Recipe Mapping</button>
+        <button onclick="simulateCalendarClick()">3. Simulate Calendar Click</button>
+        <button onclick="clearLog()">Clear Log</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Console Log</h2>
+        <div id="log" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Recipe Modal Test</h2>
+        <button onclick="showTestModal()">Show Test Modal</button>
+        <div id="recipeModal" class="recipe-modal">
+            <div class="recipe-content">
+                <h3>Test Recipe Modal</h3>
+                <p>If you can see this, the modal is working!</p>
+                <button onclick="hideTestModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const recipeMapping = {
+            "Overnight Oats with Greek Yogurt": "Satiating Pumpkin Spice Overnight Oats",
+            "Whole Grain Toast with Avocado and Feta": "Mediterranean Quinoa and Egg Breakfast Bowl",
+            "Turkish Breakfast Platter": "Turkish Menemen",
+            "Mediterranean Egg Bites": "Mediterranean Shakshuka",
+            "Greek Yogurt Parfait with Honey": "Autumn Protein-Packed Oatmeal Bowl",
+            "Shakshuka with Whole Grain Pita": "Mediterranean Shakshuka",
+            "Mediterranean Smoothie Bowl": "Pumpkin Pie Smoothie Bowl",
+            "Mediterranean Omelet": "Turkish Menemen: Eggs in Tomato Sauce",
+            "Ricotta Pancakes with Berry Compote": "Autumn Protein-Packed Oatmeal Bowl"
+        };
+
+        function log(message, type = 'info') {
+            const logEl = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : '';
+            logEl.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            logEl.scrollTop = logEl.scrollHeight;
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('log').innerHTML = '';
+            log('Log cleared');
+        }
+
+        async function testRecipeAPI() {
+            log('Testing Recipe API...');
+            
+            const testRecipe = "Turkish Menemen";
+            const apiUrl = `/api/recipes/by-name/${encodeURIComponent(testRecipe)}`;
+            
+            log(`Testing with recipe: "${testRecipe}"`);
+            log(`API URL: ${apiUrl}`);
+            
+            try {
+                const response = await fetch(apiUrl);
+                log(`Response status: ${response.status}`);
+                log(`Response OK: ${response.ok}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`Recipe found: ${data.name}`, 'success');
+                    log(`Has ingredients: ${!!data.recipe_ingredients}`);
+                    log(`Has instructions: ${!!data.recipe_instructions}`);
+                    log(`Full response: ${JSON.stringify(data).substring(0, 200)}...`);
+                } else {
+                    const error = await response.text();
+                    log(`API Error: ${error}`, 'error');
+                }
+            } catch (error) {
+                log(`Network error: ${error.message}`, 'error');
+            }
+        }
+
+        function testRecipeMapping() {
+            log('Testing Recipe Mapping...');
+            
+            const testNames = [
+                "Overnight Oats with Greek Yogurt",
+                "Turkish Breakfast Platter",
+                "Mediterranean Egg Bites"
+            ];
+            
+            testNames.forEach(name => {
+                const mapped = recipeMapping[name] || name;
+                log(`"${name}" → "${mapped}"`);
+            });
+        }
+
+        async function simulateCalendarClick() {
+            log('Simulating Calendar Click Flow...');
+            
+            const recipeName = "Turkish Breakfast Platter";
+            log(`1. User clicks on: "${recipeName}"`);
+            
+            // Simulate handleRecipeClick
+            if (!recipeName || recipeName === 'Loading...' || recipeName.includes('No ')) {
+                log('Recipe name invalid, stopping', 'error');
+                return;
+            }
+            
+            log('2. Recipe name is valid, proceeding...');
+            
+            // Simulate fetchRecipeDetails
+            const mappedRecipeName = recipeMapping[recipeName] || recipeName;
+            log(`3. Mapped recipe name: "${mappedRecipeName}"`);
+            
+            const apiUrl = `/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`;
+            log(`4. Calling API: ${apiUrl}`);
+            
+            try {
+                const response = await fetch(apiUrl);
+                log(`5. API Response: ${response.status} ${response.ok ? 'OK' : 'ERROR'}`);
+                
+                if (response.ok) {
+                    const recipe = await response.json();
+                    log(`6. Recipe loaded: "${recipe.name}"`, 'success');
+                    log(`7. Modal should now display`);
+                    
+                    // Check if recipe is valid
+                    if (recipe && !recipe.placeholder) {
+                        log('8. Recipe is valid - modal would open', 'success');
+                    } else {
+                        log('8. Recipe is placeholder - modal would not open', 'error');
+                    }
+                } else {
+                    log('API request failed', 'error');
+                }
+            } catch (error) {
+                log(`Error: ${error.message}`, 'error');
+            }
+        }
+
+        function showTestModal() {
+            log('Showing test modal...');
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function hideTestModal() {
+            log('Hiding test modal...');
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+
+        // Initialize
+        log('Debug tool ready. Use the buttons above to test the recipe click flow.');
+    </script>
+</body>
+</html>

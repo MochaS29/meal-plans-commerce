@@ -64,7 +64,7 @@ export default function IntermittentFastingPage() {
               variant="secondary"
             >
               <ShoppingCart className="w-4 h-4" />
-              One-Time $79
+              One-Time $59
             </CheckoutButton>
             <CheckoutButton
               productId="monthly-calendar"
@@ -195,7 +195,7 @@ export default function IntermittentFastingPage() {
                 href="/plans/wellness-transformation"
                 className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get IF Meal Plan - $79
+                Get IF Meal Plan - $59
               </Link>
               <Link
                 href="/calendar"

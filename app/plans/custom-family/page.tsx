@@ -10,69 +10,11 @@ import { loadStripe } from '@stripe/stripe-js'
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function CustomFamilyPage() {
-  const [loading, setLoading] = useState(false)
-  const [familySize, setFamilySize] = useState('4')
-  const [dietaryNeeds, setDietaryNeeds] = useState<string[]>([])
-  const [allergies, setAllergies] = useState('')
-  const [preferences, setPreferences] = useState('')
   const product = getProductById('custom-family')
 
-  const dietaryOptions = [
-    { id: 'vegetarian', label: 'Vegetarian' },
-    { id: 'vegan', label: 'Vegan' },
-    { id: 'gluten-free', label: 'Gluten-Free' },
-    { id: 'dairy-free', label: 'Dairy-Free' },
-    { id: 'low-carb', label: 'Low-Carb' },
-    { id: 'kid-friendly', label: 'Kid-Friendly' }
-  ]
-
-  const toggleDietaryNeed = (id: string) => {
-    setDietaryNeeds(prev =>
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-    )
-  }
-
-  const handleCheckout = async () => {
-    try {
-      setLoading(true)
-
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productId: 'custom-family',
-          customizations: {
-            familySize: parseInt(familySize),
-            dietaryNeeds,
-            allergies,
-            preferences
-          }
-        })
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to create checkout session')
-      }
-
-      const { sessionId } = await response.json()
-      const stripe = await stripePromise
-
-      if (!stripe) {
-        throw new Error('Stripe failed to load')
-      }
-
-      const { error } = await stripe.redirectToCheckout({ sessionId })
-
-      if (error) {
-        throw error
-      }
-    } catch (error) {
-      console.error('Checkout error:', error)
-      alert('Something went wrong. Please try again or contact support.')
-    } finally {
-      setLoading(false)
-    }
+  const handleGetStarted = () => {
+    // Redirect to unified customization page
+    window.location.href = '/plans/customize'
   }
 
   if (!product) {
@@ -243,109 +185,51 @@ export default function CustomFamilyPage() {
             </div>
           </motion.div>
 
-          {/* Customization Form */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-8 mb-12"
-          >
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Customize Your Family Plan</h2>
-            <p className="text-gray-700 mb-6">Tell us about your family&apos;s needs so we can create the perfect meal plan for you.</p>
-
-            {/* Family Size */}
-            <div className="mb-6">
-              <label htmlFor="familySize" className="block text-sm font-semibold text-gray-900 mb-2">
-                Family Size
-              </label>
-              <select
-                id="familySize"
-                value={familySize}
-                onChange={(e) => setFamilySize(e.target.value)}
-                className="w-full md:w-64 px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-              >
-                <option value="2">2 people</option>
-                <option value="3">3 people</option>
-                <option value="4">4 people</option>
-                <option value="5">5 people</option>
-                <option value="6">6 people</option>
-                <option value="7">7 people</option>
-                <option value="8">8 people</option>
-              </select>
-            </div>
-
-            {/* Dietary Needs */}
-            <div className="mb-6">
-              <label className="block text-sm font-semibold text-gray-900 mb-3">
-                Dietary Needs (select all that apply)
-              </label>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {dietaryOptions.map((option) => (
-                  <button
-                    key={option.id}
-                    type="button"
-                    onClick={() => toggleDietaryNeed(option.id)}
-                    className={`px-4 py-3 rounded-lg border-2 transition font-medium ${
-                      dietaryNeeds.includes(option.id)
-                        ? 'border-teal-600 bg-teal-50 text-teal-900'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
-                    }`}
-                  >
-                    <span className="mr-2">{dietaryNeeds.includes(option.id) ? '✓' : ''}</span>
-                    {option.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Allergies */}
-            <div className="mb-6">
-              <label htmlFor="allergies" className="block text-sm font-semibold text-gray-900 mb-2">
-                Allergies & Food Restrictions
-              </label>
-              <input
-                id="allergies"
-                type="text"
-                value={allergies}
-                onChange={(e) => setAllergies(e.target.value)}
-                placeholder="e.g., peanuts, shellfish, soy"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-              />
-            </div>
-
-            {/* Preferences */}
-            <div className="mb-0">
-              <label htmlFor="preferences" className="block text-sm font-semibold text-gray-900 mb-2">
-                Additional Preferences (optional)
-              </label>
-              <textarea
-                id="preferences"
-                value={preferences}
-                onChange={(e) => setPreferences(e.target.value)}
-                placeholder="Tell us about favorite cuisines, foods to avoid, spice preferences, cooking skill level, etc."
-                rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent resize-none"
-              />
-            </div>
-          </motion.div>
-
-          {/* CTA */}
+          {/* CTA - Dual Pricing Options */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
             className="text-center"
           >
-            <button
-              onClick={handleCheckout}
-              disabled={loading}
-              className="bg-gradient-to-r from-teal-600 to-amber-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading ? 'Processing...' : 'Start Your Custom Family Plan'}
-            </button>
-            <p className="text-sm text-gray-600 mt-4">
-              Delivered within 1-2 hours • Unlimited regeneration included
-            </p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Choose Your Plan</h3>
+            <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-6">
+              {/* One-Time Purchase */}
+              <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 border-2 border-teal-200">
+                <div className="text-sm font-semibold text-teal-700 mb-2">ONE-TIME</div>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-teal-600">$59</span>
+                  <span className="text-gray-600 ml-2">one month</span>
+                </div>
+                <button
+                  onClick={handleGetStarted}
+                  className="w-full bg-gradient-to-r from-teal-600 to-amber-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
+                >
+                  Get One Month
+                </button>
+                <p className="text-xs text-gray-600 mt-3">Perfect for trying it out</p>
+              </div>
+
+              {/* Monthly Subscription */}
+              <div className="bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-6 border-2 border-amber-300 relative">
+                <div className="absolute -top-3 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  SAVE 50%
+                </div>
+                <div className="text-sm font-semibold text-amber-700 mb-2">SUBSCRIPTION</div>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-amber-600">$29</span>
+                  <span className="text-gray-600 ml-2">/month</span>
+                </div>
+                <button
+                  onClick={handleGetStarted}
+                  className="w-full bg-gradient-to-r from-amber-600 to-teal-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
+                >
+                  Subscribe Monthly
+                </button>
+                <p className="text-xs text-gray-600 mt-3">Cancel anytime • New plan on 1st</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600">Delivered in 2-4 hours • 30-day money-back guarantee</p>
           </motion.div>
         </div>
       </section>

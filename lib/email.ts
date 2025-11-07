@@ -150,7 +150,13 @@ export function getMealPlanEmailTemplate(customerName: string, planType: string,
   `
 }
 
-export function getWelcomeEmailTemplate(customerName: string, customerEmail: string, isSubscription: boolean, portalUrl: string = 'https://mindfulmealplan.com/portal') {
+export function getWelcomeEmailTemplate(
+  customerName: string,
+  customerEmail: string,
+  isSubscription: boolean,
+  isProcessing: boolean = false,
+  portalUrl: string = 'https://mindfulmealplan.com/portal'
+) {
   return `
     <!DOCTYPE html>
     <html>
@@ -163,6 +169,7 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
           .header { background: linear-gradient(135deg, #14b8a6 0%, #f59e0b 100%); color: white; padding: 30px; border-radius: 10px 10px 0 0; text-align: center; }
           .content { background: white; padding: 30px; border: 1px solid #e5e5e5; border-radius: 0 0 10px 10px; }
           .info-box { background: #f0fdf4; border-left: 4px solid #14b8a6; padding: 15px; margin: 20px 0; }
+          .processing-box { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 20px 0; }
           .button { display: inline-block; padding: 12px 30px; background: #14b8a6; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
           .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
         </style>
@@ -175,7 +182,15 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
           <div class="content">
             <p>Hi ${customerName},</p>
 
-            <p>Welcome to the Meal Plans family! We're thrilled to have you on board.</p>
+            <p>Welcome to Mocha's MindLab! We're thrilled to have you on board.</p>
+
+            ${isProcessing ? `
+            <div class="processing-box">
+              <strong>🤖 Your AI Meal Plan is Being Generated!</strong><br><br>
+              Our AI is creating a personalized meal plan just for you based on your preferences and dietary needs. This usually takes 2-4 hours.<br><br>
+              You'll receive an email with your meal plan download link as soon as it's ready. In the meantime, feel free to explore your member dashboard!
+            </div>
+            ` : ''}
 
             <div class="info-box">
               <strong>Your Account Details:</strong><br>
@@ -192,7 +207,7 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
             <h3>Your Monthly Benefits:</h3>
             <ul>
               <li>🗓️ New meal plans delivered on the 1st of each month</li>
-              <li>🌍 Rotating global cuisine themes</li>
+              <li>🌍 AI-personalized recipes based on your preferences</li>
               <li>📚 Access to our full recipe archive</li>
               <li>💬 Priority customer support</li>
               <li>🎁 Exclusive member-only content</li>
@@ -205,17 +220,17 @@ export function getWelcomeEmailTemplate(customerName: string, customerEmail: str
               <li>📌 Pin your calendar in a visible spot</li>
               <li>📱 Take photos of your shopping lists</li>
               <li>🥘 Try one new recipe each week</li>
-              <li>💡 Share your creations on social media with #MealPlansLife</li>
+              <li>💡 Share your creations on social media with #MindLabMeals</li>
             </ul>
             `}
 
             <p>Best wishes on your wellness journey!</p>
 
             <p>Warmly,<br>
-            The Meal Plans Team</p>
+            The Mocha's MindLab Team</p>
           </div>
           <div class="footer">
-            <p>© 2024 Meal Plans. All rights reserved.</p>
+            <p>© 2024 Mocha's MindLab. All rights reserved.</p>
           </div>
         </div>
       </body>

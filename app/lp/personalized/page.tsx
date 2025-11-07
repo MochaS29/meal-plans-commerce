@@ -218,7 +218,7 @@ export default function PersonalizedLandingPage() {
             {/* One-Time */}
             <div className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-xl transition">
               <h3 className="text-2xl font-bold text-gray-900 mb-2">One-Time</h3>
-              <div className="text-4xl font-bold text-gray-900 mb-1">$79</div>
+              <div className="text-4xl font-bold text-gray-900 mb-1">$59</div>
               <p className="text-gray-600 mb-6">30-Day Wellness</p>
               <Link
                 href="/plans/wellness-transformation"

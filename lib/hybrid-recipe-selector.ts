@@ -12,6 +12,11 @@ interface RecipeSelectionConfig {
   totalRecipes: number
   newRecipesPercentage?: number // Default 20% new recipes
   mealTypes?: MealType[]
+  customerPreferences?: {
+    familySize?: number
+    avoidIngredients?: string[] // Parsed from allergies
+    preferredIngredients?: string[] // Parsed from preferences
+  }
 }
 
 interface SelectedRecipe {
@@ -28,7 +33,8 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
     dietType,
     totalRecipes,
     newRecipesPercentage = 20, // 20% new recipes by default
-    mealTypes = ['breakfast', 'lunch', 'dinner', 'snack']
+    mealTypes = ['breakfast', 'lunch', 'dinner', 'snack'],
+    customerPreferences
   } = config
 
   const newRecipesCount = Math.ceil(totalRecipes * (newRecipesPercentage / 100))
@@ -100,12 +106,14 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
         if (selectedRecipes.length >= totalRecipes) break
 
         try {
-          // Generate new recipe
+          // Generate new recipe with customer preferences
           const newRecipe = await generateRecipe({
             dietType,
             mealType,
             difficulty: 'medium',
-            servings: 4
+            servings: customerPreferences?.familySize || 4,
+            avoidIngredients: customerPreferences?.avoidIngredients,
+            preferredIngredients: customerPreferences?.preferredIngredients
           })
 
           if (newRecipe) {

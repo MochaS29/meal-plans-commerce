@@ -5,13 +5,18 @@
 
 ### ✅ COMPLETED
 - **851 recipes** with all images generated
-- **8 diet plans** configured
+- **8 diet plans** configured (Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family Focused, Global Cuisine)
+- **Simplified architecture** with 2 products ($59 one-time, $29 monthly)
+- **Unified customization page** at `/plans/customize`
+- **Background job processing** system with `meal_plan_jobs` table
+- **PDF cover image** with stunning Mediterranean meal table scene
+- **E2E tests** updated and 56 passing
 - Privacy Policy page exists (`/app/privacy/page.tsx`)
 - Terms of Service page exists (`/app/terms/page.tsx`)
 - Monitoring system created and working
 - Database schema fixed
 - Webhook handling implemented
-- PDF generation working
+- PDF generation working with beautiful cover page
 
 ### ⏳ IN PROGRESS
 - Email domain verification pending (recipes@mochasmindlab.com)
@@ -35,9 +40,17 @@
 **Why:** Without RLS, anyone with your Supabase URL and anon key can read/write ALL data
 
 ### 2. 💳 Stripe Production Setup
-**[📍 Duplicate - appears in both checklists with different details]**
+**Status:** Updated for simplified 2-product architecture
 
-#### From PRE_LAUNCH_CHECKLIST (more detailed):
+#### Products to Create in Stripe Dashboard:
+- [ ] **One-Time Meal Plan** - $59 (one-time payment)
+  - Product ID: `prod_one_time_meal_plan`
+  - Description: 30-day customized meal calendar with full recipes
+- [ ] **Monthly Subscription** - $29/month (recurring)
+  - Product ID: `prod_monthly_subscription`
+  - Description: New meal plan every month, auto-renewal
+
+#### Production Configuration:
 - [ ] **REGENERATE** Stripe Live secret key (current one in `.env.local` is commented out and exposed)
 - [ ] Update `.env.local` with live keys:
   ```env
@@ -47,7 +60,7 @@
 - [ ] Activate Stripe account (complete business verification)
 - [ ] Configure Stripe webhook for production:
   - [ ] Go to https://dashboard.stripe.com/webhooks
-  - [ ] Add endpoint: `https://mindfulmealplan.com/api/stripe-webhook`
+  - [ ] Add endpoint: `https://mindfulmealplan.com/api/webhooks/stripe`
   - [ ] Select events:
     - `checkout.session.completed`
     - `customer.subscription.created`
@@ -287,14 +300,19 @@
 - [ ] Prepare launch announcement
 
 ### Production Testing
-**[📍 From PRE_LAUNCH_CHECKLIST]**
-- [ ] Complete test purchase with LIVE Stripe keys
-- [ ] Verify webhook receives event
-- [ ] Confirm email with PDF is sent
-- [ ] Check database records are created
+**[📍 Updated for new architecture]**
+- [ ] Test unified customization page at `/plans/customize`
+- [ ] Complete test purchase with LIVE Stripe keys (both one-time and subscription)
+- [ ] Verify webhook creates `meal_plan_jobs` record with status 'pending'
+- [ ] Confirm "processing" email is sent immediately
+- [ ] Test cron job processor at `/api/cron/process-jobs`
+- [ ] Verify meal plan PDF is generated with Mediterranean cover image
+- [ ] Confirm completion email with PDF attachment is sent
+- [ ] Check database records in `purchases` and `meal_plan_jobs` tables
 - [ ] Test subscription creation and cancellation
 - [ ] Verify admin portal access control
 - [ ] Test customer cannot access admin functions
+- [ ] Verify PDF cover image appears correctly with diet-specific title
 
 ### Monitoring Post-Launch
 **[📍 From PRODUCTION_CHECKLIST]**

@@ -53,15 +53,14 @@ export async function POST(request: NextRequest) {
         if (customerEmail) {
           console.log('Checkout completed for:', customerEmail)
 
-          // TODO: Here's where we would:
           // 1. Create/update user account
           await createUserAccount(customerEmail, session)
 
-          // 2. Generate PDF with hybrid recipe selection
-          const pdfUrl = await generateMealPlanPDF(session, customerEmail)
+          // 2. Create background job for meal plan generation
+          await createBackgroundJob(customerEmail, session)
 
-          // 3. Send email with PDF
-          await sendMealPlanEmail(customerEmail, pdfUrl, session)
+          // 3. Send processing email (tells user meal plan is being generated)
+          await sendProcessingEmail(customerEmail, session)
 
           // 4. Store purchase history
           await storePurchaseHistory(customerEmail, session)
@@ -109,12 +108,10 @@ export async function POST(request: NextRequest) {
   }
 }
 
-import { sendEmail, getMealPlanEmailTemplate, getWelcomeEmailTemplate } from '@/lib/email'
+import { sendEmail, getWelcomeEmailTemplate } from '@/lib/email'
 import { getProductById } from '@/lib/products'
-import { createOrUpdateUser, createPurchase, updatePurchaseWithPDF, createSubscription } from '@/lib/supabase'
-import { generateAndUploadMealPlan } from '@/lib/storage'
+import { createOrUpdateUser, createPurchase, createSubscription, createMealPlanJob } from '@/lib/supabase'
 import { createOrUpdateUser as createAuthUser, createSession, setSessionCookie } from '@/lib/auth'
-import { selectRecipesForCustomer, trackCustomerRecipes } from '@/lib/hybrid-recipe-selector'
 
 // Helper functions for webhook processing
 async function createUserAccount(email: string, session: Stripe.Checkout.Session) {
@@ -141,78 +138,49 @@ async function createUserAccount(email: string, session: Stripe.Checkout.Session
   return user
 }
 
-async function generateMealPlanPDF(session: Stripe.Checkout.Session, customerEmail: string) {
-  console.log('Generating PDF with hybrid recipes for session:', session.id)
+async function createBackgroundJob(email: string, session: Stripe.Checkout.Session) {
+  console.log('Creating background job for:', email)
 
-  const productName = session.line_items?.data?.[0]?.description || 'Wellness Transformation'
-  const dietType = session.metadata?.diet_plan || 'mediterranean' // Default to mediterranean
+  const productId = session.metadata?.productId || 'custom-meal-plan'
+  const productType = session.mode === 'subscription' ? 'subscription' : 'one_time'
+  const dietType = session.metadata?.diet_type || 'mediterranean'
+  const customizations = JSON.parse(session.metadata?.customizations || '{}')
 
-  try {
-    // Step 1: Select 30 dinner recipes from library only (for fast webhook response)
-    console.log(`🍽️ Selecting recipes for ${dietType} diet...`)
-    const selectedRecipes = await selectRecipesForCustomer({
-      dietType,
-      totalRecipes: 30, // One month worth
-      newRecipesPercentage: 0, // Use 100% library recipes to avoid timeout
-      mealTypes: ['dinner'] // Only dinner recipes (exclude snacks, breakfast, lunch)
-    })
+  console.log(`📦 Product: ${productId} (${productType})`)
+  console.log(`🍽️ Diet type: ${dietType}`)
+  console.log(`⚙️ Customizations:`, customizations)
 
-    console.log(`✅ Selected ${selectedRecipes.length} recipes:`)
-    console.log(`  - From library: ${selectedRecipes.filter(r => !r.isNew).length}`)
-    console.log(`  - Newly generated: ${selectedRecipes.filter(r => r.isNew).length}`)
+  // Create meal plan job
+  await createMealPlanJob({
+    customer_email: email,
+    stripe_session_id: session.id,
+    product_type: productType,
+    diet_type: dietType,
+    family_size: customizations.familySize || 4,
+    dietary_needs: customizations.dietaryNeeds || [],
+    allergies: customizations.allergies,
+    preferences: customizations.preferences,
+    customizations: customizations
+  })
 
-    // Step 2: Track which recipes this customer received
-    const currentMonth = new Date().toISOString().slice(0, 7) // YYYY-MM format
-    const customerId = customerEmail // Use email as customer ID
-    const recipeIds = selectedRecipes.map(r => r.id)
-
-    await trackCustomerRecipes(customerId, recipeIds, currentMonth)
-    console.log(`📊 Tracked ${recipeIds.length} recipes for customer: ${customerEmail}`)
-
-    // Step 3: Generate PDF with selected recipes
-    const pdfUrl = await generateAndUploadMealPlan(
-      customerEmail,
-      productName,
-      session.id,
-      selectedRecipes // Pass the selected recipes
-    )
-
-    return pdfUrl
-  } catch (error) {
-    console.error('Error generating meal plan with hybrid recipes:', error)
-
-    // Fallback to basic PDF generation
-    console.log('Falling back to basic PDF generation...')
-    return await generateAndUploadMealPlan(
-      customerEmail,
-      productName,
-      session.id
-    )
-  }
+  console.log('✅ Background job created successfully')
 }
 
-async function sendMealPlanEmail(email: string, pdfUrl: string, session: Stripe.Checkout.Session) {
-  console.log('Sending email to:', email, 'with PDF:', pdfUrl)
+async function sendProcessingEmail(email: string, session: Stripe.Checkout.Session) {
+  console.log('Sending processing email to:', email)
 
   const customerName = session.customer_details?.name || 'Valued Customer'
   const isSubscription = session.mode === 'subscription'
-  const productName = session.line_items?.data?.[0]?.description || 'Meal Plan'
 
-  // Send welcome email
-  const welcomeHtml = getWelcomeEmailTemplate(customerName, email, isSubscription)
+  // Send welcome email with updated text about AI generation
+  const welcomeHtml = getWelcomeEmailTemplate(customerName, email, isSubscription, true)
   await sendEmail({
     to: email,
-    subject: 'Welcome to Meal Plans - Your Journey Begins!',
+    subject: 'Welcome to Mocha\'s MindLab - Your Meal Plan is Being Generated!',
     html: welcomeHtml
   })
 
-  // Send meal plan email with download link
-  const mealPlanHtml = getMealPlanEmailTemplate(customerName, productName, pdfUrl)
-  await sendEmail({
-    to: email,
-    subject: `Your ${productName} is Ready to Download!`,
-    html: mealPlanHtml
-  })
+  console.log('✅ Processing email sent successfully')
 }
 
 async function storePurchaseHistory(email: string, session: Stripe.Checkout.Session) {

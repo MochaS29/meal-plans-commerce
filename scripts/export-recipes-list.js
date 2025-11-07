@@ -7,7 +7,7 @@ async function exportRecipesList() {
   console.log('📝 Exporting recipes list from API...\n')
 
   // Fetch all recipes from the API
-  const response = await fetch('http://localhost:3002/api/admin/recipes?limit=10000&prioritize_images=true')
+  const response = await fetch('http://localhost:3005/api/admin/recipes?limit=10000&prioritize_images=true')
   const data = await response.json()
 
   if (!data.success || !data.recipes) {

@@ -62,7 +62,7 @@ export default function IntermittentFastingPage() {
                 href="/checkout?product=wellness-transformation&type=if"
                 className="px-8 py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white rounded-lg hover:from-teal-700 hover:to-teal-800 transition font-semibold"
               >
-                Start Your IF Journey - $79
+                Start Your IF Journey - $59
               </Link>
               <button
                 onClick={() => setActiveTab('sample')}

@@ -354,7 +354,7 @@ export default function ShoppingListPage() {
             className="text-xl shadow-xl"
           >
             <Sparkles className="w-6 h-6" />
-            Get Your Complete Package - $79
+            Get Your Complete Package - $59
             <Sparkles className="w-6 h-6" />
           </CheckoutButton>
         </motion.div>

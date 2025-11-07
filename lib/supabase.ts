@@ -50,6 +50,29 @@ export interface Subscription {
   updated_at: string
 }
 
+export interface MealPlanJob {
+  id: string
+  customer_email: string
+  stripe_session_id: string
+  product_type: 'one_time' | 'subscription'
+  diet_type: string
+  family_size: number
+  dietary_needs: string[]
+  allergies?: string
+  preferences?: string
+  customizations: Record<string, any>
+  status: 'pending' | 'processing' | 'completed' | 'failed'
+  error_message?: string
+  recipe_count?: number
+  pdf_url?: string
+  month?: number
+  year?: number
+  days_in_month?: number
+  created_at: string
+  processing_started_at?: string
+  completed_at?: string
+}
+
 // User functions
 export async function createOrUpdateUser(email: string, data: Partial<User>) {
   if (!supabase) {
@@ -183,6 +206,91 @@ export async function updateSubscriptionStatus(stripeSubscriptionId: string, sta
       updated_at: new Date().toISOString()
     })
     .eq('stripe_subscription_id', stripeSubscriptionId)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data
+}
+
+// Meal Plan Job functions
+export async function createMealPlanJob(job: Omit<MealPlanJob, 'id' | 'created_at' | 'processing_started_at' | 'completed_at' | 'status'>) {
+  if (!supabase) {
+    console.log('Supabase not configured, skipping job creation')
+    return null
+  }
+
+  // Calculate month/year/days for the job
+  const now = new Date()
+  const month = now.getMonth() + 1
+  const year = now.getFullYear()
+  const daysInMonth = new Date(year, month, 0).getDate()
+
+  const { data, error } = await supabase
+    .from('meal_plan_jobs')
+    .insert([{
+      ...job,
+      status: 'pending' as const,
+      month,
+      year,
+      days_in_month: daysInMonth,
+      created_at: new Date().toISOString()
+    }])
+    .select()
+    .single()
+
+  if (error) {
+    console.error('Error creating meal plan job:', error)
+    throw error
+  }
+
+  console.log('✅ Meal plan job created:', data.id)
+  return data
+}
+
+export async function getPendingMealPlanJobs(limit: number = 10) {
+  if (!supabase) {
+    console.log('Supabase not configured')
+    return []
+  }
+
+  const { data, error } = await supabase
+    .from('meal_plan_jobs')
+    .select('*')
+    .eq('status', 'pending')
+    .order('created_at', { ascending: true })
+    .limit(limit)
+
+  if (error) throw error
+  return data || []
+}
+
+export async function updateMealPlanJobStatus(
+  id: string,
+  status: MealPlanJob['status'],
+  updates?: { error_message?: string; pdf_url?: string; recipe_count?: number }
+) {
+  if (!supabase) {
+    console.log('Supabase not configured')
+    return null
+  }
+
+  const updateData: any = { status }
+
+  if (status === 'processing') {
+    updateData.processing_started_at = new Date().toISOString()
+  } else if (status === 'completed' || status === 'failed') {
+    updateData.completed_at = new Date().toISOString()
+  }
+
+  if (updates) {
+    Object.assign(updateData, updates)
+  }
+
+  const { data, error } = await supabase
+    .from('meal_plan_jobs')
+    .update(updateData)
+    .eq('id', id)
     .select()
     .single()
 

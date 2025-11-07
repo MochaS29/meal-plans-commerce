@@ -69,7 +69,7 @@ export default function KetoDietPage() {
               variant="secondary"
             >
               <ShoppingCart className="w-4 h-4" />
-              One-Time $79
+              One-Time $59
             </CheckoutButton>
             <CheckoutButton
               productId="monthly-calendar"
@@ -190,7 +190,7 @@ export default function KetoDietPage() {
                 href="/plans/wellness-transformation"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Keto Plan - $79
+                Get Keto Plan - $59
               </Link>
               <Link
                 href="/recipes"
