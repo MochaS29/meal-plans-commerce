@@ -176,7 +176,7 @@ async function sendProcessingEmail(email: string, session: Stripe.Checkout.Sessi
   const welcomeHtml = getWelcomeEmailTemplate(customerName, email, isSubscription, true)
   await sendEmail({
     to: email,
-    subject: 'Welcome to Mocha\'s MindLab - Your Meal Plan is Being Generated!',
+    subject: 'Your Personalized Meal Plan is Being Prepared',
     html: welcomeHtml
   })
 

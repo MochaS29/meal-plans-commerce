@@ -182,7 +182,7 @@ export function getWelcomeEmailTemplate(
           <div class="content">
             <p>Hi ${customerName},</p>
 
-            <p>Welcome to Mocha's MindLab! We're thrilled to have you on board.</p>
+            <p>Welcome to Mindful Meal Plans! We're thrilled to have you on board.</p>
 
             ${isProcessing ? `
             <div class="processing-box">
@@ -227,10 +227,10 @@ export function getWelcomeEmailTemplate(
             <p>Best wishes on your wellness journey!</p>
 
             <p>Warmly,<br>
-            The Mocha's MindLab Team</p>
+            The Mindful Meal Plans Team</p>
           </div>
           <div class="footer">
-            <p>© 2024 Mocha's MindLab. All rights reserved.</p>
+            <p>© 2024 Mindful Meal Plans. All rights reserved.</p>
           </div>
         </div>
       </body>
