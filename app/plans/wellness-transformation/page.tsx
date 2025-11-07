@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
@@ -9,7 +9,7 @@ import { loadStripe } from '@stripe/stripe-js'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
-export default function WellnessTransformationPage() {
+function WellnessTransformationContent() {
   const searchParams = useSearchParams()
   const [loading, setLoading] = useState(false)
   const [selectedDiet, setSelectedDiet] = useState('mediterranean')
@@ -234,5 +234,20 @@ export default function WellnessTransformationPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function WellnessTransformationPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/20 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <WellnessTransformationContent />
+    </Suspense>
   )
 }
