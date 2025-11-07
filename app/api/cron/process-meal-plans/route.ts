@@ -256,7 +256,7 @@ function filterByAllergens(recipes: any[], allergyText: string): any[] {
 
   // Parse common allergens from text
   const allergyLower = allergyText.toLowerCase()
-  const allergens = []
+  const allergens: string[] = []
 
   if (allergyLower.match(/peanut|nut/)) allergens.push('peanut', 'nut', 'almond')
   if (allergyLower.match(/shellfish|shrimp|crab|lobster/)) allergens.push('shrimp', 'shellfish', 'crab', 'lobster')
