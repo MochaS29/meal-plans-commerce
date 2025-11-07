@@ -93,7 +93,8 @@ function CustomizeContent() {
       }
     } catch (error) {
       console.error('Checkout error:', error)
-      alert('Something went wrong. Please try again or contact support.')
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      alert(`Checkout failed: ${errorMessage}\n\nPlease check the browser console for details.`)
     } finally {
       setLoading(false)
     }
