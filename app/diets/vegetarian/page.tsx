@@ -180,18 +180,12 @@ export default function VegetarianDietPage() {
             <p className="text-gray-700 mb-6">
               Get 30 days of balanced vegetarian meals with complete nutrition
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
-                className="bg-gradient-to-r from-green-600 to-lime-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=vegetarian"
+                className="bg-gradient-to-r from-green-600 to-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Vegetarian Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition"
-              >
-                Try Veggie Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>

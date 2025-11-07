@@ -187,18 +187,12 @@ export default function MediterraneanDietPage() {
             <p className="text-gray-700 mb-6">
               Get a complete 30-day Mediterranean meal plan with recipes, shopping lists, and prep guides
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
-                className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=mediterranean"
+                className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Mediterranean Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition"
-              >
-                Try Free Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>

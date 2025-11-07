@@ -190,18 +190,12 @@ export default function IntermittentFastingPage() {
             <p className="text-gray-700 mb-6">
               Get a complete intermittent fasting meal plan with timing guides and nutrient-optimized recipes
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
-                className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=intermittent-fasting"
+                className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get IF Meal Plan - $59
-              </Link>
-              <Link
-                href="/calendar"
-                className="border-2 border-amber-600 text-amber-600 px-8 py-3 rounded-full font-semibold hover:bg-amber-50 transition"
-              >
-                View Sample Schedule
+                Get Started
               </Link>
             </div>
           </motion.div>

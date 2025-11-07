@@ -204,18 +204,12 @@ export default function GlobalCuisinePage() {
             <p className="text-gray-700 mb-6">
               Get 30 days of international recipes with authentic ingredients and cooking guides
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=global"
+                className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Global Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-indigo-50 transition"
-              >
-                Explore World Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>

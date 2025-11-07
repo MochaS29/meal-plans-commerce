@@ -211,18 +211,12 @@ export default function FamilyFocusedPage() {
             <p className="text-gray-700 mb-6">
               Get 30 days of family-friendly meals with shopping lists and prep guides
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/custom-family"
-                className="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=family"
+                className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Family Plan - $149
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-pink-600 text-pink-600 px-8 py-3 rounded-full font-semibold hover:bg-pink-50 transition"
-              >
-                Try Family Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>

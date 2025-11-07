@@ -155,18 +155,12 @@ export default function PaleoDietPage() {
             <p className="text-gray-700 mb-6">
               Get 30 days of delicious paleo meals with complete shopping lists
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
-                className="bg-gradient-to-r from-orange-600 to-red-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
+                href="/plans/customize?diet=paleo"
+                className="bg-gradient-to-r from-orange-600 to-amber-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Paleo Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-orange-600 text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition"
-              >
-                Browse Paleo Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>
