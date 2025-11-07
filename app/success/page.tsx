@@ -47,7 +47,7 @@ export default function SuccessPage() {
               <div className="flex items-start gap-3">
                 <Download className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                 <p className="text-gray-700">
-                  Your meal plan PDF will be sent within 5 minutes
+                  Your personalized meal plan PDF will be delivered within 30 minutes
                 </p>
               </div>
               <div className="flex items-start gap-3">
