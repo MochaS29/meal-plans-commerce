@@ -1,14 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Check, Calendar, ShoppingCart, ChefHat, Heart, Star, ArrowRight } from 'lucide-react'
 import { loadStripe } from '@stripe/stripe-js'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function WellnessTransformationPage() {
+  const searchParams = useSearchParams()
   const [loading, setLoading] = useState(false)
   const [selectedDiet, setSelectedDiet] = useState('mediterranean')
 
@@ -18,12 +20,22 @@ export default function WellnessTransformationPage() {
     { id: 'vegan', name: 'Vegan', description: 'Plant-based recipes with complete nutrition' },
     { id: 'paleo', name: 'Paleo', description: 'Whole foods, no processed ingredients' },
     { id: 'vegetarian', name: 'Vegetarian', description: 'Meat-free with dairy and eggs' },
-    { id: 'family', name: 'Family Recipes', description: 'Kid-friendly, crowd-pleasing meals' }
+    { id: 'intermittent-fasting', name: 'Intermittent Fasting', description: 'Time-restricted eating with balanced nutrition' },
+    { id: 'family-focused', name: 'Family Focused', description: 'Kid-friendly, crowd-pleasing meals' },
+    { id: 'global-cuisine', name: 'Global Cuisine', description: 'International flavors from around the world' }
   ]
 
+  // Pre-select diet from URL parameter
+  useEffect(() => {
+    const dietParam = searchParams.get('diet')
+    if (dietParam && dietOptions.find(d => d.id === dietParam)) {
+      setSelectedDiet(dietParam)
+    }
+  }, [searchParams])
+
   const handleGetStarted = () => {
-    // Redirect to unified customization page
-    window.location.href = '/plans/customize'
+    // Redirect to unified customization page with selected diet
+    window.location.href = `/plans/customize?diet=${selectedDiet}`
   }
 
   return (
@@ -47,7 +59,7 @@ export default function WellnessTransformationPage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-5xl font-bold mb-6 bg-gradient-to-r from-teal-600 to-amber-600 bg-clip-text text-transparent"
         >
-          30-Day Wellness Transformation
+          30-Day Personalized Meal Plan
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: -20 }}
@@ -55,8 +67,7 @@ export default function WellnessTransformationPage() {
           transition={{ delay: 0.1 }}
           className="text-xl text-gray-700 max-w-3xl mx-auto mb-8"
         >
-          Your complete meal planning solution with restaurant-quality recipes,
-          organized shopping lists, and a beautiful printable calendar
+          Your customized meal calendar with 30 days of recipes, full ingredients, instructions, and nutrition information - delivered as a beautiful PDF
         </motion.p>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -83,11 +94,11 @@ export default function WellnessTransformationPage() {
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="space-y-4">
               {[
-                '30-day designer printable calendar',
-                'Choice of cuisine style (Mediterranean, Keto, Plant-Based, etc.)',
-                '50+ restaurant-quality recipes',
-                'Complete nutritional information',
-                'Professionally organized weekly shopping lists'
+                '30-day meal calendar with daily recipes',
+                'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
+                '30 complete recipes with full instructions',
+                'Ingredient lists for every recipe',
+                'Complete nutritional information per serving'
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-start">
                   <Check className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
@@ -97,11 +108,11 @@ export default function WellnessTransformationPage() {
             </div>
             <div className="space-y-4">
               {[
-                'Sunday meal prep strategies',
-                'Portion control guidelines',
-                'Quick-start wellness guide',
-                'AI-powered recipe assistance',
-                'Lifetime access to updates'
+                'Beautiful PDF with cover image',
+                'Prep time and cook time for each recipe',
+                'Difficulty level and serving sizes',
+                'Customize for family size and dietary needs',
+                'Delivered within 24 hours via email'
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-start">
                   <Check className="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
@@ -176,7 +187,7 @@ export default function WellnessTransformationPage() {
                 <p className="text-xs text-gray-600 mt-3">Cancel anytime • New plan on 1st</p>
               </div>
             </div>
-            <p className="text-sm text-gray-600">Delivered in 2-4 hours • 30-day money-back guarantee</p>
+            <p className="text-sm text-gray-600">Delivered within 24 hours via email • 30-day money-back guarantee</p>
           </div>
         </motion.div>
 
