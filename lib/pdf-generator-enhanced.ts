@@ -100,11 +100,11 @@ export class EnhancedMealPlanPDFGenerator {
 
         // Add semi-transparent dark overlay at bottom for text readability
         this.doc.setFillColor(0, 0, 0);
-        this.doc.setGState(new this.doc.GState({ opacity: 0.6 }));
+        this.doc.setGState({ opacity: 0.6 } as any);
         this.doc.rect(0, this.pageHeight - 100, this.pageWidth, 100, 'F');
 
         // Reset opacity for text
-        this.doc.setGState(new this.doc.GState({ opacity: 1 }));
+        this.doc.setGState({ opacity: 1 } as any);
 
         // Add title on top of image
         this.doc.setTextColor(255, 255, 255);
