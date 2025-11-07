@@ -4,7 +4,7 @@ import { selectRecipesForCustomer, trackCustomerRecipes } from '@/lib/hybrid-rec
 import { generateAndUploadMealPlan } from '@/lib/storage'
 import { sendEmail, getMealPlanEmailTemplate } from '@/lib/email'
 
-// This endpoint is called by Vercel Cron every 30 minutes
+// This endpoint is called by Vercel Cron once daily at 5pm UTC (9am Pacific)
 // to process pending meal plan jobs
 export async function GET(request: NextRequest) {
   const startTime = Date.now()
