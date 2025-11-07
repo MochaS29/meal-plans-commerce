@@ -200,8 +200,12 @@ export function getWelcomeEmailTemplate(
             </div>
 
             <center>
-              <a href="${portalUrl}" class="button">Access Your Member Portal</a>
+              <a href="https://mindfulmealplan.com/forgot-password?email=${encodeURIComponent(customerEmail)}" class="button">Set Your Password & Access Portal</a>
             </center>
+
+            <p style="text-align: center; color: #666; font-size: 14px; margin-top: 10px;">
+              First time? Click above to create your password and access your meal plans.
+            </p>
 
             ${isSubscription ? `
             <h3>Your Monthly Benefits:</h3>
