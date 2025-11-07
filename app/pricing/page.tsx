@@ -9,107 +9,51 @@ import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export default function PricingPage() {
-  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'custom' | 'annual'>('monthly');
-  const [loading, setLoading] = useState(false);
-
-  const handleCheckout = async (productId: string) => {
-    try {
-      setLoading(true);
-
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productId: productId,
-          customizations: {}
-        })
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        console.error('Checkout API error:', error);
-        throw new Error(error.error || 'Failed to create checkout session');
-      }
-
-      const { sessionId } = await response.json();
-      const stripe = await stripePromise;
-
-      if (!stripe) {
-        throw new Error('Stripe failed to load');
-      }
-
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) {
-        throw error;
-      }
-    } catch (error) {
-      console.error('Checkout error:', error);
-      alert('Something went wrong. Please try again or contact support.');
-    } finally {
-      setLoading(false);
-    }
+  const handleGetStarted = (productId: string) => {
+    // Redirect to unified customization page
+    window.location.href = `/plans/customize?product=${productId}`
   };
 
   const plans = [
     {
       id: 'wellness-transformation',
-      name: '30-Day Wellness',
+      name: '30-Day Personalized Meal Plan',
       price: '$59',
       period: 'one-time',
-      description: 'Complete meal planning package with your choice of cuisine',
+      description: 'Your customized meal calendar with 30 days of recipes delivered as a beautiful PDF',
+      popular: true,
       features: [
-        '30-day designer printable calendar',
-        'Choice of wellness cuisine style',
-        '50+ restaurant-quality recipes',
-        'Professionally organized shopping lists',
-        'Sunday meal prep strategies',
-        'Complete nutritional breakdowns',
-        'Wellness journey quick-start guide',
-        'Email support from our wellness team',
-        'Lifetime access to all updates'
+        '30-day meal calendar with daily recipes',
+        'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
+        '30 complete recipes with full instructions',
+        'Ingredient lists for every recipe',
+        'Complete nutritional information per serving',
+        'Beautiful PDF with cover image',
+        'Prep time and cook time for each recipe',
+        'Difficulty level and serving sizes',
+        'Customize for family size and dietary needs',
+        'Delivered within 24 hours via email'
       ],
       productId: 'wellness-transformation',
       color: 'teal'
     },
     {
-      id: 'custom-family',
-      name: 'Custom Family Plan',
-      price: '$99',
-      period: 'one-time',
-      description: 'AI-powered personalized meal planning for your family\'s unique needs',
-      popular: true,
-      features: [
-        'AI-personalized 30-day plan',
-        'Smart portion sizing for 2-8 people',
-        'Multiple dietary accommodations handled',
-        'Kid-friendly wellness options included',
-        'Mix of cuisine styles in one plan',
-        'Optimized shopping lists by store section',
-        'Batch cooking & meal prep guides',
-        'Time-saving meal prep strategies',
-        'Generated within 24 hours',
-        'Unlimited regeneration (adjust anytime)'
-      ],
-      productId: 'custom-family',
-      color: 'amber'
-    },
-    {
       id: 'monthly-calendar',
-      name: 'Monthly Subscription',
+      name: 'Monthly Meal Plan Subscription',
       price: '$29',
       period: '/month',
-      description: 'Fresh AI-curated meal plans delivered monthly',
-      savings: 'Best value for ongoing support',
+      description: 'Fresh personalized meal plans delivered monthly',
+      savings: 'Save 50% - Best value for ongoing support',
       features: [
-        'New designer calendar each month',
-        'Rotating cuisine themes',
-        'Seasonal & locally-inspired recipes',
-        'AI wellness insights & monthly tips',
-        'Access to full recipe archive',
-        'AI-powered recipe Q&A chatbot',
-        'Exclusive member resources',
-        'Switch cuisine styles anytime',
+        'New meal calendar on the 1st of each month',
+        '30 new recipes delivered monthly',
+        'All features from the one-time plan',
+        'Change diet preferences each month',
+        'Adjust family size anytime',
+        'Update dietary needs as needed',
+        'Beautiful PDF delivered via email',
+        'Complete nutritional information',
+        'Priority email support',
         'Cancel anytime - no commitment'
       ],
       productId: 'monthly-calendar',
@@ -158,7 +102,7 @@ export default function PricingPage() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 pb-24">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
@@ -194,17 +138,14 @@ export default function PricingPage() {
                 </div>
 
                 <button
-                  onClick={() => handleCheckout(plan.productId)}
-                  disabled={loading}
+                  onClick={() => handleGetStarted(plan.productId)}
                   className={`w-full py-4 rounded-full font-semibold text-white transition-all transform hover:scale-105 ${
                     plan.popular
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600'
-                      : plan.id === 'monthly-calendar'
-                      ? 'bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600'
-                      : 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600'
-                  } ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600'
+                      : 'bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600'
+                  }`}
                 >
-                  {loading ? 'Processing...' : 'Get Started'}
+                  Get Started
                 </button>
 
                 <ul className="mt-8 space-y-3">
@@ -228,8 +169,7 @@ export default function PricingPage() {
           className="mt-20 bg-white rounded-3xl shadow-xl p-12"
         >
           <h2 className="text-3xl font-bold text-center mb-12">
-            <Lock className="inline w-8 h-8 mr-3 text-amber-500" />
-            What&apos;s Protected Behind Payment
+            What You Get
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -237,9 +177,9 @@ export default function PricingPage() {
               <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📅</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Complete Meal Calendars</h3>
+              <h3 className="text-xl font-bold mb-2">30-Day Meal Calendar</h3>
               <p className="text-gray-600">
-                Full month of planned meals for breakfast, lunch, dinner & snacks
+                Beautifully designed calendar with a different recipe for each day
               </p>
             </div>
 
@@ -247,35 +187,30 @@ export default function PricingPage() {
               <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📝</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Detailed Recipes + PDFs</h3>
+              <h3 className="text-xl font-bold mb-2">30 Complete Recipes</h3>
               <p className="text-gray-600">
-                Step-by-step instructions with downloadable PDF versions for offline use
+                Full instructions, ingredients, nutrition info, and cooking times for every recipe
               </p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">🛒</span>
+                <span className="text-2xl">🎨</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">Smart Shopping Lists</h3>
+              <h3 className="text-xl font-bold mb-2">Beautiful PDF</h3>
               <p className="text-gray-600">
-                Weekly organized lists with quantities and estimated costs
+                Professional cover design delivered via email within 24 hours
               </p>
             </div>
           </div>
 
           <div className="mt-12 p-6 bg-gray-50 rounded-2xl">
-            <p className="text-center text-gray-600">
-              <strong>Free Preview Available:</strong> Explore our sample calendar, shopping list, and select recipes before subscribing
+            <p className="text-center text-gray-600 mb-4">
+              <strong>8 Diet Plans Available:</strong> Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family Focused, and Global Cuisine
             </p>
-            <div className="flex justify-center gap-4 mt-4">
-              <Link href="/calendar" className="text-teal-600 hover:text-teal-700 font-semibold">
-                View Sample Calendar →
-              </Link>
-              <Link href="/shopping-list" className="text-amber-600 hover:text-amber-700 font-semibold">
-                Sample Shopping List →
-              </Link>
-            </div>
+            <p className="text-center text-gray-600">
+              <strong>Full Customization:</strong> Adjust for your family size, dietary restrictions, allergies, and food preferences
+            </p>
           </div>
         </motion.div>
 
@@ -289,20 +224,20 @@ export default function PricingPage() {
           <h2 className="text-2xl font-bold mb-8">Frequently Asked Questions</h2>
           <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
             <div>
-              <h3 className="font-bold mb-2">When do I get access?</h3>
-              <p className="text-gray-600">Immediately after payment, you&apos;ll receive full access to all meal plans and features.</p>
+              <h3 className="font-bold mb-2">When will I receive my meal plan?</h3>
+              <p className="text-gray-600">Your personalized meal plan PDF will be delivered via email within 24 hours of purchase.</p>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Can I switch menu types?</h3>
-              <p className="text-gray-600">Yes! You can switch between all 7 menu types anytime during your subscription.</p>
+              <h3 className="font-bold mb-2">Can I customize my meal plan?</h3>
+              <p className="text-gray-600">Yes! Choose your diet type, family size, dietary restrictions, allergies, and food preferences during checkout.</p>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Is there a mobile app?</h3>
-              <p className="text-gray-600">Yes, our mobile app is included with all plans for iOS and Android.</p>
+              <h3 className="font-bold mb-2">How does the subscription work?</h3>
+              <p className="text-gray-600">Get a fresh meal plan on the 1st of each month. You can update your preferences before each delivery.</p>
             </div>
             <div>
-              <h3 className="font-bold mb-2">Can I cancel anytime?</h3>
-              <p className="text-gray-600">Absolutely. Cancel anytime from your account dashboard, no questions asked.</p>
+              <h3 className="font-bold mb-2">Can I cancel my subscription?</h3>
+              <p className="text-gray-600">Absolutely. Cancel anytime with no commitment. You&apos;ll keep access to any meal plans you&apos;ve received.</p>
             </div>
           </div>
         </motion.div>
