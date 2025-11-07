@@ -1,0 +1,411 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7] [cursor=pointer]
+        - generic [ref=e8] [cursor=pointer]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10] [cursor=pointer]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11] [cursor=pointer]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17] [cursor=pointer]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - link "Login" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - button [ref=e22]:
+        - img [ref=e23]
+      - generic [ref=e34]:
+        - navigation [ref=e35]:
+          - generic [ref=e36]:
+            - link "Mocha's MindLab" [ref=e37] [cursor=pointer]:
+              - /url: /
+              - img [ref=e38] [cursor=pointer]
+              - text: Mocha's MindLab
+            - generic [ref=e41]:
+              - generic [ref=e42]:
+                - img [ref=e43]
+                - text: demo@example.com
+              - button "Logout" [ref=e46]:
+                - img [ref=e47]
+                - text: Logout
+        - generic [ref=e52]:
+          - heading "Your Wellness Dashboard" [level=1] [ref=e53]
+          - paragraph [ref=e54]: Access your personalized meal plans, recipes, and shopping lists
+      - generic [ref=e56]:
+        - button "Meal Plans" [ref=e57]:
+          - img [ref=e58]
+          - text: Meal Plans
+        - button "Preferences" [ref=e63]:
+          - img [ref=e64]
+          - text: Preferences
+        - button "Resources" [ref=e67]:
+          - img [ref=e68]
+          - text: Resources
+        - button "Analytics" [ref=e73]:
+          - img [ref=e74]
+          - text: Analytics
+      - generic [ref=e79]:
+        - generic [ref=e80]:
+          - button "Print Calendar Monthly meal overview" [ref=e81]:
+            - img [ref=e82]
+            - generic [ref=e86]:
+              - heading "Print Calendar" [level=3] [ref=e87]
+              - paragraph [ref=e88]: Monthly meal overview
+          - button "Copy List To shopping app" [ref=e89]:
+            - img [ref=e90]
+            - generic [ref=e93]:
+              - heading "Copy List" [level=3] [ref=e94]
+              - paragraph [ref=e95]: To shopping app
+          - button "Download PDF Complete meal plan" [ref=e96]:
+            - img [ref=e97]
+            - generic [ref=e101]:
+              - heading "Download PDF" [level=3] [ref=e102]
+              - paragraph [ref=e103]: Complete meal plan
+          - link "Recipe Book All your recipes" [ref=e104] [cursor=pointer]:
+            - /url: /member-recipes
+            - img [ref=e105] [cursor=pointer]
+            - generic [ref=e107] [cursor=pointer]:
+              - heading "Recipe Book" [level=3] [ref=e108] [cursor=pointer]
+              - paragraph [ref=e109] [cursor=pointer]: All your recipes
+        - generic [ref=e110]:
+          - heading "Select Your Meal Plan" [level=2] [ref=e111]:
+            - img [ref=e112]
+            - text: Select Your Meal Plan
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e119]: Diet Plan
+              - generic [ref=e120]:
+                - button "🌊 Mediterranean" [ref=e121]:
+                  - generic [ref=e122]: 🌊
+                  - generic [ref=e123]: Mediterranean
+                - button "🥑 Keto" [ref=e124]:
+                  - generic [ref=e125]: 🥑
+                  - generic [ref=e126]: Keto
+                - button "🌱 Vegan" [ref=e127]:
+                  - generic [ref=e128]: 🌱
+                  - generic [ref=e129]: Vegan
+                - button "🦴 Paleo" [ref=e130]:
+                  - generic [ref=e131]: 🦴
+                  - generic [ref=e132]: Paleo
+                - button "🥬 Vegetarian" [ref=e133]:
+                  - generic [ref=e134]: 🥬
+                  - generic [ref=e135]: Vegetarian
+                - button "⏰ Intermittent Fasting" [ref=e136]:
+                  - generic [ref=e137]: ⏰
+                  - generic [ref=e138]: Intermittent Fasting
+                - button "👨‍👩‍👧‍👦 Family Focused" [ref=e139]:
+                  - generic [ref=e140]: 👨‍👩‍👧‍👦
+                  - generic [ref=e141]: Family Focused
+            - generic [ref=e142]:
+              - generic [ref=e143]:
+                - generic [ref=e144]: Month
+                - combobox [ref=e145]:
+                  - option "January" [selected]
+                  - option "February"
+                  - option "March"
+                  - option "April"
+              - generic [ref=e146]:
+                - generic [ref=e147]: Year
+                - combobox [ref=e148]:
+                  - option "2025" [selected]
+                  - option "2026"
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - heading "Monthly Calendar - January 2025" [level=2] [ref=e151]:
+              - img [ref=e152]
+              - text: Monthly Calendar - January 2025
+            - button "Print Calendar" [ref=e157]:
+              - img [ref=e158]
+              - text: Print Calendar
+          - generic [ref=e162]:
+            - generic [ref=e163]: Sun
+            - generic [ref=e164]: Mon
+            - generic [ref=e165]: Tue
+            - generic [ref=e166]: Wed
+            - generic [ref=e167]: Thu
+            - generic [ref=e168]: Fri
+            - generic [ref=e169]: Sat
+            - generic [ref=e170]:
+              - generic [ref=e171]: "1"
+              - generic [ref=e172]:
+                - button "🌅 Whole Grain Toast with Avocado and Feta" [ref=e173] [cursor=pointer]
+                - button "☀️ Spanakopita with Greek Salad" [ref=e174] [cursor=pointer]
+                - button "🌙 Grilled Lemon Herb Salmon" [ref=e175] [cursor=pointer]
+            - generic [ref=e176]:
+              - generic [ref=e177]: "2"
+              - generic [ref=e178]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e179] [cursor=pointer]
+                - button "☀️ Greek Lentil Soup" [ref=e180] [cursor=pointer]
+                - button "🌙 Ratatouille with Grilled Chicken" [ref=e181] [cursor=pointer]
+            - generic [ref=e182]:
+              - generic [ref=e183]: "3"
+              - generic [ref=e184]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e185] [cursor=pointer]
+                - button "☀️ Mediterranean Chickpea Salad" [ref=e186] [cursor=pointer]
+                - button "🌙 Mediterranean Baked Fish" [ref=e187] [cursor=pointer]
+            - generic [ref=e188]:
+              - generic [ref=e189]: "4"
+              - generic [ref=e190]:
+                - button "🌅 Turkish Breakfast Platter" [ref=e191] [cursor=pointer]
+                - button "☀️ Spanakopita with Greek Salad" [ref=e192] [cursor=pointer]
+                - button "🌙 Moussaka" [ref=e193] [cursor=pointer]
+            - generic [ref=e194]:
+              - generic [ref=e195]: "5"
+              - generic [ref=e196]:
+                - button "🌅 Mediterranean Egg Bites" [ref=e197] [cursor=pointer]
+                - button "☀️ Falafel Wrap with Tahini" [ref=e198] [cursor=pointer]
+                - button "🌙 Chicken Tagine with Couscous" [ref=e199] [cursor=pointer]
+            - generic [ref=e200]:
+              - generic [ref=e201]: "6"
+              - generic [ref=e202]:
+                - button "🌅 Ricotta Pancakes with Berry Compote" [ref=e203] [cursor=pointer]
+                - button "☀️ Stuffed Bell Peppers" [ref=e204] [cursor=pointer]
+                - button "🌙 Seafood Paella" [ref=e205] [cursor=pointer]
+            - generic [ref=e206]:
+              - generic [ref=e207]: "7"
+              - generic [ref=e208]:
+                - button "🌅 Mediterranean Egg Bites" [ref=e209] [cursor=pointer]
+                - button "☀️ Greek Orzo Salad" [ref=e210] [cursor=pointer]
+                - button "🌙 Chicken Souvlaki with Tzatziki" [ref=e211] [cursor=pointer]
+            - generic [ref=e212]:
+              - generic [ref=e213]: "8"
+              - generic [ref=e214]:
+                - button "🌅 Mediterranean Omelet" [ref=e215] [cursor=pointer]
+                - button "☀️ Mediterranean Chickpea Salad" [ref=e216] [cursor=pointer]
+                - button "🌙 Grilled Vegetable and Halloumi Skewers" [ref=e217] [cursor=pointer]
+            - generic [ref=e218]:
+              - generic [ref=e219]: "9"
+              - generic [ref=e220]:
+                - button "🌅 Mediterranean Omelet" [ref=e221] [cursor=pointer]
+                - button "☀️ Greek Orzo Salad" [ref=e222] [cursor=pointer]
+                - button "🌙 Mediterranean Baked Fish" [ref=e223] [cursor=pointer]
+            - generic [ref=e224]:
+              - generic [ref=e225]: "10"
+              - generic [ref=e226]:
+                - button "🌅 Greek Yogurt Parfait with Honey" [ref=e227] [cursor=pointer]
+                - button "☀️ Falafel Wrap with Tahini" [ref=e228] [cursor=pointer]
+                - button "🌙 Chicken Souvlaki with Tzatziki" [ref=e229] [cursor=pointer]
+            - generic [ref=e230]:
+              - generic [ref=e231]: "11"
+              - generic [ref=e232]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e233] [cursor=pointer]
+                - button "☀️ Mediterranean Quinoa Bowl" [ref=e234] [cursor=pointer]
+                - button "🌙 Chicken Tagine with Couscous" [ref=e235] [cursor=pointer]
+            - generic [ref=e236]:
+              - generic [ref=e237]: "12"
+              - generic [ref=e238]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e239] [cursor=pointer]
+                - button "☀️ Mediterranean Tuna Salad" [ref=e240] [cursor=pointer]
+                - button "🌙 Grilled Lemon Herb Salmon" [ref=e241] [cursor=pointer]
+            - generic [ref=e242]:
+              - generic [ref=e243]: "13"
+              - generic [ref=e244]:
+                - button "🌅 Mediterranean Omelet" [ref=e245] [cursor=pointer]
+                - button "☀️ Greek Lentil Soup" [ref=e246] [cursor=pointer]
+                - button "🌙 Grilled Vegetable and Halloumi Skewers" [ref=e247] [cursor=pointer]
+            - generic [ref=e248]:
+              - generic [ref=e249]: "14"
+              - generic [ref=e250]:
+                - button "🌅 Whole Grain Toast with Avocado and Feta" [ref=e251] [cursor=pointer]
+                - button "☀️ Mezze Platter with Hummus" [ref=e252] [cursor=pointer]
+                - button "🌙 Seafood Paella" [ref=e253] [cursor=pointer]
+            - generic [ref=e254]:
+              - generic [ref=e255]: "15"
+              - generic [ref=e256]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e257] [cursor=pointer]
+                - button "☀️ Mediterranean Chickpea Salad" [ref=e258] [cursor=pointer]
+                - button "🌙 Baked Cod with Tomatoes and Olives" [ref=e259] [cursor=pointer]
+            - generic [ref=e260]:
+              - generic [ref=e261]: "16"
+              - generic [ref=e262]:
+                - button "🌅 Mediterranean Omelet" [ref=e263] [cursor=pointer]
+                - button "☀️ Stuffed Bell Peppers" [ref=e264] [cursor=pointer]
+                - button "🌙 Chicken Souvlaki with Tzatziki" [ref=e265] [cursor=pointer]
+            - generic [ref=e266]:
+              - generic [ref=e267]: "17"
+              - generic [ref=e268]:
+                - button "🌅 Ricotta Pancakes with Berry Compote" [ref=e269] [cursor=pointer]
+                - button "☀️ Mediterranean Quinoa Bowl" [ref=e270] [cursor=pointer]
+                - button "🌙 Ratatouille with Grilled Chicken" [ref=e271] [cursor=pointer]
+            - generic [ref=e272]:
+              - generic [ref=e273]: "18"
+              - generic [ref=e274]:
+                - button "🌅 Mediterranean Omelet" [ref=e275] [cursor=pointer]
+                - button "☀️ Tabbouleh with Grilled Halloumi" [ref=e276] [cursor=pointer]
+                - button "🌙 Mediterranean Baked Fish" [ref=e277] [cursor=pointer]
+            - generic [ref=e278]:
+              - generic [ref=e279]: "19"
+              - generic [ref=e280]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e281] [cursor=pointer]
+                - button "☀️ Mediterranean Tuna Salad" [ref=e282] [cursor=pointer]
+                - button "🌙 Grilled Vegetable and Halloumi Skewers" [ref=e283] [cursor=pointer]
+            - generic [ref=e284]:
+              - generic [ref=e285]: "20"
+              - generic [ref=e286]:
+                - button "🌅 Overnight Oats with Greek Yogurt" [ref=e287] [cursor=pointer]
+                - button "☀️ Greek Lentil Soup" [ref=e288] [cursor=pointer]
+                - button "🌙 Baked Cod with Tomatoes and Olives" [ref=e289] [cursor=pointer]
+            - generic [ref=e290]:
+              - generic [ref=e291]: "21"
+              - generic [ref=e292]:
+                - button "🌅 Mediterranean Omelet" [ref=e293] [cursor=pointer]
+                - button "☀️ Mediterranean Tuna Salad" [ref=e294] [cursor=pointer]
+                - button "🌙 Seafood Paella" [ref=e295] [cursor=pointer]
+            - generic [ref=e296]:
+              - generic [ref=e297]: "22"
+              - generic [ref=e298]:
+                - button "🌅 Ricotta Pancakes with Berry Compote" [ref=e299] [cursor=pointer]
+                - button "☀️ Greek Orzo Salad" [ref=e300] [cursor=pointer]
+                - button "🌙 Baked Cod with Tomatoes and Olives" [ref=e301] [cursor=pointer]
+            - generic [ref=e302]:
+              - generic [ref=e303]: "23"
+              - generic [ref=e304]:
+                - button "🌅 Mediterranean Smoothie Bowl" [ref=e305] [cursor=pointer]
+                - button "☀️ Mediterranean Tuna Salad" [ref=e306] [cursor=pointer]
+                - button "🌙 Chicken Tagine with Couscous" [ref=e307] [cursor=pointer]
+            - generic [ref=e308]:
+              - generic [ref=e309]: "24"
+              - generic [ref=e310]:
+                - button "🌅 Mediterranean Egg Bites" [ref=e311] [cursor=pointer]
+                - button "☀️ Greek Orzo Salad" [ref=e312] [cursor=pointer]
+                - button "🌙 Lamb Kofta with Mint Yogurt" [ref=e313] [cursor=pointer]
+            - generic [ref=e314]:
+              - generic [ref=e315]: "25"
+              - generic [ref=e316]:
+                - button "🌅 Greek Yogurt Parfait with Honey" [ref=e317] [cursor=pointer]
+                - button "☀️ Mediterranean Tuna Salad" [ref=e318] [cursor=pointer]
+                - button "🌙 Lamb Kofta with Mint Yogurt" [ref=e319] [cursor=pointer]
+            - generic [ref=e320]:
+              - generic [ref=e321]: "26"
+              - generic [ref=e322]:
+                - button "🌅 Ricotta Pancakes with Berry Compote" [ref=e323] [cursor=pointer]
+                - button "☀️ Mezze Platter with Hummus" [ref=e324] [cursor=pointer]
+                - button "🌙 Mediterranean Baked Fish" [ref=e325] [cursor=pointer]
+            - generic [ref=e326]:
+              - generic [ref=e327]: "27"
+              - generic [ref=e328]:
+                - button "🌅 Mediterranean Smoothie Bowl" [ref=e329] [cursor=pointer]
+                - button "☀️ Mediterranean Quinoa Bowl" [ref=e330] [cursor=pointer]
+                - button "🌙 Chicken Tagine with Couscous" [ref=e331] [cursor=pointer]
+            - generic [ref=e332]:
+              - generic [ref=e333]: "28"
+              - generic [ref=e334]:
+                - button "🌅 Mediterranean Smoothie Bowl" [ref=e335] [cursor=pointer]
+                - button "☀️ Mediterranean Chickpea Salad" [ref=e336] [cursor=pointer]
+                - button "🌙 Seafood Paella" [ref=e337] [cursor=pointer]
+            - generic [ref=e338]:
+              - generic [ref=e339]: "29"
+              - generic [ref=e340]:
+                - button "🌅 Mediterranean Omelet" [ref=e341] [cursor=pointer]
+                - button "☀️ Mezze Platter with Hummus" [ref=e342] [cursor=pointer]
+                - button "🌙 Grilled Lemon Herb Salmon" [ref=e343] [cursor=pointer]
+            - generic [ref=e344]:
+              - generic [ref=e345]: "30"
+              - generic [ref=e346]:
+                - button "🌅 Shakshuka with Whole Grain Pita" [ref=e347] [cursor=pointer]
+                - button "☀️ Tabbouleh with Grilled Halloumi" [ref=e348] [cursor=pointer]
+                - button "🌙 Moussaka" [ref=e349] [cursor=pointer]
+        - generic [ref=e350]:
+          - heading "How to Use Your Meal Plan" [level=2] [ref=e351]:
+            - img [ref=e352]
+            - text: How to Use Your Meal Plan
+          - generic [ref=e355]:
+            - generic [ref=e356]:
+              - generic [ref=e357]: 📅
+              - heading "Click Any Recipe" [level=3] [ref=e358]
+              - paragraph [ref=e359]: Click on any meal name in the calendar above to see full ingredients, instructions, and nutrition info.
+            - generic [ref=e360]:
+              - generic [ref=e361]: 🖨️
+              - heading "Print Individual Recipes" [level=3] [ref=e362]
+              - paragraph [ref=e363]: Each recipe modal has a print button for easy kitchen reference while cooking.
+            - generic [ref=e364]:
+              - generic [ref=e365]: 🛒
+              - heading "Get Shopping Lists" [level=3] [ref=e366]
+              - paragraph [ref=e367]: Use the "Copy List" button above to get organized shopping lists for your meal plan.
+        - generic [ref=e368]:
+          - heading "Wellness Tips" [level=3] [ref=e369]:
+            - img [ref=e370]
+            - text: Wellness Tips
+          - generic [ref=e372]:
+            - generic [ref=e373]:
+              - heading "🧘 Mindful Eating" [level=4] [ref=e374]
+              - paragraph [ref=e375]: Take time to enjoy each meal without distractions for better digestion and satisfaction.
+            - generic [ref=e376]:
+              - heading "💧 Stay Hydrated" [level=4] [ref=e377]
+              - paragraph [ref=e378]: Drink at least 8 glasses of water daily to support your body's natural processes.
+            - generic [ref=e379]:
+              - heading "🚶 Move Daily" [level=4] [ref=e380]
+              - paragraph [ref=e381]: Combine your nutrition plan with 30 minutes of movement for optimal results.
+  - contentinfo [ref=e382]:
+    - generic [ref=e383]:
+      - generic [ref=e384]:
+        - generic [ref=e385]:
+          - generic [ref=e386]: 🧠
+          - link "Mocha's MindLab" [ref=e387] [cursor=pointer]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e388]: Transform your health with personalized meal planning
+      - generic [ref=e389]:
+        - heading "Meal Plans" [level=4] [ref=e390]
+        - list [ref=e391]:
+          - listitem [ref=e392]:
+            - link "Mediterranean" [ref=e393] [cursor=pointer]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e394]:
+            - link "Keto" [ref=e395] [cursor=pointer]:
+              - /url: /diets/keto
+          - listitem [ref=e396]:
+            - link "Vegan" [ref=e397] [cursor=pointer]:
+              - /url: /diets/vegan
+          - listitem [ref=e398]:
+            - link "View All Plans" [ref=e399] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e400]:
+        - heading "Quick Links" [level=4] [ref=e401]
+        - list [ref=e402]:
+          - listitem [ref=e403]:
+            - link "My Dashboard" [ref=e404] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e405]:
+            - link "Login" [ref=e406] [cursor=pointer]:
+              - /url: /login
+          - listitem [ref=e407]:
+            - link "Pricing" [ref=e408] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e409]:
+        - heading "Resources" [level=4] [ref=e410]
+        - list [ref=e411]:
+          - listitem [ref=e412]:
+            - link "Recipes" [ref=e413] [cursor=pointer]:
+              - /url: /recipes
+          - listitem [ref=e414]:
+            - link "Sample Calendar" [ref=e415] [cursor=pointer]:
+              - /url: /calendar
+          - listitem [ref=e416]:
+            - link "Menu Benefits" [ref=e417] [cursor=pointer]:
+              - /url: /menu-benefits
+          - listitem [ref=e418]:
+            - link "Contact" [ref=e419] [cursor=pointer]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e421]:
+      - paragraph [ref=e422]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e423]:
+        - link "Privacy Policy" [ref=e424] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e425] [cursor=pointer]:
+          - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e431] [cursor=pointer]:
+    - img [ref=e432] [cursor=pointer]
+  - alert [ref=e436]
+```

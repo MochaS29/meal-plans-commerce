@@ -1,0 +1,190 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7]
+        - generic [ref=e8]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18]:
+          - /url: /pricing
+        - link "Login" [ref=e19]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - link "Mocha's MindLab" [ref=e24]:
+          - /url: /
+        - link "← Back to Home" [ref=e25]:
+          - /url: /
+      - generic [ref=e26]:
+        - heading "30-Day Personalized Meal Plan" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Your customized meal calendar with 30 days of recipes, full ingredients, instructions, and nutrition information - delivered as a beautiful PDF
+        - generic [ref=e30]: MOST POPULAR CHOICE
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - heading "What You Get" [level=2] [ref=e33]
+          - generic [ref=e34]:
+            - generic [ref=e35]:
+              - generic [ref=e36]:
+                - img [ref=e37]
+                - generic [ref=e39]: 30-day meal calendar with daily recipes
+              - generic [ref=e40]:
+                - img [ref=e41]
+                - generic [ref=e43]: Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)
+              - generic [ref=e44]:
+                - img [ref=e45]
+                - generic [ref=e47]: 30 complete recipes with full instructions
+              - generic [ref=e48]:
+                - img [ref=e49]
+                - generic [ref=e51]: Ingredient lists for every recipe
+              - generic [ref=e52]:
+                - img [ref=e53]
+                - generic [ref=e55]: Complete nutritional information per serving
+            - generic [ref=e56]:
+              - generic [ref=e57]:
+                - img [ref=e58]
+                - generic [ref=e60]: Beautiful PDF with cover image
+              - generic [ref=e61]:
+                - img [ref=e62]
+                - generic [ref=e64]: Prep time and cook time for each recipe
+              - generic [ref=e65]:
+                - img [ref=e66]
+                - generic [ref=e68]: Difficulty level and serving sizes
+              - generic [ref=e69]:
+                - img [ref=e70]
+                - generic [ref=e72]: Customize for family size and dietary needs
+              - generic [ref=e73]:
+                - img [ref=e74]
+                - generic [ref=e76]: Delivered within 24 hours via email
+          - generic [ref=e77]:
+            - heading "Choose Your Diet Plan" [level=3] [ref=e78]
+            - generic [ref=e79]:
+              - button "Mediterranean Heart-healthy with olive oil, fish, and fresh vegetables" [ref=e80]:
+                - generic [ref=e81]: Mediterranean
+                - generic [ref=e82]: Heart-healthy with olive oil, fish, and fresh vegetables
+                - img [ref=e84]
+              - button "Keto Low-carb, high-fat recipes for ketosis" [ref=e86]:
+                - generic [ref=e87]: Keto
+                - generic [ref=e88]: Low-carb, high-fat recipes for ketosis
+              - button "Vegan Plant-based recipes with complete nutrition" [ref=e89]:
+                - generic [ref=e90]: Vegan
+                - generic [ref=e91]: Plant-based recipes with complete nutrition
+              - button "Paleo Whole foods, no processed ingredients" [ref=e92]:
+                - generic [ref=e93]: Paleo
+                - generic [ref=e94]: Whole foods, no processed ingredients
+              - button "Vegetarian Meat-free with dairy and eggs" [ref=e95]:
+                - generic [ref=e96]: Vegetarian
+                - generic [ref=e97]: Meat-free with dairy and eggs
+              - button "Intermittent Fasting Time-restricted eating with balanced nutrition" [ref=e98]:
+                - generic [ref=e99]: Intermittent Fasting
+                - generic [ref=e100]: Time-restricted eating with balanced nutrition
+              - button "Family Focused Kid-friendly, crowd-pleasing meals" [ref=e101]:
+                - generic [ref=e102]: Family Focused
+                - generic [ref=e103]: Kid-friendly, crowd-pleasing meals
+              - button "Global Cuisine International flavors from around the world" [ref=e104]:
+                - generic [ref=e105]: Global Cuisine
+                - generic [ref=e106]: International flavors from around the world
+          - generic [ref=e107]:
+            - heading "Choose Your Plan" [level=3] [ref=e108]
+            - generic [ref=e109]:
+              - generic [ref=e110]:
+                - generic [ref=e111]: ONE-TIME
+                - generic [ref=e112]:
+                  - generic [ref=e113]: $59
+                  - generic [ref=e114]: one month
+                - button "Get One Month" [ref=e115]
+                - paragraph [ref=e116]: Perfect for trying it out
+              - generic [ref=e117]:
+                - generic [ref=e118]: SAVE 50%
+                - generic [ref=e119]: SUBSCRIPTION
+                - generic [ref=e120]:
+                  - generic [ref=e121]: $29
+                  - generic [ref=e122]: /month
+                - button "Subscribe Monthly" [ref=e123]
+                - paragraph [ref=e124]: Cancel anytime • New plan on 1st
+            - paragraph [ref=e125]: Delivered within 24 hours via email • 30-day money-back guarantee
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - img [ref=e129]
+            - heading "Beautiful Calendar" [level=3] [ref=e131]
+            - paragraph [ref=e132]: Professional design you'll be proud to display
+          - generic [ref=e133]:
+            - img [ref=e135]
+            - heading "Smart Shopping" [level=3] [ref=e139]
+            - paragraph [ref=e140]: Organized lists save time and reduce waste
+          - generic [ref=e141]:
+            - img [ref=e143]
+            - heading "Easy Recipes" [level=3] [ref=e145]
+            - paragraph [ref=e146]: Simple instructions for delicious results
+  - contentinfo [ref=e147]:
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]: 🧠
+          - link "Mocha's MindLab" [ref=e152]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e153]: Transform your health with personalized meal planning
+      - generic [ref=e154]:
+        - heading "Meal Plans" [level=4] [ref=e155]
+        - list [ref=e156]:
+          - listitem [ref=e157]:
+            - link "Mediterranean" [ref=e158]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e159]:
+            - link "Keto" [ref=e160]:
+              - /url: /diets/keto
+          - listitem [ref=e161]:
+            - link "Vegan" [ref=e162]:
+              - /url: /diets/vegan
+          - listitem [ref=e163]:
+            - link "View All Plans" [ref=e164]:
+              - /url: /pricing
+      - generic [ref=e165]:
+        - heading "Quick Links" [level=4] [ref=e166]
+        - list [ref=e167]:
+          - listitem [ref=e168]:
+            - link "My Dashboard" [ref=e169]:
+              - /url: /dashboard
+          - listitem [ref=e170]:
+            - link "Login" [ref=e171]:
+              - /url: /login
+          - listitem [ref=e172]:
+            - link "Pricing" [ref=e173]:
+              - /url: /pricing
+      - generic [ref=e174]:
+        - heading "Resources" [level=4] [ref=e175]
+        - list [ref=e176]:
+          - listitem [ref=e177]:
+            - link "Recipes" [ref=e178]:
+              - /url: /recipes
+          - listitem [ref=e179]:
+            - link "Sample Calendar" [ref=e180]:
+              - /url: /calendar
+          - listitem [ref=e181]:
+            - link "Menu Benefits" [ref=e182]:
+              - /url: /menu-benefits
+          - listitem [ref=e183]:
+            - link "Contact" [ref=e184]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e186]:
+      - paragraph [ref=e187]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e188]:
+        - link "Privacy Policy" [ref=e189]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e190]:
+          - /url: /terms
+  - alert [ref=e191]
+```

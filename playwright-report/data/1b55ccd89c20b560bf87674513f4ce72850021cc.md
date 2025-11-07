@@ -1,0 +1,376 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7] [cursor=pointer]
+        - generic [ref=e8] [cursor=pointer]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10] [cursor=pointer]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11] [cursor=pointer]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17] [cursor=pointer]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - link "Login" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - link "← Back to Home" [ref=e24] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e25] [cursor=pointer]: ←
+          - generic [ref=e26] [cursor=pointer]: Back to Home
+        - generic [ref=e27]:
+          - heading "September 2025 Meal Planning Calendar" [level=1] [ref=e28]
+          - paragraph [ref=e29]: Your complete 30-day transformation journey with delicious, healthy meals
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - heading "📦 Complete Package Includes" [level=2] [ref=e32]
+          - generic [ref=e33]:
+            - generic [ref=e34]:
+              - img [ref=e36]
+              - heading "Printable Calendar" [level=3] [ref=e41]
+              - paragraph [ref=e42]: 30 days of complete meal planning
+            - generic [ref=e43]:
+              - img [ref=e45]
+              - heading "Recipe Collection" [level=3] [ref=e48]
+              - paragraph [ref=e49]: 50+ authentic Mediterranean recipes
+            - generic [ref=e50]:
+              - img [ref=e52]
+              - heading "Shopping Lists" [level=3] [ref=e56]
+              - paragraph [ref=e57]: Weekly organized by store section
+            - generic [ref=e58]:
+              - img [ref=e60]
+              - heading "Meal Prep Guide" [level=3] [ref=e63]
+              - paragraph [ref=e64]: Sunday prep saves time all week
+          - generic [ref=e65]:
+            - button "Download PDF" [ref=e66]:
+              - img [ref=e67]
+              - text: Download PDF
+            - button "Print Calendar" [ref=e71]:
+              - img [ref=e72]
+              - text: Print Calendar
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - heading "September 2025" [level=2] [ref=e78]:
+              - img [ref=e79]
+              - text: September 2025
+              - img [ref=e81]
+            - paragraph [ref=e83]: Your Wellness Transformation Begins
+          - generic [ref=e84]:
+            - generic [ref=e85]: Sunday
+            - generic [ref=e86]: Monday
+            - generic [ref=e87]: Tuesday
+            - generic [ref=e88]: Wednesday
+            - generic [ref=e89]: Thursday
+            - generic [ref=e90]: Friday
+            - generic [ref=e91]: Saturday
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - generic [ref=e95]: "1"
+                - generic [ref=e96]: START!
+              - generic [ref=e97]:
+                - generic [ref=e100]: Greek Yogurt with Thyme Honey
+                - generic [ref=e103]: Kalamata Olives & Almonds
+                - generic [ref=e106]: Horiatiki
+                - generic [ref=e107]: +2 more...
+            - generic [ref=e108]:
+              - generic [ref=e110]: "2"
+              - generic [ref=e111]:
+                - generic [ref=e114]: Strapatsada
+                - generic [ref=e117]: Hard-Boiled Egg with Za'atar
+                - generic [ref=e120]: Psito Psari
+                - generic [ref=e121]: +2 more...
+            - generic [ref=e122]:
+              - generic [ref=e124]: "3"
+              - generic [ref=e125]:
+                - generic [ref=e128]: Ricotta Pancakes Sicilian Style
+                - generic [ref=e131]: Fresh Mozzarella & Basil
+                - generic [ref=e134]: Salmone e Fagioli
+                - generic [ref=e135]: +2 more...
+            - generic [ref=e136]:
+              - generic [ref=e138]: "4"
+              - generic [ref=e139]:
+                - generic [ref=e142]: Pan con Tomate
+                - generic [ref=e145]: Greek Yogurt with Honey
+                - generic [ref=e148]: Fakes
+                - generic [ref=e149]: +2 more...
+            - generic [ref=e150]:
+              - generic [ref=e152]: "5"
+              - generic [ref=e153]:
+                - generic [ref=e156]: Frappé with Mediterranean Yogurt
+                - generic [ref=e159]: Pistachios & Dried Figs
+                - generic [ref=e162]: Quinoa Tabbouleh
+                - generic [ref=e163]: +2 more...
+            - generic [ref=e164]:
+              - generic [ref=e166]: "6"
+              - generic [ref=e167]:
+                - generic [ref=e170]: Shakshuka
+                - generic [ref=e173]: Avgolemon Soup
+                - generic [ref=e176]: Lavash with Mediterranean Fillings
+                - generic [ref=e177]: +2 more...
+            - generic [ref=e178]:
+              - generic [ref=e180]: "7"
+              - generic [ref=e181]:
+                - generic [ref=e184]: Overnight Oats with Greek Honey
+                - generic [ref=e187]: Manouri Cheese with Nuts
+                - generic [ref=e190]: Panzanella
+                - generic [ref=e191]: +2 more...
+            - generic [ref=e192]:
+              - generic [ref=e194]: "8"
+              - generic [ref=e195]:
+                - generic [ref=e198]: Mediterranean Breakfast
+                - generic [ref=e201]: Morning Snack
+                - generic [ref=e204]: Mediterranean Lunch
+                - generic [ref=e205]: +2 more...
+            - generic [ref=e206]:
+              - generic [ref=e208]: "9"
+              - generic [ref=e209]:
+                - generic [ref=e212]: Mediterranean Breakfast
+                - generic [ref=e215]: Morning Snack
+                - generic [ref=e218]: Mediterranean Lunch
+                - generic [ref=e219]: +2 more...
+            - generic [ref=e220]:
+              - generic [ref=e222]: "10"
+              - generic [ref=e223]:
+                - generic [ref=e226]: Mediterranean Breakfast
+                - generic [ref=e229]: Morning Snack
+                - generic [ref=e232]: Mediterranean Lunch
+                - generic [ref=e233]: +2 more...
+            - generic [ref=e234]:
+              - generic [ref=e236]: "11"
+              - generic [ref=e237]:
+                - generic [ref=e240]: Mediterranean Breakfast
+                - generic [ref=e243]: Morning Snack
+                - generic [ref=e246]: Mediterranean Lunch
+                - generic [ref=e247]: +2 more...
+            - generic [ref=e248]:
+              - generic [ref=e250]: "12"
+              - generic [ref=e251]:
+                - generic [ref=e254]: Mediterranean Breakfast
+                - generic [ref=e257]: Morning Snack
+                - generic [ref=e260]: Mediterranean Lunch
+                - generic [ref=e261]: +2 more...
+            - generic [ref=e262]:
+              - generic [ref=e264]: "13"
+              - generic [ref=e265]:
+                - generic [ref=e268]: Mediterranean Breakfast
+                - generic [ref=e271]: Morning Snack
+                - generic [ref=e274]: Mediterranean Lunch
+                - generic [ref=e275]: +2 more...
+            - generic [ref=e276]:
+              - generic [ref=e278]: "14"
+              - generic [ref=e279]:
+                - generic [ref=e282]: Mediterranean Breakfast
+                - generic [ref=e285]: Morning Snack
+                - generic [ref=e288]: Mediterranean Lunch
+                - generic [ref=e289]: +2 more...
+            - generic [ref=e290]:
+              - generic [ref=e292]: "15"
+              - generic [ref=e293]:
+                - generic [ref=e296]: Mediterranean Breakfast
+                - generic [ref=e299]: Morning Snack
+                - generic [ref=e302]: Mediterranean Lunch
+                - generic [ref=e303]: +2 more...
+            - generic [ref=e304]:
+              - generic [ref=e306]: "16"
+              - generic [ref=e307]:
+                - generic [ref=e310]: Mediterranean Breakfast
+                - generic [ref=e313]: Morning Snack
+                - generic [ref=e316]: Mediterranean Lunch
+                - generic [ref=e317]: +2 more...
+            - generic [ref=e318]:
+              - generic [ref=e320]: "17"
+              - generic [ref=e321]:
+                - generic [ref=e324]: Mediterranean Breakfast
+                - generic [ref=e327]: Morning Snack
+                - generic [ref=e330]: Mediterranean Lunch
+                - generic [ref=e331]: +2 more...
+            - generic [ref=e332]:
+              - generic [ref=e334]: "18"
+              - generic [ref=e335]:
+                - generic [ref=e338]: Mediterranean Breakfast
+                - generic [ref=e341]: Morning Snack
+                - generic [ref=e344]: Mediterranean Lunch
+                - generic [ref=e345]: +2 more...
+            - generic [ref=e346]:
+              - generic [ref=e348]: "19"
+              - generic [ref=e349]:
+                - generic [ref=e352]: Mediterranean Breakfast
+                - generic [ref=e355]: Morning Snack
+                - generic [ref=e358]: Mediterranean Lunch
+                - generic [ref=e359]: +2 more...
+            - generic [ref=e360]:
+              - generic [ref=e362]: "20"
+              - generic [ref=e363]:
+                - generic [ref=e366]: Mediterranean Breakfast
+                - generic [ref=e369]: Morning Snack
+                - generic [ref=e372]: Mediterranean Lunch
+                - generic [ref=e373]: +2 more...
+            - generic [ref=e374]:
+              - generic [ref=e376]: "21"
+              - generic [ref=e377]:
+                - generic [ref=e380]: Mediterranean Breakfast
+                - generic [ref=e383]: Morning Snack
+                - generic [ref=e386]: Mediterranean Lunch
+                - generic [ref=e387]: +2 more...
+            - generic [ref=e388]:
+              - generic [ref=e390]: "22"
+              - generic [ref=e391]:
+                - generic [ref=e394]: Mediterranean Breakfast
+                - generic [ref=e397]: Morning Snack
+                - generic [ref=e400]: Mediterranean Lunch
+                - generic [ref=e401]: +2 more...
+            - generic [ref=e402]:
+              - generic [ref=e404]: "23"
+              - generic [ref=e405]:
+                - generic [ref=e408]: Mediterranean Breakfast
+                - generic [ref=e411]: Morning Snack
+                - generic [ref=e414]: Mediterranean Lunch
+                - generic [ref=e415]: +2 more...
+            - generic [ref=e416]:
+              - generic [ref=e418]: "24"
+              - generic [ref=e419]:
+                - generic [ref=e422]: Mediterranean Breakfast
+                - generic [ref=e425]: Morning Snack
+                - generic [ref=e428]: Mediterranean Lunch
+                - generic [ref=e429]: +2 more...
+            - generic [ref=e430]:
+              - generic [ref=e432]: "25"
+              - generic [ref=e433]:
+                - generic [ref=e436]: Mediterranean Breakfast
+                - generic [ref=e439]: Morning Snack
+                - generic [ref=e442]: Mediterranean Lunch
+                - generic [ref=e443]: +2 more...
+            - generic [ref=e444]:
+              - generic [ref=e446]: "26"
+              - generic [ref=e447]:
+                - generic [ref=e450]: Mediterranean Breakfast
+                - generic [ref=e453]: Morning Snack
+                - generic [ref=e456]: Mediterranean Lunch
+                - generic [ref=e457]: +2 more...
+            - generic [ref=e458]:
+              - generic [ref=e460]: "27"
+              - generic [ref=e461]:
+                - generic [ref=e464]: Mediterranean Breakfast
+                - generic [ref=e467]: Morning Snack
+                - generic [ref=e470]: Mediterranean Lunch
+                - generic [ref=e471]: +2 more...
+            - generic [ref=e472]:
+              - generic [ref=e474]: "28"
+              - generic [ref=e475]:
+                - generic [ref=e478]: Mediterranean Breakfast
+                - generic [ref=e481]: Morning Snack
+                - generic [ref=e484]: Mediterranean Lunch
+                - generic [ref=e485]: +2 more...
+            - generic [ref=e486]:
+              - generic [ref=e488]: "29"
+              - generic [ref=e489]:
+                - generic [ref=e492]: Mediterranean Breakfast
+                - generic [ref=e495]: Morning Snack
+                - generic [ref=e498]: Mediterranean Lunch
+                - generic [ref=e499]: +2 more...
+            - generic [ref=e500]:
+              - generic [ref=e501]:
+                - generic [ref=e502]: "30"
+                - generic [ref=e503]: COMPLETE! 🎉
+              - generic [ref=e504]:
+                - generic [ref=e507]: Mediterranean Breakfast
+                - generic [ref=e510]: Morning Snack
+                - generic [ref=e513]: Mediterranean Lunch
+                - generic [ref=e514]: +2 more...
+        - generic [ref=e515]:
+          - heading "🎯 Mediterranean Weight Loss Targets" [level=3] [ref=e516]
+          - generic [ref=e517]:
+            - generic [ref=e518]:
+              - img [ref=e519]
+              - heading "Daily Nutrition" [level=4] [ref=e521]
+              - paragraph [ref=e522]: 1,400-1,600 calories
+              - paragraph [ref=e523]: 35-40% healthy fats
+              - paragraph [ref=e524]: 20-25% protein
+            - generic [ref=e525]:
+              - img [ref=e526]
+              - heading "Key Ingredients" [level=4] [ref=e529]
+              - paragraph [ref=e530]: "Olive Oil: 2-3 tbsp daily"
+              - paragraph [ref=e531]: "Fish: 3-4 times/week"
+              - paragraph [ref=e532]: "Legumes: 3+ times/week"
+            - generic [ref=e533]:
+              - img [ref=e534]
+              - heading "Your Goals" [level=4] [ref=e536]
+              - paragraph [ref=e537]: "Weight Loss: 1-2 lbs/week"
+              - paragraph [ref=e538]: Mediterranean portions
+              - paragraph [ref=e539]: Daily walks + activity
+        - generic [ref=e540]:
+          - button "Get Your Complete Calendar Package - $59" [ref=e541]
+          - paragraph [ref=e542]: Includes PDF download, all recipes, shopping lists, and meal prep guides
+  - contentinfo [ref=e543]:
+    - generic [ref=e544]:
+      - generic [ref=e545]:
+        - generic [ref=e546]:
+          - generic [ref=e547]: 🧠
+          - link "Mocha's MindLab" [ref=e548] [cursor=pointer]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e549]: Transform your health with personalized meal planning
+      - generic [ref=e550]:
+        - heading "Meal Plans" [level=4] [ref=e551]
+        - list [ref=e552]:
+          - listitem [ref=e553]:
+            - link "Mediterranean" [ref=e554] [cursor=pointer]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e555]:
+            - link "Keto" [ref=e556] [cursor=pointer]:
+              - /url: /diets/keto
+          - listitem [ref=e557]:
+            - link "Vegan" [ref=e558] [cursor=pointer]:
+              - /url: /diets/vegan
+          - listitem [ref=e559]:
+            - link "View All Plans" [ref=e560] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e561]:
+        - heading "Quick Links" [level=4] [ref=e562]
+        - list [ref=e563]:
+          - listitem [ref=e564]:
+            - link "My Dashboard" [ref=e565] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e566]:
+            - link "Login" [ref=e567] [cursor=pointer]:
+              - /url: /login
+          - listitem [ref=e568]:
+            - link "Pricing" [ref=e569] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e570]:
+        - heading "Resources" [level=4] [ref=e571]
+        - list [ref=e572]:
+          - listitem [ref=e573]:
+            - link "Recipes" [ref=e574] [cursor=pointer]:
+              - /url: /recipes
+          - listitem [ref=e575]:
+            - link "Sample Calendar" [ref=e576] [cursor=pointer]:
+              - /url: /calendar
+          - listitem [ref=e577]:
+            - link "Menu Benefits" [ref=e578] [cursor=pointer]:
+              - /url: /menu-benefits
+          - listitem [ref=e579]:
+            - link "Contact" [ref=e580] [cursor=pointer]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e582]:
+      - paragraph [ref=e583]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e584]:
+        - link "Privacy Policy" [ref=e585] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e586] [cursor=pointer]:
+          - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e592] [cursor=pointer]:
+    - img [ref=e593] [cursor=pointer]
+  - alert [ref=e597]
+```

@@ -36,219 +36,183 @@
             - generic [ref=e33]: Powered by Stripe
       - generic [ref=e34]:
         - generic [ref=e35]:
-          - generic [ref=e37]:
-            - heading "30-Day Wellness" [level=3] [ref=e38]
-            - paragraph [ref=e39]: Complete meal planning package with your choice of cuisine
-            - generic [ref=e40]:
-              - generic [ref=e41]: $59
-              - generic [ref=e42]: one-time
-            - button "Get Started" [ref=e43]
-            - list [ref=e44]:
-              - listitem [ref=e45]:
-                - img [ref=e46]
-                - generic [ref=e48]: 30-day designer printable calendar
-              - listitem [ref=e49]:
-                - img [ref=e50]
-                - generic [ref=e52]: Choice of wellness cuisine style
-              - listitem [ref=e53]:
-                - img [ref=e54]
-                - generic [ref=e56]: 50+ restaurant-quality recipes
-              - listitem [ref=e57]:
-                - img [ref=e58]
-                - generic [ref=e60]: Professionally organized shopping lists
-              - listitem [ref=e61]:
-                - img [ref=e62]
-                - generic [ref=e64]: Sunday meal prep strategies
-              - listitem [ref=e65]:
-                - img [ref=e66]
-                - generic [ref=e68]: Complete nutritional breakdowns
-              - listitem [ref=e69]:
-                - img [ref=e70]
-                - generic [ref=e72]: Wellness journey quick-start guide
-              - listitem [ref=e73]:
-                - img [ref=e74]
-                - generic [ref=e76]: Email support from our wellness team
-              - listitem [ref=e77]:
-                - img [ref=e78]
-                - generic [ref=e80]: Lifetime access to all updates
-          - generic [ref=e81]:
-            - generic [ref=e82]:
-              - img [ref=e83]
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - img [ref=e38]
               - text: Most Popular
-            - generic [ref=e85]:
-              - heading "Custom Family Plan" [level=3] [ref=e86]
-              - paragraph [ref=e87]: AI-powered personalized meal planning for your family's unique needs
-              - generic [ref=e88]:
-                - generic [ref=e89]: $99
-                - generic [ref=e90]: one-time
-              - button "Get Started" [ref=e91]
-              - list [ref=e92]:
-                - listitem [ref=e93]:
-                  - img [ref=e94]
-                  - generic [ref=e96]: AI-personalized 30-day plan
-                - listitem [ref=e97]:
-                  - img [ref=e98]
-                  - generic [ref=e100]: Smart portion sizing for 2-8 people
-                - listitem [ref=e101]:
-                  - img [ref=e102]
-                  - generic [ref=e104]: Multiple dietary accommodations handled
-                - listitem [ref=e105]:
-                  - img [ref=e106]
-                  - generic [ref=e108]: Kid-friendly wellness options included
-                - listitem [ref=e109]:
-                  - img [ref=e110]
-                  - generic [ref=e112]: Mix of cuisine styles in one plan
-                - listitem [ref=e113]:
-                  - img [ref=e114]
-                  - generic [ref=e116]: Optimized shopping lists by store section
-                - listitem [ref=e117]:
-                  - img [ref=e118]
-                  - generic [ref=e120]: Batch cooking & meal prep guides
-                - listitem [ref=e121]:
-                  - img [ref=e122]
-                  - generic [ref=e124]: Time-saving meal prep strategies
-                - listitem [ref=e125]:
-                  - img [ref=e126]
-                  - generic [ref=e128]: Generated within 24 hours
-                - listitem [ref=e129]:
-                  - img [ref=e130]
-                  - generic [ref=e132]: Unlimited regeneration (adjust anytime)
-          - generic [ref=e133]:
-            - generic [ref=e134]: Best value for ongoing support
-            - generic [ref=e135]:
-              - heading "Monthly Subscription" [level=3] [ref=e136]
-              - paragraph [ref=e137]: Fresh AI-curated meal plans delivered monthly
-              - generic [ref=e138]:
-                - generic [ref=e139]: $29
-                - generic [ref=e140]: /month
-              - button "Get Started" [ref=e141]
-              - list [ref=e142]:
-                - listitem [ref=e143]:
-                  - img [ref=e144]
-                  - generic [ref=e146]: New designer calendar each month
-                - listitem [ref=e147]:
-                  - img [ref=e148]
-                  - generic [ref=e150]: Rotating cuisine themes
-                - listitem [ref=e151]:
-                  - img [ref=e152]
-                  - generic [ref=e154]: Seasonal & locally-inspired recipes
-                - listitem [ref=e155]:
-                  - img [ref=e156]
-                  - generic [ref=e158]: AI wellness insights & monthly tips
-                - listitem [ref=e159]:
-                  - img [ref=e160]
-                  - generic [ref=e162]: Access to full recipe archive
-                - listitem [ref=e163]:
-                  - img [ref=e164]
-                  - generic [ref=e166]: AI-powered recipe Q&A chatbot
-                - listitem [ref=e167]:
-                  - img [ref=e168]
-                  - generic [ref=e170]: Exclusive member resources
-                - listitem [ref=e171]:
-                  - img [ref=e172]
-                  - generic [ref=e174]: Switch cuisine styles anytime
-                - listitem [ref=e175]:
-                  - img [ref=e176]
-                  - generic [ref=e178]: Cancel anytime - no commitment
+            - generic [ref=e40]:
+              - heading "30-Day Personalized Meal Plan" [level=3] [ref=e41]
+              - paragraph [ref=e42]: Your customized meal calendar with 30 days of recipes delivered as a beautiful PDF
+              - generic [ref=e43]:
+                - generic [ref=e44]: $59
+                - generic [ref=e45]: one-time
+              - button "Get Started" [ref=e46]
+              - list [ref=e47]:
+                - listitem [ref=e48]:
+                  - img [ref=e49]
+                  - generic [ref=e51]: 30-day meal calendar with daily recipes
+                - listitem [ref=e52]:
+                  - img [ref=e53]
+                  - generic [ref=e55]: Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)
+                - listitem [ref=e56]:
+                  - img [ref=e57]
+                  - generic [ref=e59]: 30 complete recipes with full instructions
+                - listitem [ref=e60]:
+                  - img [ref=e61]
+                  - generic [ref=e63]: Ingredient lists for every recipe
+                - listitem [ref=e64]:
+                  - img [ref=e65]
+                  - generic [ref=e67]: Complete nutritional information per serving
+                - listitem [ref=e68]:
+                  - img [ref=e69]
+                  - generic [ref=e71]: Beautiful PDF with cover image
+                - listitem [ref=e72]:
+                  - img [ref=e73]
+                  - generic [ref=e75]: Prep time and cook time for each recipe
+                - listitem [ref=e76]:
+                  - img [ref=e77]
+                  - generic [ref=e79]: Difficulty level and serving sizes
+                - listitem [ref=e80]:
+                  - img [ref=e81]
+                  - generic [ref=e83]: Customize for family size and dietary needs
+                - listitem [ref=e84]:
+                  - img [ref=e85]
+                  - generic [ref=e87]: Delivered within 24 hours via email
+          - generic [ref=e88]:
+            - generic [ref=e89]: Save 50% - Best value for ongoing support
+            - generic [ref=e90]:
+              - heading "Monthly Meal Plan Subscription" [level=3] [ref=e91]
+              - paragraph [ref=e92]: Fresh personalized meal plans delivered monthly
+              - generic [ref=e93]:
+                - generic [ref=e94]: $29
+                - generic [ref=e95]: /month
+              - button "Get Started" [ref=e96]
+              - list [ref=e97]:
+                - listitem [ref=e98]:
+                  - img [ref=e99]
+                  - generic [ref=e101]: New meal calendar on the 1st of each month
+                - listitem [ref=e102]:
+                  - img [ref=e103]
+                  - generic [ref=e105]: 30 new recipes delivered monthly
+                - listitem [ref=e106]:
+                  - img [ref=e107]
+                  - generic [ref=e109]: All features from the one-time plan
+                - listitem [ref=e110]:
+                  - img [ref=e111]
+                  - generic [ref=e113]: Change diet preferences each month
+                - listitem [ref=e114]:
+                  - img [ref=e115]
+                  - generic [ref=e117]: Adjust family size anytime
+                - listitem [ref=e118]:
+                  - img [ref=e119]
+                  - generic [ref=e121]: Update dietary needs as needed
+                - listitem [ref=e122]:
+                  - img [ref=e123]
+                  - generic [ref=e125]: Beautiful PDF delivered via email
+                - listitem [ref=e126]:
+                  - img [ref=e127]
+                  - generic [ref=e129]: Complete nutritional information
+                - listitem [ref=e130]:
+                  - img [ref=e131]
+                  - generic [ref=e133]: Priority email support
+                - listitem [ref=e134]:
+                  - img [ref=e135]
+                  - generic [ref=e137]: Cancel anytime - no commitment
+        - generic [ref=e138]:
+          - heading "What You Get" [level=2] [ref=e139]
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e143]: 📅
+              - heading "30-Day Meal Calendar" [level=3] [ref=e144]
+              - paragraph [ref=e145]: Beautifully designed calendar with a different recipe for each day
+            - generic [ref=e146]:
+              - generic [ref=e148]: 📝
+              - heading "30 Complete Recipes" [level=3] [ref=e149]
+              - paragraph [ref=e150]: Full instructions, ingredients, nutrition info, and cooking times for every recipe
+            - generic [ref=e151]:
+              - generic [ref=e153]: 🎨
+              - heading "Beautiful PDF" [level=3] [ref=e154]
+              - paragraph [ref=e155]: Professional cover design delivered via email within 24 hours
+          - generic [ref=e156]:
+            - paragraph [ref=e157]:
+              - strong [ref=e158]: "8 Diet Plans Available:"
+              - text: Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family Focused, and Global Cuisine
+            - paragraph [ref=e159]:
+              - strong [ref=e160]: "Full Customization:"
+              - text: Adjust for your family size, dietary restrictions, allergies, and food preferences
+        - generic [ref=e161]:
+          - heading "Frequently Asked Questions" [level=2] [ref=e162]
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - heading "When will I receive my meal plan?" [level=3] [ref=e165]
+              - paragraph [ref=e166]: Your personalized meal plan PDF will be delivered via email within 24 hours of purchase.
+            - generic [ref=e167]:
+              - heading "Can I customize my meal plan?" [level=3] [ref=e168]
+              - paragraph [ref=e169]: Yes! Choose your diet type, family size, dietary restrictions, allergies, and food preferences during checkout.
+            - generic [ref=e170]:
+              - heading "How does the subscription work?" [level=3] [ref=e171]
+              - paragraph [ref=e172]: Get a fresh meal plan on the 1st of each month. You can update your preferences before each delivery.
+            - generic [ref=e173]:
+              - heading "Can I cancel my subscription?" [level=3] [ref=e174]
+              - paragraph [ref=e175]: Absolutely. Cancel anytime with no commitment. You'll keep access to any meal plans you've received.
+  - contentinfo [ref=e176]:
+    - generic [ref=e177]:
+      - generic [ref=e178]:
         - generic [ref=e179]:
-          - heading "What's Protected Behind Payment" [level=2] [ref=e180]:
-            - img [ref=e181]
-            - text: What's Protected Behind Payment
-          - generic [ref=e184]:
-            - generic [ref=e185]:
-              - generic [ref=e187]: 📅
-              - heading "Complete Meal Calendars" [level=3] [ref=e188]
-              - paragraph [ref=e189]: Full month of planned meals for breakfast, lunch, dinner & snacks
-            - generic [ref=e190]:
-              - generic [ref=e192]: 📝
-              - heading "Detailed Recipes + PDFs" [level=3] [ref=e193]
-              - paragraph [ref=e194]: Step-by-step instructions with downloadable PDF versions for offline use
-            - generic [ref=e195]:
-              - generic [ref=e197]: 🛒
-              - heading "Smart Shopping Lists" [level=3] [ref=e198]
-              - paragraph [ref=e199]: Weekly organized lists with quantities and estimated costs
-          - generic [ref=e200]:
-            - paragraph [ref=e201]:
-              - strong [ref=e202]: "Free Preview Available:"
-              - text: Explore our sample calendar, shopping list, and select recipes before subscribing
-            - generic [ref=e203]:
-              - link "View Sample Calendar →" [ref=e204] [cursor=pointer]:
-                - /url: /calendar
-              - link "Sample Shopping List →" [ref=e205] [cursor=pointer]:
-                - /url: /shopping-list
-        - generic [ref=e206]:
-          - heading "Frequently Asked Questions" [level=2] [ref=e207]
-          - generic [ref=e208]:
-            - generic [ref=e209]:
-              - heading "When do I get access?" [level=3] [ref=e210]
-              - paragraph [ref=e211]: Immediately after payment, you'll receive full access to all meal plans and features.
-            - generic [ref=e212]:
-              - heading "Can I switch menu types?" [level=3] [ref=e213]
-              - paragraph [ref=e214]: Yes! You can switch between all 7 menu types anytime during your subscription.
-            - generic [ref=e215]:
-              - heading "Is there a mobile app?" [level=3] [ref=e216]
-              - paragraph [ref=e217]: Yes, our mobile app is included with all plans for iOS and Android.
-            - generic [ref=e218]:
-              - heading "Can I cancel anytime?" [level=3] [ref=e219]
-              - paragraph [ref=e220]: Absolutely. Cancel anytime from your account dashboard, no questions asked.
-  - contentinfo [ref=e221]:
-    - generic [ref=e222]:
-      - generic [ref=e223]:
-        - generic [ref=e224]:
-          - generic [ref=e225]: 🧠
-          - link "Mocha's MindLab" [ref=e226] [cursor=pointer]:
+          - generic [ref=e180]: 🧠
+          - link "Mocha's MindLab" [ref=e181] [cursor=pointer]:
             - /url: https://www.mochasmindlab.com
-        - paragraph [ref=e227]: Transform your health with personalized meal planning
-      - generic [ref=e228]:
-        - heading "Meal Plans" [level=4] [ref=e229]
-        - list [ref=e230]:
-          - listitem [ref=e231]:
-            - link "Mediterranean" [ref=e232] [cursor=pointer]:
+        - paragraph [ref=e182]: Transform your health with personalized meal planning
+      - generic [ref=e183]:
+        - heading "Meal Plans" [level=4] [ref=e184]
+        - list [ref=e185]:
+          - listitem [ref=e186]:
+            - link "Mediterranean" [ref=e187] [cursor=pointer]:
               - /url: /diets/mediterranean
-          - listitem [ref=e233]:
-            - link "Keto" [ref=e234] [cursor=pointer]:
+          - listitem [ref=e188]:
+            - link "Keto" [ref=e189] [cursor=pointer]:
               - /url: /diets/keto
-          - listitem [ref=e235]:
-            - link "Vegan" [ref=e236] [cursor=pointer]:
+          - listitem [ref=e190]:
+            - link "Vegan" [ref=e191] [cursor=pointer]:
               - /url: /diets/vegan
-          - listitem [ref=e237]:
-            - link "View All Plans" [ref=e238] [cursor=pointer]:
+          - listitem [ref=e192]:
+            - link "View All Plans" [ref=e193] [cursor=pointer]:
               - /url: /pricing
-      - generic [ref=e239]:
-        - heading "Quick Links" [level=4] [ref=e240]
-        - list [ref=e241]:
-          - listitem [ref=e242]:
-            - link "My Dashboard" [ref=e243] [cursor=pointer]:
+      - generic [ref=e194]:
+        - heading "Quick Links" [level=4] [ref=e195]
+        - list [ref=e196]:
+          - listitem [ref=e197]:
+            - link "My Dashboard" [ref=e198] [cursor=pointer]:
               - /url: /dashboard
-          - listitem [ref=e244]:
-            - link "Login" [ref=e245] [cursor=pointer]:
+          - listitem [ref=e199]:
+            - link "Login" [ref=e200] [cursor=pointer]:
               - /url: /login
-          - listitem [ref=e246]:
-            - link "Pricing" [ref=e247] [cursor=pointer]:
+          - listitem [ref=e201]:
+            - link "Pricing" [ref=e202] [cursor=pointer]:
               - /url: /pricing
-      - generic [ref=e248]:
-        - heading "Resources" [level=4] [ref=e249]
-        - list [ref=e250]:
-          - listitem [ref=e251]:
-            - link "Recipes" [ref=e252] [cursor=pointer]:
+      - generic [ref=e203]:
+        - heading "Resources" [level=4] [ref=e204]
+        - list [ref=e205]:
+          - listitem [ref=e206]:
+            - link "Recipes" [ref=e207] [cursor=pointer]:
               - /url: /recipes
-          - listitem [ref=e253]:
-            - link "Sample Calendar" [ref=e254] [cursor=pointer]:
+          - listitem [ref=e208]:
+            - link "Sample Calendar" [ref=e209] [cursor=pointer]:
               - /url: /calendar
-          - listitem [ref=e255]:
-            - link "Menu Benefits" [ref=e256] [cursor=pointer]:
+          - listitem [ref=e210]:
+            - link "Menu Benefits" [ref=e211] [cursor=pointer]:
               - /url: /menu-benefits
-          - listitem [ref=e257]:
-            - link "Contact" [ref=e258] [cursor=pointer]:
+          - listitem [ref=e212]:
+            - link "Contact" [ref=e213] [cursor=pointer]:
               - /url: mailto:support@mochasmindlab.com
-    - generic [ref=e260]:
-      - paragraph [ref=e261]: © 2024 Mocha's MindLab Inc. All rights reserved.
-      - generic [ref=e262]:
-        - link "Privacy Policy" [ref=e263] [cursor=pointer]:
+    - generic [ref=e215]:
+      - paragraph [ref=e216]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e217]:
+        - link "Privacy Policy" [ref=e218] [cursor=pointer]:
           - /url: /privacy
-        - link "Terms of Service" [ref=e264] [cursor=pointer]:
+        - link "Terms of Service" [ref=e219] [cursor=pointer]:
           - /url: /terms
-  - button "Open Next.js Dev Tools" [ref=e270] [cursor=pointer]:
-    - img [ref=e271] [cursor=pointer]
-  - alert [ref=e274]
+  - button "Open Next.js Dev Tools" [ref=e225] [cursor=pointer]:
+    - img [ref=e226] [cursor=pointer]
+  - alert [ref=e229]
 ```

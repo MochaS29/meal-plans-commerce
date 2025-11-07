@@ -123,7 +123,7 @@ async function createUserAccount(email: string, session: Stripe.Checkout.Session
     productId: session.metadata?.product_id || 'unknown',
     productName: productName,
     customerId: session.customer as string,
-    dietPlan: session.metadata?.diet_plan
+    dietPlan: session.metadata?.diet_type
   })
 
   // Create session token (this would be set via response headers in production)

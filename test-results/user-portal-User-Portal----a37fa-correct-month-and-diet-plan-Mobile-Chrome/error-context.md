@@ -1,0 +1,476 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7] [cursor=pointer]
+        - generic [ref=e8] [cursor=pointer]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10] [cursor=pointer]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11] [cursor=pointer]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17] [cursor=pointer]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - link "Login" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - button "Print Calendar" [ref=e22]:
+        - img [ref=e23]
+        - text: Print Calendar
+      - generic [ref=e27]:
+        - heading "Mediterranean Diet - March 2025" [level=1] [ref=e28]
+        - paragraph [ref=e29]: 30-Day Meal Plan Calendar
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: Sunday
+          - generic [ref=e33]: Monday
+          - generic [ref=e34]: Tuesday
+          - generic [ref=e35]: Wednesday
+          - generic [ref=e36]: Thursday
+          - generic [ref=e37]: Friday
+          - generic [ref=e38]: Saturday
+        - generic [ref=e39]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: "1"
+            - generic [ref=e48]:
+              - generic [ref=e49]:
+                - generic [ref=e50]: "🌅 B:"
+                - text: Ricotta Pancakes with Berry Compote
+              - generic [ref=e51]:
+                - generic [ref=e52]: "☀️ L:"
+                - text: Falafel Wrap with Tahini
+              - generic [ref=e53]:
+                - generic [ref=e54]: "🌙 D:"
+                - text: Seafood Paella
+          - generic [ref=e55]:
+            - generic [ref=e56]: "2"
+            - generic [ref=e57]:
+              - generic [ref=e58]:
+                - generic [ref=e59]: "🌅 B:"
+                - text: Turkish Breakfast Platter
+              - generic [ref=e60]:
+                - generic [ref=e61]: "☀️ L:"
+                - text: Stuffed Bell Peppers
+              - generic [ref=e62]:
+                - generic [ref=e63]: "🌙 D:"
+                - text: Chicken Souvlaki with Tzatziki
+          - generic [ref=e64]:
+            - generic [ref=e65]: "3"
+            - generic [ref=e66]:
+              - generic [ref=e67]:
+                - generic [ref=e68]: "🌅 B:"
+                - text: Shakshuka with Whole Grain Pita
+              - generic [ref=e69]:
+                - generic [ref=e70]: "☀️ L:"
+                - text: Spanakopita with Greek Salad
+              - generic [ref=e71]:
+                - generic [ref=e72]: "🌙 D:"
+                - text: Moussaka
+          - generic [ref=e73]:
+            - generic [ref=e74]: "4"
+            - generic [ref=e75]:
+              - generic [ref=e76]:
+                - generic [ref=e77]: "🌅 B:"
+                - text: Overnight Oats with Greek Yogurt
+              - generic [ref=e78]:
+                - generic [ref=e79]: "☀️ L:"
+                - text: Falafel Wrap with Tahini
+              - generic [ref=e80]:
+                - generic [ref=e81]: "🌙 D:"
+                - text: Mediterranean Baked Fish
+          - generic [ref=e82]:
+            - generic [ref=e83]: "5"
+            - generic [ref=e84]:
+              - generic [ref=e85]:
+                - generic [ref=e86]: "🌅 B:"
+                - text: Greek Yogurt Parfait with Honey
+              - generic [ref=e87]:
+                - generic [ref=e88]: "☀️ L:"
+                - text: Greek Orzo Salad
+              - generic [ref=e89]:
+                - generic [ref=e90]: "🌙 D:"
+                - text: Lamb Kofta with Mint Yogurt
+          - generic [ref=e91]:
+            - generic [ref=e92]: "6"
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - generic [ref=e95]: "🌅 B:"
+                - text: Turkish Breakfast Platter
+              - generic [ref=e96]:
+                - generic [ref=e97]: "☀️ L:"
+                - text: Falafel Wrap with Tahini
+              - generic [ref=e98]:
+                - generic [ref=e99]: "🌙 D:"
+                - text: Seafood Paella
+          - generic [ref=e100]:
+            - generic [ref=e101]: "7"
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - generic [ref=e104]: "🌅 B:"
+                - text: Mediterranean Egg Bites
+              - generic [ref=e105]:
+                - generic [ref=e106]: "☀️ L:"
+                - text: Tabbouleh with Grilled Halloumi
+              - generic [ref=e107]:
+                - generic [ref=e108]: "🌙 D:"
+                - text: Mediterranean Baked Fish
+          - generic [ref=e109]:
+            - generic [ref=e110]: "8"
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - generic [ref=e113]: "🌅 B:"
+                - text: Overnight Oats with Greek Yogurt
+              - generic [ref=e114]:
+                - generic [ref=e115]: "☀️ L:"
+                - text: Mediterranean Chickpea Salad
+              - generic [ref=e116]:
+                - generic [ref=e117]: "🌙 D:"
+                - text: Mediterranean Baked Fish
+          - generic [ref=e118]:
+            - generic [ref=e119]: "9"
+            - generic [ref=e120]:
+              - generic [ref=e121]:
+                - generic [ref=e122]: "🌅 B:"
+                - text: Mediterranean Egg Bites
+              - generic [ref=e123]:
+                - generic [ref=e124]: "☀️ L:"
+                - text: Greek Lentil Soup
+              - generic [ref=e125]:
+                - generic [ref=e126]: "🌙 D:"
+                - text: Chicken Souvlaki with Tzatziki
+          - generic [ref=e127]:
+            - generic [ref=e128]: "10"
+            - generic [ref=e129]:
+              - generic [ref=e130]:
+                - generic [ref=e131]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e132]:
+                - generic [ref=e133]: "☀️ L:"
+                - text: Mezze Platter with Hummus
+              - generic [ref=e134]:
+                - generic [ref=e135]: "🌙 D:"
+                - text: Chicken Tagine with Couscous
+          - generic [ref=e136]:
+            - generic [ref=e137]: "11"
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - generic [ref=e140]: "🌅 B:"
+                - text: Greek Yogurt Parfait with Honey
+              - generic [ref=e141]:
+                - generic [ref=e142]: "☀️ L:"
+                - text: Falafel Wrap with Tahini
+              - generic [ref=e143]:
+                - generic [ref=e144]: "🌙 D:"
+                - text: Ratatouille with Grilled Chicken
+          - generic [ref=e145]:
+            - generic [ref=e146]: "12"
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - generic [ref=e149]: "🌅 B:"
+                - text: Greek Yogurt Parfait with Honey
+              - generic [ref=e150]:
+                - generic [ref=e151]: "☀️ L:"
+                - text: Mediterranean Tuna Salad
+              - generic [ref=e152]:
+                - generic [ref=e153]: "🌙 D:"
+                - text: Chicken Tagine with Couscous
+          - generic [ref=e154]:
+            - generic [ref=e155]: "13"
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - generic [ref=e158]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e159]:
+                - generic [ref=e160]: "☀️ L:"
+                - text: Mezze Platter with Hummus
+              - generic [ref=e161]:
+                - generic [ref=e162]: "🌙 D:"
+                - text: Baked Cod with Tomatoes and Olives
+          - generic [ref=e163]:
+            - generic [ref=e164]: "14"
+            - generic [ref=e165]:
+              - generic [ref=e166]:
+                - generic [ref=e167]: "🌅 B:"
+                - text: Ricotta Pancakes with Berry Compote
+              - generic [ref=e168]:
+                - generic [ref=e169]: "☀️ L:"
+                - text: Greek Lentil Soup
+              - generic [ref=e170]:
+                - generic [ref=e171]: "🌙 D:"
+                - text: Moussaka
+          - generic [ref=e172]:
+            - generic [ref=e173]: "15"
+            - generic [ref=e174]:
+              - generic [ref=e175]:
+                - generic [ref=e176]: "🌅 B:"
+                - text: Spinach and Feta Frittata
+              - generic [ref=e177]:
+                - generic [ref=e178]: "☀️ L:"
+                - text: Stuffed Bell Peppers
+              - generic [ref=e179]:
+                - generic [ref=e180]: "🌙 D:"
+                - text: Ratatouille with Grilled Chicken
+          - generic [ref=e181]:
+            - generic [ref=e182]: "16"
+            - generic [ref=e183]:
+              - generic [ref=e184]:
+                - generic [ref=e185]: "🌅 B:"
+                - text: Turkish Breakfast Platter
+              - generic [ref=e186]:
+                - generic [ref=e187]: "☀️ L:"
+                - text: Mediterranean Chickpea Salad
+              - generic [ref=e188]:
+                - generic [ref=e189]: "🌙 D:"
+                - text: Chicken Tagine with Couscous
+          - generic [ref=e190]:
+            - generic [ref=e191]: "17"
+            - generic [ref=e192]:
+              - generic [ref=e193]:
+                - generic [ref=e194]: "🌅 B:"
+                - text: Mediterranean Smoothie Bowl
+              - generic [ref=e195]:
+                - generic [ref=e196]: "☀️ L:"
+                - text: Spanakopita with Greek Salad
+              - generic [ref=e197]:
+                - generic [ref=e198]: "🌙 D:"
+                - text: Ratatouille with Grilled Chicken
+          - generic [ref=e199]:
+            - generic [ref=e200]: "18"
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - generic [ref=e203]: "🌅 B:"
+                - text: Overnight Oats with Greek Yogurt
+              - generic [ref=e204]:
+                - generic [ref=e205]: "☀️ L:"
+                - text: Mediterranean Chickpea Salad
+              - generic [ref=e206]:
+                - generic [ref=e207]: "🌙 D:"
+                - text: Seafood Paella
+          - generic [ref=e208]:
+            - generic [ref=e209]: "19"
+            - generic [ref=e210]:
+              - generic [ref=e211]:
+                - generic [ref=e212]: "🌅 B:"
+                - text: Turkish Breakfast Platter
+              - generic [ref=e213]:
+                - generic [ref=e214]: "☀️ L:"
+                - text: Stuffed Bell Peppers
+              - generic [ref=e215]:
+                - generic [ref=e216]: "🌙 D:"
+                - text: Mediterranean Baked Fish
+          - generic [ref=e217]:
+            - generic [ref=e218]: "20"
+            - generic [ref=e219]:
+              - generic [ref=e220]:
+                - generic [ref=e221]: "🌅 B:"
+                - text: Overnight Oats with Greek Yogurt
+              - generic [ref=e222]:
+                - generic [ref=e223]: "☀️ L:"
+                - text: Mediterranean Tuna Salad
+              - generic [ref=e224]:
+                - generic [ref=e225]: "🌙 D:"
+                - text: Ratatouille with Grilled Chicken
+          - generic [ref=e226]:
+            - generic [ref=e227]: "21"
+            - generic [ref=e228]:
+              - generic [ref=e229]:
+                - generic [ref=e230]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e231]:
+                - generic [ref=e232]: "☀️ L:"
+                - text: Falafel Wrap with Tahini
+              - generic [ref=e233]:
+                - generic [ref=e234]: "🌙 D:"
+                - text: Lamb Kofta with Mint Yogurt
+          - generic [ref=e235]:
+            - generic [ref=e236]: "22"
+            - generic [ref=e237]:
+              - generic [ref=e238]:
+                - generic [ref=e239]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e240]:
+                - generic [ref=e241]: "☀️ L:"
+                - text: Mediterranean Tuna Salad
+              - generic [ref=e242]:
+                - generic [ref=e243]: "🌙 D:"
+                - text: Baked Cod with Tomatoes and Olives
+          - generic [ref=e244]:
+            - generic [ref=e245]: "23"
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - generic [ref=e248]: "🌅 B:"
+                - text: Greek Yogurt Parfait with Honey
+              - generic [ref=e249]:
+                - generic [ref=e250]: "☀️ L:"
+                - text: Mezze Platter with Hummus
+              - generic [ref=e251]:
+                - generic [ref=e252]: "🌙 D:"
+                - text: Grilled Lemon Herb Salmon
+          - generic [ref=e253]:
+            - generic [ref=e254]: "24"
+            - generic [ref=e255]:
+              - generic [ref=e256]:
+                - generic [ref=e257]: "🌅 B:"
+                - text: Greek Yogurt Parfait with Honey
+              - generic [ref=e258]:
+                - generic [ref=e259]: "☀️ L:"
+                - text: Greek Lentil Soup
+              - generic [ref=e260]:
+                - generic [ref=e261]: "🌙 D:"
+                - text: Seafood Paella
+          - generic [ref=e262]:
+            - generic [ref=e263]: "25"
+            - generic [ref=e264]:
+              - generic [ref=e265]:
+                - generic [ref=e266]: "🌅 B:"
+                - text: Mediterranean Smoothie Bowl
+              - generic [ref=e267]:
+                - generic [ref=e268]: "☀️ L:"
+                - text: Mediterranean Chickpea Salad
+              - generic [ref=e269]:
+                - generic [ref=e270]: "🌙 D:"
+                - text: Grilled Vegetable and Halloumi Skewers
+          - generic [ref=e271]:
+            - generic [ref=e272]: "26"
+            - generic [ref=e273]:
+              - generic [ref=e274]:
+                - generic [ref=e275]: "🌅 B:"
+                - text: Turkish Breakfast Platter
+              - generic [ref=e276]:
+                - generic [ref=e277]: "☀️ L:"
+                - text: Mediterranean Tuna Salad
+              - generic [ref=e278]:
+                - generic [ref=e279]: "🌙 D:"
+                - text: Grilled Lemon Herb Salmon
+          - generic [ref=e280]:
+            - generic [ref=e281]: "27"
+            - generic [ref=e282]:
+              - generic [ref=e283]:
+                - generic [ref=e284]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e285]:
+                - generic [ref=e286]: "☀️ L:"
+                - text: Mezze Platter with Hummus
+              - generic [ref=e287]:
+                - generic [ref=e288]: "🌙 D:"
+                - text: Chicken Tagine with Couscous
+          - generic [ref=e289]:
+            - generic [ref=e290]: "28"
+            - generic [ref=e291]:
+              - generic [ref=e292]:
+                - generic [ref=e293]: "🌅 B:"
+                - text: Shakshuka with Whole Grain Pita
+              - generic [ref=e294]:
+                - generic [ref=e295]: "☀️ L:"
+                - text: Stuffed Bell Peppers
+              - generic [ref=e296]:
+                - generic [ref=e297]: "🌙 D:"
+                - text: Mediterranean Baked Fish
+          - generic [ref=e298]:
+            - generic [ref=e299]: "29"
+            - generic [ref=e300]:
+              - generic [ref=e301]:
+                - generic [ref=e302]: "🌅 B:"
+                - text: Shakshuka with Whole Grain Pita
+              - generic [ref=e303]:
+                - generic [ref=e304]: "☀️ L:"
+                - text: Mediterranean Quinoa Bowl
+              - generic [ref=e305]:
+                - generic [ref=e306]: "🌙 D:"
+                - text: Moussaka
+          - generic [ref=e307]:
+            - generic [ref=e308]: "30"
+            - generic [ref=e309]:
+              - generic [ref=e310]:
+                - generic [ref=e311]: "🌅 B:"
+                - text: Mediterranean Omelet
+              - generic [ref=e312]:
+                - generic [ref=e313]: "☀️ L:"
+                - text: Spanakopita with Greek Salad
+              - generic [ref=e314]:
+                - generic [ref=e315]: "🌙 D:"
+                - text: Chicken Souvlaki with Tzatziki
+      - generic [ref=e316]:
+        - paragraph [ref=e317]: "Meal Prep Tips:"
+        - generic [ref=e318]:
+          - generic [ref=e319]:
+            - strong [ref=e320]: "Breakfast Prep:"
+            - text: Prepare overnight oats, smoothie packs, or egg muffins in advance
+          - generic [ref=e321]:
+            - strong [ref=e322]: "Lunch Prep:"
+            - text: Batch cook proteins and grains on Sunday for easy assembly
+          - generic [ref=e323]:
+            - strong [ref=e324]: "Dinner Prep:"
+            - text: Chop vegetables and marinate proteins the night before
+        - paragraph [ref=e325]: © 2025 Mindful Meal Plan - Your Journey to Healthier Eating
+  - contentinfo [ref=e326]:
+    - generic [ref=e327]:
+      - generic [ref=e328]:
+        - generic [ref=e329]:
+          - generic [ref=e330]: 🧠
+          - link "Mocha's MindLab" [ref=e331] [cursor=pointer]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e332]: Transform your health with personalized meal planning
+      - generic [ref=e333]:
+        - heading "Meal Plans" [level=4] [ref=e334]
+        - list [ref=e335]:
+          - listitem [ref=e336]:
+            - link "Mediterranean" [ref=e337] [cursor=pointer]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e338]:
+            - link "Keto" [ref=e339] [cursor=pointer]:
+              - /url: /diets/keto
+          - listitem [ref=e340]:
+            - link "Vegan" [ref=e341] [cursor=pointer]:
+              - /url: /diets/vegan
+          - listitem [ref=e342]:
+            - link "View All Plans" [ref=e343] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e344]:
+        - heading "Quick Links" [level=4] [ref=e345]
+        - list [ref=e346]:
+          - listitem [ref=e347]:
+            - link "My Dashboard" [ref=e348] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e349]:
+            - link "Login" [ref=e350] [cursor=pointer]:
+              - /url: /login
+          - listitem [ref=e351]:
+            - link "Pricing" [ref=e352] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e353]:
+        - heading "Resources" [level=4] [ref=e354]
+        - list [ref=e355]:
+          - listitem [ref=e356]:
+            - link "Recipes" [ref=e357] [cursor=pointer]:
+              - /url: /recipes
+          - listitem [ref=e358]:
+            - link "Sample Calendar" [ref=e359] [cursor=pointer]:
+              - /url: /calendar
+          - listitem [ref=e360]:
+            - link "Menu Benefits" [ref=e361] [cursor=pointer]:
+              - /url: /menu-benefits
+          - listitem [ref=e362]:
+            - link "Contact" [ref=e363] [cursor=pointer]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e365]:
+      - paragraph [ref=e366]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e367]:
+        - link "Privacy Policy" [ref=e368] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e369] [cursor=pointer]:
+          - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e375] [cursor=pointer]:
+    - img [ref=e376] [cursor=pointer]
+  - alert [ref=e379]
+```

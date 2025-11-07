@@ -1,0 +1,117 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7] [cursor=pointer]
+        - generic [ref=e8] [cursor=pointer]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10] [cursor=pointer]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11] [cursor=pointer]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17] [cursor=pointer]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18] [cursor=pointer]:
+          - /url: /pricing
+        - link "Login" [ref=e19] [cursor=pointer]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - link "Welcome Back" [ref=e25] [cursor=pointer]:
+          - /url: /
+          - heading "Welcome Back" [level=1] [ref=e26] [cursor=pointer]
+        - paragraph [ref=e27]: Access your meal plans and recipes
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - generic [ref=e30]: Email Address
+          - generic [ref=e31]:
+            - img [ref=e32]
+            - textbox "you@example.com" [ref=e35]: invalid@example.com
+        - generic [ref=e36]:
+          - generic [ref=e37]: Password
+          - generic [ref=e38]:
+            - img [ref=e39]
+            - textbox "Enter your password" [ref=e42]: wrongpassword
+            - button [ref=e43]:
+              - img [ref=e44]
+        - generic [ref=e47]: User not found
+        - button "Login" [ref=e48]:
+          - text: Login
+          - img [ref=e49]
+        - button "Don't have an account? Sign up" [ref=e53]
+        - link "Forgot your password?" [ref=e55] [cursor=pointer]:
+          - /url: /forgot-password
+      - paragraph [ref=e57]:
+        - text: Don't have an account?
+        - link "Get Started" [ref=e58] [cursor=pointer]:
+          - /url: /pricing
+      - paragraph [ref=e60]: We'll send you a secure login link to your email. No password needed!
+  - contentinfo [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - generic [ref=e65]: 🧠
+          - link "Mocha's MindLab" [ref=e66] [cursor=pointer]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e67]: Transform your health with personalized meal planning
+      - generic [ref=e68]:
+        - heading "Meal Plans" [level=4] [ref=e69]
+        - list [ref=e70]:
+          - listitem [ref=e71]:
+            - link "Mediterranean" [ref=e72] [cursor=pointer]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e73]:
+            - link "Keto" [ref=e74] [cursor=pointer]:
+              - /url: /diets/keto
+          - listitem [ref=e75]:
+            - link "Vegan" [ref=e76] [cursor=pointer]:
+              - /url: /diets/vegan
+          - listitem [ref=e77]:
+            - link "View All Plans" [ref=e78] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e79]:
+        - heading "Quick Links" [level=4] [ref=e80]
+        - list [ref=e81]:
+          - listitem [ref=e82]:
+            - link "My Dashboard" [ref=e83] [cursor=pointer]:
+              - /url: /dashboard
+          - listitem [ref=e84]:
+            - link "Login" [ref=e85] [cursor=pointer]:
+              - /url: /login
+          - listitem [ref=e86]:
+            - link "Pricing" [ref=e87] [cursor=pointer]:
+              - /url: /pricing
+      - generic [ref=e88]:
+        - heading "Resources" [level=4] [ref=e89]
+        - list [ref=e90]:
+          - listitem [ref=e91]:
+            - link "Recipes" [ref=e92] [cursor=pointer]:
+              - /url: /recipes
+          - listitem [ref=e93]:
+            - link "Sample Calendar" [ref=e94] [cursor=pointer]:
+              - /url: /calendar
+          - listitem [ref=e95]:
+            - link "Menu Benefits" [ref=e96] [cursor=pointer]:
+              - /url: /menu-benefits
+          - listitem [ref=e97]:
+            - link "Contact" [ref=e98] [cursor=pointer]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e100]:
+      - paragraph [ref=e101]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e102]:
+        - link "Privacy Policy" [ref=e103] [cursor=pointer]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e104] [cursor=pointer]:
+          - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e110] [cursor=pointer]:
+    - img [ref=e111] [cursor=pointer]
+  - alert [ref=e115]
+```

@@ -62,7 +62,7 @@ function CustomizeContent() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          productId: productType === 'one_time' ? 'custom-meal-plan' : 'monthly-subscription',
+          productId: productType === 'one_time' ? 'wellness-transformation' : 'monthly-calendar',
           productType,
           dietType,
           customizations: {

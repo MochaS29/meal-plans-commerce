@@ -1,0 +1,87 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - navigation [ref=e5]:
+      - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6]:
+        - /url: /
+        - img "Mindful Meal Plans Logo" [ref=e7]
+        - generic [ref=e8]: Mindful Meal Plans
+      - generic [ref=e9]:
+        - link "Why It Works" [ref=e10]:
+          - /url: /menu-benefits
+        - link "Sample Calendar" [ref=e11]:
+          - /url: /calendar
+        - button "Meal Plans" [ref=e13]:
+          - generic [ref=e14]: Meal Plans
+          - img [ref=e15]
+        - link "Recipes" [ref=e17]:
+          - /url: /recipes
+        - link "Pricing" [ref=e18]:
+          - /url: /pricing
+        - link "Login" [ref=e19]:
+          - /url: /login
+  - main [ref=e20]:
+    - generic [ref=e23]: Loading your meal plan calendar...
+  - contentinfo [ref=e24]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: 🧠
+          - link "Mocha's MindLab" [ref=e29]:
+            - /url: https://www.mochasmindlab.com
+        - paragraph [ref=e30]: Transform your health with personalized meal planning
+      - generic [ref=e31]:
+        - heading "Meal Plans" [level=4] [ref=e32]
+        - list [ref=e33]:
+          - listitem [ref=e34]:
+            - link "Mediterranean" [ref=e35]:
+              - /url: /diets/mediterranean
+          - listitem [ref=e36]:
+            - link "Keto" [ref=e37]:
+              - /url: /diets/keto
+          - listitem [ref=e38]:
+            - link "Vegan" [ref=e39]:
+              - /url: /diets/vegan
+          - listitem [ref=e40]:
+            - link "View All Plans" [ref=e41]:
+              - /url: /pricing
+      - generic [ref=e42]:
+        - heading "Quick Links" [level=4] [ref=e43]
+        - list [ref=e44]:
+          - listitem [ref=e45]:
+            - link "My Dashboard" [ref=e46]:
+              - /url: /dashboard
+          - listitem [ref=e47]:
+            - link "Login" [ref=e48]:
+              - /url: /login
+          - listitem [ref=e49]:
+            - link "Pricing" [ref=e50]:
+              - /url: /pricing
+      - generic [ref=e51]:
+        - heading "Resources" [level=4] [ref=e52]
+        - list [ref=e53]:
+          - listitem [ref=e54]:
+            - link "Recipes" [ref=e55]:
+              - /url: /recipes
+          - listitem [ref=e56]:
+            - link "Sample Calendar" [ref=e57]:
+              - /url: /calendar
+          - listitem [ref=e58]:
+            - link "Menu Benefits" [ref=e59]:
+              - /url: /menu-benefits
+          - listitem [ref=e60]:
+            - link "Contact" [ref=e61]:
+              - /url: mailto:support@mochasmindlab.com
+    - generic [ref=e63]:
+      - paragraph [ref=e64]: © 2024 Mocha's MindLab Inc. All rights reserved.
+      - generic [ref=e65]:
+        - link "Privacy Policy" [ref=e66]:
+          - /url: /privacy
+        - link "Terms of Service" [ref=e67]:
+          - /url: /terms
+  - button "Open Next.js Dev Tools" [ref=e73] [cursor=pointer]:
+    - img [ref=e74] [cursor=pointer]
+  - alert [ref=e79]
+```

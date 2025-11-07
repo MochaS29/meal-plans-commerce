@@ -5,7 +5,7 @@ import { getBaseUrl } from '@/lib/utils'
 
 export async function POST(request: NextRequest) {
   try {
-    const { productId, customizations, dietPlan } = await request.json()
+    const { productId, customizations, dietType } = await request.json()
 
     const product = getProductById(productId)
     if (!product) {
@@ -48,10 +48,10 @@ export async function POST(request: NextRequest) {
         },
       ],
       success_url: `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${baseUrl}/plans/${productId}`,
+      cancel_url: `${baseUrl}/plans/customize`,
       metadata: {
         productId,
-        diet_plan: dietPlan || 'mediterranean', // Default to mediterranean if not specified
+        diet_type: dietType || 'mediterranean', // Default to mediterranean if not specified
         customizations: JSON.stringify(customizations || {}),
       },
       allow_promotion_codes: true,
