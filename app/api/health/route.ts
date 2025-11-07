@@ -26,8 +26,7 @@ export async function GET() {
     if (supabase) {
       const { data, error } = await supabase
         .from('users')
-        .select('count(*)')
-        .limit(1)
+        .select('id', { count: 'exact', head: true })
 
       checks.services.database = {
         status: error ? 'error' : 'healthy',
