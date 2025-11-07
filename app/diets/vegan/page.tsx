@@ -181,18 +181,12 @@ export default function VeganDietPage() {
             <p className="text-gray-700 mb-6">
               Get nutritionally complete vegan meal plans with B12 tracking and protein optimization
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
+                href="/plans/customize?diet=vegan"
                 className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Vegan Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-emerald-50 transition"
-              >
-                Browse Vegan Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>

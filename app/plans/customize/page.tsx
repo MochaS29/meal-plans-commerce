@@ -1,14 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Check, Calendar, Users, Heart, ChefHat, Clock, ArrowLeft, Sparkles } from 'lucide-react'
 import { loadStripe } from '@stripe/stripe-js'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
-export default function CustomizePage() {
+function CustomizeContent() {
+  const searchParams = useSearchParams()
   const [loading, setLoading] = useState(false)
 
   // Customization state
@@ -37,6 +39,14 @@ export default function CustomizePage() {
     { id: 'low-carb', label: 'Low-Carb' },
     { id: 'kid-friendly', label: 'Kid-Friendly' }
   ]
+
+  // Handle diet parameter from URL
+  useEffect(() => {
+    const dietParam = searchParams.get('diet')
+    if (dietParam && dietOptions.find(d => d.id === dietParam)) {
+      setDietType(dietParam)
+    }
+  }, [searchParams])
 
   const toggleDietaryNeed = (id: string) => {
     setDietaryNeeds(prev =>
@@ -376,5 +386,20 @@ export default function CustomizePage() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function CustomizePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/20 to-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CustomizeContent />
+    </Suspense>
   )
 }

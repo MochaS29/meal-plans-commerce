@@ -185,18 +185,12 @@ export default function KetoDietPage() {
             <p className="text-gray-700 mb-6">
               Get a complete 30-day keto meal plan with macro-calculated recipes and shopping lists
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
-                href="/plans/wellness-transformation"
+                href="/plans/customize?diet=keto"
                 className="bg-gradient-to-r from-green-600 to-emerald-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition"
               >
-                Get Keto Plan - $59
-              </Link>
-              <Link
-                href="/recipes"
-                className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-green-50 transition"
-              >
-                Browse Keto Recipes
+                Get Started
               </Link>
             </div>
           </motion.div>
