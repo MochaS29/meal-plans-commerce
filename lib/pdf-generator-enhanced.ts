@@ -1,5 +1,7 @@
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import fs from 'fs';
+import path from 'path';
 
 interface MealPlan {
   menuType: string;
@@ -86,10 +88,54 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private async drawCoverPageWithImage(title: string, subtitle: string) {
-    // Use gradient cover design (reliable in serverless environments)
-    // Image fetching is disabled as it doesn't work reliably in cron/serverless
-    console.log('Using gradient cover design');
-    this.drawEnhancedGradientCover(title, subtitle);
+    try {
+      // Read cover image directly from filesystem (works in serverless)
+      const imagePath = path.join(process.cwd(), 'public', 'images', 'pdf-cover-mediterranean.png');
+
+      console.log('Loading cover image from filesystem:', imagePath);
+
+      if (fs.existsSync(imagePath)) {
+        const imageBuffer = fs.readFileSync(imagePath);
+        const base64Image = imageBuffer.toString('base64');
+        const imageData = `data:image/png;base64,${base64Image}`;
+
+        // Add full-page cover image (A4 dimensions: 210mm x 297mm)
+        this.doc.addImage(imageData, 'PNG', 0, 0, this.pageWidth, this.pageHeight);
+
+        // Add semi-transparent dark overlay at bottom for text readability
+        this.doc.setFillColor(0, 0, 0);
+        this.doc.setGState({ opacity: 0.6 } as any);
+        this.doc.rect(0, this.pageHeight - 100, this.pageWidth, 100, 'F');
+
+        // Reset opacity for text
+        this.doc.setGState({ opacity: 1 } as any);
+
+        // Add title on top of image
+        this.doc.setTextColor(255, 255, 255);
+        this.doc.setFontSize(32);
+        this.doc.setFont('helvetica', 'bold');
+        this.doc.text(title, this.pageWidth / 2, this.pageHeight - 70, { align: 'center' });
+
+        // Add subtitle
+        this.doc.setFontSize(16);
+        this.doc.setFont('helvetica', 'normal');
+        const lines = this.doc.splitTextToSize(subtitle, this.pageWidth - 40);
+        this.doc.text(lines, this.pageWidth / 2, this.pageHeight - 50, { align: 'center' });
+
+        // Add branding
+        this.doc.setFontSize(12);
+        this.doc.setFont('helvetica', 'italic');
+        this.doc.text('Mindful Meal Plans by Mocha\'s MindLab', this.pageWidth / 2, this.pageHeight - 20, { align: 'center' });
+
+        console.log('✅ Cover image added successfully from filesystem');
+      } else {
+        console.log('⚠️  Cover image not found, using gradient design');
+        this.drawEnhancedGradientCover(title, subtitle);
+      }
+    } catch (error) {
+      console.log('⚠️  Error loading cover image, using gradient design:', error);
+      this.drawEnhancedGradientCover(title, subtitle);
+    }
   }
 
   private drawEnhancedGradientCover(title: string, subtitle: string) {
