@@ -26,9 +26,9 @@ function CustomizeContent() {
     { id: 'vegan', name: 'Vegan', description: 'Plant-based recipes with complete nutrition', icon: '🌱' },
     { id: 'paleo', name: 'Paleo', description: 'Whole foods, no processed ingredients', icon: '🥩' },
     { id: 'vegetarian', name: 'Vegetarian', description: 'Meat-free with dairy and eggs', icon: '🥗' },
-    { id: 'family', name: 'Family Recipes', description: 'Kid-friendly, crowd-pleasing meals', icon: '👨‍👩‍👧‍👦' },
+    { id: 'family-focused', name: 'Family Recipes', description: 'Kid-friendly, crowd-pleasing meals', icon: '👨‍👩‍👧‍👦' },
     { id: 'intermittent-fasting', name: 'Intermittent Fasting', description: 'Time-restricted eating with nutrient-dense meals', icon: '⏰' },
-    { id: 'global', name: 'Global Cuisine', description: 'International flavors from around the world', icon: '🌍' }
+    { id: 'global-cuisine', name: 'Global Cuisine', description: 'International flavors from around the world', icon: '🌍' }
   ]
 
   const dietaryOptions = [

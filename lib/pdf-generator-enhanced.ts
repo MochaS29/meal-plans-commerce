@@ -86,58 +86,59 @@ export class EnhancedMealPlanPDFGenerator {
   }
 
   private async drawCoverPageWithImage(title: string, subtitle: string) {
-    try {
-      // Load the cover image from public directory
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-      const coverImageUrl = `${baseUrl}/images/pdf-cover-mediterranean.png`;
+    // Use gradient cover design (reliable in serverless environments)
+    // Image fetching is disabled as it doesn't work reliably in cron/serverless
+    console.log('Using gradient cover design');
+    this.drawEnhancedGradientCover(title, subtitle);
+  }
 
-      console.log('Loading cover image from:', coverImageUrl);
-      const imageData = await this.fetchImageAsBase64(coverImageUrl);
+  private drawEnhancedGradientCover(title: string, subtitle: string) {
+    // Full-page gradient cover design (A4 dimensions: 210mm x 297mm)
+    const numStripes = 50
+    const stripeHeight = this.pageHeight / numStripes
 
-      if (imageData) {
-        // Add full-page cover image (A4 dimensions: 210mm x 297mm)
-        this.doc.addImage(imageData, 'PNG', 0, 0, this.pageWidth, this.pageHeight);
+    // Create gradient from teal to amber
+    for (let i = 0; i < numStripes; i++) {
+      const ratio = i / numStripes
+      // Teal (20, 184, 166) to Amber (245, 158, 11)
+      const r = Math.round(20 + (245 - 20) * ratio)
+      const g = Math.round(184 + (158 - 184) * ratio)
+      const b = Math.round(166 + (11 - 166) * ratio)
 
-        // Add semi-transparent dark overlay at bottom for text readability
-        this.doc.setFillColor(0, 0, 0);
-        this.doc.setGState({ opacity: 0.6 } as any);
-        this.doc.rect(0, this.pageHeight - 100, this.pageWidth, 100, 'F');
-
-        // Reset opacity for text
-        this.doc.setGState({ opacity: 1 } as any);
-
-        // Add title on top of image
-        this.doc.setTextColor(255, 255, 255);
-        this.doc.setFontSize(32);
-        this.doc.setFont('helvetica', 'bold');
-        this.doc.text(title, this.pageWidth / 2, this.pageHeight - 70, { align: 'center' });
-
-        // Add subtitle
-        this.doc.setFontSize(16);
-        this.doc.setFont('helvetica', 'normal');
-        // Split subtitle if too long
-        const lines = this.doc.splitTextToSize(subtitle, this.pageWidth - 40);
-        this.doc.text(lines, this.pageWidth / 2, this.pageHeight - 50, { align: 'center' });
-
-        // Add branding
-        this.doc.setFontSize(12);
-        this.doc.setFont('helvetica', 'italic');
-        this.doc.text('Mindful Meal Plans by Mocha\'s MindLab', this.pageWidth / 2, this.pageHeight - 20, { align: 'center' });
-
-        console.log('✅ Cover image added successfully');
-      } else {
-        // Fallback to original header if image fails to load
-        console.log('⚠️  Cover image not available, using fallback header');
-        this.drawHeaderFallback(title, subtitle);
-      }
-    } catch (error) {
-      console.log('⚠️  Error loading cover image, using fallback:', error);
-      this.drawHeaderFallback(title, subtitle);
+      this.doc.setFillColor(r, g, b)
+      this.doc.rect(0, i * stripeHeight, this.pageWidth, stripeHeight, 'F')
     }
+
+    // Add decorative circles for visual interest
+    this.doc.setGState({ opacity: 0.15 } as any)
+    this.doc.setFillColor(255, 255, 255)
+    this.doc.circle(this.pageWidth * 0.8, this.pageHeight * 0.3, 40, 'F')
+    this.doc.circle(this.pageWidth * 0.2, this.pageHeight * 0.7, 30, 'F')
+    this.doc.circle(this.pageWidth * 0.9, this.pageHeight * 0.8, 25, 'F')
+    this.doc.setGState({ opacity: 1 } as any)
+
+    // Add title in center
+    this.doc.setTextColor(255, 255, 255)
+    this.doc.setFontSize(36)
+    this.doc.setFont('helvetica', 'bold')
+    this.doc.text(title, this.pageWidth / 2, this.pageHeight / 2 - 20, { align: 'center' })
+
+    // Add subtitle
+    this.doc.setFontSize(18)
+    this.doc.setFont('helvetica', 'normal')
+    const lines = this.doc.splitTextToSize(subtitle, this.pageWidth - 40)
+    this.doc.text(lines, this.pageWidth / 2, this.pageHeight / 2 + 10, { align: 'center' })
+
+    // Add branding at bottom
+    this.doc.setFontSize(14)
+    this.doc.setFont('helvetica', 'italic')
+    this.doc.text('Mindful Meal Plans by Mocha\'s MindLab', this.pageWidth / 2, this.pageHeight - 30, { align: 'center' })
+
+    console.log('✅ Enhanced gradient cover added successfully')
   }
 
   private drawHeaderFallback(title: string, subtitle: string) {
-    // Original header design as fallback
+    // Simple header design for calendar pages
     // Create an elegant two-tone design with gradient effect
     // Bottom layer - Dark teal
     this.doc.setFillColor(0, 150, 136); // Teal
