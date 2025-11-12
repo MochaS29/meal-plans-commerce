@@ -24,6 +24,19 @@ export async function POST(request: NextRequest) {
 
     const baseUrl = getBaseUrl()
 
+    console.log('Creating checkout session with baseUrl:', baseUrl)
+    console.log('success_url:', `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}`)
+    console.log('cancel_url:', `${baseUrl}/plans/customize`)
+
+    // Validate baseUrl
+    if (!baseUrl || !baseUrl.startsWith('http')) {
+      console.error('Invalid baseUrl:', baseUrl)
+      return NextResponse.json(
+        { error: `Invalid base URL: ${baseUrl}. Please contact support.` },
+        { status: 500 }
+      )
+    }
+
     // Create Stripe checkout session
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
