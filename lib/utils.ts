@@ -18,11 +18,11 @@ export function getBaseUrl() {
   }
   // Prioritize custom domain for production
   if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL
+    return process.env.NEXT_PUBLIC_SITE_URL.trim()
   }
   // Fall back to Vercel URL for preview deployments
   if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
+    return `https://${process.env.VERCEL_URL.trim()}`
   }
   return `http://localhost:${process.env.PORT ?? 3000}`
 }
