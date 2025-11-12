@@ -41,14 +41,17 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
   }
 
   try {
+    // Clean and validate FROM address (trim whitespace/newlines)
+    const fromAddress = (process.env.EMAIL_FROM || 'Meal Plans <onboarding@resend.dev>').trim()
+
     console.log('📧 Attempting to send email via Resend...')
-    console.log('From:', process.env.EMAIL_FROM)
+    console.log('From:', fromAddress)
     console.log('To:', to)
     console.log('Subject:', subject)
 
     // Send email with Resend
     const response = await resendClient.emails.send({
-      from: process.env.EMAIL_FROM || 'Meal Plans <onboarding@resend.dev>',
+      from: fromAddress,
       to,
       subject,
       html,
