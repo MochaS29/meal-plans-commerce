@@ -283,19 +283,25 @@ async function executePhase5(job: any, accumulatedRecipes: any[]) {
   console.log(`\n📍 PHASE 5: Create PDF and send email`)
   const phaseStartTime = Date.now()
 
-  console.log(`📋 Total recipes: ${accumulatedRecipes.length}`)
-  console.log(`   🍽️  Dinners: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'dinner').length}`)
-  console.log(`   🥞 Breakfasts: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'breakfast').length}`)
-  console.log(`   🍰 Desserts: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'dessert').length}`)
+  // MIGRATION: Normalize mealType → meal_type for recipes from Phases 1&2 (before the fix)
+  const normalizedRecipes = accumulatedRecipes.map((r: any) => ({
+    ...r,
+    meal_type: r.meal_type || r.mealType || 'dinner'  // Ensure snake_case
+  }))
+
+  console.log(`📋 Total recipes: ${normalizedRecipes.length}`)
+  console.log(`   🍽️  Dinners: ${normalizedRecipes.filter((r: any) => r.meal_type === 'dinner').length}`)
+  console.log(`   🥞 Breakfasts: ${normalizedRecipes.filter((r: any) => r.meal_type === 'breakfast').length}`)
+  console.log(`   🍰 Desserts: ${normalizedRecipes.filter((r: any) => r.meal_type === 'dessert').length}`)
 
   // Track recipes for this customer
   const currentMonth = new Date().toISOString().slice(0, 7)
-  const recipeIds = accumulatedRecipes.map((r: any) => r.id)
+  const recipeIds = normalizedRecipes.map((r: any) => r.id)
   await trackCustomerRecipes(job.customer_email, recipeIds, currentMonth)
   console.log(`📊 Tracked ${recipeIds.length} recipes`)
 
-  // Scale recipes for family size
-  const scaledRecipes = scaleRecipesForFamilySize(accumulatedRecipes, job.family_size)
+  // Scale recipes for family size (use normalized recipes)
+  const scaledRecipes = scaleRecipesForFamilySize(normalizedRecipes, job.family_size)
 
   // Generate PDF
   const productName = job.product_type === 'subscription'
