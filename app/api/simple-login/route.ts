@@ -31,16 +31,16 @@ export async function POST(request: NextRequest) {
 
     if (userError || !user) {
       return NextResponse.json({
-        error: 'User not found',
+        error: 'Invalid email or password',
         debug: { userError }
-      }, { status: 404 })
+      }, { status: 401 })
     }
 
     // Verify password
     const isValid = await bcrypt.compare(password, user.password_hash)
     if (!isValid) {
       return NextResponse.json({
-        error: 'Invalid password'
+        error: 'Invalid email or password'
       }, { status: 401 })
     }
 
