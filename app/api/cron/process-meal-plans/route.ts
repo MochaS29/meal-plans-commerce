@@ -52,12 +52,17 @@ export async function GET(request: NextRequest) {
         await updateMealPlanJobStatus(job.id, 'processing')
         console.log(`⏱️  Status update took: ${Date.now() - markStartTime}ms`)
 
-        // Calculate recipe count (days in month + 4 snacks)
+        // Calculate recipe count - now with BONUS breakfast and dessert options!
         const dinnerCount = job.days_in_month || 30
-        const snackCount = 4
-        const totalRecipes = dinnerCount + snackCount
+        const breakfastCount = 7  // BONUS: 7 breakfast options
+        const dessertCount = 5    // BONUS: 5 dessert options
+        const totalRecipes = dinnerCount + breakfastCount + dessertCount
 
-        console.log(`📊 Generating ${dinnerCount} dinners + ${snackCount} snacks = ${totalRecipes} total recipes`)
+        console.log(`📊 Generating meal plan with BONUS recipes:`)
+        console.log(`   🍽️  ${dinnerCount} dinners (main meal plan)`)
+        console.log(`   🥞 ${breakfastCount} breakfasts (BONUS!)`)
+        console.log(`   🍰 ${dessertCount} desserts (BONUS!)`)
+        console.log(`   📋 Total: ${totalRecipes} recipes`)
         console.log(`👥 Family size: ${job.family_size}`)
         console.log(`🥗 Dietary needs: ${job.dietary_needs?.join(', ') || 'none'}`)
         console.log(`⚠️  Allergies: ${job.allergies || 'none'}`)
@@ -72,48 +77,88 @@ export async function GET(request: NextRequest) {
           ? parseIngredientsFromText(job.preferences)
           : undefined
 
-        // Select and filter recipes based on ALL customizations
-        // Now with 100% AI-generated recipes for maximum variety and personalization
+        const customerPreferences = {
+          familySize: job.family_size,
+          avoidIngredients,
+          preferredIngredients
+        }
+
+        // PHASE 1: Generate DINNERS (main meal plan)
         const recipeGenStartTime = Date.now()
         console.log(`⏱️  [${new Date().toISOString()}] Starting AI recipe generation...`)
+        console.log(`🍽️  Generating dinners...`)
 
-        let selectedRecipes = await selectRecipesForCustomer({
+        let dinnerRecipes = await selectRecipesForCustomer({
           dietType: job.diet_type,
           totalRecipes: dinnerCount * 2, // Get extra to filter from
-          newRecipesPercentage: 100, // 100% AI generation - fully personalized to customer!
+          newRecipesPercentage: 100, // 100% AI generation - fully personalized!
           mealTypes: ['dinner'],
-          customerPreferences: {
-            familySize: job.family_size,
-            avoidIngredients,
-            preferredIngredients
-          }
+          customerPreferences
         })
 
-        console.log(`⏱️  Recipe generation took: ${((Date.now() - recipeGenStartTime) / 1000).toFixed(1)}s`)
-        console.log(`📋 Initial selection: ${selectedRecipes.length} recipes`)
-
-        // FILTER 1: Apply dietary restrictions
+        // Apply filters to dinners
         if (job.dietary_needs && job.dietary_needs.length > 0) {
-          selectedRecipes = filterByDietaryNeeds(selectedRecipes, job.dietary_needs)
-          console.log(`🥗 After dietary filter: ${selectedRecipes.length} recipes`)
+          dinnerRecipes = filterByDietaryNeeds(dinnerRecipes, job.dietary_needs)
         }
-
-        // FILTER 2: Exclude allergens
         if (job.allergies) {
-          selectedRecipes = filterByAllergens(selectedRecipes, job.allergies)
-          console.log(`⚠️  After allergen filter: ${selectedRecipes.length} recipes`)
+          dinnerRecipes = filterByAllergens(dinnerRecipes, job.allergies)
         }
-
-        // FILTER 3: Apply customer preferences (no peppers, less fish, etc)
         if (job.preferences) {
-          selectedRecipes = filterByPreferences(selectedRecipes, job.preferences)
-          console.log(`💭 After preference filter: ${selectedRecipes.length} recipes`)
+          dinnerRecipes = filterByPreferences(dinnerRecipes, job.preferences)
         }
+        dinnerRecipes = dinnerRecipes.slice(0, dinnerCount)
+        console.log(`✅ ${dinnerRecipes.length} dinner recipes selected`)
 
-        // FILTER 4: Limit to needed count
-        selectedRecipes = selectedRecipes.slice(0, dinnerCount)
+        // PHASE 2: Generate BREAKFASTS (BONUS!)
+        console.log(`🥞 Generating BONUS breakfasts...`)
+        let breakfastRecipes = await selectRecipesForCustomer({
+          dietType: job.diet_type,
+          totalRecipes: breakfastCount * 2,
+          newRecipesPercentage: 100,
+          mealTypes: ['breakfast'],
+          customerPreferences
+        })
 
-        console.log(`✅ Final selection: ${selectedRecipes.length} dinner recipes`)
+        // Apply filters to breakfasts
+        if (job.dietary_needs && job.dietary_needs.length > 0) {
+          breakfastRecipes = filterByDietaryNeeds(breakfastRecipes, job.dietary_needs)
+        }
+        if (job.allergies) {
+          breakfastRecipes = filterByAllergens(breakfastRecipes, job.allergies)
+        }
+        if (job.preferences) {
+          breakfastRecipes = filterByPreferences(breakfastRecipes, job.preferences)
+        }
+        breakfastRecipes = breakfastRecipes.slice(0, breakfastCount)
+        console.log(`✅ ${breakfastRecipes.length} BONUS breakfast recipes selected`)
+
+        // PHASE 3: Generate DESSERTS (BONUS!)
+        console.log(`🍰 Generating BONUS desserts...`)
+        let dessertRecipes = await selectRecipesForCustomer({
+          dietType: job.diet_type,
+          totalRecipes: dessertCount * 2,
+          newRecipesPercentage: 100,
+          mealTypes: ['dessert'],
+          customerPreferences
+        })
+
+        // Apply filters to desserts
+        if (job.dietary_needs && job.dietary_needs.length > 0) {
+          dessertRecipes = filterByDietaryNeeds(dessertRecipes, job.dietary_needs)
+        }
+        if (job.allergies) {
+          dessertRecipes = filterByAllergens(dessertRecipes, job.allergies)
+        }
+        if (job.preferences) {
+          dessertRecipes = filterByPreferences(dessertRecipes, job.preferences)
+        }
+        dessertRecipes = dessertRecipes.slice(0, dessertCount)
+        console.log(`✅ ${dessertRecipes.length} BONUS dessert recipes selected`)
+
+        // Combine all recipes
+        const selectedRecipes = [...dinnerRecipes, ...breakfastRecipes, ...dessertRecipes]
+        console.log(`⏱️  Recipe generation took: ${((Date.now() - recipeGenStartTime) / 1000).toFixed(1)}s`)
+        console.log(`📋 Total recipes: ${selectedRecipes.length} (${dinnerRecipes.length} dinners + ${breakfastRecipes.length} breakfasts + ${dessertRecipes.length} desserts)`)
 
         // Track recipes for this customer
         const currentMonth = new Date().toISOString().slice(0, 7)

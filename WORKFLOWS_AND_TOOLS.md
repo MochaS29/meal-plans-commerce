@@ -70,33 +70,53 @@ Auto image generation triggered → PDF created → Delivery email sent →
 Customer portal updated
 ```
 
-**Workflow Details:**
+**Workflow Details - Two-Phase System:**
+
+### PHASE 1: Fast PDF Delivery (Cron Job #1 - Every 30min)
 1. **Purchase Event:** Stripe webhook `checkout.session.completed` fires
 2. **Job Creation:** Background job created in `meal_plan_jobs` table with status="pending"
 3. **Customer Notification:** Welcome email sent immediately with diet plan details and preferences
 4. **Cron Processing:** Vercel cron job runs every 30 minutes (`/api/cron/process-meal-plans`)
    - Processes 1 job at a time (to avoid timeouts)
    - 300-second timeout per job (5 minutes max)
-5. **Recipe Generation:** `selectRecipesForCustomer()` generates 30 recipes:
+5. **Recipe Generation:** `selectRecipesForCustomer()` generates **42 TOTAL recipes**:
+   - **30 Dinners** (main meal plan for the month)
+   - **7 Breakfasts** (BONUS options!)
+   - **5 Desserts** (BONUS options!)
    - 100% AI-generated for maximum personalization
    - Filtered by dietary needs, allergies, and preferences
    - Scaled for family size
-6. **Automatic Image Generation:** Each recipe triggers `generateRecipeImage()`
-   - Non-blocking async execution
-   - Cost: $0.003 per image (~$0.09 per customer for 30 images)
-   - **Total AI Cost Per Customer: ~$0.12** ($0.03 recipes + $0.09 images)
-7. **Customer Tracking:** Records saved to `customer_recipes` table (prevents duplicate recipes)
-8. **PDF Generation:** All 30 recipes compiled into downloadable PDF
-9. **Email Delivery:** Meal plan delivery email sent with PDF download link
-10. **Portal Access:** Customer can access all purchased recipes forever
+6. **Customer Tracking:** Records saved to `customer_recipes` table (prevents duplicate recipes)
+7. **PDF Generation:** All 42 recipes compiled into downloadable PDF (without images initially)
+8. **Email Delivery:** Meal plan delivery email sent with PDF download link
+9. **Portal Access:** Customer can access all purchased recipes immediately
+
+### PHASE 2: Async Image Generation (Cron Job #2 - Every 30min, offset by 15min)
+10. **Image Generation Cron:** Separate job runs at :15 and :45 minutes (`/api/cron/generate-images`)
+    - Finds recipes without images (processes 10 at a time)
+    - Generates images using Replicate FLUX-schnell ($0.003/image)
+    - Updates recipe records with image URLs
+    - Images populate in portal asynchronously within 30-60 minutes
+
+**Two-Phase Benefits:**
+- ✅ Fast PDF delivery (2-3 minutes vs 5+ minute timeout)
+- ✅ 100% AI personalization preserved (42 unique recipes per customer)
+- ✅ BONUS breakfast and dessert options included
+- ✅ Images added automatically in background
+- ✅ Works within Vercel free tier limits (5-minute max function duration)
+
+**Total AI Cost Per Customer:** ~$0.15
+- Recipe generation: ~$0.03 for 42 recipes (Claude 3 Haiku)
+- Image generation: ~$0.12 for 42 images (Replicate FLUX-schnell)
 
 **Tools Used:**
 - Anthropic Claude API (Recipe generation - Haiku model)
 - Replicate API (Image generation - FLUX-schnell model $0.003/image)
 - Supabase PostgreSQL (Recipe storage, job tracking, customer tracking)
-- Vercel Cron Jobs (Background processing every 30 minutes)
+- Vercel Cron Jobs #1 (Meal plan processing - every 30 minutes at :00 and :30)
+- Vercel Cron Jobs #2 (Image generation - every 30 minutes at :15 and :45)
 - Hybrid Recipe Selector (100% AI generation with filtering)
-- Automatic Image Trigger (lib/ai-image-generator.ts)
+- Async Image Generator (lib/ai-image-generator.ts)
 
 **Personalization Features:**
 - Diet-specific recipes (Mediterranean, Keto, Vegan, etc.)
@@ -105,11 +125,15 @@ Customer portal updated
 - Custom preferences parsing ("no peppers", "less fish", etc.)
 - Family size scaling (ingredient quantities adjusted)
 - Recipe de-duplication per customer
+- **NEW:** Breakfast options for variety
+- **NEW:** Dessert options as treats
 
 **Key Files:**
-- `/app/api/cron/process-meal-plans/route.ts` - Background job processor (100% AI, 300s timeout, 1 job/run)
+- `/app/api/cron/process-meal-plans/route.ts` - Main job processor (42 recipes, 100% AI, PDF delivery)
+- `/app/api/cron/generate-images/route.ts` - Async image generator (10 recipes/run)
 - `/app/api/stripe-webhook/route.ts` - Job creation + welcome email
 - `/lib/hybrid-recipe-selector.ts` - Recipe generation system
+- `/vercel.json` - Cron job configuration (two jobs, offset schedules)
 - `/lib/email.ts` - Personalized email templates (shows diet type + preferences)
 - `/vercel.json` - Cron schedule + function timeout configuration
 
