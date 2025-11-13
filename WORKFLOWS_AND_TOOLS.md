@@ -84,6 +84,7 @@ Customer portal updated
 6. **Automatic Image Generation:** Each recipe triggers `generateRecipeImage()`
    - Non-blocking async execution
    - Cost: $0.003 per image (~$0.09 per customer for 30 images)
+   - **Total AI Cost Per Customer: ~$0.12** ($0.03 recipes + $0.09 images)
 7. **Customer Tracking:** Records saved to `customer_recipes` table (prevents duplicate recipes)
 8. **PDF Generation:** All 30 recipes compiled into downloadable PDF
 9. **Email Delivery:** Meal plan delivery email sent with PDF download link
