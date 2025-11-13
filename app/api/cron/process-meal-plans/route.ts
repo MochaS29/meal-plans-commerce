@@ -19,8 +19,8 @@ export async function GET(request: NextRequest) {
 
     console.log('🔄 Starting meal plan job processor...')
 
-    // Get pending jobs (process up to 5 at a time to avoid timeout)
-    const pendingJobs = await getPendingMealPlanJobs(5)
+    // Get pending jobs (process 1 at a time for 100% AI generation)
+    const pendingJobs = await getPendingMealPlanJobs(1)
 
     if (pendingJobs.length === 0) {
       console.log('✅ No pending jobs to process')
