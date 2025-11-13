@@ -3,6 +3,7 @@ import { getPendingMealPlanJobs, updateMealPlanJobStatus } from '@/lib/supabase'
 import { selectRecipesForCustomer, trackCustomerRecipes } from '@/lib/hybrid-recipe-selector'
 import { generateAndUploadMealPlan } from '@/lib/storage'
 import { sendEmail, getMealPlanEmailTemplate } from '@/lib/email'
+import { generateRecipeImage } from '@/lib/ai-image-generator'
 
 // This endpoint is called by Vercel Cron every 30 minutes
 // to process pending meal plan jobs
@@ -69,11 +70,11 @@ export async function GET(request: NextRequest) {
           : undefined
 
         // Select and filter recipes based on ALL customizations
-        // Now with 30% AI-generated recipes that respect customer preferences
+        // Now with 100% AI-generated recipes for maximum variety and personalization
         let selectedRecipes = await selectRecipesForCustomer({
           dietType: job.diet_type,
           totalRecipes: dinnerCount * 2, // Get extra to filter from
-          newRecipesPercentage: 30, // Re-enabled AI generation with customer preferences!
+          newRecipesPercentage: 100, // 100% AI generation - fully personalized to customer!
           mealTypes: ['dinner'],
           customerPreferences: {
             familySize: job.family_size,
@@ -116,7 +117,39 @@ export async function GET(request: NextRequest) {
         // Scale recipes for family size
         const scaledRecipes = scaleRecipesForFamilySize(selectedRecipes, job.family_size)
 
-        // Generate PDF with scaled recipes
+        // IMPORTANT: Generate images for all recipes BEFORE creating PDF
+        console.log(`🎨 Generating images for ${scaledRecipes.length} recipes...`)
+        const imagePromises = scaledRecipes.map(async (recipe) => {
+          // Skip if recipe already has an image
+          if (recipe.image_url) {
+            console.log(`  ✓ ${recipe.name} already has image`)
+            return
+          }
+
+          // Generate image for this recipe
+          console.log(`  🖼️  Generating image for: ${recipe.name}`)
+          const result = await generateRecipeImage(
+            recipe.id,
+            recipe.name,
+            recipe.description || '',
+            recipe.meal_type || 'dinner',
+            job.diet_type
+          )
+
+          if (result.success && result.imageUrl) {
+            // Update recipe with new image URL
+            recipe.image_url = result.imageUrl
+            console.log(`  ✅ Image ready: ${recipe.name}`)
+          } else {
+            console.log(`  ⚠️  No image for: ${recipe.name}`)
+          }
+        })
+
+        // Wait for all images to complete
+        await Promise.all(imagePromises)
+        console.log(`✅ All images generated, proceeding with PDF...`)
+
+        // Generate PDF with scaled recipes (now with images!)
         const productName = job.product_type === 'subscription'
           ? 'Monthly Meal Plan'
           : 'Custom AI Meal Plan'

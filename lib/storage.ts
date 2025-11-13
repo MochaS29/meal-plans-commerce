@@ -204,22 +204,28 @@ async function generateMealPlanPDF(
       const endIdx = Math.min(startIdx + 7, recipes.length)
       const weekRecipes = recipes.slice(startIdx, endIdx)
 
-      // Aggregate ingredients from recipes
-      const ingredients = new Map<string, {quantity: string, unit: string}>()
+      // Aggregate ingredients from recipes with proper quantity combination
+      const ingredients = new Map<string, {quantity: number, unit: string, rawQuantities: string[]}>()
       weekRecipes.forEach(recipe => {
         if (recipe.recipe_ingredients && Array.isArray(recipe.recipe_ingredients)) {
           recipe.recipe_ingredients.forEach((ing: any) => {
-            const item = ing.item || ing.ingredient || ''
+            const item = (ing.item || ing.ingredient || '').toLowerCase().trim()
             if (item) {
-              // Try to combine quantities if same ingredient
-              if (ingredients.has(item)) {
-                const existing = ingredients.get(item)!
-                // Simple combination - just append quantities
-                existing.quantity = `${existing.quantity}, ${ing.quantity || ''}`
+              const parsedQty = parseQuantity(ing.quantity || '0')
+              const unit = (ing.unit || '').toLowerCase().trim()
+
+              // Create a unique key combining item name and unit for proper aggregation
+              const key = unit ? `${item}|${unit}` : item
+
+              if (ingredients.has(key)) {
+                const existing = ingredients.get(key)!
+                existing.quantity += parsedQty
+                existing.rawQuantities.push(ing.quantity || '0')
               } else {
-                ingredients.set(item, {
-                  quantity: ing.quantity || '',
-                  unit: ing.unit || ''
+                ingredients.set(key, {
+                  quantity: parsedQty,
+                  unit: unit,
+                  rawQuantities: [ing.quantity || '0']
                 })
               }
             }
@@ -227,12 +233,18 @@ async function generateMealPlanPDF(
         }
       })
 
-      // Convert to array format
-      const items = Array.from(ingredients.entries()).map(([item, {quantity, unit}]) => ({
-        item,
-        quantity,
-        unit
-      }))
+      // Convert to array format with combined quantities
+      const items = Array.from(ingredients.entries()).map(([key, {quantity, unit, rawQuantities}]) => {
+        const item = key.split('|')[0] // Extract item name from key
+        return {
+          item: item.charAt(0).toUpperCase() + item.slice(1), // Capitalize
+          quantity: formatQuantity(quantity),
+          unit: unit
+        }
+      })
+
+      // Sort alphabetically for easier shopping
+      items.sort((a, b) => a.item.localeCompare(b.item))
 
       weeklyShoppingLists[`week_${week}`] = items
     }
@@ -292,6 +304,75 @@ async function generateMealPlanPDF(
     console.error('Error generating PDF with jsPDF:', error)
     throw error
   }
+}
+
+// Helper function to parse quantity strings into numbers
+// Handles: "4", "1.5", "1/2", "2 1/2", etc.
+function parseQuantity(qtyString: string): number {
+  if (!qtyString || typeof qtyString !== 'string') return 0
+
+  // Remove any extra whitespace
+  const cleaned = qtyString.trim()
+
+  // Handle fractions like "1/2", "1/4", "3/4"
+  const fractionMatch = cleaned.match(/^(\d+)\/(\d+)$/)
+  if (fractionMatch) {
+    return parseInt(fractionMatch[1]) / parseInt(fractionMatch[2])
+  }
+
+  // Handle mixed numbers like "2 1/2", "1 3/4"
+  const mixedMatch = cleaned.match(/^(\d+)\s+(\d+)\/(\d+)$/)
+  if (mixedMatch) {
+    const whole = parseInt(mixedMatch[1])
+    const numerator = parseInt(mixedMatch[2])
+    const denominator = parseInt(mixedMatch[3])
+    return whole + (numerator / denominator)
+  }
+
+  // Handle decimal numbers like "1.5", "2.25"
+  const decimalMatch = cleaned.match(/^(\d+\.?\d*)/)
+  if (decimalMatch) {
+    return parseFloat(decimalMatch[1])
+  }
+
+  // Default to 0 if can't parse
+  return 0
+}
+
+// Helper function to format quantities nicely
+// Converts decimals to fractions when appropriate
+function formatQuantity(qty: number): string {
+  if (qty === 0) return '0'
+
+  // If it's a whole number, return as is
+  if (Number.isInteger(qty)) {
+    return qty.toString()
+  }
+
+  // Convert common decimals to fractions
+  const fractions: { [key: number]: string } = {
+    0.25: '1/4',
+    0.33: '1/3',
+    0.5: '1/2',
+    0.66: '2/3',
+    0.75: '3/4'
+  }
+
+  // Check for whole number + fraction (like 2.5 = "2 1/2")
+  const wholePart = Math.floor(qty)
+  const decimalPart = qty - wholePart
+
+  // Round decimal to 2 places for comparison
+  const roundedDecimal = Math.round(decimalPart * 100) / 100
+
+  if (fractions[roundedDecimal]) {
+    return wholePart > 0
+      ? `${wholePart} ${fractions[roundedDecimal]}`
+      : fractions[roundedDecimal]
+  }
+
+  // Otherwise return as decimal with 1-2 decimal places
+  return qty.toFixed(qty % 1 < 0.1 ? 0 : 1)
 }
 
 // Helper functions to generate sample data

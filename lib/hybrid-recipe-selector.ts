@@ -128,7 +128,8 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
                 .single()
 
               if (dietPlan) {
-                savedRecipe = await saveRecipeToDatabase(newRecipe, [dietPlan.id])
+                // Don't generate images async - we'll do it synchronously in the cron job
+                savedRecipe = await saveRecipeToDatabase(newRecipe, [dietPlan.id], false)
               }
             }
 

@@ -306,7 +306,11 @@ export async function generateWeeklyMealPlan(
 }
 
 // Save generated recipes to Supabase
-export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds: string[]) {
+export async function saveRecipeToDatabase(
+  recipe: GeneratedRecipe,
+  dietPlanIds: string[],
+  generateImageAsync: boolean = true // Control whether to generate image asynchronously
+) {
   if (!supabase) {
     console.log('❌ Supabase not configured, skipping save')
     console.log('Check NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY')
@@ -396,21 +400,26 @@ export async function saveRecipeToDatabase(recipe: GeneratedRecipe, dietPlanIds:
     console.log('✅ Recipe saved successfully with ID:', newRecipe.id)
 
     // Automatically generate image for the new recipe (async, don't block)
-    generateRecipeImage(
-      newRecipe.id,
-      recipe.name,
-      recipe.description,
-      'dinner', // Default to dinner, could be enhanced to detect meal type
-      dietPlanIds[0] || 'general' // Use first diet plan as dietType
-    ).then((result) => {
-      if (result.success) {
-        console.log(`  🎨 Image generated for recipe: ${recipe.name}`)
-      } else {
-        console.log(`  ⚠️  Image generation queued for: ${recipe.name}`)
-      }
-    }).catch((error) => {
-      console.log(`  ⚠️  Image generation will be handled later for: ${recipe.name}`)
-    })
+    // Skip if generateImageAsync is false (images will be generated synchronously later)
+    if (generateImageAsync) {
+      generateRecipeImage(
+        newRecipe.id,
+        recipe.name,
+        recipe.description,
+        'dinner', // Default to dinner, could be enhanced to detect meal type
+        dietPlanIds[0] || 'general' // Use first diet plan as dietType
+      ).then((result) => {
+        if (result.success) {
+          console.log(`  🎨 Image generated for recipe: ${recipe.name}`)
+        } else {
+          console.log(`  ⚠️  Image generation queued for: ${recipe.name}`)
+        }
+      }).catch((error) => {
+        console.log(`  ⚠️  Image generation will be handled later for: ${recipe.name}`)
+      })
+    } else {
+      console.log(`  ⏭️  Skipping async image generation (will generate synchronously later)`)
+    }
 
     return newRecipe
   } catch (error) {
