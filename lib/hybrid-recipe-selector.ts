@@ -5,7 +5,7 @@
 import { supabase } from './supabase'
 import { generateRecipe, saveRecipeToDatabase } from './ai-recipe-generator'
 
-type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack'
+type MealType = 'breakfast' | 'lunch' | 'dinner' | 'snack' | 'dessert'
 
 interface RecipeSelectionConfig {
   dietType: string
