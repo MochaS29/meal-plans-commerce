@@ -44,10 +44,13 @@ export async function GET(request: NextRequest) {
     // Process each job
     for (const job of pendingJobs) {
       try {
-        console.log(`\n🚀 Processing job ${job.id} for ${job.customer_email}`)
+        const jobStartTime = Date.now()
+        console.log(`\n🚀 [${new Date().toISOString()}] Processing job ${job.id} for ${job.customer_email}`)
 
         // Mark as processing
+        const markStartTime = Date.now()
         await updateMealPlanJobStatus(job.id, 'processing')
+        console.log(`⏱️  Status update took: ${Date.now() - markStartTime}ms`)
 
         // Calculate recipe count (days in month + 4 snacks)
         const dinnerCount = job.days_in_month || 30
@@ -71,6 +74,9 @@ export async function GET(request: NextRequest) {
 
         // Select and filter recipes based on ALL customizations
         // Now with 100% AI-generated recipes for maximum variety and personalization
+        const recipeGenStartTime = Date.now()
+        console.log(`⏱️  [${new Date().toISOString()}] Starting AI recipe generation...`)
+
         let selectedRecipes = await selectRecipesForCustomer({
           dietType: job.diet_type,
           totalRecipes: dinnerCount * 2, // Get extra to filter from
@@ -83,6 +89,7 @@ export async function GET(request: NextRequest) {
           }
         })
 
+        console.log(`⏱️  Recipe generation took: ${((Date.now() - recipeGenStartTime) / 1000).toFixed(1)}s`)
         console.log(`📋 Initial selection: ${selectedRecipes.length} recipes`)
 
         // FILTER 1: Apply dietary restrictions
@@ -118,7 +125,8 @@ export async function GET(request: NextRequest) {
         const scaledRecipes = scaleRecipesForFamilySize(selectedRecipes, job.family_size)
 
         // IMPORTANT: Generate images for all recipes BEFORE creating PDF
-        console.log(`🎨 Generating images for ${scaledRecipes.length} recipes...`)
+        const imageGenStartTime = Date.now()
+        console.log(`⏱️  [${new Date().toISOString()}] Starting image generation for ${scaledRecipes.length} recipes...`)
         const imagePromises = scaledRecipes.map(async (recipe) => {
           // Skip if recipe already has an image
           if (recipe.image_url) {
@@ -147,12 +155,16 @@ export async function GET(request: NextRequest) {
 
         // Wait for all images to complete
         await Promise.all(imagePromises)
+        console.log(`⏱️  Image generation took: ${((Date.now() - imageGenStartTime) / 1000).toFixed(1)}s`)
         console.log(`✅ All images generated, proceeding with PDF...`)
 
         // Generate PDF with scaled recipes (now with images!)
         const productName = job.product_type === 'subscription'
           ? 'Monthly Meal Plan'
           : 'Custom AI Meal Plan'
+
+        const pdfStartTime = Date.now()
+        console.log(`⏱️  [${new Date().toISOString()}] Generating PDF...`)
 
         const pdfUrl = await generateAndUploadMealPlan(
           job.customer_email,
@@ -161,10 +173,13 @@ export async function GET(request: NextRequest) {
           scaledRecipes
         )
 
+        console.log(`⏱️  PDF generation took: ${((Date.now() - pdfStartTime) / 1000).toFixed(1)}s`)
         console.log(`📄 PDF generated: ${pdfUrl}`)
 
         // Send delivery email
+        const emailStartTime = Date.now()
         await sendDeliveryEmail(job.customer_email, pdfUrl, productName)
+        console.log(`⏱️  Email delivery took: ${Date.now() - emailStartTime}ms`)
         console.log(`📧 Delivery email sent`)
 
         // Mark as completed
@@ -173,7 +188,8 @@ export async function GET(request: NextRequest) {
           recipe_count: selectedRecipes.length
         })
 
-        console.log(`✅ Job ${job.id} completed successfully`)
+        const totalJobTime = ((Date.now() - jobStartTime) / 1000).toFixed(1)
+        console.log(`✅ Job ${job.id} completed successfully in ${totalJobTime}s`)
         results.succeeded++
 
       } catch (error) {
