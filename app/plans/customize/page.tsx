@@ -185,7 +185,7 @@ function CustomizeContent() {
                 id="familySize"
                 value={familySize}
                 onChange={(e) => setFamilySize(e.target.value)}
-                className="w-full md:w-64 px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+                className="w-full md:w-64 px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 font-medium focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
               >
                 <option value="2">2 people</option>
                 <option value="3">3 people</option>
@@ -232,7 +232,7 @@ function CustomizeContent() {
                 value={allergies}
                 onChange={(e) => setAllergies(e.target.value)}
                 placeholder="e.g., peanuts, shellfish, soy"
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 placeholder:text-gray-500 font-medium focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent"
               />
             </div>
 
@@ -247,7 +247,7 @@ function CustomizeContent() {
                 onChange={(e) => setPreferences(e.target.value)}
                 placeholder="Tell us about favorite cuisines, foods to avoid, spice preferences, cooking skill level, etc."
                 rows={4}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-400 bg-white text-gray-900 placeholder:text-gray-500 font-medium focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent resize-none"
               />
             </div>
           </motion.div>
