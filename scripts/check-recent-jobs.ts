@@ -40,9 +40,9 @@ async function checkJobs() {
   const { data: userJobs } = await supabase
     .from('meal_plan_jobs')
     .select('*')
-    .ilike('customer_email', '%mocha%')
+    .ilike('customer_email', '%mokah%')
     .order('created_at', { ascending: false })
-    .limit(5)
+    .limit(10)
 
   if (userJobs && userJobs.length > 0) {
     console.log(`\nFound ${userJobs.length} jobs for your email:\n`)

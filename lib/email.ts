@@ -176,7 +176,12 @@ export function getWelcomeEmailTemplate(
   isSubscription: boolean,
   isProcessing: boolean = false,
   portalUrl: string = 'https://mindfulmealplan.com/portal',
-  dietType?: string
+  dietType?: string,
+  customizations?: {
+    familySize?: number
+    allergies?: string
+    dietary_needs?: string[]
+  }
 ) {
   return `
     <!DOCTYPE html>
@@ -219,6 +224,16 @@ export function getWelcomeEmailTemplate(
               Plan Type: ${isSubscription ? 'Monthly Subscription' : 'One-Time Purchase'}<br>
               ${isSubscription ? 'Next Delivery: ' + new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString() : ''}
             </div>
+
+            ${customizations && (customizations.familySize || customizations.allergies || (customizations.dietary_needs && customizations.dietary_needs.length > 0)) ? `
+            <div class="info-box">
+              <strong>Your Meal Plan Preferences:</strong><br>
+              ${dietType ? `Diet Plan: ${formatDietName(dietType)}<br>` : ''}
+              ${customizations.familySize ? `Family Size: ${customizations.familySize} people<br>` : ''}
+              ${customizations.dietary_needs && customizations.dietary_needs.length > 0 ? `Dietary Needs: ${customizations.dietary_needs.join(', ')}<br>` : ''}
+              ${customizations.allergies ? `Allergies & Restrictions: ${customizations.allergies}<br>` : ''}
+            </div>
+            ` : ''}
 
             <center>
               <a href="https://mindfulmealplan.com/forgot-password?email=${encodeURIComponent(customerEmail)}" class="button">Set Your Password & Access Portal</a>
