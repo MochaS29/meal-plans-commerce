@@ -24,7 +24,7 @@ if (anthropic) {
 // Recipe generation parameters
 interface RecipeParams {
   dietType: string // mediterranean, keto, vegan, etc.
-  mealType: 'breakfast' | 'lunch' | 'dinner' | 'snack'
+  mealType: 'breakfast' | 'lunch' | 'dinner' | 'snack' | 'dessert'
   season?: 'spring' | 'summer' | 'fall' | 'winter'
   difficulty?: 'easy' | 'medium' | 'hard'
   servings?: number
