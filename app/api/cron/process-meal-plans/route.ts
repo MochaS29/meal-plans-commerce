@@ -334,28 +334,41 @@ async function generateImagesForRecipes(recipes: any[], dietType: string) {
     try {
       console.log(`  🖼️  Generating image for: ${recipe.name}`)
 
+      // Normalize meal_type from mealType (camelCase) to meal_type (snake_case)
+      const mealType = recipe.meal_type || recipe.mealType || 'dinner'
+
       const imageResult = await generateRecipeImage(
         recipe.id,
         recipe.name,
         recipe.description || '',
-        recipe.meal_type || 'dinner',
+        mealType,
         dietType
       )
 
       if (imageResult.success && imageResult.imageUrl) {
+        // Normalize property names to snake_case for database consistency
         recipesWithImages.push({
           ...recipe,
+          meal_type: mealType,  // Ensure snake_case
           image_url: imageResult.imageUrl
         })
         console.log(`  ✅ Image generated`)
       } else {
         // Include recipe without image if generation fails
         console.log(`  ⚠️  Image generation failed, continuing without image`)
-        recipesWithImages.push(recipe)
+        recipesWithImages.push({
+          ...recipe,
+          meal_type: mealType  // Ensure snake_case even without image
+        })
       }
     } catch (error) {
       console.error(`  ❌ Error generating image: ${error}`)
-      recipesWithImages.push(recipe) // Continue without image
+      // Ensure meal_type is set even on error
+      const mealType = recipe.meal_type || recipe.mealType || 'dinner'
+      recipesWithImages.push({
+        ...recipe,
+        meal_type: mealType
+      })
     }
   }
 
