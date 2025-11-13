@@ -85,15 +85,17 @@ test.describe('Purchase Flow', () => {
     // Check page loaded
     await expect(page.locator('h1')).toContainText(/customize|meal plan/i)
 
-    // Check for diet type selector (should have 8 options)
-    await expect(page.locator('text=Mediterranean')).toBeVisible()
-    await expect(page.locator('text=Keto')).toBeVisible()
+    // Check for diet type selector (should have 8 options) - using data-testid to avoid strict mode violations
+    await expect(page.locator('[data-testid="diet-option-mediterranean"]')).toBeVisible()
+    await expect(page.locator('[data-testid="diet-option-keto"]')).toBeVisible()
 
     // Check for family size input
     await expect(page.locator('text=/family size|people/i')).toBeVisible()
 
-    // Check for dietary needs checkboxes
-    await expect(page.locator('text=/vegetarian|vegan|gluten/i')).toBeVisible()
+    // Check for dietary needs checkboxes - using data-testid
+    await expect(page.locator('[data-testid="dietary-need-vegetarian"]')).toBeVisible()
+    await expect(page.locator('[data-testid="dietary-need-vegan"]')).toBeVisible()
+    await expect(page.locator('[data-testid="dietary-need-gluten-free"]')).toBeVisible()
 
     // Check for allergies input
     await expect(page.locator('text=/allerg/i')).toBeVisible()
@@ -106,8 +108,8 @@ test.describe('Purchase Flow', () => {
   test('should allow diet selection on customize page', async ({ page }) => {
     await page.goto('/plans/customize')
 
-    // Click on a diet option (Mediterranean)
-    const mediterraneanOption = page.locator('text=Mediterranean').first()
+    // Click on a diet option (Mediterranean) - using data-testid
+    const mediterraneanOption = page.locator('[data-testid="diet-option-mediterranean"]')
     await mediterraneanOption.click()
 
     // Should be selected

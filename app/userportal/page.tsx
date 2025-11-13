@@ -484,6 +484,7 @@ export default function DashboardPage() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="text-4xl md:text-5xl font-bold text-amber-800 mb-4"
+                data-testid="dashboard-heading"
               >
                 Your Wellness Dashboard
               </motion.h1>
@@ -562,6 +563,7 @@ export default function DashboardPage() {
             >
               <button
                 onClick={handlePrintCalendar}
+                data-testid="print-calendar-button"
                 className="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl p-6 hover:shadow-lg transition flex items-center gap-4 border border-amber-200"
               >
                 <Printer className="w-8 h-8 text-amber-700" />
@@ -618,7 +620,7 @@ export default function DashboardPage() {
               transition={{ delay: 0.2 }}
               className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-8"
             >
-              <h2 className="text-2xl font-bold text-amber-800 mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-amber-800 mb-6 flex items-center gap-2" data-testid="meal-plan-selector-heading">
                 <Calendar className="w-6 h-6" />
                 Select Your Meal Plan
               </h2>
@@ -684,12 +686,13 @@ export default function DashboardPage() {
               id="monthly-calendar"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-amber-800 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-amber-800 flex items-center gap-2" data-testid="monthly-calendar-heading">
                   <Calendar className="w-6 h-6" />
                   Monthly Calendar - {months[selectedMonth - 1]} {selectedYear}
                 </h2>
                 <button
                   onClick={() => window.open(`/print/calendar?diet=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`, '_blank')}
+                  data-testid="print-calendar-inline-button"
                   className="bg-amber-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-amber-700 transition"
                 >
                   <Printer className="w-4 h-4" />

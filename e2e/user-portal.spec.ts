@@ -38,8 +38,9 @@ test.describe('User Portal - Dashboard Interface', () => {
   test('should display main dashboard elements', async ({ page }) => {
     await page.goto('/userportal')
 
-    // Check for key dashboard elements
-    await expect(page.locator('h1, h2').filter({ hasText: /meal plan|dashboard/i })).toBeVisible()
+    // Check for key dashboard elements - using data-testid to avoid strict mode violations
+    await expect(page.locator('[data-testid="dashboard-heading"]')).toBeVisible()
+    await expect(page.locator('[data-testid="meal-plan-selector-heading"]')).toBeVisible()
 
     // Check for diet plan selector
     await expect(page.locator('select, [role="combobox"]').first()).toBeVisible()
@@ -113,10 +114,10 @@ test.describe('User Portal - Monthly Calendar', () => {
     // Check for calendar title
     await expect(page.locator('text=/monthly calendar/i')).toBeVisible({ timeout: 10000 })
 
-    // Check for day headers (Sun, Mon, Tue, etc.)
-    await expect(page.locator('text=Sun')).toBeVisible()
-    await expect(page.locator('text=Mon')).toBeVisible()
-    await expect(page.locator('text=Sat')).toBeVisible()
+    // Check for day headers (Sun, Mon, Tue, etc.) - use .first() to avoid strict mode violations
+    await expect(page.locator('text=Sun').first()).toBeVisible()
+    await expect(page.locator('text=Mon').first()).toBeVisible()
+    await expect(page.locator('text=Sat').first()).toBeVisible()
 
     // Check for calendar grid
     const calendarGrid = page.locator('.grid').filter({ has: page.locator('text=Sun') })
@@ -146,8 +147,8 @@ test.describe('User Portal - Monthly Calendar', () => {
   test('should have print calendar button', async ({ page }) => {
     await page.goto('/userportal')
 
-    // Find print button
-    const printButton = page.locator('button').filter({ hasText: /print/i })
+    // Find print button - using data-testid to avoid strict mode violations
+    const printButton = page.locator('[data-testid="print-calendar-button"]')
     await expect(printButton).toBeVisible({ timeout: 10000 })
 
     // Verify it has printer icon
@@ -157,8 +158,8 @@ test.describe('User Portal - Monthly Calendar', () => {
   test('should open print calendar in new window', async ({ page, context }) => {
     await page.goto('/userportal')
 
-    // Wait for print button
-    const printButton = page.locator('button').filter({ hasText: /print/i })
+    // Wait for print button - using data-testid
+    const printButton = page.locator('[data-testid="print-calendar-button"]')
     await printButton.waitFor({ state: 'visible', timeout: 10000 })
 
     // Listen for new page
@@ -216,8 +217,8 @@ test.describe('User Portal - Print Calendar Page', () => {
   test('should have print button on print page', async ({ page }) => {
     await page.goto('/print/calendar?diet=mediterranean&month=1&year=2025')
 
-    // Find print button
-    const printButton = page.locator('button').filter({ hasText: /print/i })
+    // Find print button - use .first() to avoid strict mode violation
+    const printButton = page.locator('button').filter({ hasText: /print/i }).first()
     await expect(printButton).toBeVisible({ timeout: 10000 })
   })
 

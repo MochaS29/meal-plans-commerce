@@ -155,6 +155,7 @@ function CustomizeContent() {
                     key={option.id}
                     type="button"
                     onClick={() => setDietType(option.id)}
+                    data-testid={`diet-option-${option.id}`}
                     className={`p-4 rounded-lg border-2 transition text-left ${
                       dietType === option.id
                         ? 'border-teal-600 bg-teal-50'
@@ -208,6 +209,7 @@ function CustomizeContent() {
                     key={option.id}
                     type="button"
                     onClick={() => toggleDietaryNeed(option.id)}
+                    data-testid={`dietary-need-${option.id}`}
                     className={`px-4 py-3 rounded-lg border-2 transition font-medium ${
                       dietaryNeeds.includes(option.id)
                         ? 'border-teal-600 bg-teal-50 text-teal-900'
