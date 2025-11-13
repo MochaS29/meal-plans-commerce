@@ -77,7 +77,7 @@ export default function PricingPage() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-xl text-gray-800 max-w-3xl mx-auto"
+          className="text-xl text-gray-900 max-w-3xl mx-auto"
         >
           Unlock access to all meal plans, recipes, and shopping lists. Start your journey to healthier eating today.
         </motion.p>
@@ -129,12 +129,12 @@ export default function PricingPage() {
               )}
 
               <div className="bg-white p-8">
-                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                <p className="text-gray-800 mb-6">{plan.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                <p className="text-gray-900 mb-6">{plan.description}</p>
 
                 <div className="mb-8">
-                  <span className="text-5xl font-bold">{plan.price}</span>
-                  <span className="text-gray-800">{plan.period}</span>
+                  <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
+                  <span className="text-gray-900">{plan.period}</span>
                 </div>
 
                 <button
@@ -152,7 +152,7 @@ export default function PricingPage() {
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <Check className={`w-5 h-5 mt-0.5 text-${plan.color}-500 flex-shrink-0`} />
-                      <span className="text-gray-800">{feature}</span>
+                      <span className="text-gray-900 font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -178,7 +178,7 @@ export default function PricingPage() {
                 <span className="text-2xl">📅</span>
               </div>
               <h3 className="text-xl font-bold mb-2">30-Day Meal Calendar</h3>
-              <p className="text-gray-800">
+              <p className="text-gray-900">
                 Beautifully designed calendar with a different recipe for each day
               </p>
             </div>
@@ -188,7 +188,7 @@ export default function PricingPage() {
                 <span className="text-2xl">📝</span>
               </div>
               <h3 className="text-xl font-bold mb-2">30 Complete Recipes</h3>
-              <p className="text-gray-800">
+              <p className="text-gray-900">
                 Full instructions, ingredients, nutrition info, and cooking times for every recipe
               </p>
             </div>
@@ -198,17 +198,17 @@ export default function PricingPage() {
                 <span className="text-2xl">🎨</span>
               </div>
               <h3 className="text-xl font-bold mb-2">Beautiful PDF</h3>
-              <p className="text-gray-800">
+              <p className="text-gray-900">
                 Professional cover design delivered via email within 24 hours
               </p>
             </div>
           </div>
 
           <div className="mt-12 p-6 bg-gray-50 rounded-2xl">
-            <p className="text-center text-gray-800 mb-4">
+            <p className="text-center text-gray-900 mb-4">
               <strong>8 Diet Plans Available:</strong> Mediterranean, Keto, Vegan, Paleo, Vegetarian, Intermittent Fasting, Family Focused, and Global Cuisine
             </p>
-            <p className="text-center text-gray-800">
+            <p className="text-center text-gray-900">
               <strong>Full Customization:</strong> Adjust for your family size, dietary restrictions, allergies, and food preferences
             </p>
           </div>
@@ -225,19 +225,19 @@ export default function PricingPage() {
           <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
             <div>
               <h3 className="font-bold mb-2">When will I receive my meal plan?</h3>
-              <p className="text-gray-800">Your personalized meal plan PDF will be delivered via email within 24 hours of purchase.</p>
+              <p className="text-gray-900">Your personalized meal plan PDF will be delivered via email within 24 hours of purchase.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">Can I customize my meal plan?</h3>
-              <p className="text-gray-800">Yes! Choose your diet type, family size, dietary restrictions, allergies, and food preferences during checkout.</p>
+              <p className="text-gray-900">Yes! Choose your diet type, family size, dietary restrictions, allergies, and food preferences during checkout.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">How does the subscription work?</h3>
-              <p className="text-gray-800">Get a fresh meal plan on the 1st of each month. You can update your preferences before each delivery.</p>
+              <p className="text-gray-900">Get a fresh meal plan on the 1st of each month. You can update your preferences before each delivery.</p>
             </div>
             <div>
               <h3 className="font-bold mb-2">Can I cancel my subscription?</h3>
-              <p className="text-gray-800">Absolutely. Cancel anytime with no commitment. You&apos;ll keep access to any meal plans you&apos;ve received.</p>
+              <p className="text-gray-900">Absolutely. Cancel anytime with no commitment. You&apos;ll keep access to any meal plans you&apos;ve received.</p>
             </div>
           </div>
         </motion.div>
