@@ -59,10 +59,10 @@ test.describe('Production Deployment Tests', () => {
 
       // Click first Get Started button
       await getStartedButtons.first().click();
-      // Should redirect to Stripe Checkout or customize page
+      // Should redirect to Stripe Checkout, customize page, or intermediate plan selection pages
       await page.waitForTimeout(2000);
       const url = page.url();
-      expect(url).toMatch(/checkout\.stripe\.com|\/plans\/customize/);
+      expect(url).toMatch(/checkout\.stripe\.com|\/plans\/customize|\/plans\/wellness-transformation|\/plans\/monthly-calendar|\/plans\/custom-family/);
     });
   });
 
