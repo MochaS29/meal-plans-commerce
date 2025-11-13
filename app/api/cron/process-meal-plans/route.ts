@@ -124,39 +124,10 @@ export async function GET(request: NextRequest) {
         // Scale recipes for family size
         const scaledRecipes = scaleRecipesForFamilySize(selectedRecipes, job.family_size)
 
-        // IMPORTANT: Generate images for all recipes BEFORE creating PDF
-        const imageGenStartTime = Date.now()
-        console.log(`⏱️  [${new Date().toISOString()}] Starting image generation for ${scaledRecipes.length} recipes...`)
-        const imagePromises = scaledRecipes.map(async (recipe) => {
-          // Skip if recipe already has an image
-          if (recipe.image_url) {
-            console.log(`  ✓ ${recipe.name} already has image`)
-            return
-          }
-
-          // Generate image for this recipe
-          console.log(`  🖼️  Generating image for: ${recipe.name}`)
-          const result = await generateRecipeImage(
-            recipe.id,
-            recipe.name,
-            recipe.description || '',
-            recipe.meal_type || 'dinner',
-            job.diet_type
-          )
-
-          if (result.success && result.imageUrl) {
-            // Update recipe with new image URL
-            recipe.image_url = result.imageUrl
-            console.log(`  ✅ Image ready: ${recipe.name}`)
-          } else {
-            console.log(`  ⚠️  No image for: ${recipe.name}`)
-          }
-        })
-
-        // Wait for all images to complete
-        await Promise.all(imagePromises)
-        console.log(`⏱️  Image generation took: ${((Date.now() - imageGenStartTime) / 1000).toFixed(1)}s`)
-        console.log(`✅ All images generated, proceeding with PDF...`)
+        // PHASE 1: Skip image generation for now - deliver PDF quickly!
+        // Images will be generated asynchronously by a separate job
+        console.log(`⏱️  [${new Date().toISOString()}] Skipping image generation for fast delivery`)
+        console.log(`📋 ${scaledRecipes.length} recipes ready for PDF generation`)
 
         // Generate PDF with scaled recipes (now with images!)
         const productName = job.product_type === 'subscription'

@@ -2,12 +2,19 @@
   "functions": {
     "app/api/cron/process-meal-plans/route.ts": {
       "maxDuration": 300
+    },
+    "app/api/cron/generate-images/route.ts": {
+      "maxDuration": 300
     }
   },
   "crons": [
     {
       "path": "/api/cron/process-meal-plans",
       "schedule": "*/30 * * * *"
+    },
+    {
+      "path": "/api/cron/generate-images",
+      "schedule": "15,45 * * * *"
     }
   ]
 }
