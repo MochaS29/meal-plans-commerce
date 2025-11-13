@@ -1,25 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getPendingMealPlanJobs, updateMealPlanJobStatus } from '@/lib/supabase'
+import { getPendingMealPlanJobs, updateMealPlanJobStatus, updateMealPlanJobPhase } from '@/lib/supabase'
 import { selectRecipesForCustomer, trackCustomerRecipes } from '@/lib/hybrid-recipe-selector'
 import { generateAndUploadMealPlan } from '@/lib/storage'
 import { sendEmail, getMealPlanEmailTemplate } from '@/lib/email'
 import { generateRecipeImage } from '@/lib/ai-image-generator'
 
 // This endpoint is called by Vercel Cron every 30 minutes
-// to process pending meal plan jobs
+// Multi-phase processing to avoid 5-minute timeout
 export async function GET(request: NextRequest) {
   const startTime = Date.now()
 
   try {
-    // Verify this is a cron request (optional security check)
+    // Verify this is a cron request
     const authHeader = request.headers.get('authorization')
     if (process.env.CRON_SECRET && authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    console.log('🔄 Starting meal plan job processor...')
+    console.log('🔄 Starting multi-phase meal plan processor...')
 
-    // Get pending jobs (process 1 at a time for 100% AI generation)
+    // Get pending jobs OR jobs in progress with incomplete phases
     const pendingJobs = await getPendingMealPlanJobs(1)
 
     if (pendingJobs.length === 0) {
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
       })
     }
 
-    console.log(`📋 Found ${pendingJobs.length} pending jobs to process`)
+    console.log(`📋 Found ${pendingJobs.length} jobs to process`)
 
     const results = {
       processed: 0,
@@ -45,30 +45,19 @@ export async function GET(request: NextRequest) {
     for (const job of pendingJobs) {
       try {
         const jobStartTime = Date.now()
-        console.log(`\n🚀 [${new Date().toISOString()}] Processing job ${job.id} for ${job.customer_email}`)
+        const currentPhase = job.current_phase || 1
 
-        // Mark as processing
-        const markStartTime = Date.now()
-        await updateMealPlanJobStatus(job.id, 'processing')
-        console.log(`⏱️  Status update took: ${Date.now() - markStartTime}ms`)
+        console.log(`\n🚀 [${new Date().toISOString()}] Processing job ${job.id}`)
+        console.log(`   📧 Customer: ${job.customer_email}`)
+        console.log(`   📍 Phase: ${currentPhase}/5`)
+        console.log(`   📊 Status: ${job.status}`)
 
-        // Calculate recipe count - now with BONUS breakfast and dessert options!
-        const dinnerCount = job.days_in_month || 30
-        const breakfastCount = 7  // BONUS: 7 breakfast options
-        const dessertCount = 5    // BONUS: 5 dessert options
-        const totalRecipes = dinnerCount + breakfastCount + dessertCount
+        // Mark as processing if still pending
+        if (job.status === 'pending') {
+          await updateMealPlanJobStatus(job.id, 'processing')
+        }
 
-        console.log(`📊 Generating meal plan with BONUS recipes:`)
-        console.log(`   🍽️  ${dinnerCount} dinners (main meal plan)`)
-        console.log(`   🥞 ${breakfastCount} breakfasts (BONUS!)`)
-        console.log(`   🍰 ${dessertCount} desserts (BONUS!)`)
-        console.log(`   📋 Total: ${totalRecipes} recipes`)
-        console.log(`👥 Family size: ${job.family_size}`)
-        console.log(`🥗 Dietary needs: ${job.dietary_needs?.join(', ') || 'none'}`)
-        console.log(`⚠️  Allergies: ${job.allergies || 'none'}`)
-        console.log(`💭 Preferences: ${job.preferences || 'none'}`)
-
-        // Parse customer preferences for AI generation
+        // Parse customer preferences
         const avoidIngredients = job.allergies
           ? parseIngredientsFromText(job.allergies)
           : undefined
@@ -83,129 +72,33 @@ export async function GET(request: NextRequest) {
           preferredIngredients
         }
 
-        // PHASE 1: Generate DINNERS (main meal plan)
-        const recipeGenStartTime = Date.now()
-        console.log(`⏱️  [${new Date().toISOString()}] Starting AI recipe generation...`)
-        console.log(`🍽️  Generating dinners...`)
+        // Get accumulated recipes from previous phases
+        const accumulatedRecipes = job.generated_recipes || []
+        console.log(`   📦 Accumulated recipes from previous phases: ${accumulatedRecipes.length}`)
 
-        let dinnerRecipes = await selectRecipesForCustomer({
-          dietType: job.diet_type,
-          totalRecipes: dinnerCount * 2, // Get extra to filter from
-          newRecipesPercentage: 100, // 100% AI generation - fully personalized!
-          mealTypes: ['dinner'],
-          customerPreferences
-        })
-
-        // Apply filters to dinners
-        if (job.dietary_needs && job.dietary_needs.length > 0) {
-          dinnerRecipes = filterByDietaryNeeds(dinnerRecipes, job.dietary_needs)
+        // Execute the current phase
+        switch (currentPhase) {
+          case 1:
+            await executePhase1(job, customerPreferences, accumulatedRecipes)
+            break
+          case 2:
+            await executePhase2(job, customerPreferences, accumulatedRecipes)
+            break
+          case 3:
+            await executePhase3(job, customerPreferences, accumulatedRecipes)
+            break
+          case 4:
+            await executePhase4(job, customerPreferences, accumulatedRecipes)
+            break
+          case 5:
+            await executePhase5(job, accumulatedRecipes)
+            break
+          default:
+            throw new Error(`Invalid phase: ${currentPhase}`)
         }
-        if (job.allergies) {
-          dinnerRecipes = filterByAllergens(dinnerRecipes, job.allergies)
-        }
-        if (job.preferences) {
-          dinnerRecipes = filterByPreferences(dinnerRecipes, job.preferences)
-        }
-        dinnerRecipes = dinnerRecipes.slice(0, dinnerCount)
-        console.log(`✅ ${dinnerRecipes.length} dinner recipes selected`)
-
-        // PHASE 2: Generate BREAKFASTS (BONUS!)
-        console.log(`🥞 Generating BONUS breakfasts...`)
-        let breakfastRecipes = await selectRecipesForCustomer({
-          dietType: job.diet_type,
-          totalRecipes: breakfastCount * 2,
-          newRecipesPercentage: 100,
-          mealTypes: ['breakfast'],
-          customerPreferences
-        })
-
-        // Apply filters to breakfasts
-        if (job.dietary_needs && job.dietary_needs.length > 0) {
-          breakfastRecipes = filterByDietaryNeeds(breakfastRecipes, job.dietary_needs)
-        }
-        if (job.allergies) {
-          breakfastRecipes = filterByAllergens(breakfastRecipes, job.allergies)
-        }
-        if (job.preferences) {
-          breakfastRecipes = filterByPreferences(breakfastRecipes, job.preferences)
-        }
-        breakfastRecipes = breakfastRecipes.slice(0, breakfastCount)
-        console.log(`✅ ${breakfastRecipes.length} BONUS breakfast recipes selected`)
-
-        // PHASE 3: Generate DESSERTS (BONUS!)
-        console.log(`🍰 Generating BONUS desserts...`)
-        let dessertRecipes = await selectRecipesForCustomer({
-          dietType: job.diet_type,
-          totalRecipes: dessertCount * 2,
-          newRecipesPercentage: 100,
-          mealTypes: ['dessert'],
-          customerPreferences
-        })
-
-        // Apply filters to desserts
-        if (job.dietary_needs && job.dietary_needs.length > 0) {
-          dessertRecipes = filterByDietaryNeeds(dessertRecipes, job.dietary_needs)
-        }
-        if (job.allergies) {
-          dessertRecipes = filterByAllergens(dessertRecipes, job.allergies)
-        }
-        if (job.preferences) {
-          dessertRecipes = filterByPreferences(dessertRecipes, job.preferences)
-        }
-        dessertRecipes = dessertRecipes.slice(0, dessertCount)
-        console.log(`✅ ${dessertRecipes.length} BONUS dessert recipes selected`)
-
-        // Combine all recipes
-        const selectedRecipes = [...dinnerRecipes, ...breakfastRecipes, ...dessertRecipes]
-        console.log(`⏱️  Recipe generation took: ${((Date.now() - recipeGenStartTime) / 1000).toFixed(1)}s`)
-        console.log(`📋 Total recipes: ${selectedRecipes.length} (${dinnerRecipes.length} dinners + ${breakfastRecipes.length} breakfasts + ${dessertRecipes.length} desserts)`)
-
-        // Track recipes for this customer
-        const currentMonth = new Date().toISOString().slice(0, 7)
-        const recipeIds = selectedRecipes.map(r => r.id)
-        await trackCustomerRecipes(job.customer_email, recipeIds, currentMonth)
-        console.log(`📊 Tracked ${recipeIds.length} recipes`)
-
-        // Scale recipes for family size
-        const scaledRecipes = scaleRecipesForFamilySize(selectedRecipes, job.family_size)
-
-        // PHASE 1: Skip image generation for now - deliver PDF quickly!
-        // Images will be generated asynchronously by a separate job
-        console.log(`⏱️  [${new Date().toISOString()}] Skipping image generation for fast delivery`)
-        console.log(`📋 ${scaledRecipes.length} recipes ready for PDF generation`)
-
-        // Generate PDF with scaled recipes (now with images!)
-        const productName = job.product_type === 'subscription'
-          ? 'Monthly Meal Plan'
-          : 'Custom AI Meal Plan'
-
-        const pdfStartTime = Date.now()
-        console.log(`⏱️  [${new Date().toISOString()}] Generating PDF...`)
-
-        const pdfUrl = await generateAndUploadMealPlan(
-          job.customer_email,
-          productName,
-          job.stripe_session_id,
-          scaledRecipes
-        )
-
-        console.log(`⏱️  PDF generation took: ${((Date.now() - pdfStartTime) / 1000).toFixed(1)}s`)
-        console.log(`📄 PDF generated: ${pdfUrl}`)
-
-        // Send delivery email
-        const emailStartTime = Date.now()
-        await sendDeliveryEmail(job.customer_email, pdfUrl, productName)
-        console.log(`⏱️  Email delivery took: ${Date.now() - emailStartTime}ms`)
-        console.log(`📧 Delivery email sent`)
-
-        // Mark as completed
-        await updateMealPlanJobStatus(job.id, 'completed', {
-          pdf_url: pdfUrl,
-          recipe_count: selectedRecipes.length
-        })
 
         const totalJobTime = ((Date.now() - jobStartTime) / 1000).toFixed(1)
-        console.log(`✅ Job ${job.id} completed successfully in ${totalJobTime}s`)
+        console.log(`✅ Phase ${currentPhase} completed in ${totalJobTime}s`)
         results.succeeded++
 
       } catch (error) {
@@ -248,10 +141,247 @@ export async function GET(request: NextRequest) {
   }
 }
 
+// PHASE 1: Generate 20 dinners + images
+async function executePhase1(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
+  console.log(`\n📍 PHASE 1: Generate 20 dinners with images`)
+  const phaseStartTime = Date.now()
+
+  // Generate 20 dinner recipes
+  let dinnerRecipes = await selectRecipesForCustomer({
+    dietType: job.diet_type,
+    totalRecipes: 20 * 2, // Get extra to filter from
+    newRecipesPercentage: 100,
+    mealTypes: ['dinner'],
+    customerPreferences
+  })
+
+  // Apply filters
+  dinnerRecipes = applyFilters(dinnerRecipes, job)
+  dinnerRecipes = dinnerRecipes.slice(0, 20)
+  console.log(`✅ Generated ${dinnerRecipes.length} dinner recipes`)
+
+  // Generate images for each recipe
+  console.log(`🎨 Generating images...`)
+  const recipesWithImages = await generateImagesForRecipes(dinnerRecipes, job.diet_type)
+
+  // Accumulate recipes
+  const updatedRecipes = [...accumulatedRecipes, ...recipesWithImages]
+
+  // Update job to phase 2
+  await updateMealPlanJobPhase(
+    job.id,
+    2,
+    'Generated 20 dinners with images',
+    updatedRecipes
+  )
+
+  const duration = ((Date.now() - phaseStartTime) / 1000).toFixed(1)
+  console.log(`✅ Phase 1 completed in ${duration}s - ${updatedRecipes.length} total recipes`)
+}
+
+// PHASE 2: Generate 10 more dinners + images
+async function executePhase2(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
+  console.log(`\n📍 PHASE 2: Generate 10 more dinners with images`)
+  const phaseStartTime = Date.now()
+
+  let dinnerRecipes = await selectRecipesForCustomer({
+    dietType: job.diet_type,
+    totalRecipes: 10 * 2,
+    newRecipesPercentage: 100,
+    mealTypes: ['dinner'],
+    customerPreferences
+  })
+
+  dinnerRecipes = applyFilters(dinnerRecipes, job)
+  dinnerRecipes = dinnerRecipes.slice(0, 10)
+  console.log(`✅ Generated ${dinnerRecipes.length} dinner recipes`)
+
+  console.log(`🎨 Generating images...`)
+  const recipesWithImages = await generateImagesForRecipes(dinnerRecipes, job.diet_type)
+
+  const updatedRecipes = [...accumulatedRecipes, ...recipesWithImages]
+
+  await updateMealPlanJobPhase(
+    job.id,
+    3,
+    'Generated 30 dinners total with images',
+    updatedRecipes
+  )
+
+  const duration = ((Date.now() - phaseStartTime) / 1000).toFixed(1)
+  console.log(`✅ Phase 2 completed in ${duration}s - ${updatedRecipes.length} total recipes`)
+}
+
+// PHASE 3: Generate 7 breakfasts + images
+async function executePhase3(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
+  console.log(`\n📍 PHASE 3: Generate 7 BONUS breakfasts with images`)
+  const phaseStartTime = Date.now()
+
+  let breakfastRecipes = await selectRecipesForCustomer({
+    dietType: job.diet_type,
+    totalRecipes: 7 * 2,
+    newRecipesPercentage: 100,
+    mealTypes: ['breakfast'],
+    customerPreferences
+  })
+
+  breakfastRecipes = applyFilters(breakfastRecipes, job)
+  breakfastRecipes = breakfastRecipes.slice(0, 7)
+  console.log(`✅ Generated ${breakfastRecipes.length} BONUS breakfast recipes`)
+
+  console.log(`🎨 Generating images...`)
+  const recipesWithImages = await generateImagesForRecipes(breakfastRecipes, job.diet_type)
+
+  const updatedRecipes = [...accumulatedRecipes, ...recipesWithImages]
+
+  await updateMealPlanJobPhase(
+    job.id,
+    4,
+    'Generated 30 dinners + 7 breakfasts with images',
+    updatedRecipes
+  )
+
+  const duration = ((Date.now() - phaseStartTime) / 1000).toFixed(1)
+  console.log(`✅ Phase 3 completed in ${duration}s - ${updatedRecipes.length} total recipes`)
+}
+
+// PHASE 4: Generate 5 desserts + images
+async function executePhase4(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
+  console.log(`\n📍 PHASE 4: Generate 5 BONUS desserts with images`)
+  const phaseStartTime = Date.now()
+
+  let dessertRecipes = await selectRecipesForCustomer({
+    dietType: job.diet_type,
+    totalRecipes: 5 * 2,
+    newRecipesPercentage: 100,
+    mealTypes: ['dessert'],
+    customerPreferences
+  })
+
+  dessertRecipes = applyFilters(dessertRecipes, job)
+  dessertRecipes = dessertRecipes.slice(0, 5)
+  console.log(`✅ Generated ${dessertRecipes.length} BONUS dessert recipes`)
+
+  console.log(`🎨 Generating images...`)
+  const recipesWithImages = await generateImagesForRecipes(dessertRecipes, job.diet_type)
+
+  const updatedRecipes = [...accumulatedRecipes, ...recipesWithImages]
+
+  await updateMealPlanJobPhase(
+    job.id,
+    5,
+    'Generated all 42 recipes with images - creating PDF',
+    updatedRecipes
+  )
+
+  const duration = ((Date.now() - phaseStartTime) / 1000).toFixed(1)
+  console.log(`✅ Phase 4 completed in ${duration}s - ${updatedRecipes.length} total recipes`)
+}
+
+// PHASE 5: Create PDF and send email
+async function executePhase5(job: any, accumulatedRecipes: any[]) {
+  console.log(`\n📍 PHASE 5: Create PDF and send email`)
+  const phaseStartTime = Date.now()
+
+  console.log(`📋 Total recipes: ${accumulatedRecipes.length}`)
+  console.log(`   🍽️  Dinners: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'dinner').length}`)
+  console.log(`   🥞 Breakfasts: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'breakfast').length}`)
+  console.log(`   🍰 Desserts: ${accumulatedRecipes.filter((r: any) => r.meal_type === 'dessert').length}`)
+
+  // Track recipes for this customer
+  const currentMonth = new Date().toISOString().slice(0, 7)
+  const recipeIds = accumulatedRecipes.map((r: any) => r.id)
+  await trackCustomerRecipes(job.customer_email, recipeIds, currentMonth)
+  console.log(`📊 Tracked ${recipeIds.length} recipes`)
+
+  // Scale recipes for family size
+  const scaledRecipes = scaleRecipesForFamilySize(accumulatedRecipes, job.family_size)
+
+  // Generate PDF
+  const productName = job.product_type === 'subscription'
+    ? 'Monthly Meal Plan'
+    : 'Custom AI Meal Plan'
+
+  console.log(`📄 Generating PDF...`)
+  const pdfUrl = await generateAndUploadMealPlan(
+    job.customer_email,
+    productName,
+    job.stripe_session_id,
+    scaledRecipes
+  )
+  console.log(`✅ PDF generated: ${pdfUrl}`)
+
+  // Send delivery email
+  console.log(`📧 Sending delivery email...`)
+  await sendDeliveryEmail(job.customer_email, pdfUrl, productName)
+  console.log(`✅ Email sent`)
+
+  // Mark as completed
+  await updateMealPlanJobStatus(job.id, 'completed', {
+    pdf_url: pdfUrl,
+    recipe_count: accumulatedRecipes.length
+  })
+
+  const duration = ((Date.now() - phaseStartTime) / 1000).toFixed(1)
+  console.log(`✅ Phase 5 completed in ${duration}s - Job fully completed!`)
+}
+
+// Helper: Generate images for recipes
+async function generateImagesForRecipes(recipes: any[], dietType: string) {
+  const recipesWithImages = []
+
+  for (const recipe of recipes) {
+    try {
+      console.log(`  🖼️  Generating image for: ${recipe.name}`)
+
+      const imageResult = await generateRecipeImage(
+        recipe.id,
+        recipe.name,
+        recipe.description || '',
+        recipe.meal_type || 'dinner',
+        dietType
+      )
+
+      if (imageResult.success && imageResult.imageUrl) {
+        recipesWithImages.push({
+          ...recipe,
+          image_url: imageResult.imageUrl
+        })
+        console.log(`  ✅ Image generated`)
+      } else {
+        // Include recipe without image if generation fails
+        console.log(`  ⚠️  Image generation failed, continuing without image`)
+        recipesWithImages.push(recipe)
+      }
+    } catch (error) {
+      console.error(`  ❌ Error generating image: ${error}`)
+      recipesWithImages.push(recipe) // Continue without image
+    }
+  }
+
+  return recipesWithImages
+}
+
+// Helper: Apply all filters to recipes
+function applyFilters(recipes: any[], job: any): any[] {
+  let filtered = recipes
+
+  if (job.dietary_needs && job.dietary_needs.length > 0) {
+    filtered = filterByDietaryNeeds(filtered, job.dietary_needs)
+  }
+  if (job.allergies) {
+    filtered = filterByAllergens(filtered, job.allergies)
+  }
+  if (job.preferences) {
+    filtered = filterByPreferences(filtered, job.preferences)
+  }
+
+  return filtered
+}
+
 // Helper function to send delivery email
 async function sendDeliveryEmail(email: string, pdfUrl: string, productName: string) {
-  const customerName = email.split('@')[0] // Simple fallback
-
+  const customerName = email.split('@')[0]
   const mealPlanHtml = getMealPlanEmailTemplate(customerName, productName, pdfUrl)
   await sendEmail({
     to: email,
@@ -260,57 +390,40 @@ async function sendDeliveryEmail(email: string, pdfUrl: string, productName: str
   })
 }
 
-// PERSONALIZATION FILTERS
+// PERSONALIZATION FILTERS (copied from original file)
 
-/**
- * Filter recipes by dietary needs
- * Removes recipes that don't match the selected dietary restrictions
- */
 function filterByDietaryNeeds(recipes: any[], dietaryNeeds: string[]): any[] {
   if (!dietaryNeeds || dietaryNeeds.length === 0) return recipes
 
   return recipes.filter(recipe => {
-    // Check each dietary need
     for (const need of dietaryNeeds) {
       switch (need.toLowerCase()) {
         case 'vegetarian':
-          // Exclude recipes with meat/poultry/fish
           if (recipe.name.toLowerCase().match(/chicken|beef|pork|fish|salmon|turkey|lamb|shrimp|meat/)) {
             return false
           }
           break
-
         case 'vegan':
-          // Exclude all animal products
           if (recipe.name.toLowerCase().match(/chicken|beef|pork|fish|salmon|turkey|lamb|shrimp|meat|egg|dairy|cheese|milk|butter|cream/)) {
             return false
           }
           break
-
         case 'gluten-free':
-          // Exclude recipes with gluten
           if (recipe.name.toLowerCase().match(/pasta|bread|wheat|flour|noodle|pizza|cracker/)) {
             return false
           }
           break
-
         case 'dairy-free':
-          // Exclude dairy products
           if (recipe.name.toLowerCase().match(/cheese|milk|butter|cream|yogurt|dairy/)) {
             return false
           }
           break
-
         case 'low-carb':
-          // Exclude high-carb items
           if (recipe.name.toLowerCase().match(/pasta|rice|bread|potato|noodle|pizza/)) {
             return false
           }
           break
-
         case 'kid-friendly':
-          // Prioritize kid-friendly recipes (this is inclusive, not exclusive)
-          // Don't filter out, just note for future ranking
           break
       }
     }
@@ -318,14 +431,9 @@ function filterByDietaryNeeds(recipes: any[], dietaryNeeds: string[]): any[] {
   })
 }
 
-/**
- * Filter out recipes containing allergens
- * Parses allergen text and excludes matching recipes
- */
 function filterByAllergens(recipes: any[], allergyText: string): any[] {
   if (!allergyText || allergyText.trim() === '') return recipes
 
-  // Parse common allergens from text
   const allergyLower = allergyText.toLowerCase()
   const allergens: string[] = []
 
@@ -339,7 +447,6 @@ function filterByAllergens(recipes: any[], allergyText: string): any[] {
 
   console.log(`🔍 Detected allergens: ${allergens.join(', ')}`)
 
-  // Filter out recipes containing allergens
   return recipes.filter(recipe => {
     const recipeName = recipe.name.toLowerCase()
     const recipeDesc = recipe.description?.toLowerCase() || ''
@@ -354,17 +461,12 @@ function filterByAllergens(recipes: any[], allergyText: string): any[] {
   })
 }
 
-/**
- * Filter recipes based on customer preferences
- * Handles "no X", "less X", "avoid X" patterns in preference text
- */
 function filterByPreferences(recipes: any[], preferenceText: string): any[] {
   if (!preferenceText || preferenceText.trim() === '') return recipes
 
   const prefLower = preferenceText.toLowerCase()
   const avoidIngredients: string[] = []
 
-  // Parse "no X" and "avoid X" patterns
   const noPatterns = prefLower.match(/no\s+([a-z\s]+?)(?:,|and|$)/g)
   if (noPatterns) {
     noPatterns.forEach(pattern => {
@@ -373,7 +475,6 @@ function filterByPreferences(recipes: any[], preferenceText: string): any[] {
     })
   }
 
-  // Parse "avoid X" patterns
   const avoidPatterns = prefLower.match(/avoid\s+([a-z\s]+?)(?:,|and|$)/g)
   if (avoidPatterns) {
     avoidPatterns.forEach(pattern => {
@@ -382,7 +483,6 @@ function filterByPreferences(recipes: any[], preferenceText: string): any[] {
     })
   }
 
-  // Parse "less X" patterns (treat as avoid for now)
   const lessPatterns = prefLower.match(/less\s+([a-z\s]+?)(?:,|and|$)/g)
   if (lessPatterns) {
     lessPatterns.forEach(pattern => {
@@ -395,7 +495,6 @@ function filterByPreferences(recipes: any[], preferenceText: string): any[] {
 
   console.log(`🔍 Preference filters: ${avoidIngredients.join(', ')}`)
 
-  // Filter out recipes containing avoided ingredients
   return recipes.filter(recipe => {
     const recipeName = recipe.name.toLowerCase()
     const recipeDesc = recipe.description?.toLowerCase() || ''
@@ -410,15 +509,11 @@ function filterByPreferences(recipes: any[], preferenceText: string): any[] {
   })
 }
 
-/**
- * Scale recipe servings based on family size
- * Adds a note to each recipe indicating servings have been scaled
- */
 function scaleRecipesForFamilySize(recipes: any[], familySize: number): any[] {
-  const defaultServings = 4 // Most recipes are for 4 people
+  const defaultServings = 4
 
   if (!familySize || familySize === defaultServings) {
-    return recipes // No scaling needed
+    return recipes
   }
 
   const scaleFactor = familySize / defaultServings
@@ -432,20 +527,14 @@ function scaleRecipesForFamilySize(recipes: any[], familySize: number): any[] {
   }))
 }
 
-/**
- * Parse free-text ingredients into an array
- * Handles comma-separated, space-separated, or natural language text
- */
 function parseIngredientsFromText(text: string): string[] {
   if (!text || text.trim() === '') return []
 
-  // Remove common connecting words
   const cleaned = text
     .toLowerCase()
     .replace(/\b(and|or|no|avoid|dislike|don't like|hate|can't have)\b/gi, ',')
     .trim()
 
-  // Split by common delimiters
   const ingredients = cleaned
     .split(/[,;|\n]+/)
     .map(item => item.trim())

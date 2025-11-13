@@ -68,6 +68,10 @@ export interface MealPlanJob {
   month?: number
   year?: number
   days_in_month?: number
+  current_phase?: number
+  total_phases?: number
+  generated_recipes?: any[]
+  phase_progress?: string
   created_at: string
   processing_started_at?: string
   completed_at?: string
@@ -254,10 +258,11 @@ export async function getPendingMealPlanJobs(limit: number = 10) {
     return []
   }
 
+  // Get both pending jobs AND processing jobs with incomplete phases
   const { data, error } = await supabase
     .from('meal_plan_jobs')
     .select('*')
-    .eq('status', 'pending')
+    .or('status.eq.pending,and(status.eq.processing,current_phase.lt.6)')
     .order('created_at', { ascending: true })
     .limit(limit)
 
@@ -290,6 +295,32 @@ export async function updateMealPlanJobStatus(
   const { data, error } = await supabase
     .from('meal_plan_jobs')
     .update(updateData)
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data
+}
+
+export async function updateMealPlanJobPhase(
+  id: string,
+  currentPhase: number,
+  phaseProgress: string,
+  generatedRecipes: any[]
+) {
+  if (!supabase) {
+    console.log('Supabase not configured')
+    return null
+  }
+
+  const { data, error } = await supabase
+    .from('meal_plan_jobs')
+    .update({
+      current_phase: currentPhase,
+      phase_progress: phaseProgress,
+      generated_recipes: generatedRecipes
+    })
     .eq('id', id)
     .select()
     .single()
