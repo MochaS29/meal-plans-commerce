@@ -54,7 +54,8 @@ export async function generateAndUploadMealPlan(
   planType: string,
   sessionId: string,
   selectedRecipes?: any[],
-  dietPlanId?: string
+  dietPlanId?: string,
+  dietType?: string
 ): Promise<string> {
   try {
     console.log(`🎨 Processing meal plan for ${customerEmail} - ${planType}`)
@@ -111,7 +112,8 @@ export async function generateAndUploadMealPlan(
     const pdfBuffer = await generateMealPlanPDF(
       customerEmail,
       planType,
-      selectedRecipes
+      selectedRecipes,
+      dietType
     )
 
     // Generate filename
@@ -172,7 +174,8 @@ export async function generateAndUploadMealPlan(
 async function generateMealPlanPDF(
   customerEmail: string,
   planType: string,
-  recipes: any[]
+  recipes: any[],
+  dietType?: string
 ): Promise<Buffer> {
   try {
     console.log(`🎨 Generating PDF for ${customerEmail} with ${recipes.length} recipes`)
@@ -292,7 +295,7 @@ async function generateMealPlanPDF(
     const generator = new EnhancedMealPlanPDFGenerator()
     const pdfBlob = await generator.generateMealPlanPDF(mealPlan, {
       email: customerEmail
-    })
+    }, dietType)
 
     // Convert Blob to Buffer for upload
     const arrayBuffer = await pdfBlob.arrayBuffer()

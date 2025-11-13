@@ -313,13 +313,15 @@ async function executePhase5(job: any, accumulatedRecipes: any[]) {
     job.customer_email,
     productName,
     job.stripe_session_id,
-    scaledRecipes
+    scaledRecipes,
+    undefined, // dietPlanId
+    job.diet_type
   )
   console.log(`✅ PDF generated: ${pdfUrl}`)
 
   // Send delivery email
   console.log(`📧 Sending delivery email...`)
-  await sendDeliveryEmail(job.customer_email, pdfUrl, productName)
+  await sendDeliveryEmail(job.customer_email, pdfUrl, productName, job.diet_type)
   console.log(`✅ Email sent`)
 
   // Mark as completed
@@ -399,9 +401,9 @@ function applyFilters(recipes: any[], job: any): any[] {
 }
 
 // Helper function to send delivery email
-async function sendDeliveryEmail(email: string, pdfUrl: string, productName: string) {
+async function sendDeliveryEmail(email: string, pdfUrl: string, productName: string, dietType?: string) {
   const customerName = email.split('@')[0]
-  const mealPlanHtml = getMealPlanEmailTemplate(customerName, productName, pdfUrl)
+  const mealPlanHtml = getMealPlanEmailTemplate(customerName, productName, pdfUrl, 'https://mindfulmealplan.com/portal', dietType)
   await sendEmail({
     to: email,
     subject: `Your ${productName} is Ready to Download! 🎉`,

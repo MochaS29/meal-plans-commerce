@@ -644,7 +644,7 @@ export class EnhancedMealPlanPDFGenerator {
     this.currentY += 10;
   }
 
-  public async generateMealPlanPDF(mealPlan: MealPlan, userInfo?: { name?: string; email?: string }) {
+  public async generateMealPlanPDF(mealPlan: MealPlan, userInfo?: { name?: string; email?: string }, dietType?: string) {
     let pageNum = 1;
 
     // Calculate day range first (needed for title page)
@@ -653,9 +653,11 @@ export class EnhancedMealPlanPDFGenerator {
     const isWeekly = dayNumbers.length <= 7;
 
     // Cover Page with beautiful Mediterranean image
+    // Include diet type in subtitle if provided
+    const dietTypeFormatted = dietType ? this.formatDietName(dietType) : '';
     const subtitle = isWeekly && dayNumbers.length > 0
-      ? `${this.getMonthName(mealPlan.month)} ${mealPlan.year} - Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]} Meal Plan with Full Recipes`
-      : `${this.getMonthName(mealPlan.month)} ${mealPlan.year} Meal Plan with Full Recipes`;
+      ? `${dietTypeFormatted ? dietTypeFormatted + ' | ' : ''}${this.getMonthName(mealPlan.month)} ${mealPlan.year} - Days ${dayNumbers[0]}-${dayNumbers[dayNumbers.length - 1]} Meal Plan with Full Recipes`
+      : `${dietTypeFormatted ? dietTypeFormatted + ' | ' : ''}${this.getMonthName(mealPlan.month)} ${mealPlan.year} Meal Plan with Full Recipes`;
 
     await this.drawCoverPageWithImage(
       this.formatMenuType(mealPlan.menuType),
@@ -933,6 +935,21 @@ export class EnhancedMealPlanPDFGenerator {
       .split('-')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
+  }
+
+  private formatDietName(dietType: string): string {
+    const dietNames: Record<string, string> = {
+      'mediterranean': 'Mediterranean',
+      'keto': 'Keto',
+      'vegan': 'Vegan',
+      'paleo': 'Paleo',
+      'vegetarian': 'Vegetarian',
+      'intermittent-fasting': 'Intermittent Fasting',
+      'family-focused': 'Family Focused',
+      'global': 'Global Cuisine',
+      'global-cuisine': 'Global Cuisine'
+    }
+    return dietNames[dietType.toLowerCase()] || dietType.charAt(0).toUpperCase() + dietType.slice(1)
   }
 
   private getMonthName(month: number): string {

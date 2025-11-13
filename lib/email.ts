@@ -102,7 +102,7 @@ export async function sendEmail({ to, subject, html, attachments }: SendEmailPar
   }
 }
 
-export function getMealPlanEmailTemplate(customerName: string, planType: string, downloadUrl: string, portalUrl: string = 'https://mindfulmealplan.com/portal') {
+export function getMealPlanEmailTemplate(customerName: string, planType: string, downloadUrl: string, portalUrl: string = 'https://mindfulmealplan.com/portal', dietType?: string) {
   return `
     <!DOCTYPE html>
     <html>
@@ -117,18 +117,26 @@ export function getMealPlanEmailTemplate(customerName: string, planType: string,
           .button { display: inline-block; padding: 12px 30px; background: #14b8a6; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 20px 0; }
           .button-secondary { display: inline-block; padding: 12px 30px; background: #f59e0b; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px 5px; }
           .features { background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0; }
+          .info-box { background: #f0fdf4; border-left: 4px solid #14b8a6; padding: 15px; margin: 20px 0; }
           .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
         </style>
       </head>
       <body>
         <div class="container">
           <div class="header">
-            <h1>Your ${planType} Meal Plan is Ready! 🎉</h1>
+            <h1>Your ${dietType ? formatDietName(dietType) + ' ' : ''}${planType} is Ready! 🎉</h1>
           </div>
           <div class="content">
             <p>Hi ${customerName},</p>
 
-            <p>Thank you for your purchase! Your personalized meal plan is ready for download.</p>
+            <p>Thank you for your purchase! Your personalized ${dietType ? formatDietName(dietType).toLowerCase() + ' ' : ''}meal plan is ready for download.</p>
+
+            ${dietType ? `
+            <div class="info-box">
+              <strong>Your Meal Plan:</strong><br>
+              Diet Plan: ${formatDietName(dietType)}
+            </div>
+            ` : ''}
 
             <center>
               <a href="${downloadUrl}" class="button">Download Your Meal Plan</a>
