@@ -33,10 +33,12 @@ Customer gets login credentials → Permanent access to meal plans
 4. **Payment:** Customer completes payment on Stripe's secure page
 5. **Webhook:** Stripe sends checkout.session.completed event
 6. **Account Creation:** System creates Supabase user + links Stripe customer
-7. **PDF Generation:** Selects 30 recipes (75% library + 25% AI-generated)
-8. **Email Delivery:** Welcome email + PDF download link sent
-9. **Access:** Customer can login anytime with email/password
-10. **Dashboard:** Shows purchase history and downloadable meal plans
+7. **Job Creation:** Background job created for meal plan generation (100% AI recipes)
+8. **Email Delivery:** Welcome email with diet plan details + personalized preferences sent
+9. **Cron Processing:** Background worker processes job and generates PDF
+10. **PDF Delivery:** Email sent with PDF download link once complete
+11. **Access:** Customer can login anytime with email/password
+12. **Dashboard:** Shows purchase history and downloadable meal plans
 
 **Tools Used:**
 - Next.js 15 App Router (Frontend)
@@ -62,44 +64,53 @@ Customer enters email → Magic link sent → Clicks link → JWT token created 
 
 ### 3. Autonomous Recipe & Image Generation Workflow
 ```
-Customer purchases → Stripe webhook fires → 30 recipes selected (70% library + 30% new) →
-New recipes generated via AI → Auto image generation triggered → Customer tracked →
-PDF created → Emails sent → Customer portal updated
+Customer purchases → Stripe webhook fires → Background job created →
+Cron job processes (every 30 min) → 30 recipes generated via AI (100%) →
+Auto image generation triggered → PDF created → Delivery email sent →
+Customer portal updated
 ```
 
 **Workflow Details:**
 1. **Purchase Event:** Stripe webhook `checkout.session.completed` fires
-2. **Recipe Selection:** `selectRecipesForCustomer()` selects 30 recipes:
-   - 70% from existing library (21 recipes)
-   - 30% newly generated via AI (9 recipes)
-3. **Automatic Image Generation:** Each new recipe triggers `generateRecipeImage()`
+2. **Job Creation:** Background job created in `meal_plan_jobs` table with status="pending"
+3. **Customer Notification:** Welcome email sent immediately with diet plan details and preferences
+4. **Cron Processing:** Vercel cron job runs every 30 minutes (`/api/cron/process-meal-plans`)
+   - Processes 1 job at a time (to avoid timeouts)
+   - 300-second timeout per job (5 minutes max)
+5. **Recipe Generation:** `selectRecipesForCustomer()` generates 30 recipes:
+   - 100% AI-generated for maximum personalization
+   - Filtered by dietary needs, allergies, and preferences
+   - Scaled for family size
+6. **Automatic Image Generation:** Each recipe triggers `generateRecipeImage()`
    - Non-blocking async execution
-   - Cost: $0.003 per image (~$0.027 per customer)
-4. **Customer Tracking:** Records saved to `customer_recipes` table
-5. **PDF Generation:** All 30 recipes compiled into downloadable PDF
-6. **Email Delivery:** Welcome email + meal plan download link sent
-7. **Portal Access:** Customer can access all purchased recipes forever
+   - Cost: $0.003 per image (~$0.09 per customer for 30 images)
+7. **Customer Tracking:** Records saved to `customer_recipes` table (prevents duplicate recipes)
+8. **PDF Generation:** All 30 recipes compiled into downloadable PDF
+9. **Email Delivery:** Meal plan delivery email sent with PDF download link
+10. **Portal Access:** Customer can access all purchased recipes forever
 
 **Tools Used:**
 - Anthropic Claude API (Recipe generation - Haiku model)
 - Replicate API (Image generation - FLUX-schnell model $0.003/image)
-- Supabase PostgreSQL (Recipe storage & customer tracking)
-- Hybrid Recipe Selector (70/30 split algorithm)
-- Automatic Image Trigger (lib/ai-recipe-generator.ts:398-413)
+- Supabase PostgreSQL (Recipe storage, job tracking, customer tracking)
+- Vercel Cron Jobs (Background processing every 30 minutes)
+- Hybrid Recipe Selector (100% AI generation with filtering)
+- Automatic Image Trigger (lib/ai-image-generator.ts)
 
-**Test Coverage:** 12/12 tests passing (100% success rate)
-- Recipe split validation (70/30)
-- Database growth calculations
-- Image generation cost validation
-- Customer access tracking
-- Data integrity checks
-- Error handling scenarios
+**Personalization Features:**
+- Diet-specific recipes (Mediterranean, Keto, Vegan, etc.)
+- Dietary restrictions filtering (vegetarian, gluten-free, etc.)
+- Allergen exclusion (nuts, dairy, shellfish, etc.)
+- Custom preferences parsing ("no peppers", "less fish", etc.)
+- Family size scaling (ingredient quantities adjusted)
+- Recipe de-duplication per customer
 
 **Key Files:**
-- `/lib/ai-recipe-generator.ts:398-413` - Auto image generation trigger
-- `/app/api/stripe-webhook/route.ts:151-157` - 70/30 recipe split config
-- `/lib/hybrid-recipe-selector.ts` - Recipe selection algorithm
-- `/__tests__/autonomous-workflow.test.ts` - Complete test suite
+- `/app/api/cron/process-meal-plans/route.ts` - Background job processor (100% AI, 300s timeout, 1 job/run)
+- `/app/api/stripe-webhook/route.ts` - Job creation + welcome email
+- `/lib/hybrid-recipe-selector.ts` - Recipe generation system
+- `/lib/email.ts` - Personalized email templates (shows diet type + preferences)
+- `/vercel.json` - Cron schedule + function timeout configuration
 
 ---
 
@@ -211,15 +222,24 @@ node scripts/populate-library-with-ai.js # Bulk recipe generation
 ## 📧 Email System
 
 ### Email Types
-1. **Welcome Email**
-   - Sent after successful purchase
+1. **Welcome Email** (Sent immediately after purchase)
    - Beautiful HTML template with branding
-   - Includes customer name and subscription info
+   - **Personalized diet plan name** (e.g., "Your Mediterranean Meal Plan is Being Generated!")
+   - **Customer preferences summary:**
+     - Diet plan selected
+     - Family size
+     - Dietary needs (vegetarian, gluten-free, etc.)
+     - Allergies and restrictions
+   - Processing status message ("Usually takes 2-4 hours")
+   - Password setup link for portal access
+   - Subscription benefits (if applicable)
 
-2. **Meal Plan Delivery**
+2. **Meal Plan Delivery** (Sent after PDF is ready)
    - Contains download link for PDF
+   - Portal access link
    - Plan-specific messaging
-   - Call-to-action for future purchases
+   - What's included summary
+   - Getting started guide
 
 ### Email Configuration
 ```javascript
