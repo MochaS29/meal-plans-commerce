@@ -171,9 +171,12 @@ async function sendProcessingEmail(email: string, session: Stripe.Checkout.Sessi
 
   const customerName = session.customer_details?.name || 'Valued Customer'
   const isSubscription = session.mode === 'subscription'
+  const dietType = session.metadata?.diet_type || 'mediterranean'
+
+  console.log(`📧 Sending email for diet type: ${dietType}`)
 
   // Send welcome email with updated text about AI generation
-  const welcomeHtml = getWelcomeEmailTemplate(customerName, email, isSubscription, true)
+  const welcomeHtml = getWelcomeEmailTemplate(customerName, email, isSubscription, true, undefined, dietType)
   await sendEmail({
     to: email,
     subject: 'Your Personalized Meal Plan is Being Prepared',

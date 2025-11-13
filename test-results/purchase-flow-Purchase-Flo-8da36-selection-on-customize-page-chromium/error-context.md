@@ -1,7 +1,7 @@
 # Page snapshot
 
 ```yaml
-- generic [active] [ref=e1]:
+- generic [ref=e1]:
   - banner [ref=e3]:
     - navigation [ref=e5]:
       - link "Mindful Meal Plans Logo Mindful Meal Plans" [ref=e6] [cursor=pointer]:
@@ -43,7 +43,7 @@
           - generic [ref=e39]:
             - generic [ref=e40]: Select Your Diet Style
             - generic [ref=e41]:
-              - button "🫒 Mediterranean Heart-healthy with olive oil, fish, and fresh vegetables" [ref=e42]:
+              - button "🫒 Mediterranean Heart-healthy with olive oil, fish, and fresh vegetables" [active] [ref=e42]:
                 - generic [ref=e43]:
                   - generic [ref=e44]: 🫒
                   - generic [ref=e45]:

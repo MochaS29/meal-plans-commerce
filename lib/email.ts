@@ -11,6 +11,23 @@ interface SendEmailParams {
   }[]
 }
 
+// Helper function to format diet names for display
+function formatDietName(dietType: string): string {
+  const dietNames: Record<string, string> = {
+    'mediterranean': 'Mediterranean',
+    'keto': 'Keto',
+    'vegan': 'Vegan',
+    'paleo': 'Paleo',
+    'vegetarian': 'Vegetarian',
+    'intermittent-fasting': 'Intermittent Fasting',
+    'family-focused': 'Family Focused',
+    'global': 'Global Cuisine',
+    'global-cuisine': 'Global Cuisine'
+  }
+
+  return dietNames[dietType.toLowerCase()] || dietType.charAt(0).toUpperCase() + dietType.slice(1)
+}
+
 // Lazy load Resend only when needed
 let resend: any = null
 async function getResendClient() {
@@ -158,7 +175,8 @@ export function getWelcomeEmailTemplate(
   customerEmail: string,
   isSubscription: boolean,
   isProcessing: boolean = false,
-  portalUrl: string = 'https://mindfulmealplan.com/portal'
+  portalUrl: string = 'https://mindfulmealplan.com/portal',
+  dietType?: string
 ) {
   return `
     <!DOCTYPE html>
@@ -189,8 +207,8 @@ export function getWelcomeEmailTemplate(
 
             ${isProcessing ? `
             <div class="processing-box">
-              <strong>🤖 Your AI Meal Plan is Being Generated!</strong><br><br>
-              Our AI is creating a personalized meal plan just for you based on your preferences and dietary needs. This usually takes 2-4 hours.<br><br>
+              <strong>🤖 Your ${dietType ? formatDietName(dietType) + ' ' : ''}Meal Plan is Being Generated!</strong><br><br>
+              Our AI is creating a personalized ${dietType ? formatDietName(dietType).toLowerCase() + ' ' : ''}meal plan just for you based on your preferences and dietary needs. This usually takes 2-4 hours.<br><br>
               You'll receive an email with your meal plan download link as soon as it's ready. In the meantime, feel free to explore your member dashboard!
             </div>
             ` : ''}
