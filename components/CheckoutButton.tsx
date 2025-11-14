@@ -23,50 +23,16 @@ export default function CheckoutButton({
 }: CheckoutButtonProps) {
   const [loading, setLoading] = useState(false)
 
-  const handleCheckout = async () => {
-    try {
-      setLoading(true)
+  const handleCheckout = () => {
+    // Get product details for tracking
+    const product = products.find(p => p.id === productId)
+    const amount = product ? product.price / 100 : 0
 
-      // Get product details for tracking
-      const product = products.find(p => p.id === productId)
-      const amount = product ? product.price / 100 : 0
+    // Track begin checkout conversion
+    trackBeginCheckout(productId, amount)
 
-      // Track begin checkout conversion
-      trackBeginCheckout(productId, amount)
-
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          productId: productId,
-          customizations: {}
-        })
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        console.error('Checkout API error:', error)
-        throw new Error(error.error || 'Failed to create checkout session')
-      }
-
-      const { sessionId } = await response.json()
-      const stripe = await stripePromise
-
-      if (!stripe) {
-        throw new Error('Stripe failed to load')
-      }
-
-      const { error } = await stripe.redirectToCheckout({ sessionId })
-
-      if (error) {
-        throw error
-      }
-    } catch (error) {
-      console.error('Checkout error:', error)
-      alert('Something went wrong. Please try again or contact support.')
-    } finally {
-      setLoading(false)
-    }
+    // Redirect to customization page instead of going directly to checkout
+    window.location.href = `/plans/customize?product=${productId}`
   }
 
   const baseClasses = variant === 'primary'
