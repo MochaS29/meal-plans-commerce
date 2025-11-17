@@ -740,8 +740,8 @@ export default function DashboardPage() {
                         </Link>
                         <button
                           onClick={() => {
-                            const availablePlans = user?.purchases?.map(p => p.dietPlan).filter(Boolean) || []
-                            if (availablePlans.length > 0) {
+                            const availablePlans = user?.purchases?.map(p => p.dietPlan).filter((plan): plan is string => Boolean(plan)) || []
+                            if (availablePlans.length > 0 && availablePlans[0]) {
                               setSelectedDiet(availablePlans[0])
                             }
                           }}
