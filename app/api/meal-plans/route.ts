@@ -125,7 +125,7 @@ async function checkUserAccess(email: string, menuType: string, month?: string, 
 }
 
 // Get customer's personalized meal plan from database
-async function getCustomerMealPlan(email: string, menuType: string) {
+async function getCustomerMealPlan(email: string, menuType: string, month: number = 11, year: number = 2025) {
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -210,7 +210,7 @@ async function getCustomerMealPlan(email: string, menuType: string) {
     console.log(`✅ Fetched ${recipes.length} recipes from database`);
 
     // Build calendar structure from customer's recipes
-    return buildCalendarFromRecipes(recipes, menuType);
+    return buildCalendarFromRecipes(recipes, menuType, month, year);
 
   } catch (error) {
     console.error('Error getting customer meal plan:', error);
@@ -219,7 +219,7 @@ async function getCustomerMealPlan(email: string, menuType: string) {
 }
 
 // Build calendar structure from recipes with intelligent meal type distribution
-function buildCalendarFromRecipes(recipes: any[], menuType: string) {
+function buildCalendarFromRecipes(recipes: any[], menuType: string, month: number = 11, year: number = 2025) {
   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                       'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -235,10 +235,13 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string) {
 
   console.log(`📊 Recipe distribution: ${breakfastPool.length} breakfast, ${lunchPool.length} lunch, ${dinnerPool.length} dinner`);
 
-  // Organize recipes into 30 days with proper meal type distribution
+  // Calculate days in the specified month
+  const daysInMonth = new Date(year, month, 0).getDate();
+
+  // Organize recipes into days with proper meal type distribution
   const dailyMeals: any = {};
 
-  for (let day = 1; day <= 30; day++) {
+  for (let day = 1; day <= daysInMonth; day++) {
     const dayKey = `day_${day}`;
 
     // Rotate through appropriate recipe pools
@@ -247,7 +250,7 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string) {
     const dinner = dinnerPool[(day - 1) % dinnerPool.length];
 
     dailyMeals[dayKey] = {
-      date: `2025-01-${day.toString().padStart(2, '0')}`,
+      date: `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`,
       breakfast: {
         name: breakfast.name,
         calories: breakfast.recipe_nutrition?.[0]?.calories || 0,
@@ -270,11 +273,11 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string) {
   }
 
   return {
-    title: `${menuType.charAt(0).toUpperCase() + menuType.slice(1)} - ${monthNames[0]} 2025`,
+    title: `${menuType.charAt(0).toUpperCase() + menuType.slice(1)} - ${monthNames[month - 1]} ${year}`,
     description: 'Your personalized meal plan with recipes selected just for you',
     menuType: menuType,
-    month: 1,
-    year: 2025,
+    month: month,
+    year: year,
     dailyMeals,
     isPersonalized: true // Flag to indicate this is customer-specific
   };
@@ -283,7 +286,7 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string) {
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const menuType = searchParams.get('menuType');
-  const month = searchParams.get('month') || '1';
+  const month = searchParams.get('month') || '11';
   const year = searchParams.get('year') || '2025';
 
   if (!menuType) {
@@ -324,7 +327,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const personalizedPlan = await getCustomerMealPlan(userEmail, menuType);
+    const personalizedPlan = await getCustomerMealPlan(userEmail, menuType, parseInt(month), parseInt(year));
 
     if (personalizedPlan) {
       console.log(`✅ Returning personalized meal plan for ${userEmail}`);
