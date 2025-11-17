@@ -127,7 +127,7 @@ export default function DashboardPage() {
   const [user, setUser] = useState<UserData | null>(null)
   const [loading, setLoading] = useState(true)
   const [selectedDiet, setSelectedDiet] = useState('mediterranean')
-  const [selectedMonth, setSelectedMonth] = useState(1) // Default to January since we have data for months 1-4
+  const [selectedMonth, setSelectedMonth] = useState(11) // Default to November (current month)
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [copiedList, setCopiedList] = useState(false)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
@@ -665,7 +665,7 @@ export default function DashboardPage() {
                       onChange={(e) => setSelectedMonth(Number(e.target.value))}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-900 font-medium"
                     >
-                      {months.slice(0, 4).map((month, index) => (
+                      {months.map((month, index) => (
                         <option key={month} value={index + 1}>{month}</option>
                       ))}
                     </select>
