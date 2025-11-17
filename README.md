@@ -16,9 +16,11 @@ A full-stack Next.js 15 e-commerce platform for selling personalized meal plans,
 - **Unified Customization** - Single page for selecting diet type, family size, and dietary preferences
 - **Flexible Pricing** - $59 one-time purchase or $29/month subscription
 - **30-Day Meal Plans** - Complete monthly meal calendars with personalized recipe selection
+- **42+ Recipes Per Plan** - 30 dinner recipes (1 per day) + 7 BONUS breakfasts + 5 BONUS desserts
 - **Beautiful PDF Design** - Stunning cover image with full recipes, ingredients, and nutrition info
-- **Background Processing** - Meal plans generated asynchronously and emailed when ready
-- **AI-Powered Generation** - Fresh, personalized recipes generated based on customer preferences
+- **Background Processing** - Meal plans generated asynchronously and emailed when ready (2-4 hours)
+- **AI-Powered Generation** - Fresh, personalized recipes generated based on customer preferences using Claude AI
+- **Lifetime Access** - Keep access to all purchased meal plans, even after subscription cancellation
 - **Secure Payments** - Stripe Checkout integration with automated fulfillment
 - **Mobile Responsive** - Fully optimized for all devices and screen sizes
 
