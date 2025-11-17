@@ -10,11 +10,11 @@
 **Why:** Without RLS, anyone can access all your database data
 
 ### 2. 📧 Complete Email Domain Verification
-**Status:** Waiting for DNS propagation
-- [ ] Complete domain verification with Resend for `recipes@mochasmindlab.com`
-- [ ] Update `EMAIL_FROM` in `.env.local` from `onboarding@resend.dev` to `recipes@mochasmindlab.com`
+**Status:** ✅ CONFIGURED (Pending DNS verification)
+- [x] Update `EMAIL_FROM` in `.env.local` to `recipes@mindfulmealplan.com`
+- [ ] Complete domain verification with Resend
 - [ ] Test email delivery with custom domain
-**Why:** Currently using Resend sandbox which has limitations
+**Why:** Using custom domain, but may need DNS verification
 
 ### 3. 💳 Switch to Stripe Live Mode
 **Status:** Ready when you are
@@ -26,13 +26,14 @@
 - [ ] Update `STRIPE_WEBHOOK_SECRET` with production webhook secret
 **Why:** Currently using test keys - no real payments possible
 
-### 4. 🔐 Secure Environment Variables in Vercel
-**Status:** Ready to configure
-- [ ] Go to Vercel project settings
-- [ ] Add all production environment variables
-- [ ] Remove any test/development values
-- [ ] Ensure sensitive keys are marked as secret
-**Why:** Production secrets must be secure and not in code
+### 4. 🔐 Secure Environment Variables
+**Status:** ✅ SECURED
+- [x] Generate strong JWT_SECRET (88-char random string)
+- [x] Generate strong ADMIN_API_KEY (64-char hex string)
+- [ ] Add all environment variables to Vercel
+- [ ] Remove any test/development values from Vercel
+- [ ] Ensure sensitive keys are marked as secret in Vercel
+**Why:** Local environment is secure, Vercel needs configuration
 
 ### 5. 🌐 Configure Production Domain
 **Status:** Needs setup
@@ -88,6 +89,19 @@
 - [ ] Test email rendering on mobile clients
 **Why:** Many users will access via mobile
 
+## ✅ RECENTLY COMPLETED
+
+### ✨ Password Reset Functionality
+**Status:** ✅ COMPLETE
+- [x] Create `/api/auth/forgot-password` endpoint
+- [x] Create `/api/auth/reset-password` endpoint
+- [x] Create `/reset-password` UI page
+- [x] Implement secure token storage in `password_reset_tokens` table
+- [x] Add email templates for password reset
+- [x] Implement token expiry and one-time use
+- [x] Add comprehensive validation and security checks
+**Commit:** `5f9f295` - Add password reset functionality
+
 ## Additional Tasks (Nice to Have)
 
 ### 11. 🎯 Purchase History & User Dashboard
@@ -116,9 +130,9 @@
 **Why:** Faster site = better conversions
 
 ### 14. 📝 Legal Pages
-**Status:** Not created
-- [ ] Create Terms of Service page
-- [ ] Create Privacy Policy page
+**Status:** ✅ COMPLETE
+- [x] Create Terms of Service page (`/app/terms/page.tsx`)
+- [x] Create Privacy Policy page (`/app/privacy/page.tsx`)
 - [ ] Create Refund Policy page
 - [ ] Add cookie consent banner (if needed)
 - [ ] Ensure GDPR compliance
@@ -180,9 +194,9 @@ REPLICATE_API_TOKEN=r8_...
 # Storage
 BLOB_READ_WRITE_TOKEN=vercel_blob_...
 
-# Security
-ADMIN_API_KEY=your-secure-key
-JWT_SECRET=your-secure-jwt-secret
+# Security (✅ Already configured with strong values)
+ADMIN_API_KEY=ba92ff3e18c089cc916f47f7e5eddeba03d3d71220f0914fbc2285d28aeed4e0
+JWT_SECRET=KIyBQDK97gSAyV9G/UmRSuUVzByrnD2NPDoEf5LQ1gpmH5wYSv1SqU+b59ojvrj7culebDWluJdEAsshz7THXw==
 ```
 
 ## Priority Order
