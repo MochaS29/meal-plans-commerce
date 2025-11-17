@@ -124,6 +124,16 @@
 - [ ] Add user profile management
 **Why:** Better user experience for returning customers
 
+### 11a. 💳 Subscription Management Page
+**Status:** Not implemented
+- [ ] Add subscription management to user dashboard
+- [ ] Show active subscriptions with renewal dates
+- [ ] Allow users to cancel subscriptions
+- [ ] Show subscription history
+- [ ] Option to update payment method
+- [ ] Display upcoming charges
+**Why:** Users need to manage their monthly subscriptions easily
+
 ### 12. 💬 Customer Support System
 **Status:** Not implemented
 - [ ] Set up support email address
