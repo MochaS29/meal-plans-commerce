@@ -23,16 +23,16 @@ export default function PricingPage() {
       description: 'Your customized meal calendar with 30 days of recipes delivered as a beautiful PDF',
       popular: true,
       features: [
-        '30-day meal calendar with daily recipes',
+        '42 AI-generated recipes: 30 dinners + 7 breakfasts + 5 desserts',
+        '30-day meal calendar with daily dinner assignments',
         'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
-        '30 complete recipes with full instructions',
-        'Ingredient lists for every recipe',
-        'Complete nutritional information per serving',
-        'Beautiful PDF with cover image',
-        'Prep time and cook time for each recipe',
-        'Difficulty level and serving sizes',
-        'Customize for family size and dietary needs',
-        'Delivered within 24 hours via email'
+        'Full ingredients list with measurements for every recipe',
+        'Complete nutritional information (calories, macros, fiber)',
+        'Beautiful PDF with AI-generated cover image',
+        'Prep time, cook time, and difficulty level',
+        'Customized for your family size and dietary needs',
+        'Lifetime access - keep it forever',
+        'Delivered within 2-4 hours via email'
       ],
       productId: 'wellness-transformation',
       color: 'teal'
@@ -45,16 +45,16 @@ export default function PricingPage() {
       description: 'Fresh personalized meal plans delivered monthly',
       savings: 'Save 50% - Best value for ongoing support',
       features: [
-        'New meal calendar on the 1st of each month',
-        '30 new recipes delivered monthly',
-        'All features from the one-time plan',
+        '42 NEW recipes every month (30 dinners + 7 breakfasts + 5 desserts)',
+        'Fresh seasonal recipes delivered on the 1st',
+        'Keep access to ALL previous months forever (even after cancellation)',
+        'All features from the one-time plan included',
         'Change diet preferences each month',
-        'Adjust family size anytime',
-        'Update dietary needs as needed',
-        'Beautiful PDF delivered via email',
-        'Complete nutritional information',
+        'Adjust family size and dietary needs anytime',
+        'Beautiful PDF with fresh AI-generated images',
+        'Continuous variety - never repeat the same meal',
         'Priority email support',
-        'Cancel anytime - no commitment'
+        'Cancel anytime - keep your past meal plans'
       ],
       productId: 'monthly-calendar',
       color: 'green'
