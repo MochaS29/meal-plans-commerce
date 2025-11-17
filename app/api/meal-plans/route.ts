@@ -25,8 +25,8 @@ async function getUserEmail(request: NextRequest): Promise<string | null> {
   }
 }
 
-// Check if user has purchased access to this diet type
-async function checkUserAccess(email: string, menuType: string): Promise<boolean> {
+// Check if user has purchased access to this specific diet type AND month
+async function checkUserAccess(email: string, menuType: string, month?: string, year?: string): Promise<boolean> {
   try {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -38,7 +38,43 @@ async function checkUserAccess(email: string, menuType: string): Promise<boolean
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Get user's purchases
+    // OPTION 1: Check customer_meal_plans for specific month/year access
+    // This table tracks which exact meal plans were generated for this customer
+    if (month && year) {
+      const { data: mealPlans, error: mpError } = await supabase
+        .from('customer_meal_plans')
+        .select('id, diet_type, purchase_date')
+        .eq('customer_email', email.toLowerCase());
+
+      if (!mpError && mealPlans && mealPlans.length > 0) {
+        const normalizedMenuType = menuType.toLowerCase().trim().replace(/\s+/g, '-');
+
+        // Check if they have a meal plan for this diet type and month
+        const hasSpecificPlan = mealPlans.some((plan: any) => {
+          const planDiet = plan.diet_type.toLowerCase().trim().replace(/\s+/g, '-');
+          const purchaseDate = new Date(plan.purchase_date);
+          const purchaseMonth = (purchaseDate.getMonth() + 1).toString();
+          const purchaseYear = purchaseDate.getFullYear().toString();
+
+          const dietMatches = planDiet === normalizedMenuType ||
+                             planDiet.includes(normalizedMenuType) ||
+                             normalizedMenuType.includes(planDiet);
+
+          // For one-time purchases: only access the specific month purchased
+          // For subscriptions: access current month and all past months
+          const monthMatches = purchaseMonth === month && purchaseYear === year;
+
+          return dietMatches && monthMatches;
+        });
+
+        if (hasSpecificPlan) {
+          console.log(`✅ ACCESS GRANTED: ${email} has meal plan for ${menuType} ${month}/${year}`);
+          return true;
+        }
+      }
+    }
+
+    // OPTION 2: Fallback to checking purchases (for subscriptions or broader access)
     const { data: user, error: userError } = await supabase
       .from('users')
       .select(`
@@ -47,28 +83,28 @@ async function checkUserAccess(email: string, menuType: string): Promise<boolean
           product_id,
           product_name,
           diet_plan,
-          status
+          status,
+          purchased_at
         )
       `)
       .eq('email', email.toLowerCase())
       .single();
 
     if (userError || !user) {
-      console.log(`User not found: ${email}`);
+      console.log(`🚫 User not found: ${email}`);
       return false;
     }
 
-    // Check if user has purchased this specific diet type
+    // Check if user has purchased this diet type
     const purchases = user.user_purchases || [];
-    const normalizedMenuType = menuType.toLowerCase().trim();
+    const normalizedMenuType = menuType.toLowerCase().trim().replace(/\s+/g, '-');
 
     const hasAccess = purchases.some((purchase: any) => {
       if (purchase.status !== 'completed') return false;
 
-      // Check if diet_plan matches
       if (purchase.diet_plan) {
         const purchasedDiet = purchase.diet_plan.toLowerCase().trim().replace(/\s+/g, '-');
-        const requestedDiet = normalizedMenuType.replace(/\s+/g, '-');
+        const requestedDiet = normalizedMenuType;
 
         if (purchasedDiet === requestedDiet) return true;
         if (purchasedDiet.includes(requestedDiet)) return true;
@@ -270,17 +306,19 @@ export async function GET(request: NextRequest) {
 
   if (userEmail) {
     console.log(`🔍 Checking for personalized meal plan for: ${userEmail}`);
+    console.log(`   Diet: ${menuType}, Month: ${month}, Year: ${year}`);
 
-    // Check if user has purchased this specific diet type
-    const hasAccess = await checkUserAccess(userEmail, menuType);
+    // Check if user has purchased access to this specific month/year
+    const hasAccess = await checkUserAccess(userEmail, menuType, month, year);
 
     if (!hasAccess) {
-      console.log(`🚫 User ${userEmail} does not have access to ${menuType}`);
+      console.log(`🚫 User ${userEmail} does not have access to ${menuType} ${month}/${year}`);
       return NextResponse.json(
         {
           error: 'Access denied',
-          message: `You have not purchased the ${menuType} meal plan. Please purchase it first to access this content.`,
-          purchased: false
+          message: `You have not purchased the ${menuType} meal plan for ${month}/${year}. Please purchase it to access this content.`,
+          purchased: false,
+          requestedMonth: `${month}/${year}`
         },
         { status: 403 }
       );
