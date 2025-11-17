@@ -149,15 +149,70 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
     }
   }
 
-  // Step 3: Balance meal types
-  const balanced = balanceRecipesByMealType(selectedRecipes, mealTypes)
+  // Step 3: Remove duplicates and similar recipes
+  const deduplicated = deduplicateRecipes(selectedRecipes)
+
+  // Step 4: Balance meal types
+  const balanced = balanceRecipesByMealType(deduplicated, mealTypes)
 
   console.log(`\n📊 Final selection:`)
   console.log(`  - Total: ${balanced.length} recipes`)
+  console.log(`  - Duplicates removed: ${selectedRecipes.length - deduplicated.length}`)
   console.log(`  - From library: ${balanced.filter(r => !r.isNew).length}`)
   console.log(`  - Newly generated: ${balanced.filter(r => r.isNew).length}`)
 
   return balanced
+}
+
+// Deduplicate recipes by removing exact matches and very similar names
+function deduplicateRecipes(recipes: SelectedRecipe[]): SelectedRecipe[] {
+  const unique: SelectedRecipe[] = []
+  const seenNames = new Set<string>()
+
+  for (const recipe of recipes) {
+    const normalizedName = normalizeRecipeName(recipe.name)
+
+    // Check for exact match
+    if (seenNames.has(normalizedName)) {
+      console.log(`⚠️  Skipping duplicate: "${recipe.name}"`)
+      continue
+    }
+
+    // Check for very similar names (e.g., "roasted vegetable quinoa bowl" vs "roasted veggie quinoa bowl")
+    const isSimilar = Array.from(seenNames).some(existingName => {
+      return calculateSimilarity(normalizedName, existingName) > 0.85
+    })
+
+    if (isSimilar) {
+      console.log(`⚠️  Skipping similar recipe: "${recipe.name}"`)
+      continue
+    }
+
+    seenNames.add(normalizedName)
+    unique.push(recipe)
+  }
+
+  return unique
+}
+
+// Normalize recipe name for comparison
+function normalizeRecipeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, '') // Remove special characters
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+}
+
+// Calculate string similarity using Levenshtein-like approach
+function calculateSimilarity(str1: string, str2: string): number {
+  const words1 = new Set(str1.split(' '))
+  const words2 = new Set(str2.split(' '))
+
+  const intersection = new Set([...words1].filter(word => words2.has(word)))
+  const union = new Set([...words1, ...words2])
+
+  return intersection.size / union.size // Jaccard similarity
 }
 
 // Helper function to determine meal type from recipe name
