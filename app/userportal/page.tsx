@@ -221,6 +221,15 @@ export default function DashboardPage() {
       if (response.ok) {
         const data = await response.json()
         setMealPlanData(data)
+      } else if (response.status === 403) {
+        // Access denied - user hasn't purchased this diet type
+        const errorData = await response.json()
+        setMealPlanData({
+          error: true,
+          message: errorData.message || `You haven't purchased the ${selectedDiet} meal plan yet.`,
+          title: 'Access Denied',
+          dailyMeals: {}
+        })
       } else {
         console.error('Failed to fetch meal plan data - using fallback data')
         // Create fallback meal data with clickable recipes
@@ -715,9 +724,33 @@ export default function DashboardPage() {
                     <div className="animate-pulse text-amber-700">Loading your meal plan...</div>
                   </div>
                 ) : mealPlanData?.error ? (
-                  <div className="col-span-7 text-center py-8">
-                    <div className="text-red-600 mb-2">⚠️ {mealPlanData.message}</div>
-                    <div className="text-gray-600 text-sm">Try selecting a different month from the dropdown above.</div>
+                  <div className="col-span-7 flex flex-col items-center justify-center py-12 px-4">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
+                      <div className="text-red-600 mb-3 text-lg font-semibold flex items-center gap-2">
+                        <span className="text-2xl">🔒</span>
+                        {mealPlanData.title || 'Access Denied'}
+                      </div>
+                      <p className="text-gray-700 mb-4">{mealPlanData.message}</p>
+                      <div className="flex gap-3">
+                        <Link
+                          href="/pricing"
+                          className="flex-1 bg-amber-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-amber-700 transition text-center"
+                        >
+                          View Plans
+                        </Link>
+                        <button
+                          onClick={() => {
+                            const availablePlans = user?.purchases?.map(p => p.dietPlan).filter(Boolean) || []
+                            if (availablePlans.length > 0) {
+                              setSelectedDiet(availablePlans[0])
+                            }
+                          }}
+                          className="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition"
+                        >
+                          My Plans
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 ) : Array.from({ length: 30 }, (_, i) => {
                   const dayNum = i + 1

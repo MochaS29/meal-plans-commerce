@@ -25,6 +25,69 @@ async function getUserEmail(request: NextRequest): Promise<string | null> {
   }
 }
 
+// Check if user has purchased access to this diet type
+async function checkUserAccess(email: string, menuType: string): Promise<boolean> {
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      console.log('Supabase not configured');
+      return false;
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    // Get user's purchases
+    const { data: user, error: userError } = await supabase
+      .from('users')
+      .select(`
+        id,
+        user_purchases (
+          product_id,
+          product_name,
+          diet_plan,
+          status
+        )
+      `)
+      .eq('email', email.toLowerCase())
+      .single();
+
+    if (userError || !user) {
+      console.log(`User not found: ${email}`);
+      return false;
+    }
+
+    // Check if user has purchased this specific diet type
+    const purchases = user.user_purchases || [];
+    const normalizedMenuType = menuType.toLowerCase().trim();
+
+    const hasAccess = purchases.some((purchase: any) => {
+      if (purchase.status !== 'completed') return false;
+
+      // Check if diet_plan matches
+      if (purchase.diet_plan) {
+        const purchasedDiet = purchase.diet_plan.toLowerCase().trim().replace(/\s+/g, '-');
+        const requestedDiet = normalizedMenuType.replace(/\s+/g, '-');
+
+        if (purchasedDiet === requestedDiet) return true;
+        if (purchasedDiet.includes(requestedDiet)) return true;
+        if (requestedDiet.includes(purchasedDiet)) return true;
+      }
+
+      return false;
+    });
+
+    console.log(`Access check for ${email} - ${menuType}: ${hasAccess ? '✅ GRANTED' : '🚫 DENIED'}`);
+    console.log(`Purchased diet plans:`, purchases.map((p: any) => p.diet_plan).join(', '));
+
+    return hasAccess;
+  } catch (error) {
+    console.error('Error checking user access:', error);
+    return false;
+  }
+}
+
 // Get customer's personalized meal plan from database
 async function getCustomerMealPlan(email: string, menuType: string) {
   try {
@@ -207,6 +270,22 @@ export async function GET(request: NextRequest) {
 
   if (userEmail) {
     console.log(`🔍 Checking for personalized meal plan for: ${userEmail}`);
+
+    // Check if user has purchased this specific diet type
+    const hasAccess = await checkUserAccess(userEmail, menuType);
+
+    if (!hasAccess) {
+      console.log(`🚫 User ${userEmail} does not have access to ${menuType}`);
+      return NextResponse.json(
+        {
+          error: 'Access denied',
+          message: `You have not purchased the ${menuType} meal plan. Please purchase it first to access this content.`,
+          purchased: false
+        },
+        { status: 403 }
+      );
+    }
+
     const personalizedPlan = await getCustomerMealPlan(userEmail, menuType);
 
     if (personalizedPlan) {
@@ -219,7 +298,7 @@ export async function GET(request: NextRequest) {
     console.log('ℹ️  No user session, using static meal plan');
   }
 
-  // Fall back to static JSON file (for demos or if no personalized plan exists)
+  // Fall back to static JSON file (for demos or unauthenticated users)
   try {
     const filename = `${menuType}-${year}-${month.padStart(2, '0')}.json`;
     const filePath = path.join(process.cwd(), 'data', 'meal-plans', filename);
