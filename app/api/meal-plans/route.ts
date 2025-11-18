@@ -224,51 +224,45 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string, month: numbe
                       'July', 'August', 'September', 'October', 'November', 'December'];
 
   // Separate recipes by meal type
-  const breakfastRecipes = recipes.filter(r => r.meal_type === 'breakfast' || r.meal_type === 'any');
-  const lunchRecipes = recipes.filter(r => r.meal_type === 'lunch' || r.meal_type === 'any');
   const dinnerRecipes = recipes.filter(r => r.meal_type === 'dinner' || r.meal_type === 'any');
+  const breakfastRecipes = recipes.filter(r => r.meal_type === 'breakfast');
+  const dessertRecipes = recipes.filter(r => r.meal_type === 'dessert');
 
-  // Fallback to all recipes if a category is empty
-  const breakfastPool = breakfastRecipes.length > 0 ? breakfastRecipes : recipes;
-  const lunchPool = lunchRecipes.length > 0 ? lunchRecipes : recipes;
+  // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+  // const lunchRecipes = recipes.filter(r => r.meal_type === 'lunch' || r.meal_type === 'any');
+  // const breakfastPool = breakfastRecipes.length > 0 ? breakfastRecipes : recipes;
+  // const lunchPool = lunchRecipes.length > 0 ? lunchRecipes : recipes;
+
+  // Use dinners for daily calendar (30 days)
   const dinnerPool = dinnerRecipes.length > 0 ? dinnerRecipes : recipes;
 
-  console.log(`📊 Recipe distribution: ${breakfastPool.length} breakfast, ${lunchPool.length} lunch, ${dinnerPool.length} dinner`);
+  console.log(`📊 Recipe distribution: ${dinnerPool.length} dinners (daily), ${breakfastRecipes.length} breakfasts (bonus), ${dessertRecipes.length} desserts (bonus)`);
 
   // Calculate days in the specified month
   const daysInMonth = new Date(year, month, 0).getDate();
 
-  // Organize recipes into days with proper meal type distribution
+  // Organize recipes into days - ONE unique dinner per day (no reuse!)
   const dailyMeals: any = {};
 
-  for (let day = 1; day <= daysInMonth; day++) {
+  for (let day = 1; day <= Math.min(daysInMonth, dinnerPool.length); day++) {
     const dayKey = `day_${day}`;
 
-    // Rotate through appropriate recipe pools
-    const breakfast = breakfastPool[(day - 1) % breakfastPool.length];
-    const lunch = lunchPool[(day - 1) % lunchPool.length];
-    const dinner = dinnerPool[(day - 1) % dinnerPool.length];
+    // Use a unique dinner recipe for each day (no rotation/reuse)
+    const dinner = dinnerPool[day - 1]; // Sequential, not rotating
 
     dailyMeals[dayKey] = {
       date: `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`,
-      breakfast: {
-        name: breakfast.name,
-        calories: breakfast.recipe_nutrition?.[0]?.calories || 0,
-        protein: breakfast.recipe_nutrition?.[0]?.protein ? `${breakfast.recipe_nutrition[0].protein}g` : '0g',
-        prepTime: `${breakfast.prep_time || 0} min`
-      },
-      lunch: {
-        name: lunch.name,
-        calories: lunch.recipe_nutrition?.[0]?.calories || 0,
-        protein: lunch.recipe_nutrition?.[0]?.protein ? `${lunch.recipe_nutrition[0].protein}g` : '0g',
-        prepTime: `${lunch.prep_time || 0} min`
-      },
       dinner: {
         name: dinner.name,
         calories: dinner.recipe_nutrition?.[0]?.calories || 0,
         protein: dinner.recipe_nutrition?.[0]?.protein ? `${dinner.recipe_nutrition[0].protein}g` : '0g',
-        prepTime: `${dinner.prep_time || 0} min`
+        prepTime: `${dinner.prep_time || 0} min`,
+        cookTime: `${dinner.cook_time || 0} min`,
+        difficulty: dinner.difficulty || 'medium'
       }
+      // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+      // breakfast: { ... },
+      // lunch: { ... }
     };
   }
 
@@ -279,6 +273,28 @@ function buildCalendarFromRecipes(recipes: any[], menuType: string, month: numbe
     month: month,
     year: year,
     dailyMeals,
+    bonusRecipes: {
+      breakfasts: breakfastRecipes.map(r => ({
+        name: r.name,
+        description: r.description,
+        prepTime: `${r.prep_time || 0} min`,
+        cookTime: `${r.cook_time || 0} min`,
+        servings: r.servings || 4,
+        difficulty: r.difficulty || 'medium',
+        calories: r.recipe_nutrition?.[0]?.calories || 0,
+        protein: r.recipe_nutrition?.[0]?.protein ? `${r.recipe_nutrition[0].protein}g` : '0g'
+      })),
+      desserts: dessertRecipes.map(r => ({
+        name: r.name,
+        description: r.description,
+        prepTime: `${r.prep_time || 0} min`,
+        cookTime: `${r.cook_time || 0} min`,
+        servings: r.servings || 4,
+        difficulty: r.difficulty || 'medium',
+        calories: r.recipe_nutrition?.[0]?.calories || 0,
+        protein: r.recipe_nutrition?.[0]?.protein ? `${r.recipe_nutrition[0].protein}g` : '0g'
+      }))
+    },
     isPersonalized: true // Flag to indicate this is customer-specific
   };
 }

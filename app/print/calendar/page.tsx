@@ -67,16 +67,18 @@ function CalendarContent() {
 
     if (dayMeals) {
       return {
-        breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
-        lunch: dayMeals.lunch?.name || 'No lunch planned',
-        dinner: dayMeals.dinner?.name || 'No dinner planned'
+        dinner: dayMeals.dinner?.name || 'No dinner planned',
+        // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+        // breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
+        // lunch: dayMeals.lunch?.name || 'No lunch planned'
       }
     }
 
     return {
-      breakfast: 'Loading...',
-      lunch: 'Loading...',
-      dinner: 'Loading...'
+      dinner: 'Loading...',
+      // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+      // breakfast: 'Loading...',
+      // lunch: 'Loading...'
     }
   }
 
@@ -248,14 +250,16 @@ function CalendarContent() {
                 </div>
                 <div className="space-y-1 text-xs">
                   <div className="font-semibold text-gray-900">
-                    <span className="text-amber-800">🌅 B:</span> {meals.breakfast}
+                    <span className="text-purple-700">🍽️ Dinner:</span> {meals.dinner}
+                  </div>
+                  {/* FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+                  <div className="font-semibold text-gray-900">
+                    <span className="text-amber-800">🌅 Breakfast:</span> {meals.breakfast}
                   </div>
                   <div className="font-semibold text-gray-900">
-                    <span className="text-teal-700">☀️ L:</span> {meals.lunch}
+                    <span className="text-teal-700">☀️ Lunch:</span> {meals.lunch}
                   </div>
-                  <div className="font-semibold text-gray-900">
-                    <span className="text-purple-700">🌙 D:</span> {meals.dinner}
-                  </div>
+                  */}
                 </div>
               </div>
             )
@@ -266,16 +270,23 @@ function CalendarContent() {
       {/* Footer */}
       <div className="mt-8 pt-4 border-t border-gray-300 text-center text-xs text-gray-900">
         <p className="font-bold mb-1">Meal Prep Tips:</p>
-        <div className="grid grid-cols-3 gap-4 text-left max-w-4xl mx-auto">
+        <div className="text-left max-w-4xl mx-auto">
           <div>
-            <strong className="text-amber-800">Breakfast Prep:</strong> Prepare overnight oats, smoothie packs, or egg muffins in advance
+            <strong className="text-purple-700">Dinner Prep:</strong> Chop vegetables and marinate proteins the night before. Batch cook grains and proteins on Sunday for easy weeknight meals. Check your BONUS recipes section for breakfast and dessert ideas!
           </div>
-          <div>
-            <strong className="text-teal-700">Lunch Prep:</strong> Batch cook proteins and grains on Sunday for easy assembly
+          {/* FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+          <div className="grid grid-cols-3 gap-4 mt-2">
+            <div>
+              <strong className="text-amber-800">Breakfast Prep:</strong> Prepare overnight oats, smoothie packs, or egg muffins in advance
+            </div>
+            <div>
+              <strong className="text-teal-700">Lunch Prep:</strong> Batch cook proteins and grains on Sunday for easy assembly
+            </div>
+            <div>
+              <strong className="text-purple-700">Dinner Prep:</strong> Chop vegetables and marinate proteins the night before
+            </div>
           </div>
-          <div>
-            <strong className="text-purple-700">Dinner Prep:</strong> Chop vegetables and marinate proteins the night before
-          </div>
+          */}
         </div>
         <p className="mt-4">© 2025 Mindful Meal Plan - Your Journey to Healthier Eating</p>
       </div>
