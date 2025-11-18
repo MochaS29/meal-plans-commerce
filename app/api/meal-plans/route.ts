@@ -5,6 +5,13 @@ import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
 import { createClient } from '@supabase/supabase-js';
 
+// Helper function to get month name
+function getMonthName(month: number): string {
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+                      'July', 'August', 'September', 'October', 'November', 'December'];
+  return monthNames[month - 1] || 'Unknown';
+}
+
 // Get user email from session cookie
 async function getUserEmail(request: NextRequest): Promise<string | null> {
   try {
@@ -152,20 +159,41 @@ async function getCustomerMealPlan(email: string, menuType: string, month: numbe
 
     console.log(`Found ${jobs.length} meal plan jobs for ${email}`);
 
-    // Find the job that matches the requested diet type
+    // Find the job that matches the requested diet type AND month/year
     const normalizedMenuType = menuType.toLowerCase().trim().replace(/\s+/g, '-');
-    const matchingJob = jobs.find((job: any) => {
+
+    // First, try to find exact match by diet type, month, and year
+    let matchingJob = jobs.find((job: any) => {
       const jobDiet = job.diet_type.toLowerCase().trim().replace(/\s+/g, '-');
-      return jobDiet === normalizedMenuType ||
-             jobDiet.includes(normalizedMenuType) ||
-             normalizedMenuType.includes(jobDiet);
+      const dietMatches = jobDiet === normalizedMenuType ||
+                         jobDiet.includes(normalizedMenuType) ||
+                         normalizedMenuType.includes(jobDiet);
+
+      // Match month and year if provided
+      const monthMatches = job.month === month;
+      const yearMatches = job.year === year;
+
+      return dietMatches && monthMatches && yearMatches;
     });
+
+    // If no exact match for this month/year, fall back to most recent for this diet type
+    if (!matchingJob) {
+      console.log(`No meal plan found for ${menuType} in ${month}/${year}, checking for any ${menuType} plan...`);
+      matchingJob = jobs.find((job: any) => {
+        const jobDiet = job.diet_type.toLowerCase().trim().replace(/\s+/g, '-');
+        return jobDiet === normalizedMenuType ||
+               jobDiet.includes(normalizedMenuType) ||
+               normalizedMenuType.includes(jobDiet);
+      });
+    }
 
     if (!matchingJob) {
       console.log(`No job found matching diet type: ${menuType}`);
       console.log(`Available diets:`, jobs.map((j: any) => j.diet_type).join(', '));
       return null;
     }
+
+    console.log(`✅ Found meal plan: ${matchingJob.diet_type} for ${matchingJob.month}/${matchingJob.year}`);
 
     if (!matchingJob.generated_recipes || matchingJob.generated_recipes.length === 0) {
       console.log('Meal plan job has no generated recipes');
@@ -272,6 +300,62 @@ export async function GET(request: NextRequest) {
   const menuType = searchParams.get('menuType');
   const month = searchParams.get('month') || '11';
   const year = searchParams.get('year') || '2025';
+  const listAll = searchParams.get('listAll') === 'true';
+
+  // NEW: If listAll=true, return all meal plans for this user
+  if (listAll) {
+    const userEmail = await getUserEmail(request);
+
+    if (!userEmail) {
+      return NextResponse.json(
+        { error: 'Not authenticated' },
+        { status: 401 }
+      );
+    }
+
+    try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+      if (!supabaseUrl || !supabaseKey) {
+        return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+      }
+
+      const supabase = createClient(supabaseUrl, supabaseKey);
+
+      const { data: jobs, error } = await supabase
+        .from('meal_plan_jobs')
+        .select('id, diet_type, month, year, created_at, recipe_count, pdf_url')
+        .eq('customer_email', userEmail)
+        .eq('status', 'completed')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error fetching meal plans:', error);
+        return NextResponse.json({ error: 'Failed to fetch meal plans' }, { status: 500 });
+      }
+
+      // Format the response
+      const mealPlans = jobs.map(job => ({
+        id: job.id,
+        dietType: job.diet_type,
+        month: job.month,
+        year: job.year,
+        createdAt: job.created_at,
+        recipeCount: job.recipe_count,
+        pdfUrl: job.pdf_url,
+        displayName: `${job.diet_type} - ${getMonthName(job.month)} ${job.year}`
+      }));
+
+      return NextResponse.json({
+        mealPlans,
+        total: mealPlans.length
+      });
+    } catch (error) {
+      console.error('Error in listAll:', error);
+      return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    }
+  }
 
   if (!menuType) {
     // Return list of available menu types
