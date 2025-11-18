@@ -759,15 +759,17 @@ export default function DashboardPage() {
 
                   // Get real meal data from the database
                   const dayMeals = mealPlanData?.dailyMeals?.[dayKey]
-                  
+
                   const meals = dayMeals ? {
-                    breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
-                    lunch: dayMeals.lunch?.name || 'No lunch planned', 
                     dinner: dayMeals.dinner?.name || 'No dinner planned'
+                    // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+                    // breakfast: dayMeals.breakfast?.name || 'No breakfast planned',
+                    // lunch: dayMeals.lunch?.name || 'No lunch planned'
                   } : {
-                    breakfast: 'Loading...',
-                    lunch: 'Loading...',
                     dinner: 'Loading...'
+                    // FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+                    // breakfast: 'Loading...',
+                    // lunch: 'Loading...'
                   }
 
                   return (
@@ -776,14 +778,23 @@ export default function DashboardPage() {
                       className="border border-gray-200 rounded-lg p-2 min-h-[120px] bg-white hover:shadow-md transition"
                       style={{ gridColumnStart: i === 0 ? dayOfWeek + 1 : 'auto' }}
                     >
-                      <div className="font-bold text-gray-900 mb-2">{dayNum}</div>
+                      <div className="font-bold text-gray-900 mb-2">Day {dayNum}</div>
                       <div className="space-y-1 text-xs">
-                        <button 
-                          onClick={() => {
-                            console.log('=== Breakfast button clicked ===')
-                            console.log('Meal name:', meals.breakfast)
-                            handleRecipeClick(meals.breakfast)
-                          }}
+                        <button
+                          onClick={() => handleRecipeClick(meals.dinner)}
+                          disabled={!meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')}
+                          className={`truncate text-left w-full transition-all ${
+                            !meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')
+                              ? 'text-gray-400 cursor-not-allowed'
+                              : 'text-purple-700 font-semibold hover:underline hover:bg-purple-50 cursor-pointer p-1 rounded'
+                          }`}
+                          title={meals.dinner}
+                        >
+                          🍽️ {meals.dinner}
+                        </button>
+                        {/* FUTURE FEATURE: Uncomment when adding daily breakfast/lunch
+                        <button
+                          onClick={() => handleRecipeClick(meals.breakfast)}
                           disabled={!meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')}
                           className={`truncate text-left w-full transition-all ${
                             !meals.breakfast || meals.breakfast === 'Loading...' || meals.breakfast.includes('No ')
@@ -794,7 +805,7 @@ export default function DashboardPage() {
                         >
                           🌅 {meals.breakfast}
                         </button>
-                        <button 
+                        <button
                           onClick={() => handleRecipeClick(meals.lunch)}
                           disabled={!meals.lunch || meals.lunch === 'Loading...' || meals.lunch.includes('No ')}
                           className={`truncate text-left w-full transition-all ${
@@ -806,24 +817,75 @@ export default function DashboardPage() {
                         >
                           ☀️ {meals.lunch}
                         </button>
-                        <button 
-                          onClick={() => handleRecipeClick(meals.dinner)}
-                          disabled={!meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')}
-                          className={`truncate text-left w-full transition-all ${
-                            !meals.dinner || meals.dinner === 'Loading...' || meals.dinner.includes('No ')
-                              ? 'text-gray-400 cursor-not-allowed'
-                              : 'text-purple-700 font-semibold hover:underline hover:bg-purple-50 cursor-pointer p-1 rounded'
-                          }`}
-                          title={meals.dinner}
-                        >
-                          🌙 {meals.dinner}
-                        </button>
+                        */}
                       </div>
                     </div>
                   )
                 })}
               </div>
             </motion.div>
+
+            {/* BONUS Recipes Section */}
+            {mealPlanData?.bonusRecipes && (mealPlanData.bonusRecipes.breakfasts?.length > 0 || mealPlanData.bonusRecipes.desserts?.length > 0) && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35 }}
+                className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 mb-8 border-2 border-amber-300"
+              >
+                <h2 className="text-3xl font-bold text-amber-900 mb-2 flex items-center gap-2">
+                  <span className="text-4xl">🎁</span>
+                  BONUS Recipes
+                </h2>
+                <p className="text-amber-800 mb-6">Extra recipes to add variety to your meal plan!</p>
+
+                {/* Breakfasts */}
+                {mealPlanData.bonusRecipes.breakfasts?.length > 0 && (
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-amber-900 mb-3 flex items-center gap-2">
+                      🌅 Breakfast Ideas ({mealPlanData.bonusRecipes.breakfasts.length} recipes)
+                    </h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {mealPlanData.bonusRecipes.breakfasts.map((recipe: any, idx: number) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleRecipeClick(recipe.name)}
+                          className="bg-white border border-amber-200 rounded-lg p-3 text-left hover:shadow-md hover:border-amber-400 transition"
+                        >
+                          <div className="font-semibold text-amber-900 mb-1">{recipe.name}</div>
+                          <div className="text-xs text-amber-700">
+                            ⏱️ {recipe.prepTime} • 🔥 {recipe.calories} cal • 💪 {recipe.protein}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Desserts */}
+                {mealPlanData.bonusRecipes.desserts?.length > 0 && (
+                  <div>
+                    <h3 className="text-xl font-bold text-amber-900 mb-3 flex items-center gap-2">
+                      🍰 Dessert Treats ({mealPlanData.bonusRecipes.desserts.length} recipes)
+                    </h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {mealPlanData.bonusRecipes.desserts.map((recipe: any, idx: number) => (
+                        <button
+                          key={idx}
+                          onClick={() => handleRecipeClick(recipe.name)}
+                          className="bg-white border border-amber-200 rounded-lg p-3 text-left hover:shadow-md hover:border-amber-400 transition"
+                        >
+                          <div className="font-semibold text-amber-900 mb-1">{recipe.name}</div>
+                          <div className="text-xs text-amber-700">
+                            ⏱️ {recipe.prepTime} • 🔥 {recipe.calories} cal • 💪 {recipe.protein}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            )}
 
             {/* Recipe Usage Instructions */}
             <motion.div
