@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Mail, Lock, ArrowRight, Loader, User, Eye, EyeOff } from 'lucide-react'
+import Header from '@/components/Header'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -66,8 +67,10 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
-      <div className="max-w-md w-full">
+    <>
+      <Header />
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
+        <div className="max-w-md w-full">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <Link href="/" className="inline-block">
@@ -213,6 +216,7 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

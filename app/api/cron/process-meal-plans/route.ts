@@ -57,19 +57,22 @@ export async function GET(request: NextRequest) {
           await updateMealPlanJobStatus(job.id, 'processing')
         }
 
-        // Parse customer preferences
-        const avoidIngredients = job.allergies
+        // Parse customer preferences with tiered filtering
+        // Allergies: Hard filter (0% allowed)
+        const allergyIngredients = job.allergies
           ? parseIngredientsFromText(job.allergies)
           : undefined
 
-        const preferredIngredients = job.preferences
-          ? parseIngredientsFromText(job.preferences)
-          : undefined
+        // Parse preferences into avoid (no X = 0%) and reduce (less X = ~10%)
+        const preferencesData = job.preferences
+          ? parsePreferencesWithWeights(job.preferences)
+          : { avoid: [], reduce: [], preferred: [] }
 
         const customerPreferences = {
           familySize: job.family_size,
-          avoidIngredients,
-          preferredIngredients
+          avoidIngredients: [...(allergyIngredients || []), ...(preferencesData.avoid || [])], // Combine allergies + "no X"
+          reduceIngredients: preferencesData.reduce || [], // "less X" = 10%
+          preferredIngredients: preferencesData.preferred || []
         }
 
         // Get accumulated recipes from previous phases
@@ -383,18 +386,33 @@ async function generateImagesForRecipes(recipes: any[], dietType: string) {
   return recipesWithImages
 }
 
-// Helper: Apply all filters to recipes
+// Helper: Apply all filters to recipes with tiered weights
 function applyFilters(recipes: any[], job: any): any[] {
   let filtered = recipes
 
+  // Apply dietary needs filter
   if (job.dietary_needs && job.dietary_needs.length > 0) {
     filtered = filterByDietaryNeeds(filtered, job.dietary_needs)
   }
+
+  // Apply allergen filter (HARD 0%)
   if (job.allergies) {
     filtered = filterByAllergens(filtered, job.allergies)
   }
+
+  // Apply preferences filter (handles "no X" as HARD 0%)
   if (job.preferences) {
-    filtered = filterByPreferences(filtered, job.preferences)
+    const preferencesData = parsePreferencesWithWeights(job.preferences)
+
+    // Filter out "no X" ingredients (HARD 0%)
+    if (preferencesData.avoid.length > 0) {
+      filtered = filterByAvoidIngredients(filtered, preferencesData.avoid)
+    }
+
+    // Apply "less X" soft filter (keep only ~10% with these ingredients)
+    if (preferencesData.reduce.length > 0) {
+      filtered = applyReduceFilter(filtered, preferencesData.reduce)
+    }
   }
 
   return filtered
@@ -458,13 +476,15 @@ function filterByAllergens(recipes: any[], allergyText: string): any[] {
   const allergyLower = allergyText.toLowerCase()
   const allergens: string[] = []
 
-  if (allergyLower.match(/peanut|nut/)) allergens.push('peanut', 'nut', 'almond')
+  // Parse allergens from text
+  if (allergyLower.match(/peanut|nut/)) allergens.push('peanut', 'nut', 'almond', 'walnut', 'pecan', 'cashew')
   if (allergyLower.match(/shellfish|shrimp|crab|lobster/)) allergens.push('shrimp', 'shellfish', 'crab', 'lobster')
   if (allergyLower.match(/soy/)) allergens.push('soy', 'tofu', 'edamame')
   if (allergyLower.match(/dairy|milk|lactose/)) allergens.push('milk', 'cheese', 'butter', 'cream', 'yogurt', 'dairy')
   if (allergyLower.match(/egg/)) allergens.push('egg')
   if (allergyLower.match(/wheat|gluten/)) allergens.push('wheat', 'flour', 'bread', 'pasta')
   if (allergyLower.match(/fish/)) allergens.push('fish', 'salmon', 'tuna', 'cod')
+  if (allergyLower.match(/pepper/)) allergens.push('pepper', 'bell pepper', 'chili')
 
   console.log(`🔍 Detected allergens: ${allergens.join(', ')}`)
 
@@ -472,62 +492,129 @@ function filterByAllergens(recipes: any[], allergyText: string): any[] {
     const recipeName = recipe.name.toLowerCase()
     const recipeDesc = recipe.description?.toLowerCase() || ''
 
+    // Check recipe name and description
     for (const allergen of allergens) {
       if (recipeName.includes(allergen) || recipeDesc.includes(allergen)) {
-        console.log(`   ❌ Excluded "${recipe.name}" (contains ${allergen})`)
+        console.log(`   ❌ Excluded "${recipe.name}" (contains ${allergen} in name/description)`)
         return false
       }
     }
+
+    // Check actual ingredients if available
+    if (recipe.ingredients && Array.isArray(recipe.ingredients)) {
+      for (const ingredient of recipe.ingredients) {
+        const ingredientText = (typeof ingredient === 'string' ? ingredient : ingredient.item || ingredient.ingredient || '').toLowerCase()
+
+        for (const allergen of allergens) {
+          // Special handling for peppers
+          if ((allergen === 'pepper' || allergen === 'bell pepper') && ingredientText.includes('pepper') && !ingredientText.includes('peppercorn')) {
+            console.log(`   ❌ Excluded "${recipe.name}" (contains ${allergen} in ingredients)`)
+            return false
+          } else if (allergen !== 'pepper' && allergen !== 'bell pepper' && ingredientText.includes(allergen)) {
+            console.log(`   ❌ Excluded "${recipe.name}" (contains ${allergen} in ingredients)`)
+            return false
+          }
+        }
+      }
+    }
+
     return true
   })
 }
 
-function filterByPreferences(recipes: any[], preferenceText: string): any[] {
-  if (!preferenceText || preferenceText.trim() === '') return recipes
+// Filter for "no X" or "avoid X" - HARD 0% filter
+function filterByAvoidIngredients(recipes: any[], avoidIngredients: string[]): any[] {
+  if (!avoidIngredients || avoidIngredients.length === 0) return recipes
 
-  const prefLower = preferenceText.toLowerCase()
-  const avoidIngredients: string[] = []
-
-  const noPatterns = prefLower.match(/no\s+([a-z\s]+?)(?:,|and|$)/g)
-  if (noPatterns) {
-    noPatterns.forEach(pattern => {
-      const ingredient = pattern.replace(/^no\s+/, '').replace(/[,and\s]+$/, '').trim()
-      if (ingredient) avoidIngredients.push(ingredient)
-    })
-  }
-
-  const avoidPatterns = prefLower.match(/avoid\s+([a-z\s]+?)(?:,|and|$)/g)
-  if (avoidPatterns) {
-    avoidPatterns.forEach(pattern => {
-      const ingredient = pattern.replace(/^avoid\s+/, '').replace(/[,and\s]+$/, '').trim()
-      if (ingredient) avoidIngredients.push(ingredient)
-    })
-  }
-
-  const lessPatterns = prefLower.match(/less\s+([a-z\s]+?)(?:,|and|$)/g)
-  if (lessPatterns) {
-    lessPatterns.forEach(pattern => {
-      const ingredient = pattern.replace(/^less\s+/, '').replace(/[,and\s]+$/, '').trim()
-      if (ingredient) avoidIngredients.push(ingredient)
-    })
-  }
-
-  if (avoidIngredients.length === 0) return recipes
-
-  console.log(`🔍 Preference filters: ${avoidIngredients.join(', ')}`)
+  console.log(`🚫 AVOID filter (0%): ${avoidIngredients.join(', ')}`)
 
   return recipes.filter(recipe => {
     const recipeName = recipe.name.toLowerCase()
     const recipeDesc = recipe.description?.toLowerCase() || ''
 
+    // Check recipe name and description
     for (const ingredient of avoidIngredients) {
       if (recipeName.includes(ingredient) || recipeDesc.includes(ingredient)) {
-        console.log(`   ❌ Excluded "${recipe.name}" (preference: no ${ingredient})`)
+        console.log(`   ❌ Excluded "${recipe.name}" (contains ${ingredient} in name/description)`)
         return false
       }
     }
+
+    // Check actual ingredients if available
+    if (recipe.ingredients && Array.isArray(recipe.ingredients)) {
+      for (const recipeIngredient of recipe.ingredients) {
+        const ingredientText = (typeof recipeIngredient === 'string' ? recipeIngredient : recipeIngredient.item || recipeIngredient.ingredient || '').toLowerCase()
+
+        for (const avoidIngredient of avoidIngredients) {
+          // Special handling for peppers
+          if ((avoidIngredient === 'pepper' || avoidIngredient === 'peppers') && ingredientText.includes('pepper') && !ingredientText.includes('peppercorn')) {
+            console.log(`   ❌ Excluded "${recipe.name}" (contains ${avoidIngredient} in ingredients)`)
+            return false
+          } else if (ingredientText.includes(avoidIngredient)) {
+            console.log(`   ❌ Excluded "${recipe.name}" (contains ${avoidIngredient} in ingredients)`)
+            return false
+          }
+        }
+      }
+    }
+
     return true
   })
+}
+
+// Filter for "less X" - SOFT ~10% filter (keep only 10% of recipes with this ingredient)
+function applyReduceFilter(recipes: any[], reduceIngredients: string[]): any[] {
+  if (!reduceIngredients || reduceIngredients.length === 0) return recipes
+
+  console.log(`⚖️  REDUCE filter (10%): ${reduceIngredients.join(', ')}`)
+
+  // Separate recipes into two groups: with and without reduce ingredients
+  const recipesWithReduceIngredient: any[] = []
+  const recipesWithoutReduceIngredient: any[] = []
+
+  recipes.forEach(recipe => {
+    const recipeName = recipe.name.toLowerCase()
+    const recipeDesc = recipe.description?.toLowerCase() || ''
+    let hasReduceIngredient = false
+
+    // Check name and description
+    for (const ingredient of reduceIngredients) {
+      if (recipeName.includes(ingredient) || recipeDesc.includes(ingredient)) {
+        hasReduceIngredient = true
+        break
+      }
+    }
+
+    // Check actual ingredients if available
+    if (!hasReduceIngredient && recipe.ingredients && Array.isArray(recipe.ingredients)) {
+      for (const recipeIngredient of recipe.ingredients) {
+        const ingredientText = (typeof recipeIngredient === 'string' ? recipeIngredient : recipeIngredient.item || recipeIngredient.ingredient || '').toLowerCase()
+
+        for (const reduceIngredient of reduceIngredients) {
+          if (ingredientText.includes(reduceIngredient)) {
+            hasReduceIngredient = true
+            break
+          }
+        }
+        if (hasReduceIngredient) break
+      }
+    }
+
+    if (hasReduceIngredient) {
+      recipesWithReduceIngredient.push(recipe)
+    } else {
+      recipesWithoutReduceIngredient.push(recipe)
+    }
+  })
+
+  // Keep only ~10% of recipes with the reduce ingredient
+  const targetWithReduceIngredient = Math.ceil(recipes.length * 0.1)
+  const selectedWithReduceIngredient = recipesWithReduceIngredient.slice(0, targetWithReduceIngredient)
+
+  console.log(`   ℹ️  Kept ${selectedWithReduceIngredient.length}/${recipesWithReduceIngredient.length} recipes with reduce ingredients (target: ${targetWithReduceIngredient})`)
+
+  // Combine: all without + limited with
+  return [...recipesWithoutReduceIngredient, ...selectedWithReduceIngredient]
 }
 
 function scaleRecipesForFamilySize(recipes: any[], familySize: number): any[] {
@@ -563,4 +650,57 @@ function parseIngredientsFromText(text: string): string[] {
 
   console.log(`📝 Parsed ingredients: ${ingredients.join(', ')}`)
   return ingredients
+}
+
+// Parse preferences with different weights (avoid vs reduce vs prefer)
+function parsePreferencesWithWeights(text: string): { avoid: string[], reduce: string[], preferred: string[] } {
+  if (!text || text.trim() === '') return { avoid: [], reduce: [], preferred: [] }
+
+  const prefLower = text.toLowerCase()
+  const avoid: string[] = []
+  const reduce: string[] = []
+  const preferred: string[] = []
+
+  // Parse "no X" or "avoid X" patterns - HARD FILTER (0%)
+  const noPatterns = prefLower.match(/(?:no|avoid|don't want|hate|dislike)\s+([a-z\s]+?)(?:,|and|;|\.|$)/gi)
+  if (noPatterns) {
+    noPatterns.forEach(pattern => {
+      const ingredient = pattern
+        .replace(/^(?:no|avoid|don't want|hate|dislike)\s+/i, '')
+        .replace(/[,and;.\s]+$/, '')
+        .trim()
+      if (ingredient && ingredient.length > 2) avoid.push(ingredient)
+    })
+  }
+
+  // Parse "less X" patterns - SOFT FILTER (~10%)
+  const lessPatterns = prefLower.match(/(?:less|fewer|reduce|limit)\s+([a-z\s]+?)(?:,|and|;|\.|$)/gi)
+  if (lessPatterns) {
+    lessPatterns.forEach(pattern => {
+      const ingredient = pattern
+        .replace(/^(?:less|fewer|reduce|limit)\s+/i, '')
+        .replace(/[,and;.\s]+$/, '')
+        .trim()
+      if (ingredient && ingredient.length > 2) reduce.push(ingredient)
+    })
+  }
+
+  // Parse "more X" or "prefer X" patterns - POSITIVE WEIGHT
+  const preferPatterns = prefLower.match(/(?:more|prefer|like|love|want)\s+([a-z\s]+?)(?:,|and|;|\.|$)/gi)
+  if (preferPatterns) {
+    preferPatterns.forEach(pattern => {
+      const ingredient = pattern
+        .replace(/^(?:more|prefer|like|love|want)\s+/i, '')
+        .replace(/[,and;.\s]+$/, '')
+        .trim()
+      if (ingredient && ingredient.length > 2) preferred.push(ingredient)
+    })
+  }
+
+  console.log(`📝 Preferences parsed:`)
+  if (avoid.length > 0) console.log(`   ❌ AVOID (0%): ${avoid.join(', ')}`)
+  if (reduce.length > 0) console.log(`   ⚖️  REDUCE (10%): ${reduce.join(', ')}`)
+  if (preferred.length > 0) console.log(`   ✨ PREFER: ${preferred.join(', ')}`)
+
+  return { avoid, reduce, preferred }
 }

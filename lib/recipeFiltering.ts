@@ -60,12 +60,13 @@ function scoreRecipe(recipe: Recipe, preferences: UserPreferences): FilteredReci
     }
   }
 
-  // Check for disliked ingredients
+  // Check for disliked ingredients - HARD FILTER (same as allergens)
   if (preferences.dislikes && preferences.dislikes.length > 0) {
     const hasDislike = checkForIngredients(recipe, preferences.dislikes)
     if (hasDislike) {
-      score -= 30
+      score = 0
       warnings.push(`Contains disliked ingredient: ${hasDislike}`)
+      return { ...recipe, matchScore: score, matchReasons, warnings }
     }
   }
 
@@ -198,7 +199,37 @@ function checkForIngredients(recipe: Recipe, ingredients: string[]): string | nu
 
   for (const dislike of ingredients) {
     const dislikeLower = dislike.toLowerCase()
-    const found = ingredientNames.find(ing => ing.includes(dislikeLower))
+
+    // Check for exact match or substring match
+    const found = ingredientNames.find(ing => {
+      // Direct substring match
+      if (ing.includes(dislikeLower)) return true
+
+      // Handle common variations
+      if (dislikeLower === 'pepper' || dislikeLower === 'peppers') {
+        // Match bell pepper, red pepper, green pepper, etc. but NOT peppercorn
+        return (ing.includes('pepper') && !ing.includes('peppercorn'))
+      }
+
+      if (dislikeLower === 'mushroom' || dislikeLower === 'mushrooms') {
+        return ing.includes('mushroom')
+      }
+
+      if (dislikeLower === 'onion' || dislikeLower === 'onions') {
+        return ing.includes('onion')
+      }
+
+      if (dislikeLower === 'tomato' || dislikeLower === 'tomatoes') {
+        return ing.includes('tomato')
+      }
+
+      if (dislikeLower === 'olive' || dislikeLower === 'olives') {
+        return ing.includes('olive') && !ing.includes('olive oil') // Allow olive oil
+      }
+
+      return false
+    })
+
     if (found) return dislike
   }
 

@@ -344,6 +344,8 @@ export const products = [
 | Port already in use | Change port in docker-compose.yml |
 | Recipe not found | Verify recipe ID format: `{menu_type}_{category}_{number}` |
 | Memory issues with large plans | Increase Docker memory limit |
+| **Images missing in PDFs** | See [IMAGE_GENERATION_FIX.md](IMAGE_GENERATION_FIX.md) for Replicate API stream handling |
+| Replicate rate limits (429 errors) | Add funds to Replicate account or increase delay between requests |
 
 ## 📈 Analytics & Monitoring
 
@@ -359,6 +361,16 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for deta
 ## 📄 License
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file.
+
+## 📚 Documentation
+
+- **[IMAGE_GENERATION_FIX.md](IMAGE_GENERATION_FIX.md)** - Replicate API stream handling fix (Nov 2025)
+- **[INGREDIENT_FILTERING_SYSTEM.md](INGREDIENT_FILTERING_SYSTEM.md)** - Three-tiered ingredient filtering (no/less/more)
+- **[SETUP_INSTRUCTIONS.md](SETUP_INSTRUCTIONS.md)** - Complete setup guide
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment instructions
+- **[STRIPE_SETUP.md](STRIPE_SETUP.md)** - Payment processing configuration
+- **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Running tests and QA
+- **[PROJECT_ARCHITECTURE.md](PROJECT_ARCHITECTURE.md)** - System architecture overview
 
 ## 🆘 Support
 

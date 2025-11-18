@@ -14,8 +14,9 @@ interface RecipeSelectionConfig {
   mealTypes?: MealType[]
   customerPreferences?: {
     familySize?: number
-    avoidIngredients?: string[] // Parsed from allergies
-    preferredIngredients?: string[] // Parsed from preferences
+    avoidIngredients?: string[] // Hard filter: 0% allowed (allergies + "no X")
+    reduceIngredients?: string[] // Soft filter: ~10% allowed ("less X")
+    preferredIngredients?: string[] // Positive weight ("more X", "prefer X")
   }
 }
 
@@ -60,7 +61,10 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
         // Get random recipes from library, filtered by meal types
         let query = supabase
           .from('recipes')
-          .select('*')
+          .select(`
+            *,
+            recipe_ingredients(ingredient)
+          `)
           .contains('diet_plans', [dietPlans.id])
 
         // Filter by meal types if specified
@@ -68,11 +72,40 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
           query = query.in('meal_type', mealTypes)
         }
 
-        const { data: existingRecipes } = await query.limit(existingRecipesCount * 2) // Get extra for variety
+        const { data: existingRecipes } = await query.limit(existingRecipesCount * 3) // Get extra for filtering & variety
 
         if (existingRecipes && existingRecipes.length > 0) {
-          // Randomly select from existing recipes
-          const shuffled = existingRecipes.sort(() => 0.5 - Math.random())
+          // Filter out recipes with avoided ingredients
+          let filteredRecipes = existingRecipes
+          if (customerPreferences?.avoidIngredients && customerPreferences.avoidIngredients.length > 0) {
+            filteredRecipes = existingRecipes.filter(recipe => {
+              const recipeIngredients = recipe.recipe_ingredients || []
+              const ingredientNames = recipeIngredients.map((ri: any) => ri.ingredient?.toLowerCase() || '')
+
+              // Check if recipe contains any avoided ingredients
+              const hasAvoidedIngredient = customerPreferences.avoidIngredients!.some(avoid => {
+                const avoidLower = avoid.toLowerCase()
+                return ingredientNames.some((ing: string) => {
+                  // Direct substring match
+                  if (ing.includes(avoidLower)) return true
+
+                  // Handle pepper variations
+                  if (avoidLower === 'pepper' || avoidLower === 'peppers') {
+                    return ing.includes('pepper') && !ing.includes('peppercorn')
+                  }
+
+                  return false
+                })
+              })
+
+              return !hasAvoidedIngredient
+            })
+
+            console.log(`🚫 Filtered out ${existingRecipes.length - filteredRecipes.length} recipes with avoided ingredients`)
+          }
+
+          // Randomly select from filtered recipes
+          const shuffled = filteredRecipes.sort(() => 0.5 - Math.random())
           const selected = shuffled.slice(0, existingRecipesCount)
 
           selected.forEach(recipe => {
@@ -113,6 +146,7 @@ export async function selectRecipesForCustomer(config: RecipeSelectionConfig): P
             difficulty: 'medium',
             servings: customerPreferences?.familySize || 4,
             avoidIngredients: customerPreferences?.avoidIngredients,
+            reduceIngredients: customerPreferences?.reduceIngredients,
             preferredIngredients: customerPreferences?.preferredIngredients
           })
 

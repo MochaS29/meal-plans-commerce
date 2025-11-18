@@ -28,8 +28,9 @@ interface RecipeParams {
   season?: 'spring' | 'summer' | 'fall' | 'winter'
   difficulty?: 'easy' | 'medium' | 'hard'
   servings?: number
-  avoidIngredients?: string[]
-  preferredIngredients?: string[]
+  avoidIngredients?: string[] // Complete avoidance (0%)
+  reduceIngredients?: string[] // Use sparingly (~10%)
+  preferredIngredients?: string[] // Try to include more often
   maxPrepTime?: number // in minutes
 }
 
@@ -122,8 +123,9 @@ export async function generateRecipe(params: RecipeParams): Promise<GeneratedRec
       Max Prep Time: ${params.maxPrepTime || 30} minutes
       Difficulty: ${params.difficulty || 'medium'}
       ${params.season ? `Season: ${params.season} (use seasonal ingredients)` : ''}
-      ${params.avoidIngredients ? `Avoid these ingredients: ${params.avoidIngredients.join(', ')}` : ''}
-      ${params.preferredIngredients ? `Try to include: ${params.preferredIngredients.join(', ')}` : ''}
+      ${params.avoidIngredients && params.avoidIngredients.length > 0 ? `NEVER use these ingredients (0% allowed): ${params.avoidIngredients.join(', ')}` : ''}
+      ${params.reduceIngredients && params.reduceIngredients.length > 0 ? `Use these ingredients sparingly (only if truly necessary): ${params.reduceIngredients.join(', ')}` : ''}
+      ${params.preferredIngredients && params.preferredIngredients.length > 0 ? `Try to include these ingredients when possible: ${params.preferredIngredients.join(', ')}` : ''}
 
       Return ONLY a JSON object with this exact structure (no other text):
       {
@@ -193,8 +195,9 @@ export async function generateRecipe(params: RecipeParams): Promise<GeneratedRec
       Max Prep Time: ${params.maxPrepTime || 30} minutes
       Difficulty: ${params.difficulty || 'medium'}
       ${params.season ? `Season: ${params.season} (use seasonal ingredients)` : ''}
-      ${params.avoidIngredients ? `Avoid these ingredients: ${params.avoidIngredients.join(', ')}` : ''}
-      ${params.preferredIngredients ? `Try to include: ${params.preferredIngredients.join(', ')}` : ''}
+      ${params.avoidIngredients && params.avoidIngredients.length > 0 ? `NEVER use these ingredients (0% allowed): ${params.avoidIngredients.join(', ')}` : ''}
+      ${params.reduceIngredients && params.reduceIngredients.length > 0 ? `Use these ingredients sparingly (only if truly necessary): ${params.reduceIngredients.join(', ')}` : ''}
+      ${params.preferredIngredients && params.preferredIngredients.length > 0 ? `Try to include these ingredients when possible: ${params.preferredIngredients.join(', ')}` : ''}
 
       Return a JSON object with this exact structure:
       {

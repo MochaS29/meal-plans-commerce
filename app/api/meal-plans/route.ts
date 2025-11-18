@@ -137,77 +137,45 @@ async function getCustomerMealPlan(email: string, menuType: string, month: numbe
 
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Get customer's meal plan
-    const { data: customerPlans, error: cpError } = await supabase
-      .from('customer_meal_plans')
-      .select(`
-        *,
-        meal_plan_pdfs (
-          id,
-          plan_type,
-          recipe_ids,
-          recipe_count
-        )
-      `)
+    // Get customer's meal plan from meal_plan_jobs table
+    const { data: jobs, error: jobsError } = await supabase
+      .from('meal_plan_jobs')
+      .select('*')
       .eq('customer_email', email)
-      .order('purchase_date', { ascending: false })
-      .limit(1);
+      .eq('status', 'completed')
+      .order('created_at', { ascending: false });
 
-    if (cpError || !customerPlans || customerPlans.length === 0) {
-      console.log(`No meal plan found for ${email}`);
+    if (jobsError || !jobs || jobs.length === 0) {
+      console.log(`No meal plan jobs found for ${email}`, jobsError);
       return null;
     }
 
-    const customerPlan = customerPlans[0];
-    const mealPlanPdf = customerPlan.meal_plan_pdfs;
+    console.log(`Found ${jobs.length} meal plan jobs for ${email}`);
 
-    if (!mealPlanPdf || !mealPlanPdf.recipe_ids || mealPlanPdf.recipe_ids.length === 0) {
-      console.log('Meal plan has no recipe IDs');
+    // Find the job that matches the requested diet type
+    const normalizedMenuType = menuType.toLowerCase().trim().replace(/\s+/g, '-');
+    const matchingJob = jobs.find((job: any) => {
+      const jobDiet = job.diet_type.toLowerCase().trim().replace(/\s+/g, '-');
+      return jobDiet === normalizedMenuType ||
+             jobDiet.includes(normalizedMenuType) ||
+             normalizedMenuType.includes(jobDiet);
+    });
+
+    if (!matchingJob) {
+      console.log(`No job found matching diet type: ${menuType}`);
+      console.log(`Available diets:`, jobs.map((j: any) => j.diet_type).join(', '));
       return null;
     }
 
-    // Check if plan type matches request (case-insensitive, flexible matching)
-    const planSlug = mealPlanPdf.plan_type.toLowerCase().replace(/\s+/g, '-');
-    const requestedType = menuType.toLowerCase();
-
-    // Allow flexible matching: "mediterranean-diet" matches "mediterranean"
-    if (!planSlug.includes(requestedType) && !requestedType.includes(planSlug)) {
-      console.log(`Plan type mismatch: ${planSlug} vs ${menuType}`);
+    if (!matchingJob.generated_recipes || matchingJob.generated_recipes.length === 0) {
+      console.log('Meal plan job has no generated recipes');
       return null;
     }
 
-    console.log(`✅ Found personalized meal plan for ${email}: ${mealPlanPdf.recipe_count} recipes`);
+    console.log(`✅ Found personalized meal plan for ${email}: ${matchingJob.generated_recipes.length} recipes`);
 
-    // Fetch all the recipes
-    const { data: recipes, error: recipeError } = await supabase
-      .from('recipes')
-      .select(`
-        id,
-        name,
-        description,
-        prep_time,
-        cook_time,
-        servings,
-        difficulty,
-        meal_type,
-        recipe_ingredients (
-          ingredient,
-          amount,
-          unit
-        ),
-        recipe_nutrition (
-          calories,
-          protein
-        )
-      `)
-      .in('id', mealPlanPdf.recipe_ids);
-
-    if (recipeError || !recipes) {
-      console.error('Error fetching recipes:', recipeError);
-      return null;
-    }
-
-    console.log(`✅ Fetched ${recipes.length} recipes from database`);
+    // Use the recipes directly from generated_recipes (they're already formatted)
+    const recipes = matchingJob.generated_recipes;
 
     // Build calendar structure from customer's recipes
     return buildCalendarFromRecipes(recipes, menuType, month, year);
