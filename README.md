@@ -379,6 +379,7 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file.
 - **[SETUP_INSTRUCTIONS.md](SETUP_INSTRUCTIONS.md)** - Complete setup guide
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment instructions
 - **[STRIPE_SETUP.md](STRIPE_SETUP.md)** - Payment processing configuration
+- **[TESTING_WORKFLOW.md](TESTING_WORKFLOW.md)** - **Bug-to-Test Workflow** - How to add tests when bugs are found
 - **[TESTING_GUIDE.md](TESTING_GUIDE.md)** - Running tests and QA
 - **[PROJECT_ARCHITECTURE.md](PROJECT_ARCHITECTURE.md)** - System architecture overview
 
