@@ -185,27 +185,45 @@ async function generateMealPlanPDF(
     const month = currentDate.getMonth() + 1
     const year = currentDate.getFullYear()
 
-    // Build dailyMeals structure - assign one recipe per day as dinner
+    // Separate recipes by meal type
+    const dinnerRecipes = recipes.filter(r => r.meal_type === 'dinner' || r.meal_type === 'any')
+    const breakfastRecipes = recipes.filter(r => r.meal_type === 'breakfast')
+    const dessertRecipes = recipes.filter(r => r.meal_type === 'dessert')
+
+    console.log(`📊 PDF Recipe breakdown: ${dinnerRecipes.length} dinners, ${breakfastRecipes.length} breakfasts, ${dessertRecipes.length} desserts`)
+
+    // Build dailyMeals structure - assign ONLY dinners to days 1-30 (no reuse!)
     const dailyMeals: any = {}
-    recipes.forEach((recipe, index) => {
-      const dayNum = index + 1
-      dailyMeals[`day_${dayNum}`] = {
-        dinner: {
-          name: recipe.name,
-          prep_time: recipe.prep_time,
-          cook_time: recipe.cook_time,
-          servings: recipe.servings,
-          difficulty: recipe.difficulty
+    const maxDays = Math.min(30, dinnerRecipes.length) // Limit to 30 days or available dinners
+
+    for (let i = 0; i < maxDays; i++) {
+      const dayNum = i + 1
+      const dinnerRecipe = dinnerRecipes[i]
+
+      if (dinnerRecipe) {
+        dailyMeals[`day_${dayNum}`] = {
+          dinner: {
+            name: dinnerRecipe.name,
+            prep_time: dinnerRecipe.prep_time,
+            cook_time: dinnerRecipe.cook_time,
+            servings: dinnerRecipe.servings,
+            difficulty: dinnerRecipe.difficulty
+          }
+          // FUTURE FEATURE: Add breakfast and lunch when implemented
+          // breakfast: { ... },
+          // lunch: { ... }
         }
       }
-    })
+    }
 
-    // Build weekly shopping lists - group by weeks
+    console.log(`✅ Created ${Object.keys(dailyMeals).length} days of meals (Day 1 - Day ${maxDays})`)
+
+    // Build weekly shopping lists - group by weeks (ONLY for dinners)
     const weeklyShoppingLists: any = {}
-    for (let week = 1; week <= Math.ceil(recipes.length / 7); week++) {
+    for (let week = 1; week <= Math.ceil(maxDays / 7); week++) {
       const startIdx = (week - 1) * 7
-      const endIdx = Math.min(startIdx + 7, recipes.length)
-      const weekRecipes = recipes.slice(startIdx, endIdx)
+      const endIdx = Math.min(startIdx + 7, maxDays)
+      const weekRecipes = dinnerRecipes.slice(startIdx, endIdx)
 
       // Aggregate ingredients from recipes with proper quantity combination
       const ingredients = new Map<string, {quantity: number, unit: string, rawQuantities: string[]}>()
@@ -279,17 +297,40 @@ async function generateMealPlanPDF(
       }
     }
 
-    // Create meal plan object
+    // Create meal plan object with BONUS recipes
     const mealPlan = {
       menuType: planType.toLowerCase().replace(/\s+/g, '-'),
       month,
       year,
       title: planType,
       dailyMeals,
+      bonusRecipes: {
+        breakfasts: breakfastRecipes.map(r => ({
+          name: r.name,
+          description: r.description,
+          prep_time: r.prep_time,
+          cook_time: r.cook_time,
+          servings: r.servings,
+          difficulty: r.difficulty
+        })),
+        desserts: dessertRecipes.map(r => ({
+          name: r.name,
+          description: r.description,
+          prep_time: r.prep_time,
+          cook_time: r.cook_time,
+          servings: r.servings,
+          difficulty: r.difficulty
+        }))
+      },
       weeklyShoppingLists,
       nutritionTargets: {},
       mealPrepGuides
     }
+
+    console.log(`📦 PDF Meal Plan Structure:`)
+    console.log(`   - ${Object.keys(dailyMeals).length} days (Day 1 - Day ${maxDays})`)
+    console.log(`   - ${breakfastRecipes.length} BONUS breakfasts`)
+    console.log(`   - ${dessertRecipes.length} BONUS desserts`)
 
     // Generate PDF using the enhanced generator
     const generator = new EnhancedMealPlanPDFGenerator()
