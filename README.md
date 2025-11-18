@@ -364,9 +364,18 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file.
 
 ## 📚 Documentation
 
+### 🎯 Master Documentation
+
+- **[SYSTEM_DOCUMENTATION.md](SYSTEM_DOCUMENTATION.md)** - **⭐ COMPLETE SYSTEM BLUEPRINT** - Everything needed to recreate the platform from scratch (database schema, API endpoints, workflows, deployment)
+
+### Feature-Specific Docs
+
 - **[IMAGE_GENERATION_FIX.md](IMAGE_GENERATION_FIX.md)** - Replicate API stream handling fix (Nov 2025)
 - **[INGREDIENT_FILTERING_SYSTEM.md](INGREDIENT_FILTERING_SYSTEM.md)** - Three-tiered ingredient filtering (no/less/more)
 - **[HISTORICAL_MEAL_PLANS.md](HISTORICAL_MEAL_PLANS.md)** - Accessing previous meal plans by month/year (Nov 2025)
+
+### Setup & Deployment
+
 - **[SETUP_INSTRUCTIONS.md](SETUP_INSTRUCTIONS.md)** - Complete setup guide
 - **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment instructions
 - **[STRIPE_SETUP.md](STRIPE_SETUP.md)** - Payment processing configuration
