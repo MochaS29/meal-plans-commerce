@@ -134,6 +134,17 @@
 - [ ] Display upcoming charges
 **Why:** Users need to manage their monthly subscriptions easily
 
+### 11b. 🍳 Daily Breakfast & Lunch Recipes
+**Status:** Not implemented (commented out for future use)
+- [ ] Generate breakfast recipes for each day (30 unique)
+- [ ] Generate lunch recipes for each day (30 unique)
+- [ ] Update total recipes from 42 to 102 (30 dinners + 30 breakfasts + 30 lunches + 7 bonus breakfasts + 5 desserts)
+- [ ] Uncomment breakfast/lunch code in API, user portal, and print calendar
+- [ ] Update pricing to reflect increased recipe count
+- [ ] Test meal plan generation with 3 meals per day
+**Why:** Currently only dinners are assigned to daily calendar; breakfast/lunch are bonus content
+**Note:** Code is already in place but commented out with "FUTURE FEATURE" tags
+
 ### 12. 💬 Customer Support System
 **Status:** Not implemented
 - [ ] Set up support email address
