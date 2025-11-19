@@ -1,0 +1,18 @@
+
+> meal-plans-commerce@0.1.1 test
+> jest --watchAll=false
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/mocha/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/mocha/meal-plans-commerce/package-lock.json
+
+SyntaxError: Invalid regular expression: //node_modules/|/.next/|/Users/mocha/meal-plans-commerce/.next/|/Users/mocha/meal-plans-commerce/node_modules/|/Users/mocha/meal-plans-commerce/e2e/|/Users/mocha/meal-plans-commerce/__tests__/e2e/|**/*.spec.ts|**/*.spec.tsx/: Nothing to repeat
+    at new RegExp (<anonymous>)
+    at new SearchSource (/Users/mocha/meal-plans-commerce/node_modules/@jest/core/build/index.js:459:39)
+    at /Users/mocha/meal-plans-commerce/node_modules/@jest/core/build/index.js:3360:49
+    at Array.map (<anonymous>)
+    at runJest (/Users/mocha/meal-plans-commerce/node_modules/@jest/core/build/index.js:3360:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)

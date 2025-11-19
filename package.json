@@ -7,12 +7,14 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch",
+    "test": "jest --watchAll=false",
+    "test:watch": "jest --watch",
     "test:ci": "jest --ci",
     "test:coverage": "jest --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:e2e:debug": "playwright test --debug"
+    "test:e2e:debug": "playwright test --debug",
+    "test:all": "npm test && npm run test:e2e"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.64.0",

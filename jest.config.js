@@ -20,10 +20,16 @@ const customJestConfig = {
     '!**/node_modules/**',
     '!**/.next/**',
   ],
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/.next/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/e2e/',           // Exclude Playwright E2E tests directory
+    '<rootDir>/__tests__/e2e/', // Exclude E2E tests in __tests__
+  ],
   testMatch: [
-    '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[jt]s?(x)',
+    '**/__tests__/**/*.test.[jt]s?(x)',  // Only run .test.* files
+    '!**/e2e/**',                         // Exclude any e2e directories
+    '!**/*.spec.[jt]s?(x)',               // Exclude Playwright .spec files
   ],
 }
 
