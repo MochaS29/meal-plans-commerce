@@ -226,7 +226,7 @@ export default function HomePage() {
                     </button>
                   ) : (
                     <Link
-                      href={`/plans/${product.id}`}
+                      href={`/plans/customize?product=${product.id}`}
                       className={`block text-center py-3 px-6 rounded-full font-medium transition ${
                         product.popular
                           ? 'bg-teal-600 text-white hover:bg-teal-700'
