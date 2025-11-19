@@ -301,9 +301,11 @@ function balanceRecipesByMealType(recipes: SelectedRecipe[], mealTypes: MealType
 // Get monthly recipe selection for a customer
 export async function getMonthlyMenuWithHybridSelection(
   dietType: string,
-  month: number = 1
+  month: number = 1,
+  year: number = new Date().getFullYear()
 ): Promise<{ week: number; recipes: SelectedRecipe[] }[]> {
-  const daysInMonth = 30 // Standard month length
+  // Calculate actual days in the specified month (28-31)
+  const daysInMonth = new Date(year, month, 0).getDate()
   const totalRecipes = daysInMonth
 
   // Select recipes with 25% being new for variety

@@ -75,6 +75,13 @@ export async function GET(request: NextRequest) {
           preferredIngredients: preferencesData.preferred || []
         }
 
+        // Calculate actual days in the current month for dinner count
+        const now = new Date()
+        const currentMonth = now.getMonth() + 1
+        const currentYear = now.getFullYear()
+        const daysInMonth = new Date(currentYear, currentMonth, 0).getDate()
+        console.log(`   📅 Month ${currentMonth}/${currentYear} has ${daysInMonth} days - will generate ${daysInMonth} dinners`)
+
         // Get accumulated recipes from previous phases
         const accumulatedRecipes = job.generated_recipes || []
         console.log(`   📦 Accumulated recipes from previous phases: ${accumulatedRecipes.length}`)
@@ -82,10 +89,10 @@ export async function GET(request: NextRequest) {
         // Execute the current phase
         switch (currentPhase) {
           case 1:
-            await executePhase1(job, customerPreferences, accumulatedRecipes)
+            await executePhase1(job, customerPreferences, accumulatedRecipes, daysInMonth)
             break
           case 2:
-            await executePhase2(job, customerPreferences, accumulatedRecipes)
+            await executePhase2(job, customerPreferences, accumulatedRecipes, daysInMonth)
             break
           case 3:
             await executePhase3(job, customerPreferences, accumulatedRecipes)
@@ -144,15 +151,17 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// PHASE 1: Generate 20 dinners + images
-async function executePhase1(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
-  console.log(`\n📍 PHASE 1: Generate 20 dinners with images`)
+// PHASE 1: Generate ~67% of dinners + images (split across two phases to avoid timeout)
+async function executePhase1(job: any, customerPreferences: any, accumulatedRecipes: any[], daysInMonth: number) {
+  // Generate approximately 2/3 of the dinners in phase 1
+  const phase1Count = Math.ceil(daysInMonth * 0.67)
+  console.log(`\n📍 PHASE 1: Generate ${phase1Count} dinners with images (month has ${daysInMonth} days)`)
   const phaseStartTime = Date.now()
 
-  // Generate 20 dinner recipes
+  // Generate dinner recipes with buffer for filtering
   let dinnerRecipes = await selectRecipesForCustomer({
     dietType: job.diet_type,
-    totalRecipes: 20 * 2, // Get extra to filter from
+    totalRecipes: phase1Count * 2, // Get extra to filter from
     newRecipesPercentage: 100,
     mealTypes: ['dinner'],
     customerPreferences
@@ -160,7 +169,7 @@ async function executePhase1(job: any, customerPreferences: any, accumulatedReci
 
   // Apply filters
   dinnerRecipes = applyFilters(dinnerRecipes, job)
-  dinnerRecipes = dinnerRecipes.slice(0, 20)
+  dinnerRecipes = dinnerRecipes.slice(0, phase1Count)
   console.log(`✅ Generated ${dinnerRecipes.length} dinner recipes`)
 
   // Generate images for each recipe
@@ -174,7 +183,7 @@ async function executePhase1(job: any, customerPreferences: any, accumulatedReci
   await updateMealPlanJobPhase(
     job.id,
     2,
-    'Generated 20 dinners with images',
+    `Generated ${phase1Count} dinners with images`,
     updatedRecipes
   )
 
@@ -182,21 +191,24 @@ async function executePhase1(job: any, customerPreferences: any, accumulatedReci
   console.log(`✅ Phase 1 completed in ${duration}s - ${updatedRecipes.length} total recipes`)
 }
 
-// PHASE 2: Generate 10 more dinners + images
-async function executePhase2(job: any, customerPreferences: any, accumulatedRecipes: any[]) {
-  console.log(`\n📍 PHASE 2: Generate 10 more dinners with images`)
+// PHASE 2: Generate remaining ~33% of dinners + images
+async function executePhase2(job: any, customerPreferences: any, accumulatedRecipes: any[], daysInMonth: number) {
+  // Generate the remaining 1/3 of dinners
+  const phase1Count = Math.ceil(daysInMonth * 0.67)
+  const phase2Count = daysInMonth - phase1Count
+  console.log(`\n📍 PHASE 2: Generate ${phase2Count} more dinners with images (total will be ${daysInMonth})`)
   const phaseStartTime = Date.now()
 
   let dinnerRecipes = await selectRecipesForCustomer({
     dietType: job.diet_type,
-    totalRecipes: 10 * 2,
+    totalRecipes: phase2Count * 2,
     newRecipesPercentage: 100,
     mealTypes: ['dinner'],
     customerPreferences
   })
 
   dinnerRecipes = applyFilters(dinnerRecipes, job)
-  dinnerRecipes = dinnerRecipes.slice(0, 10)
+  dinnerRecipes = dinnerRecipes.slice(0, phase2Count)
   console.log(`✅ Generated ${dinnerRecipes.length} dinner recipes`)
 
   console.log(`🎨 Generating images...`)
@@ -207,7 +219,7 @@ async function executePhase2(job: any, customerPreferences: any, accumulatedReci
   await updateMealPlanJobPhase(
     job.id,
     3,
-    'Generated 30 dinners total with images',
+    `Generated ${daysInMonth} dinners total with images`,
     updatedRecipes
   )
 
@@ -240,7 +252,7 @@ async function executePhase3(job: any, customerPreferences: any, accumulatedReci
   await updateMealPlanJobPhase(
     job.id,
     4,
-    'Generated 30 dinners + 7 breakfasts with images',
+    `Generated all dinners + 7 breakfasts with images`,
     updatedRecipes
   )
 
@@ -273,7 +285,7 @@ async function executePhase4(job: any, customerPreferences: any, accumulatedReci
   await updateMealPlanJobPhase(
     job.id,
     5,
-    'Generated all 42 recipes with images - creating PDF',
+    `Generated all recipes with images (${updatedRecipes.length} total) - creating PDF`,
     updatedRecipes
   )
 

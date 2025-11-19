@@ -185,16 +185,20 @@ async function generateMealPlanPDF(
     const month = currentDate.getMonth() + 1
     const year = currentDate.getFullYear()
 
+    // Calculate actual days in the current month (28-31)
+    const daysInMonth = new Date(year, month, 0).getDate()
+
     // Separate recipes by meal type
     const dinnerRecipes = recipes.filter(r => r.meal_type === 'dinner' || r.meal_type === 'any')
     const breakfastRecipes = recipes.filter(r => r.meal_type === 'breakfast')
     const dessertRecipes = recipes.filter(r => r.meal_type === 'dessert')
 
     console.log(`📊 PDF Recipe breakdown: ${dinnerRecipes.length} dinners, ${breakfastRecipes.length} breakfasts, ${dessertRecipes.length} desserts`)
+    console.log(`📅 Month ${month}/${year} has ${daysInMonth} days`)
 
-    // Build dailyMeals structure - assign ONLY dinners to days 1-30 (no reuse!)
+    // Build dailyMeals structure - assign dinners to all days in the month (no reuse!)
     const dailyMeals: any = {}
-    const maxDays = Math.min(30, dinnerRecipes.length) // Limit to 30 days or available dinners
+    const maxDays = Math.min(daysInMonth, dinnerRecipes.length) // Use actual month days or available dinners
 
     for (let i = 0; i < maxDays; i++) {
       const dayNum = i + 1
@@ -270,6 +274,52 @@ async function generateMealPlanPDF(
       weeklyShoppingLists[`week_${week}`] = items
     }
 
+    // Build BONUS recipes shopping list (breakfasts + desserts combined)
+    const bonusShoppingList: any = {}
+    const bonusIngredients = new Map<string, {quantity: number, unit: string, rawQuantities: string[]}>()
+
+    // Aggregate ingredients from ALL bonus recipes (breakfasts + desserts)
+    const allBonusRecipes = [...breakfastRecipes, ...dessertRecipes]
+    allBonusRecipes.forEach(recipe => {
+      if (recipe.recipe_ingredients && Array.isArray(recipe.recipe_ingredients)) {
+        recipe.recipe_ingredients.forEach((ing: any) => {
+          const item = (ing.item || ing.ingredient || '').toLowerCase().trim()
+          if (item) {
+            const parsedQty = parseQuantity(ing.quantity || '0')
+            const unit = (ing.unit || '').toLowerCase().trim()
+            const key = unit ? `${item}|${unit}` : item
+
+            if (bonusIngredients.has(key)) {
+              const existing = bonusIngredients.get(key)!
+              existing.quantity += parsedQty
+              existing.rawQuantities.push(ing.quantity || '0')
+            } else {
+              bonusIngredients.set(key, {
+                quantity: parsedQty,
+                unit: unit,
+                rawQuantities: [ing.quantity || '0']
+              })
+            }
+          }
+        })
+      }
+    })
+
+    // Convert to array format
+    const bonusItems = Array.from(bonusIngredients.entries()).map(([key, {quantity, unit}]) => {
+      const item = key.split('|')[0]
+      return {
+        item: item.charAt(0).toUpperCase() + item.slice(1),
+        quantity: formatQuantity(quantity),
+        unit: unit
+      }
+    })
+
+    bonusItems.sort((a, b) => a.item.localeCompare(b.item))
+    bonusShoppingList['bonus_recipes'] = bonusItems
+
+    console.log(`🛒 Created BONUS shopping list with ${bonusItems.length} ingredients`)
+
     // Build meal prep guide
     const mealPrepGuides: any = {
       sunday_prep: {
@@ -323,6 +373,7 @@ async function generateMealPlanPDF(
         }))
       },
       weeklyShoppingLists,
+      bonusShoppingList, // Shopping list for BONUS recipes
       nutritionTargets: {},
       mealPrepGuides
     }
