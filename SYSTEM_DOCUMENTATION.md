@@ -1634,3 +1634,185 @@ curl https://your-domain.com/api/health
 **Status**: ✅ Production Ready
 
 **Built with 💜 by Mocha's MindLab**
+
+### 12.4 Recently Fixed Issues (November 18, 2025)
+
+#### Issue 1: User Portal Authentication - Meal Plans Not Loading
+
+**Problem**: Users unable to see their purchased meal plans in `/userportal`
+
+**Root Cause**: API fetch calls missing `credentials: 'include'` option, preventing session cookies from being sent to the server.
+
+**Files Affected**:
+- `app/userportal/page.tsx:221` - fetchMealPlan()
+- `app/userportal/page.tsx:185` - fetchUserData()
+- `app/userportal/page.tsx:267` - handleCopyShoppingList()
+- `app/userportal/page.tsx:326` - handleCopyBonusShoppingList()
+- `app/userportal/page.tsx:407` - fetchRecipeDetails()
+- `app/userportal/page.tsx:1235` - fetchResources()
+
+**Fix Applied**:
+```typescript
+// BEFORE (Broken)
+const response = await fetch('/api/meal-plans?menuType=...')
+
+// AFTER (Fixed)
+const response = await fetch(
+  '/api/meal-plans?menuType=...',
+  { credentials: 'include' }  // Sends session cookies
+)
+```
+
+**Test Coverage**: Added E2E test `__tests__/e2e/userportal-authentication.spec.ts`
+
+**Verification**:
+```bash
+# Test in browser console (after login)
+fetch('/api/meal-plans?listAll=true', { credentials: 'include' })
+  .then(r => r.json())
+  .then(console.log)
+# Should return meal plans, not 401
+```
+
+---
+
+#### Issue 2: Text Readability - Light Text Across Multiple Pages
+
+**Problem**: Text labels, navigation links, and form fields too light to read
+
+**Root Cause**: Using `text-gray-700` and `text-gray-600` which have insufficient contrast on white backgrounds
+
+**Files Affected**:
+- `app/userportal/page.tsx` - Recipe modal labels, ingredient quantities, nutrition labels
+- `components/Header.tsx` - Navigation links and dropdown menu
+- `app/login/page.tsx` - Form labels, description text, links
+
+**Fix Applied**:
+```typescript
+// BEFORE (Light text)
+className="text-gray-700 font-medium"
+className="text-sm text-gray-600"
+
+// AFTER (Dark, readable text)
+className="text-gray-900 font-semibold"
+className="text-sm font-bold text-gray-900"
+```
+
+**Impact**: 
+- All labels now use `text-gray-900` + `font-bold`
+- All navigation links use `text-gray-900` + `font-semibold`
+- All user-facing text has WCAG AA compliant contrast ratios
+
+---
+
+#### Issue 3: Duplicate Header on Login Page
+
+**Problem**: Two identical navigation headers stacked on top of each other on `/login`
+
+**Root Cause**: 
+- Root layout (`app/layout.tsx:121`) renders `<Header />` globally
+- Login page (`app/login/page.tsx:71`) also rendered `<Header />`
+
+**Fix Applied**:
+```typescript
+// BEFORE (Duplicate header)
+import Header from '@/components/Header'
+export default function LoginPage() {
+  return (
+    <>
+      <Header />  // ❌ Duplicate!
+      <div>...</div>
+    </>
+  )
+}
+
+// AFTER (No duplicate)
+export default function LoginPage() {
+  return (
+    <div>...</div>  // ✅ Header from layout.tsx
+  )
+}
+```
+
+**Verification**: Visit `/login` - should see only one header
+
+---
+
+### 12.5 Regression Prevention
+
+**Test Suite Additions**:
+
+1. **E2E Authentication Tests** (`__tests__/e2e/userportal-authentication.spec.ts`)
+   - Verifies credentials are sent with all API calls
+   - Tests meal plan loading, shopping lists, recipe details
+   - Ensures authentication works across month/year/diet selection
+
+2. **Visual Regression Tests** (Recommended)
+   - Add Playwright screenshot tests for text contrast
+   - Test header rendering on all pages
+   - Verify form field readability
+
+**Git Hooks** (Recommended):
+```json
+// package.json
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run type-check",
+      "pre-push": "npm run test"
+    }
+  }
+}
+```
+
+**Code Review Checklist**:
+- [ ] All fetch() calls include `{ credentials: 'include' }` for authenticated endpoints
+- [ ] All user-facing text uses `text-gray-900` minimum (not gray-700, gray-600, etc.)
+- [ ] No duplicate component imports across layout and page files
+- [ ] All new features have corresponding E2E tests
+
+---
+
+### 12.6 Quick Reference: Common Fixes
+
+| Symptom | Quick Fix |
+|---------|-----------|
+| "No meal plans showing" | Add `{ credentials: 'include' }` to fetch() |
+| "Text too light to read" | Change to `text-gray-900` + `font-semibold` |
+| "Duplicate headers/footers" | Remove from page, already in layout |
+| "API returns 401 for logged-in users" | Add credentials to fetch call |
+| "Images not appearing in PDF" | Check Replicate stream handling |
+| "Meal plan generation stuck" | Check cron job logs, verify API keys |
+
+---
+
+## 13. Version History
+
+### Version 2.1 (November 18, 2025)
+- **Fixed**: User portal authentication (credentials: 'include')
+- **Fixed**: Text readability across all pages (text-gray-900)
+- **Fixed**: Duplicate header on login page
+- **Added**: E2E authentication test suite
+- **Updated**: SYSTEM_DOCUMENTATION.md with troubleshooting section
+- **Updated**: TESTING_WORKFLOW.md with bug-to-test process
+
+### Version 2.0 (November 2025)
+- **Feature**: Historical meal plan access (month/year filtering)
+- **Feature**: AI-powered recipe generation with Claude 3 Haiku
+- **Feature**: Replicate image generation with stream handling
+- **Feature**: Three-tiered ingredient filtering (no/less/more)
+- **Fixed**: Image generation stream handling (39/42 images missing)
+- **Docs**: Complete SYSTEM_DOCUMENTATION.md created
+- **Docs**: TESTING_WORKFLOW.md created
+
+---
+
+**End of System Documentation**
+
+For specific feature documentation, see:
+- [IMAGE_GENERATION_FIX.md](IMAGE_GENERATION_FIX.md) - Replicate stream handling
+- [HISTORICAL_MEAL_PLANS.md](HISTORICAL_MEAL_PLANS.md) - Month/year access
+- [INGREDIENT_FILTERING_SYSTEM.md](INGREDIENT_FILTERING_SYSTEM.md) - Three-tier filtering
+- [TESTING_WORKFLOW.md](TESTING_WORKFLOW.md) - Bug-to-test process
+- [README.md](README.md) - Getting started guide
+
