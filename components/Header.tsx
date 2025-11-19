@@ -27,10 +27,10 @@ export default function Header() {
             <span className="text-xl font-semibold text-amber-800">Mindful Meal Plans</span>
           </Link>
           <div className="flex items-center space-x-8">
-            <Link href="/menu-benefits" className="text-gray-700 hover:text-teal-600 transition font-medium">
+            <Link href="/menu-benefits" className="text-gray-900 hover:text-teal-600 transition font-semibold">
               Why It Works
             </Link>
-            <Link href="/calendar" className="text-gray-700 hover:text-teal-600 transition font-medium">
+            <Link href="/calendar" className="text-gray-900 hover:text-teal-600 transition font-semibold">
               Sample Calendar
             </Link>
             {/* Meal Plans Dropdown */}
@@ -40,7 +40,7 @@ export default function Header() {
                   e.stopPropagation()
                   setDropdownOpen(!dropdownOpen)
                 }}
-                className="text-gray-700 hover:text-teal-600 transition font-medium flex items-center space-x-1"
+                className="text-gray-900 hover:text-teal-600 transition font-semibold flex items-center space-x-1"
               >
                 <span>Meal Plans</span>
                 <svg className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -52,28 +52,28 @@ export default function Header() {
                   <div className="px-4 py-2 border-b border-gray-200 bg-gray-50">
                     <p className="text-xs font-semibold text-gray-500 uppercase">Diet Types</p>
                   </div>
-                  <Link href="/diets/mediterranean" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/mediterranean" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🌊 Mediterranean
                   </Link>
-                  <Link href="/diets/intermittent-fasting" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/intermittent-fasting" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     ⏰ Intermittent Fasting
                   </Link>
-                  <Link href="/diets/family-focused" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/family-focused" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     👨‍👩‍👧‍👦 Family Focused
                   </Link>
-                  <Link href="/diets/paleo" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/paleo" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🥩 Paleo
                   </Link>
-                  <Link href="/diets/vegetarian" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/vegetarian" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🥗 Vegetarian
                   </Link>
-                  <Link href="/diets/vegan" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/vegan" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🌱 Vegan
                   </Link>
-                  <Link href="/diets/keto" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/keto" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🥑 Keto
                   </Link>
-                  <Link href="/diets/global" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition">
+                  <Link href="/diets/global" onClick={() => setDropdownOpen(false)} className="block px-4 py-2 text-gray-900 font-medium hover:bg-teal-50 hover:text-teal-600 transition">
                     🌍 Global Cuisine
                   </Link>
                   <div className="border-t border-gray-100 mt-2 pt-2">
@@ -84,13 +84,13 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <Link href="/recipes" className="text-gray-700 hover:text-teal-600 transition font-medium">
+            <Link href="/recipes" className="text-gray-900 hover:text-teal-600 transition font-semibold">
               Recipes
             </Link>
-            <Link href="/pricing" className="text-gray-700 hover:text-teal-600 transition font-medium">
+            <Link href="/pricing" className="text-gray-900 hover:text-teal-600 transition font-semibold">
               Pricing
             </Link>
-            <Link href="/login" className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition font-medium">
+            <Link href="/login" className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition font-semibold">
               Login
             </Link>
           </div>
