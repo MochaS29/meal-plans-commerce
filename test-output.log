@@ -1,0 +1,244 @@
+
+> meal-plans-commerce@0.1.1 test
+> jest --watch --watchAll=false --verbose
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/mocha/package-lock.json as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /Users/mocha/meal-plans-commerce/package-lock.json
+
+PASS __tests__/autonomous-workflow.test.ts
+  Autonomous Workflow - Recipe Generation
+    ✓ should generate correct recipe split (70% library, 30% new) (3 ms)
+    ✓ should calculate database growth correctly (1 ms)
+    ✓ should validate diet plan configuration
+  Autonomous Workflow - Image Generation
+    ✓ should calculate image generation cost correctly
+    ✓ should validate image generation is triggered for new recipes
+  Autonomous Workflow - Customer Access
+    ✓ should track customer recipes correctly (1 ms)
+    ✓ should prevent duplicate recipe assignments
+  Autonomous Workflow - Data Integrity
+    ✓ should ensure unique recipe IDs (1 ms)
+    ✓ should validate recipe metadata structure
+  Autonomous Workflow - Error Handling
+    ✓ should handle missing diet plan gracefully
+    ✓ should handle API failures gracefully
+    ✓ should validate image generation retry logic
+  Featured Recipes Script - Diet Plan Coverage
+    ✓ should fetch exactly 2 recipes per diet type
+    ✓ should validate all 8 diet plans are represented
+    ✓ should ensure equal distribution across diet types (1 ms)
+  Featured Recipes Script - Recipe Structure
+    ✓ should validate featured recipe data structure
+    ✓ should validate recipe has valid image URL
+    ✓ should validate nutrition data structure (1 ms)
+  Featured Recipes Script - Error Handling
+    ✓ should handle diet plan with no recipes gracefully
+    ✓ should handle recipes without images gracefully
+    ✓ should validate TypeScript file generation format
+  Featured Recipes Script - Scalability
+    ✓ should handle future diet plan additions
+    ✓ should maintain consistent format across updates
+
+FAIL e2e/user-portal.spec.ts
+  ● Test suite failed to run
+
+    Playwright Test needs to be invoked via 'npx playwright test' and excluded from Jest test runs.
+    Creating one directory for Playwright tests and one for Jest is the recommended way of doing it.
+    See https://playwright.dev/docs/intro for more information about Playwright Test.
+
+      1 | import { test, expect } from '@playwright/test'
+      2 |
+    > 3 | test.describe('User Portal - Authentication & Access', () => {
+        |      ^
+      4 |   test('should redirect to pricing when not authenticated', async ({ page }) => {
+      5 |     await page.goto('/userportal')
+      6 |
+
+      at throwIfRunningInsideJest (node_modules/playwright/lib/common/testType.js:272:11)
+      at TestTypeImpl._describe (node_modules/playwright/lib/common/testType.js:113:5)
+      at Function.describe (node_modules/playwright/lib/transform/transform.js:275:12)
+      at Object.describe (e2e/user-portal.spec.ts:3:6)
+
+FAIL e2e/production-tests.spec.ts
+  ● Test suite failed to run
+
+    Playwright Test needs to be invoked via 'npx playwright test' and excluded from Jest test runs.
+    Creating one directory for Playwright tests and one for Jest is the recommended way of doing it.
+    See https://playwright.dev/docs/intro for more information about Playwright Test.
+
+      3 | const PRODUCTION_URL = 'https://meal-plans-commerce.vercel.app';
+      4 |
+    > 5 | test.describe('Production Deployment Tests', () => {
+        |      ^
+      6 |   test.describe('Homepage and Navigation', () => {
+      7 |     test('should load homepage successfully', async ({ page }) => {
+      8 |       await page.goto(PRODUCTION_URL);
+
+      at throwIfRunningInsideJest (node_modules/playwright/lib/common/testType.js:272:11)
+      at TestTypeImpl._describe (node_modules/playwright/lib/common/testType.js:113:5)
+      at Function.describe (node_modules/playwright/lib/transform/transform.js:275:12)
+      at Object.describe (e2e/production-tests.spec.ts:5:6)
+
+FAIL e2e/authentication.spec.ts
+  ● Test suite failed to run
+
+    Playwright Test needs to be invoked via 'npx playwright test' and excluded from Jest test runs.
+    Creating one directory for Playwright tests and one for Jest is the recommended way of doing it.
+    See https://playwright.dev/docs/intro for more information about Playwright Test.
+
+      1 | import { test, expect } from '@playwright/test'
+      2 |
+    > 3 | test.describe('Customer Authentication Flow', () => {
+        |      ^
+      4 |   test('should have login page', async ({ page }) => {
+      5 |     await page.goto('/login')
+      6 |
+
+      at throwIfRunningInsideJest (node_modules/playwright/lib/common/testType.js:272:11)
+      at TestTypeImpl._describe (node_modules/playwright/lib/common/testType.js:113:5)
+      at Function.describe (node_modules/playwright/lib/transform/transform.js:275:12)
+      at Object.describe (e2e/authentication.spec.ts:3:6)
+
+FAIL __tests__/e2e/userportal-authentication.spec.ts
+  ● Test suite failed to run
+
+    Playwright Test needs to be invoked via 'npx playwright test' and excluded from Jest test runs.
+    Creating one directory for Playwright tests and one for Jest is the recommended way of doing it.
+    See https://playwright.dev/docs/intro for more information about Playwright Test.
+
+      13 | import { test, expect } from '@playwright/test'
+      14 |
+    > 15 | test.describe('User Portal Authentication', () => {
+         |      ^
+      16 |   test.beforeEach(async ({ page }) => {
+      17 |     // Login first to establish session
+      18 |     await page.goto('/login')
+
+      at throwIfRunningInsideJest (node_modules/playwright/lib/common/testType.js:272:11)
+      at TestTypeImpl._describe (node_modules/playwright/lib/common/testType.js:113:5)
+      at Function.describe (node_modules/playwright/lib/transform/transform.js:275:12)
+      at Object.describe (__tests__/e2e/userportal-authentication.spec.ts:15:6)
+
+FAIL e2e/purchase-flow.spec.ts
+  ● Test suite failed to run
+
+    Playwright Test needs to be invoked via 'npx playwright test' and excluded from Jest test runs.
+    Creating one directory for Playwright tests and one for Jest is the recommended way of doing it.
+    See https://playwright.dev/docs/intro for more information about Playwright Test.
+
+      1 | import { test, expect } from '@playwright/test'
+      2 |
+    > 3 | test.describe('Purchase Flow', () => {
+        |      ^
+      4 |   test('should navigate through homepage to checkout', async ({ page }) => {
+      5 |     // Go to homepage
+      6 |     await page.goto('/', { waitUntil: 'networkidle' })
+
+      at throwIfRunningInsideJest (node_modules/playwright/lib/common/testType.js:272:11)
+      at TestTypeImpl._describe (node_modules/playwright/lib/common/testType.js:113:5)
+      at Function.describe (node_modules/playwright/lib/transform/transform.js:275:12)
+      at Object.describe (e2e/purchase-flow.spec.ts:3:6)
+
+  console.log
+    ⚠️  Skipping: REPLICATE_API_TOKEN not set
+
+      at Object.log (__tests__/lib/image-generation.test.ts:21:17)
+
+FAIL __tests__/api/generate-recipes.test.ts
+  ● Test suite failed to run
+
+    ReferenceError: Request is not defined
+
+      45 |           mealType: 'breakfast'
+      46 |         })
+    > 47 |       })
+         |         ^
+      48 |
+      49 |       const response = await POST(request)
+      50 |       const data = await response.json()
+
+      at Object.Request (node_modules/next/src/server/web/spec-extension/request.ts:14:34)
+      at Object.<anonymous> (node_modules/next/server.js:2:16)
+      at Object.<anonymous> (__tests__/api/generate-recipes.test.ts:47:17)
+
+FAIL __tests__/api/historical-meal-plans.test.ts
+  ● Test suite failed to run
+
+    ReferenceError: Request is not defined
+
+       9 | function getMonthName(month: number): string {
+      10 |   const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+    > 11 |                       'July', 'August', 'September', 'October', 'November', 'December'];
+         |                 ^
+      12 |   return monthNames[month - 1] || 'Unknown';
+      13 | }
+      14 |
+
+      at Object.Request (node_modules/next/src/server/web/spec-extension/request.ts:14:34)
+      at Object.<anonymous> (node_modules/next/server.js:2:16)
+      at Object.<anonymous> (app/api/meal-plans/route.ts:11:17)
+      at Object.<anonymous> (__tests__/api/historical-meal-plans.test.ts:5:16)
+
+FAIL __tests__/lib/image-generation.test.ts
+  generateWithReplicate() - Stream Handling
+    stream response handling
+      ✓ should detect ReadableStream response (14 ms)
+      ✓ should read all chunks from stream
+      ✓ should concatenate chunks into buffer
+      ✓ should convert buffer to base64 (1 ms)
+    URL response handling (backwards compatibility)
+      ✓ should handle URL string response
+      ✓ should return url in response object for URL responses
+      ✕ should return base64 in response object for stream responses (1 ms)
+    error handling
+      ✕ should return null for unexpected output format
+      ✓ should handle empty stream gracefully (1 ms)
+    JPEG validation
+      ✓ should validate JPEG header in stream data
+      ✓ should detect invalid image data
+    integration notes
+      ✓ documents the complete workflow
+
+  ● generateWithReplicate() - Stream Handling › URL response handling (backwards compatibility) › should return base64 in response object for stream responses
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /^[A-Za-z0-9+/]+=*$/
+    Received string:  "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBD..."
+
+      112 |
+      113 |       expect(mockResponse).toHaveProperty('base64')
+    > 114 |       expect(mockResponse.base64).toMatch(/^[A-Za-z0-9+/]+=*$/)
+          |                                   ^
+      115 |     })
+      116 |   })
+      117 |
+
+      at Object.toMatch (__tests__/lib/image-generation.test.ts:114:35)
+
+  ● generateWithReplicate() - Stream Handling › error handling › should return null for unexpected output format
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: undefined
+
+      124 |       const isString = typeof unexpectedOutput === 'string'
+      125 |
+    > 126 |       expect(isStream).toBe(false)
+          |                        ^
+      127 |       expect(isString).toBe(false)
+      128 |     })
+      129 |
+
+      at Object.toBe (__tests__/lib/image-generation.test.ts:126:24)
+
+Test Suites: 8 failed, 1 passed, 9 total
+Tests:       2 failed, 33 passed, 35 total
+Snapshots:   0 total
+Time:        1.461 s
+Ran all test suites.
