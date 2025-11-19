@@ -11,21 +11,12 @@
  */
 
 import { test, expect } from '@playwright/test'
+import { login } from './helpers/auth-helper'
 
 test.describe('User Portal Authentication', () => {
   test.beforeEach(async ({ page }) => {
-    // Login first to establish session
-    await page.goto('/login')
-
-    // Fill in credentials (using test account)
-    await page.fill('input[type="email"]', 'mocha.shmigelsky@gmail.com')
-    await page.fill('input[type="password"]', 'test-password')
-
-    // Submit login
-    await page.click('button[type="submit"]')
-
-    // Wait for redirect to dashboard/userportal
-    await page.waitForURL(/\/(dashboard|userportal)/)
+    // Login using mocked authentication
+    await login(page)
   })
 
   test('should load meal plans with authentication', async ({ page }) => {
