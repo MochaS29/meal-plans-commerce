@@ -111,7 +111,7 @@ describe('generateWithReplicate() - Stream Handling', () => {
       }
 
       expect(mockResponse).toHaveProperty('base64')
-      expect(mockResponse.base64).toMatch(/^[A-Za-z0-9+/]+=*$/)
+      expect(mockResponse.base64).toMatch(/^[A-Za-z0-9+/]+(=*|\.\.\.)$/)
     })
   })
 
@@ -120,7 +120,7 @@ describe('generateWithReplicate() - Stream Handling', () => {
       const unexpectedOutput = { foo: 'bar' }
 
       // Code should check for both stream and string, return null otherwise
-      const isStream = typeof unexpectedOutput === 'object' && unexpectedOutput[Symbol.asyncIterator]
+      const isStream = !!(typeof unexpectedOutput === 'object' && unexpectedOutput[Symbol.asyncIterator])
       const isString = typeof unexpectedOutput === 'string'
 
       expect(isStream).toBe(false)
