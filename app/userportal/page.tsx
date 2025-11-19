@@ -130,6 +130,7 @@ export default function DashboardPage() {
   const [selectedMonth, setSelectedMonth] = useState(11) // Default to November (current month)
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear())
   const [copiedList, setCopiedList] = useState(false)
+  const [copiedBonusList, setCopiedBonusList] = useState(false)
   const [activeTab, setActiveTab] = useState<TabType>('dashboard')
   const [mealPlanData, setMealPlanData] = useState<any>(null)
   const [loadingMeals, setLoadingMeals] = useState(false)
@@ -181,7 +182,7 @@ export default function DashboardPage() {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch('/api/user/profile')
+      const response = await fetch('/api/user/profile', { credentials: 'include' })
       if (response.ok) {
         const data = await response.json()
         setUser(data)
@@ -217,7 +218,10 @@ export default function DashboardPage() {
   const fetchMealPlan = async () => {
     setLoadingMeals(true)
     try {
-      const response = await fetch(`/api/meal-plans?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`)
+      const response = await fetch(
+        `/api/meal-plans?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`,
+        { credentials: 'include' } // Include cookies for authentication
+      )
       if (response.ok) {
         const data = await response.json()
         setMealPlanData(data)
@@ -260,8 +264,11 @@ export default function DashboardPage() {
   const handleCopyShoppingList = async () => {
     try {
       // Fetch real shopping list from API
-      const response = await fetch(`/api/shopping-list?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`)
-      
+      const response = await fetch(
+        `/api/shopping-list?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}`,
+        { credentials: 'include' }
+      )
+
       if (response.ok) {
         const data = await response.json()
         let shoppingListText = `Shopping List - ${months[selectedMonth - 1]} ${selectedYear}\n\n`
@@ -313,6 +320,43 @@ export default function DashboardPage() {
     }
   }
 
+  const handleCopyBonusShoppingList = async () => {
+    try {
+      // Fetch bonus shopping list from API
+      const response = await fetch(
+        `/api/shopping-list?menuType=${selectedDiet}&month=${selectedMonth}&year=${selectedYear}&type=bonus`,
+        { credentials: 'include' }
+      )
+
+      if (response.ok) {
+        const data = await response.json()
+        let shoppingListText = `🎁 BONUS Recipes Shopping List - ${months[selectedMonth - 1]} ${selectedYear}\n`
+        shoppingListText += `(Breakfasts & Desserts)\n\n`
+
+        if (data.shoppingList && data.shoppingList.length > 0) {
+          data.shoppingList.forEach((item: any) => {
+            const quantity = item.quantity ? `${item.quantity} ` : ''
+            const unit = item.unit ? `${item.unit} ` : ''
+            shoppingListText += `• ${quantity}${unit}${item.item}\n`
+          })
+        } else {
+          shoppingListText += 'No bonus shopping list available.'
+        }
+
+        await navigator.clipboard.writeText(shoppingListText)
+        setCopiedBonusList(true)
+        setTimeout(() => setCopiedBonusList(false), 2000)
+      } else {
+        throw new Error('Failed to fetch bonus shopping list')
+      }
+    } catch (err) {
+      console.error('Failed to copy bonus shopping list:', err)
+      await navigator.clipboard.writeText(`🎁 BONUS Recipes Shopping List\n\nPlease check your bonus recipes for ingredient details.`)
+      setCopiedBonusList(true)
+      setTimeout(() => setCopiedBonusList(false), 2000)
+    }
+  }
+
   const handleDownloadPDF = async () => {
     try {
       const response = await fetch(
@@ -358,9 +402,9 @@ export default function DashboardPage() {
       
       const apiUrl = `/api/recipes/by-name/${encodeURIComponent(mappedRecipeName)}`
       console.log(`API URL: ${apiUrl}`)
-      
+
       console.log('Making fetch request...')
-      const response = await fetch(apiUrl)
+      const response = await fetch(apiUrl, { credentials: 'include' })
       console.log(`Response status: ${response.status}`)
       console.log(`Response ok: ${response.ok}`)
       
@@ -477,7 +521,7 @@ export default function DashboardPage() {
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="text-gray-600 hover:text-amber-700 transition flex items-center gap-2"
+                  className="text-gray-900 hover:text-amber-700 transition flex items-center gap-2 font-medium"
                 >
                   <LogOut className="w-4 h-4" />
                   Logout
@@ -833,11 +877,31 @@ export default function DashboardPage() {
                 transition={{ delay: 0.35 }}
                 className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 mb-8 border-2 border-amber-300"
               >
-                <h2 className="text-3xl font-bold text-amber-900 mb-2 flex items-center gap-2">
-                  <span className="text-4xl">🎁</span>
-                  BONUS Recipes
-                </h2>
-                <p className="text-amber-800 mb-6">Extra recipes to add variety to your meal plan!</p>
+                <div className="flex justify-between items-start mb-6">
+                  <div>
+                    <h2 className="text-3xl font-bold text-amber-900 mb-2 flex items-center gap-2">
+                      <span className="text-4xl">🎁</span>
+                      BONUS Recipes
+                    </h2>
+                    <p className="text-amber-800">Extra recipes to add variety to your meal plan!</p>
+                  </div>
+                  <button
+                    onClick={handleCopyBonusShoppingList}
+                    className="bg-amber-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-amber-700 transition flex-shrink-0"
+                  >
+                    {copiedBonusList ? (
+                      <>
+                        <CopyCheck className="w-4 h-4" />
+                        Copied!
+                      </>
+                    ) : (
+                      <>
+                        <ShoppingCart className="w-4 h-4" />
+                        Get Shopping List
+                      </>
+                    )}
+                  </button>
+                </div>
 
                 {/* Breakfasts */}
                 {mealPlanData.bonusRecipes.breakfasts?.length > 0 && (
@@ -1038,29 +1102,29 @@ export default function DashboardPage() {
                     <div className="flex items-center gap-2">
                       <Clock className="w-5 h-5 text-amber-600" />
                       <div>
-                        <div className="text-sm text-gray-600">Prep Time</div>
-                        <div className="font-semibold">{selectedRecipe.prep_time} min</div>
+                        <div className="text-sm font-bold text-gray-900">Prep Time</div>
+                        <div className="font-semibold text-gray-900">{selectedRecipe.prep_time} min</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="w-5 h-5 text-teal-600" />
                       <div>
-                        <div className="text-sm text-gray-600">Cook Time</div>
-                        <div className="font-semibold">{selectedRecipe.cook_time} min</div>
+                        <div className="text-sm font-bold text-gray-900">Cook Time</div>
+                        <div className="font-semibold text-gray-900">{selectedRecipe.cook_time} min</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-5 h-5 text-purple-600" />
                       <div>
-                        <div className="text-sm text-gray-600">Servings</div>
-                        <div className="font-semibold">{selectedRecipe.servings}</div>
+                        <div className="text-sm font-bold text-gray-900">Servings</div>
+                        <div className="font-semibold text-gray-900">{selectedRecipe.servings}</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <ChefHat className="w-5 h-5 text-green-600" />
                       <div>
-                        <div className="text-sm text-gray-600">Difficulty</div>
-                        <div className="font-semibold capitalize">{selectedRecipe.difficulty}</div>
+                        <div className="text-sm font-bold text-gray-900">Difficulty</div>
+                        <div className="font-semibold capitalize text-gray-900">{selectedRecipe.difficulty}</div>
                       </div>
                     </div>
                   </div>
@@ -1075,8 +1139,8 @@ export default function DashboardPage() {
                       <div className="space-y-2">
                         {selectedRecipe.recipe_ingredients?.map((ingredient: any, index: number) => (
                           <div key={index} className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
-                            <span className="text-gray-900">{ingredient.ingredient}</span>
-                            <span className="text-sm text-gray-600 font-medium">
+                            <span className="text-gray-900 font-medium">{ingredient.ingredient}</span>
+                            <span className="text-sm text-gray-900 font-semibold">
                               {ingredient.amount} {ingredient.unit}
                             </span>
                           </div>
@@ -1111,23 +1175,23 @@ export default function DashboardPage() {
                         <div className="flex-1 grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                           <div>
                             <div className="text-2xl font-bold text-green-600">{selectedRecipe.recipe_nutrition[0].calories}</div>
-                            <div className="text-sm text-gray-600">Calories</div>
+                            <div className="text-sm font-bold text-gray-900">Calories</div>
                           </div>
                           <div>
                             <div className="text-2xl font-bold text-blue-600">{selectedRecipe.recipe_nutrition[0].protein}g</div>
-                            <div className="text-sm text-gray-600">Protein</div>
+                            <div className="text-sm font-bold text-gray-900">Protein</div>
                           </div>
                           <div>
                             <div className="text-2xl font-bold text-orange-600">{selectedRecipe.recipe_nutrition[0].carbs}g</div>
-                            <div className="text-sm text-gray-600">Carbs</div>
+                            <div className="text-sm font-bold text-gray-900">Carbs</div>
                           </div>
                           <div>
                             <div className="text-2xl font-bold text-purple-600">{selectedRecipe.recipe_nutrition[0].fat}g</div>
-                            <div className="text-sm text-gray-600">Fat</div>
+                            <div className="text-sm font-bold text-gray-900">Fat</div>
                           </div>
                           <div>
                             <div className="text-2xl font-bold text-amber-600">{selectedRecipe.recipe_nutrition[0].fiber}g</div>
-                            <div className="text-sm text-gray-600">Fiber</div>
+                            <div className="text-sm font-bold text-gray-900">Fiber</div>
                           </div>
                         </div>
                         {selectedRecipe.image_url && (
@@ -1168,7 +1232,7 @@ function ResourcesLibrary() {
         ? `/api/member-resources?category=${selectedCategory}`
         : '/api/member-resources'
 
-      const response = await fetch(url)
+      const response = await fetch(url, { credentials: 'include' })
       if (response.ok) {
         const data = await response.json()
         setResources(data.resources || [])
@@ -1249,7 +1313,7 @@ function ResourcesLibrary() {
               <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{resource.title}</h3>
-                  <p className="text-sm text-gray-600">{resource.description}</p>
+                  <p className="text-sm font-medium text-gray-900">{resource.description}</p>
                 </div>
                 {resource.viewed && (
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
