@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Check, Lock, Star, Shield, CreditCard } from 'lucide-react';
 import Link from 'next/link';
 import { loadStripe } from '@stripe/stripe-js';
+import { products } from '@/lib/products';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -16,48 +17,40 @@ export default function PricingPage() {
 
   const plans = [
     {
-      id: 'wellness-transformation',
-      name: '30-Day Personalized Meal Plan',
-      price: '$59',
-      period: 'one-time',
-      description: 'Your customized meal calendar with 30 days of recipes delivered as a beautiful PDF',
-      popular: true,
-      features: [
-        '42 AI-generated recipes: 30 dinners + 7 breakfasts + 5 desserts',
-        '30-day meal calendar with daily dinner assignments',
-        'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
-        'Full ingredients list with measurements for every recipe',
-        'Complete nutritional information (calories, macros, fiber)',
-        'Beautiful PDF with AI-generated cover image',
-        'Prep time, cook time, and difficulty level',
-        'Customized for your family size and dietary needs',
-        'Lifetime access - keep it forever',
-        'Delivered within 2-4 hours via email'
-      ],
-      productId: 'wellness-transformation',
-      color: 'teal'
-    },
-    {
-      id: 'monthly-calendar',
-      name: 'Monthly Meal Plan Subscription',
+      id: 'monthly-subscription',
+      name: 'AI-Generated Monthly Plan',
       price: '$29',
       period: '/month',
-      description: 'Fresh personalized meal plans delivered monthly',
-      savings: 'Save 50% - Best value for ongoing support',
-      features: [
-        '42 NEW recipes every month (30 dinners + 7 breakfasts + 5 desserts)',
-        'Fresh seasonal recipes delivered on the 1st',
-        'Keep access to ALL previous months forever (even after cancellation)',
-        'All features from the one-time plan included',
-        'Change diet preferences each month',
-        'Adjust family size and dietary needs anytime',
-        'Beautiful PDF with fresh AI-generated images',
-        'Continuous variety - never repeat the same meal',
-        'Priority email support',
-        'Cancel anytime - keep your past meal plans'
-      ],
-      productId: 'monthly-calendar',
-      color: 'green'
+      description: 'Fresh AI-generated meal plans delivered monthly',
+      popular: true,
+      features: products[0].features,
+      productId: 'monthly-subscription',
+      color: 'teal',
+      badge: 'POPULAR'
+    },
+    {
+      id: 'annual-subscription',
+      name: 'AI-Generated Annual Plan',
+      price: '$299',
+      period: '/year',
+      description: 'Save $48/year with annual billing - best value!',
+      savings: 'Save $48/year - Just $24.92/month',
+      features: products[1].features,
+      productId: 'annual-subscription',
+      color: 'green',
+      badge: 'BEST VALUE'
+    },
+    {
+      id: 'ai-customized',
+      name: 'AI-Customized Interactive',
+      price: '$49',
+      period: '/month',
+      description: 'Chat with AI to customize your meal plans in real-time',
+      features: products[2].features,
+      productId: 'ai-customized',
+      color: 'purple',
+      badge: 'COMING FEB 2026',
+      disabled: true
     }
   ];
 

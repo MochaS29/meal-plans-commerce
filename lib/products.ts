@@ -21,9 +21,10 @@ export const products: Product[] = [
     type: 'subscription',
     popular: true,
     features: [
-      '40-43 NEW AI-generated recipes every month',
-      '28-31 unique dinners (matches actual calendar days)',
-      '7 bonus breakfasts + 5 desserts each month',
+      '28-31 unique dinner recipes every month',
+      'Matches actual calendar days (Feb=28, Mar=31, etc.)',
+      '➕ BONUS: 7 breakfast recipes included FREE',
+      '➕ BONUS: 5 dessert recipes included FREE',
       'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
       'Full ingredients list with measurements',
       'Complete nutritional information (calories, macros, fiber)',
@@ -45,12 +46,13 @@ export const products: Product[] = [
     image: '/images/annual-calendar.jpg',
     type: 'subscription',
     features: [
-      'Everything in Monthly Plan',
-      '500+ AI-generated recipes per year',
-      'Save $48 compared to monthly billing',
+      '✨ Save $48/year - Just $24.92/month!',
+      '360+ unique dinner recipes per year',
+      '28-31 dinners every month (matches calendar)',
+      '➕ BONUS: 84 breakfast recipes annually',
+      '➕ BONUS: 60 dessert recipes annually',
+      'Everything in Monthly Plan included',
       'All 12 months delivered throughout the year',
-      '28-31 dinners per month (matches calendar)',
-      '84 bonus breakfasts + 60 desserts annually',
       'Priority support and early access to new features',
       'Archive access grows to 500+ recipes',
       'Change diet preferences monthly',
@@ -68,8 +70,9 @@ export const products: Product[] = [
     image: '/images/ai-custom-calendar.jpg',
     type: 'subscription',
     features: [
-      'Everything in Monthly Plan PLUS:',
-      'Chat with AI to customize recipes',
+      '🤖 Everything in Monthly Plan PLUS AI Chat',
+      '28-31 dinners + BONUS breakfasts & desserts',
+      'Chat with AI to customize ANY recipe',
       '"Swap this dinner" or "More chicken dishes"',
       'AI learns your preferences over time',
       'Dynamic meal plan adjustments',
@@ -77,9 +80,9 @@ export const products: Product[] = [
       'Personalized recommendations',
       '"Make it spicier" or "Less prep time"',
       'Save favorite customizations',
-      'Early access pricing - $49/month',
+      '🎉 Early access pricing - $49/month',
       'Regular price will be $59/month after launch',
-      'Beta access starting February 2026'
+      '📅 Beta access starting February 2026'
     ]
   }
 ]
