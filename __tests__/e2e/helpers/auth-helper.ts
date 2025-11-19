@@ -48,6 +48,31 @@ export async function mockLogin(page: Page) {
       })
     })
   })
+
+  // Mock shopping list API
+  await page.route('**/api/shopping-list**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({
+        shoppingLists: {
+          week1: {
+            produce: ['Tomatoes', 'Lettuce', 'Cucumbers'],
+            proteins: ['Chicken breast', 'Salmon'],
+            dairy: ['Greek yogurt', 'Feta cheese'],
+            pantry: ['Olive oil', 'Garlic', 'Lemon']
+          }
+        }
+      })
+    })
+  })
+
+  // Grant clipboard permissions for testing (Chromium only supports this)
+  try {
+    await page.context().grantPermissions(['clipboard-read', 'clipboard-write'])
+  } catch {
+    // Firefox and WebKit don't support these permissions, but clipboard API still works
+  }
 }
 
 export async function login(page: Page) {
