@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Mail, Lock, ArrowRight, Loader, User, Eye, EyeOff } from 'lucide-react'
-import Header from '@/components/Header'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -67,9 +66,7 @@ export default function LoginPage() {
   }
 
   return (
-    <>
-      <Header />
-      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
         <div className="max-w-md w-full">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
@@ -78,13 +75,13 @@ export default function LoginPage() {
                 Welcome Back
               </h1>
             </Link>
-            <p className="text-gray-600">Access your meal plans and recipes</p>
+            <p className="text-gray-900 font-medium">Access your meal plans and recipes</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {isSignUp && (
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-gray-900 mb-2">
                   Full Name
                 </label>
                 <div className="relative">
@@ -95,14 +92,14 @@ export default function LoginPage() {
                     onChange={(e) => setName(e.target.value)}
                     required={isSignUp}
                     placeholder="Your full name"
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
                   />
                 </div>
               </div>
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-bold text-gray-900 mb-2">
                 Email Address
               </label>
               <div className="relative">
@@ -113,13 +110,13 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="you@example.com"
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-bold text-gray-900 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -130,7 +127,7 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder={isSignUp ? "Create a secure password" : "Enter your password"}
-                  className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-900"
                 />
                 <button
                   type="button"
@@ -141,7 +138,7 @@ export default function LoginPage() {
                 </button>
               </div>
               {isSignUp && (
-                <p className="text-xs text-gray-600 mt-1">
+                <p className="text-xs font-medium text-gray-900 mt-1">
                   Minimum 8 characters with letters and numbers
                 </p>
               )}
@@ -192,7 +189,7 @@ export default function LoginPage() {
 
             {!isSignUp && (
               <div className="text-center">
-                <Link href="/forgot-password" className="text-sm text-gray-600 hover:underline">
+                <Link href="/forgot-password" className="text-sm font-medium text-gray-900 hover:underline hover:text-green-600">
                   Forgot your password?
                 </Link>
               </div>
@@ -200,7 +197,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-8 pt-6 border-t text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm font-medium text-gray-900">
               Don't have an account?{' '}
               <Link href="/pricing" className="text-green-600 font-semibold hover:underline">
                 Get Started
@@ -209,14 +206,13 @@ export default function LoginPage() {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-xs text-gray-500">
+            <p className="text-xs font-medium text-gray-900">
               We'll send you a secure login link to your email.
               No password needed!
             </p>
           </div>
         </div>
       </div>
-      </div>
-    </>
+    </div>
   )
 }
