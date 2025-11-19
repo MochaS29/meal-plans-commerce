@@ -274,7 +274,7 @@ export default function FamilyLandingPage() {
             </div>
 
             <Link
-              href="/pricing"
+              href="/plans/custom-family"
               className="block w-full py-4 px-6 bg-emerald-600 text-white text-center rounded-lg font-semibold text-lg hover:bg-emerald-700 transition shadow-lg"
             >
               Start Family Plan →

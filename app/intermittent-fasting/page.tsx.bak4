@@ -59,7 +59,7 @@ export default function IntermittentFastingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/checkout?product=monthly-subscription&type=if"
+                href="/checkout?product=wellness-transformation&type=if"
                 className="px-8 py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white rounded-lg hover:from-teal-700 hover:to-teal-800 transition font-semibold"
               >
                 Start Your IF Journey - $59
@@ -317,7 +317,7 @@ export default function IntermittentFastingPage() {
                 Want to see the full 30-day IF schedule with meal plans?
               </p>
               <Link
-                href="/checkout?product=monthly-subscription&type=if"
+                href="/checkout?product=wellness-transformation&type=if"
                 className="inline-flex items-center px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-semibold"
               >
                 Get Instant Access
@@ -400,7 +400,7 @@ export default function IntermittentFastingPage() {
                 Join thousands who have discovered the power of Intermittent Fasting for sustainable wellness
               </p>
               <Link
-                href="/checkout?product=monthly-subscription&type=if"
+                href="/checkout?product=wellness-transformation&type=if"
                 className="inline-flex items-center px-8 py-3 bg-white text-teal-700 rounded-lg hover:bg-gray-100 transition font-semibold"
               >
                 Start Your IF Journey

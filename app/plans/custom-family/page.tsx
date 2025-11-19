@@ -10,7 +10,7 @@ import { loadStripe } from '@stripe/stripe-js'
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
 
 export default function CustomFamilyPage() {
-  const product = getProductById('custom-family')
+  const product = getProductById('monthly-subscription')
 
   const handleGetStarted = () => {
     // Redirect to unified customization page
@@ -77,7 +77,7 @@ export default function CustomFamilyPage() {
             </p>
             <div className="mt-8">
               <span className="text-5xl font-bold text-teal-600">${(product.price / 100).toFixed(0)}</span>
-              <span className="text-gray-600 ml-2">one-time</span>
+              <span className="text-gray-600 ml-2">/month</span>
             </div>
           </motion.div>
 
@@ -194,42 +194,45 @@ export default function CustomFamilyPage() {
           >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Choose Your Plan</h3>
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-6">
-              {/* One-Time Purchase */}
-              <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 border-2 border-teal-200">
-                <div className="text-sm font-semibold text-teal-700 mb-2">ONE-TIME</div>
+              {/* Monthly Subscription */}
+              <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl p-6 border-2 border-amber-400 relative">
+                <div className="absolute -top-3 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  POPULAR
+                </div>
+                <div className="text-sm font-semibold text-teal-700 mb-2">MONTHLY</div>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-teal-600">$59</span>
-                  <span className="text-gray-600 ml-2">one month</span>
+                  <span className="text-4xl font-bold text-teal-600">$29</span>
+                  <span className="text-gray-600 ml-2">/month</span>
                 </div>
                 <button
                   onClick={handleGetStarted}
                   className="w-full bg-gradient-to-r from-teal-600 to-amber-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
                 >
-                  Get One Month
+                  Subscribe Monthly
                 </button>
-                <p className="text-xs text-gray-600 mt-3">Perfect for trying it out</p>
+                <p className="text-xs text-gray-600 mt-3">Pause anytime • Fresh plans monthly</p>
               </div>
 
-              {/* Monthly Subscription */}
-              <div className="bg-gradient-to-br from-amber-50 to-teal-50 rounded-2xl p-6 border-2 border-amber-300 relative">
-                <div className="absolute -top-3 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  SAVE 50%
+              {/* Annual Subscription */}
+              <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 border-2 border-green-600 relative">
+                <div className="absolute -top-3 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                  BEST VALUE
                 </div>
-                <div className="text-sm font-semibold text-amber-700 mb-2">SUBSCRIPTION</div>
+                <div className="text-sm font-semibold text-green-700 mb-2">ANNUAL</div>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-amber-600">$29</span>
-                  <span className="text-gray-600 ml-2">/month</span>
+                  <span className="text-4xl font-bold text-green-600">$299</span>
+                  <span className="text-gray-600 ml-2">/year</span>
                 </div>
                 <button
                   onClick={handleGetStarted}
-                  className="w-full bg-gradient-to-r from-amber-600 to-teal-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white px-8 py-3 rounded-full font-bold hover:shadow-xl transition transform hover:scale-105"
                 >
-                  Subscribe Monthly
+                  Subscribe Annually
                 </button>
-                <p className="text-xs text-gray-600 mt-3">Cancel anytime • New plan on 1st</p>
+                <p className="text-xs text-gray-600 mt-3">Save $48/year • Just $24.92/month</p>
               </div>
             </div>
-            <p className="text-sm text-gray-600">Delivered in 2-4 hours • 30-day money-back guarantee</p>
+            <p className="text-sm text-gray-600">Delivered within 24 hours • Keep all past meal plans</p>
           </motion.div>
         </div>
       </section>

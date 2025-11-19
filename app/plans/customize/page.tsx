@@ -54,7 +54,7 @@ function CustomizeContent() {
     )
   }
 
-  const handleCheckout = async (productType: 'one_time' | 'subscription') => {
+  const handleCheckout = async (productId: string) => {
     try {
       setLoading(true)
 
@@ -62,8 +62,7 @@ function CustomizeContent() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          productId: productType === 'one_time' ? 'wellness-transformation' : 'monthly-calendar',
-          productType,
+          productId,
           dietType,
           customizations: {
             familySize: parseInt(familySize),
@@ -261,88 +260,99 @@ function CustomizeContent() {
             transition={{ delay: 0.4 }}
             className="grid md:grid-cols-2 gap-6 mb-8"
           >
-            {/* One-Time Option */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200 hover:border-teal-600 transition">
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">One Month</h3>
-                <div className="mb-4">
-                  <span className="text-5xl font-bold text-teal-600">$59</span>
-                  <span className="text-gray-600 ml-2">one-time</span>
-                </div>
-                <p className="text-gray-700">Perfect for trying out our service</p>
-              </div>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">30-35 AI-personalized recipes</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Dinner recipes for the entire month</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">4 snack recipes included</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Shopping lists & meal prep guides</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Delivered in 2-4 hours</span>
-                </li>
-              </ul>
-              <button
-                onClick={() => handleCheckout('one_time')}
-                disabled={loading}
-                className="w-full bg-gradient-to-r from-teal-600 to-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? 'Processing...' : 'Get One Month'}
-              </button>
-            </div>
-
-            {/* Subscription Option */}
-            <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl shadow-lg p-8 border-2 border-teal-600 relative">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-teal-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                BEST VALUE
+            {/* Monthly Subscription */}
+            <div className="bg-gradient-to-br from-teal-50 to-amber-50 rounded-2xl shadow-lg p-8 border-2 border-amber-400 relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-amber-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                POPULAR
               </div>
               <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Monthly Subscription</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Monthly Plan</h3>
                 <div className="mb-4">
                   <span className="text-5xl font-bold text-teal-600">$29</span>
                   <span className="text-gray-600 ml-2">per month</span>
                 </div>
-                <p className="text-gray-700">Fresh recipes delivered monthly</p>
+                <p className="text-gray-700">Fresh AI-generated meal plans delivered monthly</p>
               </div>
               <ul className="space-y-3 mb-6">
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">New meal plan every month</span>
+                  <span className="text-gray-700">28-31 dinner recipes every month</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">30-35 AI-personalized recipes</span>
+                  <span className="text-gray-700">➕ BONUS: 7 breakfast recipes FREE</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Delivered on the 1st of each month</span>
+                  <span className="text-gray-700">➕ BONUS: 5 dessert recipes FREE</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Save 50% compared to one-time</span>
+                  <span className="text-gray-700">Beautiful PDF with AI-generated images</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Cancel anytime</span>
+                  <span className="text-gray-700">Keep access to ALL previous months</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Pause at anytime</span>
                 </li>
               </ul>
               <button
-                onClick={() => handleCheckout('subscription')}
+                onClick={() => handleCheckout('monthly-subscription')}
                 disabled={loading}
                 className="w-full bg-gradient-to-r from-teal-600 to-amber-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {loading ? 'Processing...' : 'Subscribe Monthly'}
+              </button>
+            </div>
+
+            {/* Annual Subscription */}
+            <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl shadow-lg p-8 border-2 border-green-600 relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                BEST VALUE
+              </div>
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Annual Plan</h3>
+                <div className="mb-4">
+                  <span className="text-5xl font-bold text-green-600">$299</span>
+                  <span className="text-gray-600 ml-2">per year</span>
+                </div>
+                <p className="text-gray-700 font-semibold">Save $48/year - Just $24.92/month!</p>
+              </div>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">360+ unique dinner recipes per year</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">➕ BONUS: 84 breakfasts annually</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">➕ BONUS: 60 desserts annually</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Everything in Monthly Plan included</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Archive grows to 500+ recipes</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Best value for committed meal planners</span>
+                </li>
+              </ul>
+              <button
+                onClick={() => handleCheckout('annual-subscription')}
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Processing...' : 'Subscribe Annually'}
               </button>
             </div>
           </motion.div>
@@ -359,29 +369,29 @@ function CustomizeContent() {
               <div className="flex items-start gap-4">
                 <Calendar className="w-8 h-8 text-teal-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Monthly Calendar</h3>
-                  <p className="text-gray-700">Visual meal calendar for the entire month with all recipes organized</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">28-31 Day Meal Calendar</h3>
+                  <p className="text-gray-700">Beautifully designed calendar matching actual month days with a different dinner recipe for each day</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <ChefHat className="w-8 h-8 text-amber-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Complete Recipes</h3>
-                  <p className="text-gray-700">Full recipes with ingredients, instructions, prep times, and nutrition info</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">40-43 Complete Recipes</h3>
+                  <p className="text-gray-700">Dinners for every day + BONUS breakfasts & desserts with full ingredients, instructions, and nutrition info</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <Users className="w-8 h-8 text-green-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Portion-Adjusted</h3>
-                  <p className="text-gray-700">All recipes scaled to your family size automatically</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Scaled to Your Family Size</h3>
+                  <p className="text-gray-700">All recipes automatically adjusted for your chosen family size (2-8 people)</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <Clock className="w-8 h-8 text-blue-600 flex-shrink-0" />
+                <Heart className="w-8 h-8 text-pink-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-1">Meal Prep Guides</h3>
-                  <p className="text-gray-700">Time-saving strategies and prep schedules to make cooking easier</p>
+                  <h3 className="font-semibold text-gray-900 mb-1">Beautiful PDF with AI Images</h3>
+                  <p className="text-gray-700">Professional cover design and AI-generated images delivered via email within 24 hours</p>
                 </div>
               </div>
             </div>

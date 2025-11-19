@@ -350,7 +350,7 @@ export default function ShoppingListPage() {
             Plus recipes, meal prep guides, and nutritional tracking
           </p>
           <CheckoutButton
-            productId="monthly-subscription"
+            productId="wellness-transformation"
             className="text-xl shadow-xl"
           >
             <Sparkles className="w-6 h-6" />

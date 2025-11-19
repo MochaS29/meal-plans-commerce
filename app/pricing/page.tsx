@@ -34,7 +34,6 @@ export default function PricingPage() {
       price: '$299',
       period: '/year',
       description: 'Save $48/year with annual billing - best value!',
-      savings: 'Save $48/year - Just $24.92/month',
       features: products[1].features,
       productId: 'annual-subscription',
       color: 'green',
@@ -43,13 +42,13 @@ export default function PricingPage() {
     {
       id: 'ai-customized',
       name: 'AI-Customized Interactive',
-      price: '$49',
+      price: '$39',
       period: '/month',
       description: 'Chat with AI to customize your meal plans in real-time',
       features: products[2].features,
       productId: 'ai-customized',
       color: 'purple',
-      badge: 'COMING FEB 2026',
+      badge: 'COMING SOON!',
       disabled: true
     }
   ];
@@ -95,60 +94,62 @@ export default function PricingPage() {
 
       {/* Pricing Cards */}
       <div className="max-w-7xl mx-auto px-4 pb-24">
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden ${
+              className={`relative rounded-3xl overflow-hidden flex flex-col ${
                 plan.popular
-                  ? 'ring-4 ring-amber-400 shadow-2xl transform scale-105'
+                  ? 'ring-4 ring-amber-400 shadow-2xl'
                   : 'shadow-xl'
               }`}
             >
-              {plan.popular && (
-                <div className="absolute top-0 right-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-1 rounded-bl-lg">
-                  <Star className="inline w-4 h-4 mr-1" />
-                  Most Popular
+              {plan.badge && (
+                <div className={`absolute top-0 right-0 px-4 py-2 rounded-bl-lg text-sm font-semibold text-white ${
+                  plan.popular
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500'
+                    : plan.id === 'annual-subscription'
+                    ? 'bg-green-500'
+                    : 'bg-purple-500'
+                }`}>
+                  {plan.badge}
                 </div>
               )}
 
-              {plan.savings && (
-                <div className="absolute top-0 left-0 bg-green-500 text-white px-4 py-1 rounded-br-lg text-sm font-bold">
-                  {plan.savings}
-                </div>
-              )}
-
-              <div className="bg-white p-8">
+              <div className="bg-white p-8 flex flex-col flex-1">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                <p className="text-gray-900 mb-6">{plan.description}</p>
+                <p className="text-base text-gray-900 mb-6">{plan.description}</p>
 
                 <div className="mb-8">
                   <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-900">{plan.period}</span>
+                  <span className="text-base text-gray-900">{plan.period}</span>
                 </div>
 
-                <button
-                  onClick={() => handleGetStarted(plan.productId)}
-                  className={`w-full py-4 rounded-full font-semibold text-white transition-all transform hover:scale-105 ${
-                    plan.popular
-                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600'
-                      : 'bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600'
-                  }`}
-                >
-                  Get Started
-                </button>
-
-                <ul className="mt-8 space-y-3">
+                <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <Check className={`w-5 h-5 mt-0.5 text-${plan.color}-500 flex-shrink-0`} />
-                      <span className="text-gray-900 font-medium">{feature}</span>
+                      <span className="text-sm text-gray-900 font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
+
+                <button
+                  onClick={() => !plan.disabled && handleGetStarted(plan.productId)}
+                  disabled={plan.disabled}
+                  className={`w-full py-4 rounded-full font-semibold text-base text-white transition-all ${
+                    plan.disabled
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : plan.popular
+                      ? 'bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 transform hover:scale-105'
+                      : 'bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transform hover:scale-105'
+                  }`}
+                >
+                  {plan.disabled ? 'Coming in 2026' : 'Get Started'}
+                </button>
               </div>
             </motion.div>
           ))}
@@ -170,9 +171,9 @@ export default function PricingPage() {
               <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📅</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">30-Day Meal Calendar</h3>
+              <h3 className="text-xl font-bold mb-2">Complete Monthly Calendar</h3>
               <p className="text-gray-900">
-                Beautifully designed calendar with a different recipe for each day
+                Beautifully designed calendar with a different dinner recipe for each day of the month
               </p>
             </div>
 
@@ -180,9 +181,9 @@ export default function PricingPage() {
               <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl">📝</span>
               </div>
-              <h3 className="text-xl font-bold mb-2">30 Complete Recipes</h3>
+              <h3 className="text-xl font-bold mb-2">28-30 Complete Recipes</h3>
               <p className="text-gray-900">
-                Full instructions, ingredients, nutrition info, and cooking times for every recipe
+                Complete dinner recipes with full instructions, ingredients, and nutrition info
               </p>
             </div>
 

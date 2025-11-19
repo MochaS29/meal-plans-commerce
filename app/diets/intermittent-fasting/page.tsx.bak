@@ -59,19 +59,19 @@ export default function IntermittentFastingPage() {
           </div>
           <div className="flex gap-3">
             <CheckoutButton
-              productId="monthly-subscription"
-              className="text-sm py-2 px-6"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              Monthly $29
-            </CheckoutButton>
-            <CheckoutButton
-              productId="annual-subscription"
+              productId="wellness-transformation"
               className="text-sm py-2 px-6"
               variant="secondary"
             >
               <ShoppingCart className="w-4 h-4" />
-              Annual $299
+              One-Time $59
+            </CheckoutButton>
+            <CheckoutButton
+              productId="monthly-calendar"
+              className="text-sm py-2 px-6"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Monthly $29
             </CheckoutButton>
           </div>
         </div>

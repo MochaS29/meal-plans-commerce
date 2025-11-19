@@ -16,7 +16,7 @@ interface CheckoutButtonProps {
 }
 
 export default function CheckoutButton({
-  productId = 'wellness-transformation',
+  productId = 'monthly-subscription',
   className = '',
   children,
   variant = 'primary'

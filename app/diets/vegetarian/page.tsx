@@ -67,19 +67,19 @@ export default function VegetarianDietPage() {
           </div>
           <div className="flex gap-3">
             <CheckoutButton
-              productId="wellness-transformation"
-              className="text-sm py-2 px-6"
-              variant="secondary"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              One-Time $59
-            </CheckoutButton>
-            <CheckoutButton
-              productId="monthly-calendar"
+              productId="monthly-subscription"
               className="text-sm py-2 px-6"
             >
               <ShoppingCart className="w-4 h-4" />
               Monthly $29
+            </CheckoutButton>
+            <CheckoutButton
+              productId="annual-subscription"
+              className="text-sm py-2 px-6"
+              variant="secondary"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              Annual $299
             </CheckoutButton>
           </div>
         </div>

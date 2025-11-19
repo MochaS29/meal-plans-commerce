@@ -241,7 +241,7 @@ export default function KetoLandingPage() {
               <div className="text-4xl font-bold text-emerald-600 mb-1">$29<span className="text-xl">/mo</span></div>
               <p className="text-gray-600 mb-6">Recurring</p>
               <Link
-                href="/pricing"
+                href="/plans/monthly-calendar"
                 className="block w-full py-3 px-6 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition text-center"
               >
                 Subscribe →

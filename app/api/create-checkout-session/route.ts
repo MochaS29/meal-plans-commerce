@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
             unit_amount: product.price,
             ...(product.type === 'subscription' && {
               recurring: {
-                interval: 'month',
+                interval: productId === 'annual-subscription' ? 'year' : 'month',
               },
             }),
           },

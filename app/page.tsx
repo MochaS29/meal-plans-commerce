@@ -169,7 +169,7 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -177,16 +177,26 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`bg-white rounded-xl shadow-md overflow-hidden border ${
+                className={`bg-white rounded-xl shadow-md overflow-hidden border flex flex-col ${
                   product.popular ? 'border-teal-500' : 'border-gray-200'
                 }`}
               >
                 {product.popular && (
                   <div className="bg-teal-600 text-white text-center py-2 text-sm font-semibold">
-                    MOST POPULAR
+                    POPULAR
                   </div>
                 )}
-                <div className="p-8">
+                {product.id === 'annual-subscription' && (
+                  <div className="bg-green-600 text-white text-center py-2 text-sm font-semibold">
+                    BEST VALUE
+                  </div>
+                )}
+                {product.id === 'ai-customized' && (
+                  <div className="bg-purple-500 text-white text-center py-2 text-sm font-semibold">
+                    COMING SOON!
+                  </div>
+                )}
+                <div className="p-8 flex flex-col flex-1">
                   <h3 className="text-2xl font-bold text-amber-800 mb-2">
                     {product.name}
                   </h3>
@@ -199,7 +209,7 @@ export default function HomePage() {
                     )}
                   </div>
                   <p className="text-gray-600 mb-6">{product.description}</p>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-8 flex-1">
                     {product.features.slice(0, 5).map((feature, idx) => (
                       <li key={idx} className="flex items-start">
                         <Check className="w-5 h-5 text-green-600 mr-2 flex-shrink-0 mt-0.5" />
@@ -207,16 +217,25 @@ export default function HomePage() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    href={`/plans/${product.id}`}
-                    className={`block text-center py-3 px-6 rounded-full font-medium transition ${
-                      product.popular
-                        ? 'bg-teal-600 text-white hover:bg-teal-700'
-                        : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
-                    }`}
-                  >
-                    {product.type === 'subscription' ? 'Subscribe Now' : 'Get Started'}
-                  </Link>
+                  {product.id === 'ai-customized' ? (
+                    <button
+                      disabled
+                      className="block w-full text-center py-3 px-6 rounded-full font-medium bg-gray-400 text-white cursor-not-allowed"
+                    >
+                      Coming Soon
+                    </button>
+                  ) : (
+                    <Link
+                      href={`/plans/${product.id}`}
+                      className={`block text-center py-3 px-6 rounded-full font-medium transition ${
+                        product.popular
+                          ? 'bg-teal-600 text-white hover:bg-teal-700'
+                          : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                      }`}
+                    >
+                      {product.type === 'subscription' ? 'Subscribe Now' : 'Get Started'}
+                    </Link>
+                  )}
                 </div>
               </motion.div>
             ))}

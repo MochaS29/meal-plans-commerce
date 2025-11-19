@@ -21,20 +21,17 @@ export const products: Product[] = [
     type: 'subscription',
     popular: true,
     features: [
-      '28-31 unique dinner recipes every month',
-      'Matches actual calendar days (Feb=28, Mar=31, etc.)',
+      '28-31 dinner recipes every month',
       '➕ BONUS: 7 breakfast recipes included FREE',
       '➕ BONUS: 5 dessert recipes included FREE',
       'Choose from 8 diet plans (Mediterranean, Keto, Vegan, etc.)',
       'Full ingredients list with measurements',
       'Complete nutritional information (calories, macros, fiber)',
       'Beautiful PDF with AI-generated images',
-      'Prep time, cook time, and difficulty level',
       'Keep access to ALL previous months forever',
-      'Change diet preferences each month',
+      'Switch diet plans each month',
       'Adjust family size and dietary needs anytime',
-      'Priority email support',
-      'Cancel anytime - keep your past meal plans'
+      'Pause at anytime'
     ]
   },
   {
@@ -48,16 +45,15 @@ export const products: Product[] = [
     features: [
       '✨ Save $48/year - Just $24.92/month!',
       '360+ unique dinner recipes per year',
-      '28-31 dinners every month (matches calendar)',
+      '28-31 dinner recipes every month',
       '➕ BONUS: 84 breakfast recipes annually',
       '➕ BONUS: 60 dessert recipes annually',
       'Everything in Monthly Plan included',
       'All 12 months delivered throughout the year',
       'Priority support and early access to new features',
       'Archive access grows to 500+ recipes',
-      'Change diet preferences monthly',
+      'Switch diet plans monthly',
       'Adjust family size anytime',
-      'Cancel anytime - prorated refund available',
       'Best value for committed meal planners'
     ]
   },
@@ -65,7 +61,7 @@ export const products: Product[] = [
     id: 'ai-customized',
     name: 'AI-Customized Interactive',
     description: 'Chat with AI to customize your meal plans in real-time (Coming Feb 2026)',
-    price: 4900, // $49/month in cents
+    price: 3900, // $39/month in cents
     priceId: process.env.NEXT_PUBLIC_STRIPE_PRICE_AI_CUSTOM || '',
     image: '/images/ai-custom-calendar.jpg',
     type: 'subscription',
@@ -80,8 +76,8 @@ export const products: Product[] = [
       'Personalized recommendations',
       '"Make it spicier" or "Less prep time"',
       'Save favorite customizations',
-      '🎉 Early access pricing - $49/month',
-      'Regular price will be $59/month after launch',
+      '🎉 Early access pricing - $39/month',
+      'Regular price will be $49/month after launch',
       '📅 Beta access starting February 2026'
     ]
   }

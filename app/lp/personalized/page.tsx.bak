@@ -250,7 +250,7 @@ export default function PersonalizedLandingPage() {
               <div className="text-4xl font-bold text-gray-900 mb-1">$149</div>
               <p className="text-gray-600 mb-6">Family Plan (4-6 people)</p>
               <Link
-                href="/pricing"
+                href="/plans/custom-family"
                 className="block w-full py-3 px-6 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 transition text-center"
               >
                 Select

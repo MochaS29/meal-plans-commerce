@@ -83,9 +83,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Plan pages
   const planPages = [
-    'wellness-transformation',
-    'custom-family',
-    'monthly-calendar'
+    'monthly-subscription',
+    'annual-subscription',
+    'customize'
   ].map(plan => ({
     url: `${baseUrl}/plans/${plan}`,
     lastModified: currentDate,

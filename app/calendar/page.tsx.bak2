@@ -320,8 +320,8 @@ export default function CalendarPage() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-8 text-center"
         >
-          <CheckoutButton productId="monthly-subscription">
-            Start Monthly Subscription - $29/month
+          <CheckoutButton productId="wellness-transformation">
+            Get Your Complete Calendar Package - $59
           </CheckoutButton>
 
           <p className="mt-4 text-gray-600">

@@ -241,7 +241,7 @@ export default function KetoLandingPage() {
               <div className="text-4xl font-bold text-emerald-600 mb-1">$29<span className="text-xl">/mo</span></div>
               <p className="text-gray-600 mb-6">Recurring</p>
               <Link
-                href="/pricing"
+                href="/plans/monthly-calendar"
                 className="block w-full py-3 px-6 bg-emerald-600 text-white rounded-lg font-medium hover:bg-emerald-700 transition text-center"
               >
                 Subscribe →
@@ -254,7 +254,7 @@ export default function KetoLandingPage() {
               <div className="text-4xl font-bold text-gray-900 mb-1">$59</div>
               <p className="text-gray-600 mb-6">30-Day Trial</p>
               <Link
-                href="/plans/monthly-subscription"
+                href="/plans/wellness-transformation"
                 className="block w-full py-3 px-6 bg-gray-100 text-gray-800 rounded-lg font-medium hover:bg-gray-200 transition text-center"
               >
                 Try Once
